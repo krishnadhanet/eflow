@@ -65,8 +65,8 @@ table thead th{
 }
 .btn.btn-secondary, .card form .btn-danger{
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
 }
 .btn,.page-wrapper .nav-submenu li a{
     font-size: 14px !important;
