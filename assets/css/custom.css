@@ -64,8 +64,9 @@ table thead th{
     z-index: 1041;
 }
 .btn.btn-secondary, .card form .btn-danger{
-    background-color: #e2c636 !important;
-    border-color: #e2c636 !important;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 .btn,.page-wrapper .nav-submenu li a{
     font-size: 14px !important;
