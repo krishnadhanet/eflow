@@ -3,6 +3,7 @@ body{
     font-weight: 400;
     font-family: "IBM Plex Sans",sans-serif;
 }
+
 .page-main-header .main-header-right{
     height: 45px;
 }
@@ -86,4 +87,8 @@ table thead th{
 .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu>li .nav-submenu li a{
     color: #000;
     letter-spacing: unset;
+}
+.buttons-excel{
+    background-color: #24695c !important;
+    border-color: #24695c !important;
 }
