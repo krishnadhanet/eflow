@@ -1,0 +1,48 @@
+body{
+    font-size: 0.9512rem;
+    font-weight: 400;
+    font-family: Saira, sans-serif;
+}
+table thead,.modal-header{
+    --vz-table-bg: #f3f6f9;
+    background: #f3f6f9;
+}
+table thead th{
+    text-wrap: nowrap;
+}
+.tableHidden {
+    overflow-x: auto;
+}
+.swal-text{
+    background-color: #FEFAE3;
+    padding: 17px;
+    border: 1px solid #F0E1A1;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    color: #61534e;
+}
+.alert{
+    font-size: 14px;
+}
+.alert-warning{
+    color: #000 !important;
+}
+
+.watermark {
+    margin-left: 38%;
+    position: absolute;
+        z-index: 0;
+        background: transparent;
+        display: block;
+        min-height: 50%;
+        /* min-width: 50%; */
+        opacity: .1;
+        text-align: center;
+}
+.no-right-border img{
+    max-width: 600px;
+}
+.low-z-index{
+    z-index: 1041;
+}
