@@ -4,14 +4,14 @@ body{
     font-family: Saira, sans-serif;
 }
 .page-main-header .main-header-right{
-    height: 40px;
+    height: 45px;
 }
 .page-main-header .main-header-right .main-header-left{
     width: 250px;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav{
     width: 250px;
-    top: 40px;
+    top: 45px;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper .page-body{
     margin-left: 250px;
