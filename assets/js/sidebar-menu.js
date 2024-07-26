@@ -42,7 +42,7 @@
                   jQuery(this).find('div').replaceWith('<div class="according-menu"><i class="fa fa-angle-right"></i></div>');
               }
           });
-          jQuery('.menu-content').hide();
+          //jQuery('.menu-content').hide();
     } else if ($('#pageWrapper').hasClass('horizontal-wrapper')) {
         var contentwidth = jQuery(window).width();
         if ((contentwidth) < '992') {
