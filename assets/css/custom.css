@@ -70,6 +70,9 @@ table thead th{
 .btn,.page-wrapper .nav-submenu li a{
     font-size: 14px !important;
 }
-#landingPageClass .container-fluid .card card-body{
-    padding: 10px;
+#landingPageClass .container-fluid .card{
+    border-radius: 10px;
+}
+#landingPageClass .container-fluid .card .card-body{
+    padding: 25px;
 }
