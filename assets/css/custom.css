@@ -66,7 +66,7 @@ table thead th{
 .btn{
     border-radius: 20px !important;
 }
-.btn.btn-secondary, .card form .btn-danger{
+.btn.btn-secondary, .card form .btn-danger .card form .btn-warning {
     color: #fff;
     background-color: #6c757d !important;
     border-color: #6c757d !important;
