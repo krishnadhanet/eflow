@@ -28,9 +28,9 @@ table thead,.modal-header{
 table thead th{
     text-wrap: nowrap;
 }
-.tableHidden {
+/*.tableHidden {
     overflow-x: auto;
-}
+}*/
 .swal-text{
     background-color: #FEFAE3;
     padding: 17px;
