@@ -3,6 +3,15 @@ body{
     font-weight: 400;
     font-family: Saira, sans-serif;
 }
+.page-wrapper.compact-wrapper .page-body-wrapper header.main-nav{
+    width: 250px;
+    top: 40px;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper .page-body{
+    margin-left: 250px;
+    margin-top: 45px;
+    background-color: #fff;
+}
 table thead,.modal-header{
     --vz-table-bg: #f3f6f9;
     background: #f3f6f9;
@@ -36,7 +45,6 @@ table thead th{
         background: transparent;
         display: block;
         min-height: 50%;
-        /* min-width: 50%; */
         opacity: .1;
         text-align: center;
 }
