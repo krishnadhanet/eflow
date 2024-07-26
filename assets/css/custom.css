@@ -63,7 +63,7 @@ table thead th{
 .low-z-index{
     z-index: 1041;
 }
-.btn.btn-secondary{
+.btn.btn-secondary, .card form .btn-danger{
     background-color: #e2c636 !important;
     border-color: #e2c636 !important;
 }
