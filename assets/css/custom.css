@@ -12,6 +12,9 @@ body{
     margin-top: 45px;
     background-color: #fff;
 }
+.page-main-header .main-header-left,.page-main-header .left-menu-header,.page-main-header .right-menu{
+    margin-top: -16px;
+}
 table thead,.modal-header{
     --vz-table-bg: #f3f6f9;
     background: #f3f6f9;
