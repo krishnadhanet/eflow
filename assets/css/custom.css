@@ -1,7 +1,7 @@
 body{
     font-size: 0.9512rem;
     font-weight: 400;
-    font-family: Saira, sans-serif;
+    font-family: "IBM Plex Sans",sans-serif;
 }
 .page-main-header .main-header-right{
     height: 45px;
@@ -62,4 +62,11 @@ table thead th{
 }
 .low-z-index{
     z-index: 1041;
+}
+.btn.btn-secondary{
+    background-color: #e2c636 !important;
+    border-color: #e2c636 !important;
+}
+.btn,.page-wrapper .nav-submenu li a{
+    font-size: 14px !important;
 }
