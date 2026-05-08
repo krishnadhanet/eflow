@@ -43,7 +43,7 @@ navbar-menu .navbar-nav .nav-sm .nav-link.active{
 .btn-primary,
 span.badge.bg-primary,
 .active>.page-link,
-.page-link.active {
+.page-link.active,.bg-primary {
   background-color: #f47807 !important;
   border-color: #f47807 !important;
   color: #fff;
