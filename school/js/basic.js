@@ -1,4 +1,138 @@
 $(function () {
+  var activeAjaxRequests = 0;
+  var loaderTimer = null;
+
+  function ensureGlobalLoader() {
+    if ($("#globalAjaxLoader").length) {
+      return;
+    }
+
+    $("head").append(
+      '<style id="globalAjaxLoaderStyle">' +
+        '#globalAjaxLoader{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;background:rgba(15,23,42,.42);backdrop-filter:blur(4px);}' +
+        '#globalAjaxLoader .global-loader-card{min-width:260px;max-width:90vw;border-radius:14px;background:#fff;box-shadow:0 24px 70px rgba(15,23,42,.28);padding:22px 24px;text-align:center;border:1px solid rgba(148,163,184,.35);}' +
+        '#globalAjaxLoader .global-loader-spinner{width:44px;height:44px;margin:0 auto 14px;border-radius:50%;border:4px solid #e2e8f0;border-top-color:#2563eb;animation:globalLoaderSpin .72s linear infinite;}' +
+        '#globalAjaxLoader strong{display:block;color:#0f172a;font-size:15px;font-weight:700;letter-spacing:0;}' +
+        '#globalAjaxLoader small{display:block;color:#64748b;margin-top:4px;font-size:12px;}' +
+        '.is-submit-locked{pointer-events:none;opacity:.78;}' +
+        '@keyframes globalLoaderSpin{to{transform:rotate(360deg)}}' +
+      '</style>'
+    );
+    $("body").append(
+      '<div id="globalAjaxLoader" aria-live="polite" aria-busy="true">' +
+        '<div class="global-loader-card">' +
+          '<div class="global-loader-spinner"></div>' +
+          '<strong>Please wait</strong>' +
+          '<small>Processing your request...</small>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function showGlobalLoader() {
+    ensureGlobalLoader();
+    clearTimeout(loaderTimer);
+    $("#globalAjaxLoader").css("display", "flex").hide().fadeIn(120);
+  }
+
+  function hideGlobalLoader() {
+    clearTimeout(loaderTimer);
+    loaderTimer = setTimeout(function () {
+      $("#globalAjaxLoader").fadeOut(120);
+    }, 150);
+  }
+
+  function lockFormSubmit($form) {
+    if (!$form.length || $form.is("[data-no-submit-lock]")) {
+      return true;
+    }
+    if ($form.data("submitLocked")) {
+      return false;
+    }
+
+    $form.data("submitLocked", true).addClass("is-submit-locked");
+    $form.data("submitDisableTimer", setTimeout(function () {
+      if (!$form.data("submitLocked")) {
+        return;
+      }
+      $form.find(':submit, button[type="submit"], input[type="submit"]').each(function () {
+        var $button = $(this);
+        $button.data("original-disabled", $button.prop("disabled"));
+        if ($button.is("input")) {
+          $button.data("original-label", $button.val()).val("Please wait...");
+        } else {
+          $button.data("original-label", $button.html()).html('<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>Please wait');
+        }
+        $button.prop("disabled", true);
+      });
+    }, 0));
+
+    clearTimeout($form.data("submitUnlockTimer"));
+    $form.data("submitUnlockTimer", setTimeout(function () {
+      if (activeAjaxRequests === 0 && document.visibilityState === "visible") {
+        unlockFormSubmit($form);
+      }
+    }, 2500));
+
+    return true;
+  }
+
+  function unlockFormSubmit($form) {
+    if (!$form || !$form.length) {
+      return;
+    }
+    clearTimeout($form.data("submitUnlockTimer"));
+    clearTimeout($form.data("submitDisableTimer"));
+    $form.removeData("submitLocked").removeClass("is-submit-locked");
+    $form.find(':submit, button[type="submit"], input[type="submit"]').each(function () {
+      var $button = $(this);
+      if ($button.data("original-label") !== undefined) {
+        if ($button.is("input")) {
+          $button.val($button.data("original-label"));
+        } else {
+          $button.html($button.data("original-label"));
+        }
+      }
+      $button.prop("disabled", !!$button.data("original-disabled"));
+      $button.removeData("original-label").removeData("original-disabled");
+    });
+  }
+
+  $(document)
+    .ajaxSend(function (event, jqXHR, settings) {
+      var url = (settings && settings.url ? settings.url : "").toLowerCase();
+      if (url.indexOf("productsearch") !== -1 || url.indexOf("serialsearch") !== -1 || url.indexOf("employeesearch") !== -1) {
+        settings.skipGlobalLoader = true;
+        return;
+      }
+      activeAjaxRequests += 1;
+      showGlobalLoader();
+    })
+    .ajaxComplete(function (event, jqXHR, settings) {
+      if (settings && settings.skipGlobalLoader) {
+        return;
+      }
+      activeAjaxRequests = Math.max(0, activeAjaxRequests - 1);
+      if (activeAjaxRequests === 0) {
+        hideGlobalLoader();
+        $("form.is-submit-locked").each(function () {
+          unlockFormSubmit($(this));
+        });
+      }
+    });
+
+  document.addEventListener("submit", function (event) {
+    var $form = $(event.target);
+    if (!$form.is("form")) {
+      return;
+    }
+    if (!lockFormSubmit($form)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return false;
+    }
+    $form.data("submitLockAccepted", true);
+  }, true);
 
   $(".printMe").click(function () {
     window.print();
@@ -6,6 +140,72 @@ $(function () {
   if ($(".select2").length > 0) {
     $(".select2").select2();
   }
+  window.initInventoryProductAutocomplete = function (scope) {
+    if (!$.fn.select2) {
+      return;
+    }
+    var $scope = scope && $(scope).length ? $(scope) : $(document);
+    $scope.find("select.product-ajax").each(function () {
+      var $select = $(this);
+      if ($select.data("inventory-product-autocomplete") === 1 && $select.hasClass("select2-hidden-accessible")) {
+        return;
+      }
+      if ($select.hasClass("select2-hidden-accessible")) {
+        $select.select2("destroy");
+      }
+      $select.next(".select2-container").remove();
+
+      var $modal = $select.closest(".modal");
+      $select.select2({
+        width: "100%",
+        placeholder: $select.data("placeholder") || "Search product by name, SKU or brand",
+        minimumInputLength: 2,
+        allowClear: true,
+        dropdownParent: $modal.length ? $modal : $(document.body),
+        ajax: {
+          url: base_url + "inventory/productsearch",
+          dataType: "json",
+          delay: 250,
+          data: function (params) {
+            var $form = $select.closest("form");
+            return {
+              q: params.term || "",
+              warehouse_id: $form.find('[name="warehouse_id"], #warehouse_id').first().val() || $("#warehouse_id").val() || ""
+            };
+          },
+          processResults: function (data) {
+            return data && data.results ? data : {results: []};
+          },
+          cache: true
+        },
+        templateResult: function (item) {
+          if (item.loading) {
+            return item.text;
+          }
+          var meta = [];
+          if (item.product_type) meta.push(item.product_type.replace("_", " "));
+          if (item.unit) meta.push(item.unit);
+          if (item.balance !== null && item.balance !== undefined) meta.push("Bal: " + item.balance);
+          return $('<div><div class="fw-semibold"></div><small class="text-muted"></small></div>')
+            .find(".fw-semibold").text(item.text || "").end()
+            .find("small").text(meta.join(" | ")).end();
+        }
+      });
+
+      $select
+        .data("inventory-product-autocomplete", 1)
+        .off("select2:select.inventoryProduct")
+        .on("select2:select.inventoryProduct", function (event) {
+          var data = event.params && event.params.data ? event.params.data : {};
+          var $option = $select.find('option[value="' + data.id + '"]');
+          $option.attr("data-has-serial", data.serial_required || 0);
+        });
+    });
+  };
+  window.initInventoryProductAutocomplete(document);
+  setTimeout(function () {
+    window.initInventoryProductAutocomplete(document);
+  }, 300);
   $(document).on('select2:open', () => {
     const searchField = document.querySelector('.select2-container--open .select2-search__field');
     if (searchField) searchField.focus();
@@ -276,7 +476,15 @@ $(function () {
       }, 2*60000);
     }
 
-    $(document).on("submit", "form", function () {
+    $(document).on("submit", "form", function (event) {
+      var $form = $(this);
+      if ($form.data("submitLockAccepted")) {
+        $form.removeData("submitLockAccepted");
+      } else if (!lockFormSubmit($form)) {
+        event.preventDefault();
+        return false;
+      }
+
       if($("form#myForm").length > 0){
       }else{
         $(this).find("input[type=checkbox]:not(:checked)").prop("checked", true).val(0);
@@ -389,6 +597,9 @@ function openModalPopup2(title, link, type = "modal-lg",additionalClass='one') {
           $('#systemModal_new .select2').select2({dropdownParent: $('#systemModal_new'),placeholder: "Select",});
           $.fn.modal.Constructor.prototype._enforceFocus = function() {};
         }
+        if (window.initInventoryProductAutocomplete) {
+          window.initInventoryProductAutocomplete($("#systemModal_new"));
+        }
     });
   $("#systemModal_new").find(".modal-header .modal-title").text(title);
   $("#systemModal_new").modal("show");
@@ -404,6 +615,9 @@ function openModalPopup(title, link, type = "modal-lg",additionalClass='') {
     		  $('#systemModal .select2').select2({dropdownParent: $('#systemModal')});
     		  $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 	      }
+        if (window.initInventoryProductAutocomplete) {
+          window.initInventoryProductAutocomplete($("#systemModal"));
+        }
         if($('input[type="date"]').length>0){
           $.each($('input[type="date"]'),function(){
             var attr = $(this).attr('max');
