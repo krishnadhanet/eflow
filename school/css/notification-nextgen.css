@@ -1,0 +1,1448 @@
+.school-notification-module {
+    --gu-navy-950: #091a42;
+    --gu-navy-900: #10265d;
+    --gu-navy-800: #1c3777;
+    --gu-blue-600: #2459b8;
+    --gu-orange-600: #ee7411;
+    --gu-orange-500: #f58220;
+    --gu-orange-100: #fff0e2;
+    --gu-canvas: #f4f7fc;
+    --gu-surface: #fff;
+    --gu-ink: #14213d;
+    --gu-muted: #68738b;
+    --gu-border: #e6ebf3;
+    --gu-success: #12805c;
+    --gu-warning: #b95e09;
+    --gu-danger: #c9373e;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.school-notification-module .notification-workspace {
+    max-width: 1550px;
+    margin: 0 auto;
+    color: var(--gu-ink);
+    animation: guNotificationEnter .35s ease both;
+}
+
+.school-notification-module .notification-hero {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0 24px;
+    padding: 28px 30px;
+    border-radius: 26px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 88% 18%, rgba(245, 130, 32, .35), transparent 24%),
+        linear-gradient(135deg, var(--gu-navy-950), var(--gu-navy-900) 58%, var(--gu-navy-800));
+    box-shadow: 0 22px 52px rgba(9, 26, 66, .20);
+}
+
+.school-notification-module .notification-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .16;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(90deg, transparent, #000 60%);
+}
+
+.school-notification-module .notification-hero__content,
+.school-notification-module .notification-hero__actions {
+    position: relative;
+    z-index: 1;
+}
+
+.school-notification-module .notification-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #ffd3ad;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .notification-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.18;
+}
+
+.school-notification-module .notification-hero p {
+    max-width: 720px;
+    margin: 9px 0 0;
+    color: rgba(255,255,255,.78);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.school-notification-module .notification-hero__layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.school-notification-module .notification-primary-action {
+    min-height: 46px;
+    padding: 11px 18px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 13px;
+    color: #fff !important;
+    background: var(--gu-orange-500);
+    box-shadow: 0 10px 24px rgba(238, 116, 17, .28);
+    font-weight: 750;
+    white-space: nowrap;
+    transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s cubic-bezier(.2,.8,.2,1);
+}
+
+.school-notification-module .notification-primary-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(238, 116, 17, .34);
+}
+
+.school-notification-module .notification-module-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: -10px 0 22px;
+    padding: 8px;
+    border: 1px solid var(--gu-border);
+    border-radius: 16px;
+    background: var(--gu-surface);
+    box-shadow: 0 8px 24px rgba(9, 26, 66, .06);
+}
+
+.school-notification-module .notification-module-tabs a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 9px 15px;
+    border-radius: 11px;
+    color: var(--gu-navy-900);
+    font-weight: 700;
+}
+
+.school-notification-module .notification-module-tabs a.active {
+    color: #fff;
+    background: var(--gu-navy-900);
+    box-shadow: 0 8px 18px rgba(16, 38, 93, .18);
+}
+
+.school-notification-module .notification-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.school-notification-module .notification-kpi {
+    position: relative;
+    overflow: hidden;
+    min-height: 125px;
+    padding: 21px 22px;
+    border: 1px solid var(--gu-border);
+    border-radius: 20px;
+    background: var(--gu-surface);
+    box-shadow: 0 8px 24px rgba(9, 26, 66, .06);
+}
+
+.school-notification-module .notification-kpi::after {
+    content: "";
+    position: absolute;
+    top: -28px;
+    right: -24px;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: rgba(36, 89, 184, .07);
+}
+
+.school-notification-module .notification-kpi--active::after { background: rgba(18,128,92,.09); }
+.school-notification-module .notification-kpi--inactive::after { background: rgba(104,115,139,.10); }
+.school-notification-module .notification-kpi__label {
+    display: block;
+    color: var(--gu-muted);
+    font-size: 13px;
+    font-weight: 750;
+}
+.school-notification-module .notification-kpi__value {
+    display: block;
+    margin-top: 7px;
+    color: var(--gu-navy-900);
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+.school-notification-module .notification-kpi__note {
+    display: block;
+    margin-top: 9px;
+    color: var(--gu-muted);
+    font-size: 12px;
+}
+
+.school-notification-module .notification-panel {
+    margin-bottom: 20px;
+    border: 1px solid var(--gu-border);
+    border-radius: 20px;
+    background: var(--gu-surface);
+    box-shadow: 0 8px 24px rgba(9, 26, 66, .06);
+}
+.school-notification-module .notification-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 22px 0;
+}
+.school-notification-module .notification-panel__header h2 {
+    margin: 0;
+    color: var(--gu-ink);
+    font-size: 19px;
+    font-weight: 800;
+}
+.school-notification-module .notification-panel__header p {
+    margin: 5px 0 0;
+    color: var(--gu-muted);
+    font-size: 13px;
+}
+.school-notification-module .notification-panel__body { padding: 20px 22px 22px; }
+
+.school-notification-module .notification-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(175px, 1fr));
+    gap: 14px;
+}
+.school-notification-module .notification-filter-actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.school-notification-module label,
+.school-notification-module .form-label {
+    margin-bottom: 7px;
+    color: #34415d;
+    font-size: 13px;
+    font-weight: 750;
+}
+.school-notification-module .form-control,
+.school-notification-module .form-select,
+.school-notification-module .select2-container .select2-selection--single,
+.school-notification-module .select2-container .select2-selection--multiple {
+    min-height: 46px;
+    border-color: #dce3ef;
+    border-radius: 12px;
+    background: #fff;
+}
+.school-notification-module .select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 44px;
+}
+.school-notification-module .select2-container .select2-selection--single .select2-selection__arrow {
+    height: 44px;
+}
+.school-notification-module .select2-container .select2-selection--multiple {
+    padding: 4px 7px;
+}
+.school-notification-module .form-control:focus,
+.school-notification-module .form-select:focus,
+.school-notification-module .select2-container--focus .select2-selection {
+    border-color: var(--gu-navy-900) !important;
+    box-shadow: 0 0 0 3px rgba(245, 130, 32, .16) !important;
+}
+
+.school-notification-module .notification-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 750;
+}
+.school-notification-module .notification-btn--primary {
+    border-color: var(--gu-navy-900);
+    color: #fff;
+    background: var(--gu-navy-900);
+}
+.school-notification-module .notification-btn--secondary {
+    border: 1px solid #dce3ef;
+    color: var(--gu-navy-900);
+    background: #fff;
+}
+
+.school-notification-module .notification-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--gu-border);
+    border-radius: 15px;
+}
+.school-notification-module .notification-table-wrap table { margin: 0 !important; min-width: 1180px; }
+.school-notification-module .notification-table-wrap thead th {
+    padding: 14px 13px !important;
+    border-bottom: 1px solid var(--gu-border) !important;
+    color: #46516a;
+    background: #f7f9fd !important;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.school-notification-module .notification-table-wrap tbody td {
+    padding: 14px 13px !important;
+    border-color: #edf0f5 !important;
+    color: #35405a;
+    font-size: 13px;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+.school-notification-module .notification-table-wrap tbody tr:hover { background: #fafcff; }
+.school-notification-module .notification-title-cell strong {
+    display: block;
+    max-width: 260px;
+    color: var(--gu-ink);
+    font-size: 14px;
+}
+.school-notification-module .notification-title-cell span {
+    display: block;
+    max-width: 320px;
+    margin-top: 4px;
+    overflow: hidden;
+    color: var(--gu-muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.school-notification-module .notification-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 32px;
+    padding: 6px 11px;
+    border: 0;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+.school-notification-module .notification-status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+.school-notification-module .notification-status--active { color: var(--gu-success); background: #e9f8f2; }
+.school-notification-module .notification-status--inactive { color: #667085; background: #f0f2f5; }
+.school-notification-module button.notification-status { cursor: pointer; }
+.school-notification-module .notification-scope-chip {
+    display: inline-flex;
+    margin: 2px 3px 2px 0;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: var(--gu-navy-900);
+    background: #edf3ff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.school-notification-module .notification-empty {
+    padding: 42px 20px;
+    color: var(--gu-muted);
+    text-align: center;
+}
+.school-notification-module .notification-empty i {
+    display: block;
+    margin-bottom: 12px;
+    color: #a8b3c8;
+    font-size: 34px;
+}
+
+.school-notification-module .notification-scope-note {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border: 1px solid #cad9f4;
+    border-radius: 14px;
+    color: #243b68;
+    background: #f1f6ff;
+    line-height: 1.55;
+}
+.school-notification-module .notification-form-section {
+    margin-bottom: 18px;
+    padding: 18px;
+    border: 1px solid var(--gu-border);
+    border-radius: 16px;
+    background: #fbfcff;
+}
+.school-notification-module .notification-form-section h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 800;
+}
+.school-notification-module .notification-form-section > p {
+    margin: 0 0 16px;
+    color: var(--gu-muted);
+    font-size: 12px;
+}
+.school-notification-module .notification-form-actions {
+    position: sticky;
+    bottom: -16px;
+    z-index: 3;
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin: 20px -16px -16px;
+    padding: 15px 18px;
+    border-top: 1px solid var(--gu-border);
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(8px);
+}
+.school-notification-module .notification-field-loading {
+    position: relative;
+    opacity: .62;
+    pointer-events: none;
+}
+.school-notification-module .notification-field-loading::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    right: 14px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d8dfeb;
+    border-top-color: var(--gu-orange-500);
+    border-radius: 50%;
+    animation: guNotificationSpin .65s linear infinite;
+}
+
+.school-notification-module .popup-thumb {
+    width: 84px;
+    height: 56px;
+    object-fit: cover;
+    border: 1px solid var(--gu-border);
+    border-radius: 10px;
+}
+
+@keyframes guNotificationEnter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes guNotificationSpin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1100px) {
+    .school-notification-module .notification-filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .school-notification-module .notification-hero { padding: 24px 20px; border-radius: 20px; }
+    .school-notification-module .notification-hero__layout { align-items: flex-start; flex-direction: column; }
+    .school-notification-module .notification-kpi-grid { grid-template-columns: 1fr; }
+    .school-notification-module .notification-filter-grid { grid-template-columns: 1fr; }
+    .school-notification-module .notification-filter-actions { justify-content: stretch; }
+    .school-notification-module .notification-filter-actions .btn { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .school-notification-module .notification-workspace,
+    .school-notification-module .notification-primary-action,
+    .school-notification-module .notification-field-loading::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Employee-facing notification centre */
+.school-notification-module .employee-notification-center {
+    padding-bottom: 34px;
+}
+
+.school-notification-module .employee-notification-shell {
+    max-width: 1460px;
+    margin: 0 auto;
+    color: var(--gu-ink);
+}
+
+.school-notification-module .employee-notification-hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    min-height: 310px;
+    margin: 20px 0 18px;
+    padding: 38px 42px;
+    overflow: hidden;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    align-items: center;
+    color: #fff;
+    border-radius: 30px;
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        radial-gradient(circle at 84% 18%, rgba(245,130,32,.35), transparent 25%),
+        linear-gradient(130deg, #08183d, #12306e 66%, #21498e);
+    background-size: 31px 31px, 31px 31px, auto, auto;
+    box-shadow: 0 28px 65px rgba(9, 26, 66, .23);
+}
+
+.school-notification-module .employee-notification-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 350px;
+    height: 350px;
+    right: -120px;
+    bottom: -235px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+    box-shadow: 0 0 0 45px rgba(255,255,255,.025), 0 0 0 90px rgba(255,255,255,.02);
+}
+
+.school-notification-module .employee-notification-hero__copy {
+    position: relative;
+    z-index: 2;
+    max-width: 770px;
+}
+
+.school-notification-module .employee-notification-eyebrow {
+    display: inline-flex;
+    margin-bottom: 12px;
+    padding: 7px 11px;
+    align-items: center;
+    gap: 7px;
+    color: #ffd2aa;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 999px;
+    background: rgba(255,255,255,.07);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-hero h1 {
+    max-width: 680px;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(34px, 4.2vw, 54px);
+    font-weight: 850;
+    letter-spacing: -.035em;
+    line-height: 1.04;
+}
+
+.school-notification-module .employee-notification-hero__copy > p {
+    max-width: 680px;
+    margin: 16px 0 22px;
+    color: rgba(230,237,255,.76);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.school-notification-module .employee-notification-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.school-notification-module .employee-notification-hero__stats > span {
+    display: grid;
+    min-width: 128px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 13px;
+    background: rgba(255,255,255,.065);
+    backdrop-filter: blur(7px);
+}
+
+.school-notification-module .employee-notification-hero__stats strong {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 850;
+}
+
+.school-notification-module .employee-notification-hero__stats small {
+    margin-top: 2px;
+    color: rgba(229,236,255,.65);
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.school-notification-module .employee-notification-hero__signal {
+    position: relative;
+    display: grid;
+    width: 260px;
+    height: 260px;
+    place-self: center;
+    place-items: center;
+}
+
+.school-notification-module .employee-notification-hero__ring {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    animation: employeeNotificationPulse 3.6s ease-in-out infinite;
+}
+
+.school-notification-module .employee-notification-hero__ring--one {
+    inset: 18px;
+}
+
+.school-notification-module .employee-notification-hero__ring--two {
+    inset: 49px;
+    animation-delay: -1.8s;
+}
+
+.school-notification-module .employee-notification-hero__bell {
+    position: relative;
+    display: grid;
+    width: 112px;
+    height: 112px;
+    place-items: center;
+    color: #ffad63;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 34px;
+    background: rgba(255,255,255,.09);
+    box-shadow: inset 0 1px rgba(255,255,255,.12), 0 24px 55px rgba(3,14,40,.25);
+    font-size: 51px;
+    transform: rotate(4deg);
+}
+
+.school-notification-module .employee-notification-hero__bell b {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    right: 11px;
+    top: 9px;
+    border: 3px solid #173873;
+    border-radius: 50%;
+    background: #70e1b2;
+}
+
+.school-notification-module .employee-notification-toolbar {
+    position: sticky;
+    z-index: 6;
+    top: 78px;
+    display: flex;
+    margin-bottom: 18px;
+    padding: 11px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border: 1px solid var(--gu-border);
+    border-radius: 18px;
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 12px 34px rgba(9,26,66,.08);
+    backdrop-filter: blur(13px);
+}
+
+.school-notification-module .employee-notification-search {
+    display: flex;
+    min-width: 280px;
+    max-width: 620px;
+    min-height: 47px;
+    margin: 0;
+    flex: 1;
+    align-items: center;
+    gap: 10px;
+    padding: 0 13px;
+    border: 1px solid #dce3ef;
+    border-radius: 13px;
+    background: #f8faff;
+}
+
+.school-notification-module .employee-notification-search > i {
+    color: var(--gu-navy-800);
+    font-size: 19px;
+}
+
+.school-notification-module .employee-notification-search input {
+    min-width: 0;
+    height: 44px;
+    flex: 1;
+    color: var(--gu-ink);
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 13px;
+}
+
+.school-notification-module .employee-notification-search kbd {
+    padding: 3px 7px;
+    color: #7b869c;
+    border: 1px solid #dbe2ed;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: none;
+    font-size: 10px;
+}
+
+.school-notification-module .employee-notification-filters {
+    display: flex;
+    gap: 7px;
+}
+
+.school-notification-module .employee-notification-filters button {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 7px;
+    color: #536079;
+    border: 0;
+    border-radius: 11px;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.school-notification-module .employee-notification-filters button span {
+    display: grid;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    place-items: center;
+    border-radius: 7px;
+    background: #edf1f7;
+    font-size: 9px;
+}
+
+.school-notification-module .employee-notification-filters button.is-active {
+    color: #fff;
+    background: var(--gu-navy-900);
+    box-shadow: 0 8px 18px rgba(16,38,93,.18);
+}
+
+.school-notification-module .employee-notification-filters button.is-active span {
+    color: #ffd1a7;
+    background: rgba(255,255,255,.12);
+}
+
+.school-notification-module .employee-notification-feed {
+    padding: 22px;
+    border: 1px solid var(--gu-border);
+    border-radius: 23px;
+    background: #fff;
+    box-shadow: 0 12px 36px rgba(9,26,66,.07);
+}
+
+.school-notification-module .employee-notification-feed__header {
+    display: flex;
+    margin-bottom: 19px;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.school-notification-module .employee-notification-feed__header span {
+    color: var(--gu-orange-600);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-feed__header h2 {
+    margin: 3px 0 0;
+    color: var(--gu-navy-950);
+    font-size: 24px;
+    font-weight: 850;
+}
+
+.school-notification-module .employee-notification-feed__header p {
+    margin: 0;
+    color: var(--gu-muted);
+    font-size: 11px;
+}
+
+.school-notification-module .employee-notification-list {
+    display: grid;
+    gap: 11px;
+}
+
+.school-notification-module .employee-notice-card {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: 57px minmax(0,1fr);
+    gap: 13px;
+    border: 1px solid var(--gu-border);
+    border-radius: 17px;
+    background: linear-gradient(120deg, #fff, #fbfcff);
+    animation: employeeNoticeRise .42s both;
+    animation-delay: calc(var(--notice-index) * 45ms);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.school-notification-module .employee-notice-card[hidden] {
+    display: none;
+}
+
+.school-notification-module .employee-notice-card:hover {
+    border-color: rgba(36,89,184,.23);
+    box-shadow: 0 15px 33px rgba(9,26,66,.09);
+    transform: translateY(-2px);
+}
+
+.school-notification-module .employee-notice-card__marker {
+    position: relative;
+    display: flex;
+    padding-top: 18px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.school-notification-module .employee-notice-card__marker > span {
+    z-index: 2;
+    display: grid;
+    width: 39px;
+    height: 39px;
+    place-items: center;
+    color: var(--gu-orange-600);
+    border-radius: 12px;
+    background: var(--gu-orange-100);
+    font-size: 18px;
+}
+
+.school-notification-module .employee-notice-card__marker > i {
+    position: absolute;
+    width: 1px;
+    top: 58px;
+    bottom: 0;
+    background: linear-gradient(#e1e7f0, transparent);
+}
+
+.school-notification-module .employee-notice-card__open {
+    display: grid;
+    min-width: 0;
+    min-height: 130px;
+    padding: 17px 17px 17px 0;
+    grid-template-columns: minmax(0,1fr) auto;
+    align-items: center;
+    gap: 20px;
+    color: inherit;
+    border: 0;
+    background: transparent;
+    font-family: inherit;
+    text-align: left;
+}
+
+.school-notification-module .employee-notice-card__content {
+    min-width: 0;
+}
+
+.school-notification-module .employee-notice-card__content > small {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--gu-success);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notice-card__content > strong {
+    display: block;
+    margin: 5px 0 6px;
+    color: var(--gu-ink);
+    font-size: 17px;
+    font-weight: 850;
+    line-height: 1.3;
+}
+
+.school-notification-module .employee-notice-card__content > p {
+    display: -webkit-box;
+    max-width: 900px;
+    margin: 0;
+    overflow: hidden;
+    color: var(--gu-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.school-notification-module .employee-notice-card__meta {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.school-notification-module .employee-notice-card__meta em {
+    display: inline-flex;
+    padding: 5px 8px;
+    align-items: center;
+    gap: 5px;
+    color: #526079;
+    border-radius: 8px;
+    background: #f1f4f9;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.school-notification-module .employee-notice-card__meta .has-document {
+    color: #97520f;
+    background: #fff2e5;
+}
+
+.school-notification-module .employee-notice-card__action {
+    display: inline-flex;
+    min-height: 39px;
+    padding: 9px 12px;
+    align-items: center;
+    gap: 7px;
+    color: var(--gu-navy-900);
+    border: 1px solid #dce4f0;
+    border-radius: 11px;
+    background: #fff;
+    font-size: 10px;
+    font-weight: 850;
+    white-space: nowrap;
+    transition: color .2s ease, background .2s ease;
+}
+
+.school-notification-module .employee-notice-card:hover .employee-notice-card__action {
+    color: #fff;
+    background: var(--gu-navy-900);
+}
+
+.school-notification-module .employee-notification-empty,
+.school-notification-module .employee-notification-no-results {
+    display: flex;
+    min-height: 360px;
+    padding: 42px 24px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--gu-muted);
+    border: 1px dashed #d4dce9;
+    border-radius: 23px;
+    background: linear-gradient(145deg, #f7faff, #fff);
+    text-align: center;
+}
+
+.school-notification-module .employee-notification-no-results {
+    min-height: 250px;
+    margin-top: 12px;
+}
+
+.school-notification-module .employee-notification-no-results[hidden] {
+    display: none;
+}
+
+.school-notification-module .employee-notification-empty > span,
+.school-notification-module .employee-notification-no-results > span {
+    display: grid;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 13px;
+    place-items: center;
+    color: var(--gu-orange-600);
+    border-radius: 21px;
+    background: var(--gu-orange-100);
+    font-size: 31px;
+}
+
+.school-notification-module .employee-notification-empty > small {
+    color: var(--gu-orange-600);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-empty h2,
+.school-notification-module .employee-notification-no-results strong {
+    margin: 5px 0 6px;
+    color: var(--gu-navy-950);
+    font-size: 24px;
+    font-weight: 850;
+}
+
+.school-notification-module .employee-notification-empty p,
+.school-notification-module .employee-notification-no-results p {
+    max-width: 480px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.school-notification-module .employee-notification-empty a {
+    display: inline-flex;
+    margin-top: 17px;
+    padding: 10px 14px;
+    align-items: center;
+    gap: 7px;
+    color: #fff;
+    border-radius: 11px;
+    background: var(--gu-navy-900);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* Employee notification detail modal */
+.school-notification-module .employee-notification-modal .modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 27px;
+    box-shadow: 0 35px 95px rgba(9,26,66,.33);
+}
+
+.school-notification-module .employee-notification-modal__hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 180px;
+    padding: 31px 36px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(130deg, #091a42, #173b7d);
+    background-size: 28px 28px, 28px 28px, auto;
+}
+
+.school-notification-module .employee-notification-modal__glow {
+    position: absolute;
+    z-index: -1;
+    width: 270px;
+    height: 270px;
+    right: -90px;
+    top: -170px;
+    border-radius: 50%;
+    background: var(--gu-orange-500);
+    opacity: .36;
+}
+
+.school-notification-module .employee-notification-modal__identity {
+    display: grid;
+    min-height: 118px;
+    padding-right: 55px;
+    grid-template-columns: 57px minmax(0,1fr);
+    align-items: center;
+    gap: 15px;
+}
+
+.school-notification-module .employee-notification-modal__identity > span {
+    display: grid;
+    width: 57px;
+    height: 57px;
+    place-items: center;
+    color: #ffb16c;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    background: rgba(255,255,255,.09);
+    font-size: 27px;
+}
+
+.school-notification-module .employee-notification-modal__identity small {
+    color: #ffd2aa;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-modal__identity h2 {
+    max-width: 650px;
+    margin: 6px 0 0;
+    color: #fff;
+    font-size: clamp(24px, 3.1vw, 35px);
+    font-weight: 850;
+    letter-spacing: -.025em;
+    line-height: 1.15;
+}
+
+.school-notification-module .employee-notification-modal__close {
+    position: absolute;
+    display: grid;
+    width: 41px;
+    height: 41px;
+    right: 21px;
+    top: 21px;
+    place-items: center;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 13px;
+    background: rgba(255,255,255,.09);
+    font-size: 21px;
+}
+
+.school-notification-module .employee-notification-modal__body {
+    padding: 26px 29px !important;
+    background: #fff;
+}
+
+.school-notification-module .employee-notification-modal__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 10px;
+}
+
+.school-notification-module .employee-notification-modal__meta article {
+    display: flex;
+    min-width: 0;
+    min-height: 79px;
+    padding: 13px;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--gu-border);
+    border-radius: 14px;
+    background: #f8faff;
+}
+
+.school-notification-module .employee-notification-modal__meta article > span {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    color: var(--gu-navy-800);
+    border-radius: 10px;
+    background: #eaf1fc;
+    font-size: 16px;
+}
+
+.school-notification-module .employee-notification-modal__meta small,
+.school-notification-module .employee-notification-modal__meta strong {
+    display: block;
+}
+
+.school-notification-module .employee-notification-modal__meta small {
+    color: var(--gu-muted);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-modal__meta strong {
+    margin-top: 3px;
+    overflow: hidden;
+    color: var(--gu-ink);
+    font-size: 11px;
+    font-weight: 800;
+    text-overflow: ellipsis;
+}
+
+.school-notification-module .employee-notification-modal__message {
+    margin-top: 15px;
+    padding: 19px;
+    border: 1px solid var(--gu-border);
+    border-left: 4px solid var(--gu-orange-500);
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fbfcff, #fff);
+}
+
+.school-notification-module .employee-notification-modal__message header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--gu-navy-900);
+}
+
+.school-notification-module .employee-notification-modal__message header span {
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-modal__message header i {
+    color: #e3e9f3;
+    font-size: 26px;
+}
+
+.school-notification-module .employee-notification-modal__message p {
+    max-height: 280px;
+    margin: 8px 0 0;
+    overflow-y: auto;
+    color: #4d5870;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.school-notification-module .employee-notification-modal__attachment {
+    display: grid;
+    margin-top: 13px;
+    padding: 13px 15px;
+    grid-template-columns: 43px minmax(0,1fr) auto;
+    align-items: center;
+    gap: 11px;
+    color: inherit;
+    border: 1px solid #ffd7b5;
+    border-radius: 14px;
+    background: #fff8f1;
+}
+
+.school-notification-module .employee-notification-modal__attachment[hidden] {
+    display: none;
+}
+
+.school-notification-module .employee-notification-modal__attachment > span {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    color: var(--gu-orange-600);
+    border-radius: 12px;
+    background: #ffe9d5;
+    font-size: 20px;
+}
+
+.school-notification-module .employee-notification-modal__attachment small,
+.school-notification-module .employee-notification-modal__attachment strong,
+.school-notification-module .employee-notification-modal__attachment em {
+    display: block;
+}
+
+.school-notification-module .employee-notification-modal__attachment small {
+    color: var(--gu-muted);
+    font-size: 8px;
+    text-transform: uppercase;
+}
+
+.school-notification-module .employee-notification-modal__attachment strong {
+    color: var(--gu-ink);
+    font-size: 12px;
+}
+
+.school-notification-module .employee-notification-modal__attachment em {
+    margin-top: 2px;
+    color: #8b6b4e;
+    font-size: 9px;
+    font-style: normal;
+}
+
+.school-notification-module .employee-notification-modal__published {
+    display: flex;
+    margin-top: 14px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--gu-muted);
+    font-size: 9px;
+}
+
+.school-notification-module .employee-notification-modal__published.is-hidden {
+    justify-content: flex-end;
+}
+
+.school-notification-module .employee-notification-modal__published.is-hidden > span {
+    display: none;
+}
+
+.school-notification-module .employee-notification-modal__published em {
+    color: var(--gu-success);
+    font-style: normal;
+    font-weight: 800;
+}
+
+.school-notification-module .employee-notification-modal__footer {
+    display: flex;
+    min-height: 73px;
+    padding: 14px 29px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-top: 1px solid var(--gu-border);
+    background: #f8faff;
+}
+
+.school-notification-module .employee-notification-modal__footer > span {
+    color: var(--gu-muted);
+    font-size: 9px;
+}
+
+.school-notification-module .employee-notification-modal__footer button {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 10px 16px;
+    align-items: center;
+    gap: 7px;
+    color: #fff;
+    border: 0;
+    border-radius: 11px;
+    background: var(--gu-navy-900);
+    font-size: 11px;
+    font-weight: 850;
+}
+
+@keyframes employeeNotificationPulse {
+    0%, 100% { opacity: .42; transform: scale(.94); }
+    50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes employeeNoticeRise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991px) {
+    .school-notification-module .employee-notification-hero {
+        min-height: 285px;
+        padding: 32px;
+        grid-template-columns: minmax(0,1fr) 210px;
+    }
+
+    .school-notification-module .employee-notification-hero__signal {
+        width: 190px;
+        height: 190px;
+    }
+
+    .school-notification-module .employee-notification-hero__bell {
+        width: 92px;
+        height: 92px;
+        border-radius: 29px;
+        font-size: 42px;
+    }
+
+    .school-notification-module .employee-notification-toolbar {
+        top: 68px;
+    }
+}
+
+@media (max-width: 767px) {
+    .school-notification-module .employee-notification-center {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .school-notification-module .employee-notification-hero {
+        min-height: auto;
+        padding: 28px 22px;
+        grid-template-columns: 1fr;
+        border-radius: 23px;
+    }
+
+    .school-notification-module .employee-notification-hero h1 {
+        font-size: 35px;
+    }
+
+    .school-notification-module .employee-notification-hero__signal {
+        display: none;
+    }
+
+    .school-notification-module .employee-notification-hero__stats > span {
+        min-width: calc(50% - 5px);
+        flex: 1;
+    }
+
+    .school-notification-module .employee-notification-toolbar {
+        position: static;
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .school-notification-module .employee-notification-search {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .school-notification-module .employee-notification-filters button {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .school-notification-module .employee-notification-feed {
+        padding: 16px;
+        border-radius: 19px;
+    }
+
+    .school-notification-module .employee-notification-feed__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .school-notification-module .employee-notice-card {
+        grid-template-columns: 45px minmax(0,1fr);
+        gap: 8px;
+    }
+
+    .school-notification-module .employee-notice-card__marker > span {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .school-notification-module .employee-notice-card__open {
+        padding: 15px 14px 15px 0;
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .school-notification-module .employee-notice-card__content > strong {
+        font-size: 15px;
+    }
+
+    .school-notification-module .employee-notice-card__action {
+        justify-self: start;
+    }
+
+    .school-notification-module .employee-notification-modal .modal-dialog {
+        margin: 11px;
+    }
+
+    .school-notification-module .employee-notification-modal .modal-content {
+        border-radius: 21px;
+    }
+
+    .school-notification-module .employee-notification-modal__hero {
+        min-height: 170px;
+        padding: 27px 21px;
+    }
+
+    .school-notification-module .employee-notification-modal__identity {
+        padding-right: 37px;
+        grid-template-columns: 45px minmax(0,1fr);
+        gap: 11px;
+    }
+
+    .school-notification-module .employee-notification-modal__identity > span {
+        width: 45px;
+        height: 45px;
+        border-radius: 14px;
+        font-size: 21px;
+    }
+
+    .school-notification-module .employee-notification-modal__identity h2 {
+        font-size: 23px;
+    }
+
+    .school-notification-module .employee-notification-modal__close {
+        width: 37px;
+        height: 37px;
+        right: 15px;
+        top: 15px;
+    }
+
+    .school-notification-module .employee-notification-modal__body {
+        padding: 19px !important;
+    }
+
+    .school-notification-module .employee-notification-modal__meta {
+        grid-template-columns: 1fr;
+    }
+
+    .school-notification-module .employee-notification-modal__footer {
+        padding: 13px 19px;
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .school-notification-module .employee-notification-modal__footer button {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .school-notification-module .employee-notification-hero__ring,
+    .school-notification-module .employee-notice-card {
+        animation: none !important;
+    }
+}
