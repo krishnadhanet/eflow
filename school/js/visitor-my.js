@@ -1,0 +1,6 @@
+$(function(){
+  $('#toggle-request-form').on('click',()=>$('#my-request-panel').slideToggle(180));
+  $('.cancel-request').on('click',()=>$('#my-request-panel').slideUp(180));
+  $('#my-request-form').on('submit',function(e){e.preventDefault();const btn=$('#create-request-btn').prop('disabled',true);$.ajax({type:'POST',url:this.action,data:$(this).serialize(),dataType:'json'}).done(r=>{if(r.status==='success'){swal('Request Created','The visitor is now visible in the Expected Visitors column at the Gate Desk.','success').then(()=>location.reload())}else swal(r.message||'Unable to create request')}).fail(xhr=>swal(xhr.responseJSON?.message||'The request could not be created.')).always(()=>btn.prop('disabled',false))});
+  $(document).on('click','.vistorAllowed',function(){const btn=$(this);swal({title:'Visitor approve karein?',text:'Approval ke baad Gate Desk par approved status show hoga.',icon:'warning',buttons:['Cancel','Approve']}).then(ok=>{if(ok)$.post(base_url+'visitor/vistorAllowed',{entry:btn.data('id')}).done(r=>{if(r.status==='success'){btn.replaceWith('<span class="status-chip chip-inside">APPROVED</span>');swal('Visitor Approved','','success').then(()=>location.reload())}}).fail(xhr=>swal(xhr.responseJSON?.message||'Unable to approve visitor','','error'))})});
+});
