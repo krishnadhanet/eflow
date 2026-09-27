@@ -1,0 +1,738 @@
+/*
+ * Geeta University Employee ERP — Hostel module
+ * Scope: body.gu-hostel-module only.
+ * The application sidebar/topbar are deliberately excluded from every rule.
+ */
+
+.gu-hostel-module {
+    --gu-navy-950: #091a42;
+    --gu-navy-900: #10265d;
+    --gu-navy-800: #1c3777;
+    --gu-blue-600: #2459b8;
+    --gu-orange-600: #ee7411;
+    --gu-orange-500: #f58220;
+    --gu-orange-400: #ff9a3c;
+    --gu-orange-100: #fff0e2;
+    --gu-canvas: #f4f7fc;
+    --gu-surface: #fff;
+    --gu-ink: #14213d;
+    --gu-muted: #68738b;
+    --gu-border: #e6ebf3;
+    --gu-success: #12805c;
+    --gu-warning: #b95e09;
+    --gu-danger: #c9373e;
+    --gu-shadow-sm: 0 8px 24px rgba(9, 26, 66, .06);
+    --gu-shadow-md: 0 16px 36px rgba(9, 26, 66, .11);
+    --gu-shadow-hero: 0 22px 52px rgba(9, 26, 66, .20);
+    --gu-motion: 220ms cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Content canvas only. Global navigation is intentionally not targeted. */
+.gu-hostel-module .main-content .page-content {
+    background:
+        radial-gradient(circle at 92% 4%, rgba(245, 130, 32, .07), transparent 21rem),
+        linear-gradient(180deg, #f8faff 0, var(--gu-canvas) 18rem);
+}
+
+.gu-hostel-module .main-content .page-content > .container-fluid {
+    max-width: 1600px;
+}
+
+.gu-hostel-module .main-content .page-content > .container-fluid > :not(script):not(style) {
+    animation: gu-hostel-enter .42s var(--gu-motion) both;
+}
+
+.gu-hostel-module .main-content,
+.gu-hostel-module .main-content button,
+.gu-hostel-module .main-content input,
+.gu-hostel-module .main-content select,
+.gu-hostel-module .main-content textarea {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.gu-hostel-module .main-content h1,
+.gu-hostel-module .main-content h2,
+.gu-hostel-module .main-content h3,
+.gu-hostel-module .main-content h4,
+.gu-hostel-module .main-content h5,
+.gu-hostel-module .main-content h6 {
+    color: var(--gu-ink);
+    letter-spacing: -.015em;
+}
+
+.gu-hostel-module .main-content p,
+.gu-hostel-module .main-content .text-muted {
+    color: var(--gu-muted) !important;
+}
+
+.gu-hostel-module .main-content .page-title-box {
+    margin-bottom: 18px;
+}
+
+.gu-hostel-module .main-content .page-title-box h4 {
+    color: var(--gu-navy-950);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.gu-hostel-module .main-content .breadcrumb {
+    font-size: 13px;
+}
+
+.gu-hostel-module .main-content .breadcrumb a {
+    color: var(--gu-blue-600);
+    font-weight: 700;
+}
+
+/* Hero language across existing Hostel screens. */
+.gu-hostel-module .main-content :is(
+    .control-hero,
+    .ops-hero,
+    .hc-hero,
+    .hg-head,
+    .report-hero,
+    .engine-hero,
+    .mess-hero,
+    .menu-hero,
+    .vi-hero,
+    .hss-hero,
+    .management-hero,
+    .discipline-hero,
+    .hsp-hero
+) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12) !important;
+    border-radius: 26px !important;
+    background:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(125deg, var(--gu-navy-950), var(--gu-navy-900) 58%, var(--gu-navy-800)) !important;
+    background-size: 30px 30px, 30px 30px, auto !important;
+    box-shadow: var(--gu-shadow-hero) !important;
+}
+
+.gu-hostel-module .main-content :is(
+    .control-hero,
+    .ops-hero,
+    .hc-hero,
+    .hg-head,
+    .report-hero,
+    .engine-hero,
+    .mess-hero,
+    .menu-hero,
+    .vi-hero,
+    .hss-hero,
+    .management-hero,
+    .discipline-hero,
+    .hsp-hero
+)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 290px;
+    height: 290px;
+    right: -82px;
+    top: -155px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 154, 60, .42), rgba(245, 130, 32, .08) 46%, transparent 69%);
+    pointer-events: none;
+}
+
+.gu-hostel-module .main-content :is(
+    .control-hero,
+    .ops-hero,
+    .hc-hero,
+    .hg-head,
+    .report-hero,
+    .engine-hero,
+    .mess-hero,
+    .menu-hero,
+    .vi-hero,
+    .hss-hero,
+    .management-hero,
+    .discipline-hero,
+    .hsp-hero
+) :is(h1, h2, h3, h4, h5, h6) {
+    color: #fff !important;
+}
+
+.gu-hostel-module .main-content :is(
+    .control-hero,
+    .ops-hero,
+    .hc-hero,
+    .hg-head,
+    .report-hero,
+    .engine-hero,
+    .mess-hero,
+    .menu-hero,
+    .vi-hero,
+    .hss-hero,
+    .management-hero,
+    .discipline-hero,
+    .hsp-hero
+) p {
+    color: rgba(255, 255, 255, .78) !important;
+    line-height: 1.62;
+}
+
+.gu-hostel-module .main-content :is(
+    .control-eyebrow,
+    .ops-eyebrow,
+    .hero-eyebrow,
+    .management-eyebrow
+) {
+    color: var(--gu-orange-400) !important;
+    font-size: 12px !important;
+    letter-spacing: .13em;
+}
+
+/* Shared surfaces. */
+.gu-hostel-module .main-content :is(
+    .card,
+    .control-guide,
+    .control-readiness,
+    .control-card,
+    .hostel-ops-card,
+    .hostel-panel,
+    .engine-panel,
+    .hg-card,
+    .hg-kpi,
+    .hc-card,
+    .report-panel,
+    .metric,
+    .mess-card,
+    .menu-scope,
+    .meal-editor,
+    .rw-card,
+    .vi-building,
+    .vi-hostel,
+    .hss-card,
+    .ops-section,
+    .management-card,
+    .discipline-card
+) {
+    border-color: var(--gu-border) !important;
+    border-radius: 20px !important;
+    box-shadow: var(--gu-shadow-sm) !important;
+}
+
+.gu-hostel-module .main-content :is(
+    .control-card,
+    .hostel-ops-card,
+    .metric,
+    .meal-editor,
+    .vi-room,
+    .vi-hostel,
+    .management-card
+) {
+    transition:
+        transform var(--gu-motion),
+        box-shadow var(--gu-motion),
+        border-color var(--gu-motion);
+}
+
+.gu-hostel-module .main-content :is(
+    .control-card,
+    .hostel-ops-card,
+    .metric,
+    .meal-editor,
+    .vi-room,
+    .vi-hostel,
+    .management-card
+):hover {
+    transform: translateY(-3px);
+    border-color: rgba(36, 89, 184, .24) !important;
+    box-shadow: var(--gu-shadow-md) !important;
+}
+
+/* Core colour correction from teal-heavy page styles to the ERP brand. */
+.gu-hostel-module .main-content :is(
+    .hostel-control,
+    .hostel-ops,
+    .hostel-command,
+    .room-command,
+    .mess-work,
+    .vi
+) {
+    --navy: var(--gu-navy-950) !important;
+    --blue: var(--gu-navy-900) !important;
+    --teal: var(--gu-orange-500) !important;
+    --cyan: var(--gu-blue-600) !important;
+    --muted: var(--gu-muted) !important;
+    --line: var(--gu-border) !important;
+}
+
+.gu-hostel-module .main-content .hostel-report {
+    --hr-ink: var(--gu-ink) !important;
+    --hr-muted: var(--gu-muted) !important;
+    --hr-line: var(--gu-border) !important;
+    --hr-blue: var(--gu-navy-900) !important;
+    --hr-teal: var(--gu-orange-500) !important;
+}
+
+.gu-hostel-module .main-content .room-command {
+    --rc-navy: var(--gu-navy-950) !important;
+    --rc-blue: var(--gu-navy-900) !important;
+    --rc-teal: var(--gu-orange-500) !important;
+    --rc-muted: var(--gu-muted) !important;
+    --rc-line: var(--gu-border) !important;
+}
+
+/* Buttons and focus. */
+.gu-hostel-module .main-content .btn {
+    min-height: 40px;
+    border-radius: 12px !important;
+    font-size: 13px;
+    font-weight: 750;
+    transition:
+        transform var(--gu-motion),
+        box-shadow var(--gu-motion),
+        background-color var(--gu-motion),
+        border-color var(--gu-motion);
+}
+
+.gu-hostel-module .main-content .btn:hover {
+    transform: translateY(-1px);
+}
+
+.gu-hostel-module .main-content .btn-primary {
+    border-color: var(--gu-navy-900) !important;
+    background: linear-gradient(135deg, var(--gu-navy-900), var(--gu-navy-800)) !important;
+    box-shadow: 0 8px 18px rgba(16, 38, 93, .17);
+}
+
+.gu-hostel-module .main-content :is(.btn-warning, .save-menu) {
+    border-color: var(--gu-orange-500) !important;
+    background: linear-gradient(135deg, var(--gu-orange-600), var(--gu-orange-500)) !important;
+    color: #fff !important;
+    box-shadow: 0 8px 18px rgba(238, 116, 17, .18);
+}
+
+.gu-hostel-module .main-content :is(.btn-outline-primary, .btn-info) {
+    border-color: rgba(16, 38, 93, .24) !important;
+    color: var(--gu-navy-900) !important;
+    background: #f8faff !important;
+}
+
+.gu-hostel-module .main-content :is(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [tabindex]
+):focus-visible {
+    outline: 3px solid rgba(245, 130, 32, .32) !important;
+    outline-offset: 2px;
+}
+
+/* Form controls. */
+.gu-hostel-module .main-content :is(.form-control, .form-select) {
+    min-height: 46px;
+    border-color: #dbe2ee;
+    border-radius: 12px !important;
+    color: var(--gu-ink);
+    font-size: 14px;
+    box-shadow: none;
+    transition:
+        border-color var(--gu-motion),
+        box-shadow var(--gu-motion),
+        background var(--gu-motion);
+}
+
+.gu-hostel-module .main-content textarea.form-control {
+    min-height: 94px;
+}
+
+.gu-hostel-module .main-content :is(.form-control, .form-select):focus {
+    border-color: var(--gu-navy-900) !important;
+    box-shadow: 0 0 0 4px rgba(245, 130, 32, .14) !important;
+}
+
+.gu-hostel-module .main-content :is(label, .form-label) {
+    color: #44516a;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.gu-hostel-module .main-content .select2-container .select2-selection--single,
+.gu-hostel-module .main-content .select2-container .select2-selection--multiple {
+    min-height: 46px;
+    border-color: #dbe2ee;
+    border-radius: 12px;
+}
+
+.gu-hostel-module .main-content .select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 44px;
+}
+
+.gu-hostel-module .main-content .select2-container .select2-selection--single .select2-selection__arrow {
+    height: 44px;
+}
+
+/* Navigation inside the module—not the global sidebar. */
+.gu-hostel-module .main-content :is(
+    .hc-tabs,
+    .hg-tabs,
+    .menu-days,
+    .management-tabs,
+    .nav-tabs
+) {
+    border: 1px solid var(--gu-border) !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, .94) !important;
+    box-shadow: var(--gu-shadow-sm);
+    padding: 7px;
+}
+
+.gu-hostel-module .main-content :is(
+    .hc-tab,
+    .hg-tabs a,
+    .menu-days .nav-link,
+    .management-tabs a,
+    .nav-tabs .nav-link
+) {
+    min-height: 40px;
+    border: 0 !important;
+    border-radius: 10px !important;
+    color: #53617a !important;
+    font-size: 13px !important;
+    font-weight: 750 !important;
+    transition: color var(--gu-motion), background var(--gu-motion), transform var(--gu-motion);
+}
+
+.gu-hostel-module .main-content :is(
+    .hc-tab.active,
+    .hg-tabs a.active,
+    .menu-days .nav-link.active,
+    .management-tabs a.active,
+    .nav-tabs .nav-link.active
+) {
+    background: var(--gu-navy-900) !important;
+    color: #fff !important;
+    box-shadow: 0 7px 16px rgba(16, 38, 93, .18);
+}
+
+/* KPI hierarchy. */
+.gu-hostel-module .main-content :is(
+    .control-kpi strong,
+    .ops-kpi strong,
+    .hc-kpi strong,
+    .hg-kpi b,
+    .vi-kpi strong,
+    .hss-kpi strong,
+    .metric strong,
+    .hostel-metric strong
+) {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -.025em;
+}
+
+.gu-hostel-module .main-content :is(.hg-kpi, .metric, .hostel-metric) {
+    position: relative;
+    overflow: hidden;
+}
+
+.gu-hostel-module .main-content :is(.hg-kpi, .metric, .hostel-metric)::after {
+    content: "";
+    position: absolute;
+    right: -22px;
+    top: -22px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--gu-orange-100);
+    opacity: .62;
+}
+
+/* Tables. */
+.gu-hostel-module .main-content .table-responsive,
+.gu-hostel-module .main-content :is(.table-wrap, .hostel-table-wrap, .engine-table-wrap) {
+    border-radius: 14px;
+}
+
+.gu-hostel-module .main-content table {
+    color: var(--gu-ink);
+    font-size: 13px;
+}
+
+.gu-hostel-module .main-content table thead th {
+    border-color: var(--gu-border) !important;
+    background: #f3f6fc !important;
+    color: #485671 !important;
+    font-size: 11px !important;
+    font-weight: 800;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.gu-hostel-module .main-content table tbody td {
+    border-color: #edf0f5 !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    vertical-align: middle;
+}
+
+.gu-hostel-module .main-content table tbody tr {
+    transition: background-color var(--gu-motion);
+}
+
+.gu-hostel-module .main-content table tbody tr:hover {
+    background: #f8faff;
+}
+
+.gu-hostel-module .main-content .dataTables_wrapper .dataTables_filter input {
+    min-height: 40px;
+    border: 1px solid #dbe2ee;
+    border-radius: 10px;
+    padding: 7px 11px;
+}
+
+.gu-hostel-module .main-content .dt-buttons .dt-button {
+    border: 1px solid rgba(16, 38, 93, .18) !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    color: var(--gu-navy-900) !important;
+    font-weight: 700;
+}
+
+/* Notes and messages. */
+.gu-hostel-module .main-content :is(
+    .hg-note,
+    .hc-note,
+    .engine-guide,
+    .rw-note,
+    .electricity-note,
+    .control-guide,
+    .hostel-schema-note
+) {
+    border: 1px solid #d9e5f7 !important;
+    border-left: 4px solid var(--gu-blue-600) !important;
+    border-radius: 13px !important;
+    background: #f2f7ff !important;
+    color: #3b4f70 !important;
+    font-size: 13px !important;
+    line-height: 1.55;
+}
+
+.gu-hostel-module .main-content :is(.alert-success, .alert-danger, .alert-warning, .alert-info) {
+    border: 0;
+    border-radius: 14px;
+    box-shadow: var(--gu-shadow-sm);
+}
+
+/* Pills and states stay semantic but become visually consistent. */
+.gu-hostel-module .main-content :is(
+    .badge,
+    .hg-badge,
+    .status-pill,
+    .presence,
+    .request-status,
+    .engine-chip,
+    .action-pill,
+    .resident-chip,
+    .hostel-chip,
+    .control-state,
+    .rw-status
+) {
+    border-radius: 999px !important;
+    font-size: 11px !important;
+    font-weight: 750 !important;
+    line-height: 1.2;
+}
+
+/* Hostel landing and master cards. */
+.gu-hostel-module .main-content .control-card::before {
+    background: linear-gradient(90deg, var(--gu-navy-900), var(--gu-orange-500)) !important;
+}
+
+.gu-hostel-module .main-content .control-card-icon,
+.gu-hostel-module .main-content .hostel-icon,
+.gu-hostel-module .main-content .engine-hero-icon {
+    background: var(--gu-orange-100) !important;
+    color: var(--gu-orange-600) !important;
+}
+
+.gu-hostel-module .main-content .hostel-list-hero {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gu-border) !important;
+    border-radius: 20px !important;
+    background: linear-gradient(135deg, #fff, #f5f8ff) !important;
+    box-shadow: var(--gu-shadow-sm);
+    padding: 24px !important;
+}
+
+.gu-hostel-module .main-content .hostel-list-hero::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    top: -75px;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 130, 32, .17), transparent 68%);
+    pointer-events: none;
+}
+
+/* Room command centre. Preserve semantic availability colours. */
+.gu-hostel-module .main-content .rc-map {
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 22px !important;
+    background:
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(135deg, var(--gu-navy-950), var(--gu-navy-800)) !important;
+    background-size: 24px 24px, 24px 24px, auto !important;
+    box-shadow: var(--gu-shadow-md);
+}
+
+.gu-hostel-module .main-content .rc-floor-level {
+    min-height: 42px;
+}
+
+.gu-hostel-module .main-content .rc-floor-level:hover,
+.gu-hostel-module .main-content .rc-floor-level.active {
+    border-color: rgba(255, 154, 60, .62) !important;
+    background: rgba(245, 130, 32, .17) !important;
+}
+
+.gu-hostel-module .main-content .rc-floor-level b {
+    color: #ffc084 !important;
+}
+
+.gu-hostel-module .main-content .occupancy-bar span,
+.gu-hostel-module .main-content .readiness-line span,
+.gu-hostel-module .main-content .hc-progress span {
+    background: linear-gradient(90deg, var(--gu-navy-800), var(--gu-orange-500)) !important;
+}
+
+/* Mess surfaces. */
+.gu-hostel-module .main-content .meal-chips span,
+.gu-hostel-module .main-content .resident-chip {
+    background: var(--gu-orange-100) !important;
+    color: #9b4a09 !important;
+}
+
+.gu-hostel-module .main-content .menu-tile {
+    border-radius: 14px !important;
+    border-color: var(--gu-border) !important;
+}
+
+.gu-hostel-module .main-content .chart-wrap {
+    border-radius: 16px;
+    background: linear-gradient(180deg, #fbfcff, #fff);
+    padding: 12px;
+}
+
+/* Modals opened from Hostel pages. */
+.gu-hostel-module .modal-content {
+    overflow: hidden;
+    border: 1px solid var(--gu-border);
+    border-radius: 22px;
+    box-shadow: 0 28px 70px rgba(9, 26, 66, .22);
+    color: var(--gu-ink);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.gu-hostel-module .modal-header {
+    border-bottom-color: var(--gu-border);
+    background:
+        radial-gradient(circle at 92% 8%, rgba(245, 130, 32, .22), transparent 9rem),
+        linear-gradient(135deg, #f8faff, #fff);
+}
+
+.gu-hostel-module .modal-title {
+    color: var(--gu-navy-950);
+    font-weight: 800;
+}
+
+.gu-hostel-module .engine-form-actions {
+    margin-left: -4px;
+    margin-right: -4px;
+    padding: 14px 4px 4px;
+    box-shadow: 0 -10px 20px rgba(9, 26, 66, .04);
+}
+
+/* Loaders for Hostel-local operations. */
+.gu-hostel-module .main-content .fa-spinner {
+    color: currentColor;
+}
+
+.gu-hostel-module .main-content [aria-busy="true"] {
+    cursor: wait;
+    opacity: .78;
+}
+
+@keyframes gu-hostel-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .gu-hostel-module .main-content :is(
+        .control-hero,
+        .ops-hero,
+        .hc-hero,
+        .hg-head,
+        .report-hero,
+        .engine-hero,
+        .mess-hero,
+        .menu-hero,
+        .vi-hero,
+        .hss-hero
+    ) {
+        border-radius: 22px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .gu-hostel-module .main-content .page-title-box h4 {
+        font-size: 22px;
+    }
+
+    .gu-hostel-module .main-content :is(
+        .control-hero,
+        .ops-hero,
+        .hc-hero,
+        .hg-head,
+        .report-hero,
+        .engine-hero,
+        .mess-hero,
+        .menu-hero,
+        .vi-hero,
+        .hss-hero
+    ) {
+        border-radius: 19px !important;
+        padding: 20px 18px !important;
+    }
+
+    .gu-hostel-module .main-content .btn {
+        min-height: 42px;
+    }
+
+    .gu-hostel-module .main-content :is(.form-control, .form-select) {
+        min-height: 48px;
+        font-size: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gu-hostel-module .main-content *,
+    .gu-hostel-module .main-content *::before,
+    .gu-hostel-module .main-content *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
