@@ -1,0 +1,1989 @@
+/*
+ * Geeta University Employee ERP — Transportation module
+ * Contract: UI_THEME_GUIDE.md
+ * Scope: body.school-transportation-module only. Global navigation is untouched.
+ */
+
+.school-transportation-module {
+    --gu-navy-950: #091a42;
+    --gu-navy-900: #10265d;
+    --gu-navy-800: #1c3777;
+    --gu-blue-600: #2459b8;
+    --gu-orange-600: #ee7411;
+    --gu-orange-500: #f58220;
+    --gu-orange-400: #ff9a3c;
+    --gu-orange-100: #fff0e2;
+    --gu-canvas: #f4f7fc;
+    --gu-surface: #fff;
+    --gu-ink: #14213d;
+    --gu-muted: #68738b;
+    --gu-border: #e6ebf3;
+    --gu-success: #12805c;
+    --gu-warning: #b95e09;
+    --gu-danger: #c9373e;
+    --gu-shadow-sm: 0 8px 24px rgba(9, 26, 66, .06);
+    --gu-shadow-md: 0 16px 36px rgba(9, 26, 66, .11);
+    --gu-motion: 220ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.school-transportation-module .main-content .page-content {
+    background:
+        radial-gradient(circle at 94% 4%, rgba(245, 130, 32, .07), transparent 20rem),
+        linear-gradient(180deg, #f9fbff 0, var(--gu-canvas) 19rem);
+}
+
+.school-transportation-module .main-content .page-content > .container-fluid {
+    max-width: 1600px;
+}
+
+.school-transportation-module .main-content .page-content > .container-fluid > :not(script):not(style) {
+    animation: gu-transport-enter .38s var(--gu-motion) both;
+}
+
+.school-transportation-module .main-content,
+.school-transportation-module .main-content button,
+.school-transportation-module .main-content input,
+.school-transportation-module .main-content select,
+.school-transportation-module .main-content textarea {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.school-transportation-module .main-content :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--gu-ink);
+    letter-spacing: -.015em;
+}
+
+.school-transportation-module .main-content :is(p, .text-muted) {
+    color: var(--gu-muted) !important;
+}
+
+/* Transportation owns its heading inside the command hero. */
+.school-transportation-module .main-content :is(.page-header, .page-title-box) {
+    display: none !important;
+}
+
+/* Module command surface and local navigation */
+.school-transportation-module .main-content .transport-command {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-bottom: 22px;
+    padding: 26px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 26px;
+    background:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(125deg, var(--gu-navy-950), var(--gu-navy-900) 58%, var(--gu-navy-800));
+    background-size: 30px 30px, 30px 30px, auto;
+    box-shadow: 0 22px 52px rgba(9, 26, 66, .20);
+}
+
+.school-transportation-module .main-content .transport-command::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 320px;
+    height: 320px;
+    top: -180px;
+    right: -70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 154, 60, .46), rgba(245, 130, 32, .09) 48%, transparent 70%);
+}
+
+.school-transportation-module .main-content .transport-command__main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.school-transportation-module .main-content .transport-command__eyebrow {
+    margin-bottom: 12px;
+    color: var(--gu-orange-400);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+
+.school-transportation-module .main-content .transport-command__icon {
+    display: inline-flex;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 16px;
+    background: rgba(255,255,255,.09);
+    color: #fff;
+    font-size: 25px;
+}
+
+.school-transportation-module .main-content .transport-command h1 {
+    margin: 0 0 7px;
+    color: #fff;
+    font-size: clamp(25px, 2.4vw, 34px);
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-command p {
+    max-width: 720px;
+    margin: 0;
+    color: rgba(255,255,255,.77) !important;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.school-transportation-module .main-content .transport-command__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.school-transportation-module .main-content .transport-command__actions .btn-light {
+    border-color: rgba(255,255,255,.22);
+    background: rgba(255,255,255,.11);
+    color: #fff;
+    backdrop-filter: blur(8px);
+}
+
+.school-transportation-module .main-content .transport-command__actions .btn-warning {
+    border-color: var(--gu-orange-500);
+    background: var(--gu-orange-500);
+}
+
+.school-transportation-module .main-content .transport-command__kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.school-transportation-module .main-content .transport-kpi {
+    min-width: 0;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 16px;
+    background: rgba(255,255,255,.075);
+    backdrop-filter: blur(7px);
+}
+
+.school-transportation-module .main-content .transport-kpi span {
+    display: block;
+    color: rgba(255,255,255,.7);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-kpi strong {
+    display: block;
+    margin-top: 3px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.school-transportation-module .main-content .transport-kpi small {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255,255,255,.62);
+}
+
+.school-transportation-module .main-content .transport-panel-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.school-transportation-module .main-content .transport-panel-title h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-panel-title p {
+    margin: 4px 0 0;
+    font-size: 13px;
+}
+
+/* Gate-friendly vehicle movement workspace */
+.school-transportation-module .main-content .transport-movement-tabs {
+    position: sticky;
+    top: 76px;
+    z-index: 20;
+    box-shadow: var(--gu-shadow-sm);
+}
+
+.school-transportation-module .main-content .transport-movement-tabs .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.school-transportation-module .main-content .transport-movement-tabs .nav-link.active .badge {
+    background: rgba(255,255,255,.16) !important;
+    color: #fff !important;
+}
+
+.school-transportation-module .main-content .transport-movement-search {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px 12px 10px 16px;
+    border: 1px solid var(--gu-border);
+    border-radius: 16px;
+    background: #f8faff;
+}
+
+.school-transportation-module .main-content .transport-movement-search > i {
+    color: var(--gu-blue-600);
+    font-size: 20px;
+}
+
+.school-transportation-module .main-content .transport-movement-search .form-control {
+    min-height: 44px;
+    padding-left: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    font-weight: 600;
+}
+
+.school-transportation-module .main-content .transport-movement-search > span {
+    padding: 7px 10px;
+    border-radius: 9px;
+    background: #eaf1ff;
+    color: var(--gu-blue-600);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .transport-movement-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+    border: 1px solid var(--gu-border);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(9,26,66,.055);
+    transition: transform var(--gu-motion), border-color var(--gu-motion), box-shadow var(--gu-motion);
+}
+
+.school-transportation-module .main-content .transport-movement-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd8ef;
+    box-shadow: var(--gu-shadow-md);
+}
+
+.school-transportation-module .main-content .transport-movement-card__top,
+.school-transportation-module .main-content .transport-movement-card__vehicle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.school-transportation-module .main-content .transport-movement-serial {
+    color: var(--gu-muted);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-movement-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-movement-status > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 3px rgba(18,128,92,.12);
+}
+
+.school-transportation-module .main-content .transport-status-in {
+    background: #e8f7f1;
+    color: var(--gu-success);
+}
+
+.school-transportation-module .main-content .transport-status-out {
+    background: var(--gu-orange-100);
+    color: var(--gu-warning);
+}
+
+.school-transportation-module .main-content .transport-status-new {
+    background: #f0f3f8;
+    color: var(--gu-muted);
+}
+
+.school-transportation-module .main-content .transport-movement-card__vehicle {
+    justify-content: flex-start;
+}
+
+.school-transportation-module .main-content .transport-movement-card__icon {
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: linear-gradient(145deg, var(--gu-navy-900), var(--gu-blue-600));
+    color: #fff;
+    font-size: 25px;
+}
+
+.school-transportation-module .main-content .transport-movement-card__vehicle h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 850;
+}
+
+.school-transportation-module .main-content .transport-movement-card__vehicle p {
+    margin: 3px 0 0;
+    font-size: 12px;
+}
+
+.school-transportation-module .main-content .transport-movement-card__meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(90px, .75fr);
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--gu-border);
+    border-radius: 12px;
+    background: var(--gu-border);
+}
+
+.school-transportation-module .main-content .transport-movement-card__meta > div {
+    min-width: 0;
+    padding: 10px 11px;
+    background: #f9fbff;
+}
+
+.school-transportation-module .main-content .transport-movement-card__meta span,
+.school-transportation-module .main-content .transport-movement-card__meta strong {
+    display: block;
+}
+
+.school-transportation-module .main-content .transport-movement-card__meta span {
+    margin-bottom: 3px;
+    color: var(--gu-muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.school-transportation-module .main-content .transport-movement-card__meta strong {
+    overflow: hidden;
+    color: var(--gu-ink);
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .transport-movement-action {
+    margin-top: auto;
+    min-height: 48px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-movement-empty {
+    display: flex;
+    min-height: 190px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px dashed #cbd5e5;
+    border-radius: 18px;
+    background: #fafcff;
+    text-align: center;
+}
+
+.school-transportation-module .main-content .transport-movement-empty i {
+    color: var(--gu-blue-600);
+    font-size: 34px;
+}
+
+.school-transportation-module .main-content .transport-movement-empty strong {
+    color: var(--gu-ink);
+    font-size: 15px;
+}
+
+.school-transportation-module .main-content .transport-movement-empty span {
+    color: var(--gu-muted);
+    font-size: 12px;
+}
+
+.school-transportation-module .main-content .transport-master-card {
+    min-height: 290px;
+}
+
+.school-transportation-module .main-content .transport-master-icon {
+    display: inline-flex;
+    width: 58px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 27px;
+}
+
+.school-transportation-module .main-content .transport-master-icon.blue {
+    background: #eaf1ff;
+    color: var(--gu-blue-600);
+}
+
+.school-transportation-module .main-content .transport-master-icon.orange {
+    background: var(--gu-orange-100);
+    color: var(--gu-orange-600);
+}
+
+.school-transportation-module .main-content .transport-record-count {
+    padding: 7px 10px;
+    border: 1px solid var(--gu-border);
+    border-radius: 999px;
+    color: var(--gu-muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-master-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-master-card p {
+    min-height: 46px;
+    line-height: 1.65;
+}
+
+.school-transportation-module .main-content .transport-master-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.school-transportation-module .main-content .transport-master-meta span {
+    color: #56637b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-master-meta i {
+    color: var(--gu-success);
+}
+
+.school-transportation-module .main-content .transport-open-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px;
+    padding-top: 15px;
+    border-top: 1px solid var(--gu-border);
+    color: var(--gu-navy-900);
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-search {
+    position: relative;
+}
+
+.school-transportation-module .main-content .transport-search > i {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 15px;
+    color: var(--gu-muted);
+    transform: translateY(-50%);
+}
+
+.school-transportation-module .main-content .transport-search .form-control {
+    padding-left: 42px;
+}
+
+/* Working surfaces */
+.school-transportation-module .main-content :is(.card, .table-responsive) {
+    border-color: var(--gu-border) !important;
+    border-radius: 20px !important;
+    background: var(--gu-surface);
+    box-shadow: var(--gu-shadow-sm) !important;
+}
+
+.school-transportation-module .main-content .card .card {
+    box-shadow: none !important;
+}
+
+.school-transportation-module .main-content .card-header {
+    padding: 18px 20px;
+    border-color: var(--gu-border);
+    border-radius: 20px 20px 0 0 !important;
+    background: #f9fbff;
+}
+
+.school-transportation-module .main-content .card-body {
+    padding: 22px;
+}
+
+.school-transportation-module .main-content :is(.report-card, a > .card) {
+    transition:
+        transform var(--gu-motion),
+        box-shadow var(--gu-motion),
+        border-color var(--gu-motion);
+}
+
+.school-transportation-module .main-content :is(.report-card, a > .card):hover {
+    transform: translateY(-3px);
+    border-color: rgba(36, 89, 184, .24) !important;
+    box-shadow: var(--gu-shadow-md) !important;
+}
+
+/* Filter and editor panels */
+.school-transportation-module .main-content form.row,
+.school-transportation-module .main-content form.container,
+.school-transportation-module .main-content form.transport-filter-panel {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 18px;
+    border: 1px solid var(--gu-border);
+    border-radius: 18px;
+    background: #f8faff;
+}
+
+.school-transportation-module .main-content form.container {
+    max-width: none;
+}
+
+.school-transportation-module .main-content label,
+.school-transportation-module .main-content .form-label {
+    margin-bottom: 7px;
+    color: #354463;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content :is(.form-control, .form-select) {
+    min-height: 48px;
+    border-color: #d5deeb;
+    border-radius: 12px;
+    background-color: #fff;
+    color: var(--gu-ink);
+}
+
+.school-transportation-module .main-content textarea.form-control {
+    min-height: 104px;
+}
+
+.school-transportation-module .main-content :is(.form-control, .form-select):focus {
+    border-color: var(--gu-navy-900);
+    box-shadow: 0 0 0 3px rgba(245, 130, 32, .18);
+}
+
+.school-transportation-module .main-content .select2-container {
+    width: 100% !important;
+}
+
+.school-transportation-module .main-content .select2-container--default :is(
+    .select2-selection--single,
+    .select2-selection--multiple
+) {
+    min-height: 48px;
+    border-color: #d5deeb;
+    border-radius: 12px;
+}
+
+.school-transportation-module .main-content .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 46px;
+}
+
+.school-transportation-module .main-content .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 46px;
+}
+
+.school-transportation-module .main-content .select2-container--default .select2-selection--multiple {
+    padding: 5px 8px;
+}
+
+/* Actions */
+.school-transportation-module .main-content .btn {
+    min-height: 42px;
+    padding: 9px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition:
+        transform var(--gu-motion),
+        box-shadow var(--gu-motion),
+        background-color var(--gu-motion);
+}
+
+.school-transportation-module .main-content .btn:hover {
+    transform: translateY(-1px);
+}
+
+.school-transportation-module .main-content .btn:focus-visible {
+    outline: 3px solid rgba(245, 130, 32, .38);
+    outline-offset: 2px;
+}
+
+.school-transportation-module .main-content .btn-primary {
+    border-color: var(--gu-navy-900);
+    background: var(--gu-navy-900);
+}
+
+.school-transportation-module .main-content .btn-primary:hover {
+    border-color: var(--gu-navy-800);
+    background: var(--gu-navy-800);
+}
+
+.school-transportation-module .main-content .btn-info {
+    border-color: var(--gu-blue-600);
+    background: var(--gu-blue-600);
+    color: #fff;
+}
+
+.school-transportation-module .main-content .btn-success {
+    border-color: var(--gu-success);
+    background: var(--gu-success);
+}
+
+.school-transportation-module .main-content .btn-warning {
+    border-color: var(--gu-orange-500);
+    background: var(--gu-orange-500);
+    color: #fff;
+}
+
+.school-transportation-module .main-content .btn-danger {
+    border-color: #f2d6d9;
+    background: #fff;
+    color: var(--gu-danger);
+}
+
+.school-transportation-module .main-content .btn-dark {
+    border-color: var(--gu-navy-950);
+    background: var(--gu-navy-950);
+}
+
+/* Data surfaces */
+.school-transportation-module .main-content .table-responsive {
+    overflow-x: auto;
+    border: 1px solid var(--gu-border);
+    border-radius: 18px !important;
+}
+
+.school-transportation-module .main-content table.table {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+
+.school-transportation-module .main-content .table > thead > tr > th {
+    padding: 14px 13px;
+    border-width: 0 0 1px;
+    border-color: var(--gu-border);
+    background: #f1f5fb !important;
+    color: #34425f;
+    font-size: 13px;
+    font-weight: 750;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .table > tbody > tr > td {
+    padding: 13px;
+    border-color: #edf0f5;
+    color: #34415a;
+    font-size: 13px;
+    line-height: 1.55;
+    vertical-align: middle;
+}
+
+.school-transportation-module .main-content .table > tbody > tr:hover > td {
+    background: #f8faff;
+}
+
+.school-transportation-module .main-content .table a:not(.btn) {
+    color: var(--gu-blue-600);
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .table :is(.icon-pencil, .icon-trash, .icon-eye, [class*="ri-delete"], [class*="ri-edit"]) {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #edf3ff;
+    color: var(--gu-navy-900);
+}
+
+.school-transportation-module .main-content .table :is(.icon-trash, [class*="ri-delete"]) {
+    background: #fff0f1;
+    color: var(--gu-danger);
+}
+
+.school-transportation-module .main-content .badge {
+    padding: 7px 10px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .table-warning > td {
+    background-color: #fff8e9 !important;
+}
+
+.school-transportation-module .main-content .table-danger > td {
+    background-color: #fff0f1 !important;
+}
+
+.school-transportation-module .main-content .table-success > td {
+    background-color: #ebf8f3 !important;
+}
+
+.school-transportation-module .main-content td.request-approved,
+.school-transportation-module .main-content .badge.request-approved {
+    background: #eaf1ff !important;
+    color: var(--gu-blue-600) !important;
+}
+
+.school-transportation-module .main-content td.request-allotted,
+.school-transportation-module .main-content .badge.request-allotted {
+    background: #e8f7f1 !important;
+    color: var(--gu-success) !important;
+}
+
+/* Tabs, DataTables and feedback */
+.school-transportation-module .main-content .nav-tabs {
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid var(--gu-border);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.school-transportation-module .main-content .nav-tabs .nav-link {
+    min-height: 42px;
+    border: 0;
+    border-radius: 10px;
+    color: var(--gu-muted);
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .nav-tabs .nav-link.active {
+    background: var(--gu-navy-900);
+    color: #fff;
+}
+
+.school-transportation-module .main-content .dataTables_wrapper :is(.dataTables_length, .dataTables_filter) {
+    margin: 2px 0 14px;
+}
+
+.school-transportation-module .main-content .dataTables_wrapper .dt-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2px 0 14px;
+}
+
+.school-transportation-module .main-content .dataTables_wrapper .dt-button {
+    min-height: 40px;
+    padding: 8px 15px;
+    border: 0;
+    border-radius: 10px;
+    background: #16794b;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(22, 121, 75, .18);
+}
+
+.school-transportation-module .main-content .dataTables_wrapper .dt-button:hover,
+.school-transportation-module .main-content .dataTables_wrapper .dt-button:focus {
+    border: 0;
+    background: #10633d;
+    color: #fff;
+}
+
+.school-transportation-module .main-content .dataTables_wrapper :is(input, select) {
+    min-height: 40px;
+    border: 1px solid #d5deeb;
+    border-radius: 10px;
+}
+
+.school-transportation-module .main-content .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: 0 !important;
+    border-radius: 10px !important;
+}
+
+.school-transportation-module .main-content .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.school-transportation-module .main-content .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 0 !important;
+    background: var(--gu-navy-900) !important;
+    color: #fff !important;
+}
+
+.school-transportation-module .main-content :is(.alert, .note) {
+    border-radius: 14px;
+    line-height: 1.6;
+}
+
+/* Transportation-specific operational cards */
+.school-transportation-module .main-content .attendance-card {
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.school-transportation-module .main-content .attendance-card.present {
+    border-color: var(--gu-success);
+    background: #edf9f4;
+}
+
+.school-transportation-module .main-content .attendance-card.absent {
+    border-color: var(--gu-danger);
+    background: #fff1f2;
+}
+
+.school-transportation-module .main-content .journey-line::before {
+    background: #dbe3f0;
+}
+
+.school-transportation-module .main-content .journey-line {
+    position: relative;
+    margin-left: 18px;
+    padding-left: 34px;
+}
+
+.school-transportation-module .main-content .journey-line::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 8px;
+    width: 4px;
+    border-radius: 4px;
+}
+
+.school-transportation-module .main-content .journey-stop {
+    position: relative;
+    padding: 10px 0;
+}
+
+.school-transportation-module .main-content .journey-stop::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 27px;
+    left: -32px;
+    width: 18px;
+    height: 18px;
+    border: 4px solid var(--gu-navy-900);
+    border-radius: 50%;
+    background: #fff;
+}
+
+.school-transportation-module .main-content .journey-stop-grid {
+    display: grid;
+    grid-template-columns: 110px minmax(180px, 1fr) minmax(190px, auto) 110px;
+    gap: 16px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--gu-border);
+    border-radius: 16px;
+    background: #fff;
+}
+
+.school-transportation-module .main-content :is(.time-chip, .return-chip) {
+    padding: 9px;
+    border-radius: 11px;
+    text-align: center;
+}
+
+.school-transportation-module .main-content :is(.time-chip, .return-chip) small,
+.school-transportation-module .main-content :is(.time-chip, .return-chip) strong {
+    display: block;
+}
+
+.school-transportation-module .main-content .time-chip {
+    background: #eaf1ff !important;
+    color: var(--gu-blue-600);
+}
+
+.school-transportation-module .main-content .return-chip {
+    background: var(--gu-orange-100) !important;
+    color: var(--gu-orange-600);
+}
+
+.school-transportation-module .main-content .journey-stop-name h5 {
+    margin: 2px 0;
+}
+
+.school-transportation-module .main-content .journey-stop-name :is(small, span) {
+    color: var(--gu-muted);
+    font-size: 12px;
+}
+
+.school-transportation-module .main-content .journey-load {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+/* Popup surfaces are still body-scoped. */
+.school-transportation-module .modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(9, 26, 66, .22);
+}
+
+.school-transportation-module .modal-header {
+    border-color: var(--gu-border);
+    background: #f8faff;
+}
+
+/* Shared editor experience */
+.school-transportation-module .transport-form-intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+    margin: 0 0 16px;
+    padding: 17px 19px;
+    border: 1px solid #d9e5f2;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 92% 8%, rgba(245,130,32,.18), transparent 145px),
+        linear-gradient(125deg, #f8fbff, #eef5ff);
+}
+
+.school-transportation-module .transport-form-intro::after {
+    content: "";
+    position: absolute;
+    right: -44px;
+    bottom: -78px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(36,89,184,.12);
+    border-radius: 50%;
+}
+
+.school-transportation-module .transport-form-intro--orange {
+    border-color: #f3dfcc;
+    background:
+        radial-gradient(circle at 92% 8%, rgba(245,130,32,.22), transparent 145px),
+        linear-gradient(125deg, #fffaf5, #fff3e8);
+}
+
+.school-transportation-module .transport-form-intro__icon {
+    display: inline-flex;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: var(--gu-navy-900);
+    color: #fff;
+    font-size: 24px;
+    box-shadow: 0 10px 20px rgba(16,38,93,.16);
+}
+
+.school-transportation-module .transport-form-intro--orange .transport-form-intro__icon {
+    background: var(--gu-orange-500);
+}
+
+.school-transportation-module .transport-form-intro small {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--gu-blue-600);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .11em;
+}
+
+.school-transportation-module .transport-form-intro h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.school-transportation-module .transport-form-intro p {
+    margin: 3px 0 0;
+    color: var(--gu-muted) !important;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.school-transportation-module .main-content .transport-editor,
+.school-transportation-module .modal-body .transport-editor {
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid var(--gu-border);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: var(--gu-shadow-sm);
+}
+
+.school-transportation-module :is(.transport-editor, .transport-document-form) .form-group {
+    margin-bottom: 16px;
+}
+
+.school-transportation-module .transport-editor > .row {
+    row-gap: 4px;
+}
+
+.school-transportation-module .transport-editor .form-submit {
+    position: sticky;
+    z-index: 8;
+    bottom: -1px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 8px !important;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--gu-border);
+    background: linear-gradient(180deg, rgba(255,255,255,.82), #fff 28%);
+    backdrop-filter: blur(8px);
+}
+
+.school-transportation-module .transport-editor .checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 9px 12px !important;
+    border: 1px solid var(--gu-border);
+    border-radius: 12px;
+    background: #f8faff;
+}
+
+.school-transportation-module .transport-editor :is(input[type="checkbox"], input[type="radio"]) {
+    width: 19px;
+    height: 19px;
+    accent-color: var(--gu-navy-900);
+}
+
+.school-transportation-module .transport-route-editor .nav-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-bottom: 16px;
+}
+
+.school-transportation-module .transport-route-editor .nav-tabs .nav-link {
+    white-space: nowrap;
+}
+
+.school-transportation-module .transport-route-editor .boradingRow {
+    margin: 0;
+    padding: 18px 10px 4px;
+    border: 1px solid var(--gu-border);
+    border-radius: 16px;
+    background: #f9fbff;
+}
+
+.school-transportation-module .transport-document-form {
+    padding-bottom: 88px;
+}
+
+.school-transportation-module .transport-document-card {
+    border-left: 4px solid var(--gu-blue-600) !important;
+}
+
+.school-transportation-module .transport-document-card--due {
+    border-left-color: var(--gu-warning) !important;
+}
+
+.school-transportation-module .transport-document-card h3 {
+    margin: 2px 0 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.school-transportation-module .transport-document-card__eyebrow {
+    color: var(--gu-muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .1em;
+}
+
+.school-transportation-module .transport-document-current {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 11px;
+    align-items: center;
+    padding: 11px 12px;
+    border: 1px solid #cfe3da;
+    border-radius: 13px;
+    background: #effaf5;
+}
+
+.school-transportation-module .transport-document-current > i {
+    color: var(--gu-success);
+    font-size: 22px;
+}
+
+.school-transportation-module .transport-document-current strong,
+.school-transportation-module .transport-document-current small {
+    display: block;
+}
+
+.school-transportation-module .transport-document-current small {
+    color: var(--gu-muted);
+}
+
+.school-transportation-module .transport-save-bar {
+    position: fixed;
+    z-index: 40;
+    right: 22px;
+    bottom: 18px;
+    left: calc(var(--vz-vertical-menu-width, 250px) + 22px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    max-width: 1556px;
+    margin: 0 auto;
+    padding: 12px 15px;
+    border: 1px solid rgba(16,38,93,.12);
+    border-radius: 16px;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 16px 38px rgba(9,26,66,.16);
+    backdrop-filter: blur(12px);
+}
+
+.school-transportation-module .transport-save-bar strong,
+.school-transportation-module .transport-save-bar small {
+    display: block;
+}
+
+.school-transportation-module .transport-save-bar small {
+    color: var(--gu-muted);
+}
+
+/* Action remains visible while wide operational tables scroll. */
+.school-transportation-module .main-content .transport-action-table > thead > tr > th:first-child,
+.school-transportation-module .main-content .transport-action-table > tbody > tr > td:first-child {
+    position: sticky;
+    left: 0;
+}
+
+.school-transportation-module .main-content .transport-action-table > thead > tr > th:first-child {
+    z-index: 4;
+    box-shadow: 8px 0 14px rgba(9,26,66,.04);
+}
+
+.school-transportation-module .main-content .transport-action-table > tbody > tr > td:first-child {
+    z-index: 2;
+    background: #fff;
+    box-shadow: 8px 0 14px rgba(9,26,66,.04);
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .transport-action-table > tbody > tr:hover > td:first-child {
+    background: #f8faff;
+}
+
+.school-transportation-module .main-content .transport-capacity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 145px;
+}
+
+.school-transportation-module .main-content .transport-capacity__track {
+    flex: 1 1 92px;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e8edf5;
+}
+
+.school-transportation-module .main-content .transport-capacity__track span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.school-transportation-module .main-content .transport-capacity strong {
+    min-width: 42px;
+    font-size: 11px;
+    text-align: right;
+}
+
+.school-transportation-module .main-content .transport-metric-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 7px 10px;
+    border: 1px solid #cfe5d8;
+    border-radius: 999px;
+    background: #f0faf4;
+    color: #18794e;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .transport-metric-pill strong {
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+}
+
+.school-transportation-module .main-content .transport-empty-state {
+    display: flex;
+    min-height: 190px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 18px;
+    padding: 28px;
+    border: 1px dashed #cbd6e7;
+    border-radius: 18px;
+    background: #f8faff;
+    text-align: center;
+}
+
+.school-transportation-module .main-content .transport-empty-state > i {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    border-radius: 16px;
+    background: #eaf1ff;
+    color: var(--gu-blue-600);
+    font-size: 24px;
+}
+
+.school-transportation-module .main-content .transport-empty-state strong {
+    color: var(--gu-navy-900);
+    font-size: 16px;
+}
+
+.school-transportation-module .main-content .transport-empty-state span {
+    color: var(--gu-muted);
+    font-size: 13px;
+}
+
+.school-transportation-module .main-content .transport-live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border: 1px solid #cfe5d8;
+    border-radius: 999px;
+    background: #f0faf4;
+    color: #18794e;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .transport-live-indicator i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gu-success);
+    box-shadow: 0 0 0 4px rgba(25, 135, 84, .12);
+}
+
+.school-transportation-module .main-content .transport-gate-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    padding: 18px;
+    border: 1px solid var(--gu-border);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: var(--gu-shadow-sm);
+}
+
+.school-transportation-module .main-content .transport-gate-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gu-orange-500);
+    content: "";
+}
+
+.school-transportation-module .main-content .transport-gate-card--primary::before {
+    background: var(--gu-blue-600);
+}
+
+.school-transportation-module .main-content .transport-gate-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.school-transportation-module .main-content .transport-gate-card__top > strong {
+    color: var(--gu-navy-900);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.school-transportation-module .main-content .transport-gate-card__vehicle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.school-transportation-module .main-content .transport-gate-card__vehicle > span {
+    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 45px;
+    border-radius: 14px;
+    background: #eaf1ff;
+    color: var(--gu-blue-600);
+    font-size: 22px;
+}
+
+.school-transportation-module .main-content .transport-gate-card__vehicle small {
+    display: block;
+    color: var(--gu-muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.school-transportation-module .main-content .transport-gate-card__vehicle h3 {
+    margin: 2px 0 0;
+    color: var(--gu-navy-900);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-gate-card__details {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid var(--gu-border);
+}
+
+.school-transportation-module .main-content .transport-gate-card__details > div {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--gu-border);
+}
+
+.school-transportation-module .main-content .transport-gate-card__details :is(dt, dd) {
+    margin: 0;
+    font-size: 12px;
+}
+
+.school-transportation-module .main-content .transport-gate-card__details dt {
+    color: var(--gu-muted);
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-gate-card__details dd {
+    overflow-wrap: anywhere;
+    color: var(--gu-ink);
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-gate-card__action {
+    margin-top: 15px;
+}
+
+.school-transportation-module .main-content .transport-gate-card__action .btn {
+    width: 100%;
+}
+
+/* Student transport application verification */
+.school-transportation-module .main-content .transport-section-eyebrow {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--gu-blue-600);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .1em;
+}
+
+.school-transportation-module .main-content .transport-profile-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(300px, .65fr);
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.school-transportation-module .main-content .transport-profile-overview .card {
+    margin-bottom: 0;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__heading h2,
+.school-transportation-module .main-content .transport-profile-actions h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__heading p,
+.school-transportation-module .main-content .transport-profile-actions p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__heading > strong {
+    color: var(--gu-navy-900);
+    font-size: 31px;
+    font-weight: 850;
+    font-variant-numeric: tabular-nums;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__track {
+    height: 12px;
+    overflow: hidden;
+    margin: 22px 0 11px;
+    border-radius: 999px;
+    background: #e8edf5;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__track span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--gu-blue-600), var(--gu-navy-900));
+    transition: width .35s var(--gu-motion);
+}
+
+.school-transportation-module .main-content .transport-profile-progress__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: var(--gu-muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-profile-progress__meta i {
+    color: var(--gu-blue-600);
+}
+
+.school-transportation-module .main-content .transport-profile-actions .card-body {
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.school-transportation-module .main-content .transport-profile-actions .btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.school-transportation-module .main-content .transport-profile-checks {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.school-transportation-module .main-content .transport-profile-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 118px;
+    padding: 16px;
+    border: 1px solid var(--gu-border);
+    border-radius: 16px;
+    background: #f8faff;
+}
+
+.school-transportation-module .main-content .transport-profile-check > i {
+    display: inline-flex;
+    width: 39px;
+    height: 39px;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 39px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.school-transportation-module .main-content .transport-profile-check span,
+.school-transportation-module .main-content .transport-profile-check strong,
+.school-transportation-module .main-content .transport-profile-check small {
+    display: block;
+}
+
+.school-transportation-module .main-content .transport-profile-check span {
+    color: var(--gu-muted);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.school-transportation-module .main-content .transport-profile-check strong {
+    margin-top: 3px;
+    color: var(--gu-ink);
+    font-size: 15px;
+}
+
+.school-transportation-module .main-content .transport-profile-check small {
+    margin-top: 4px;
+    color: var(--gu-muted);
+    line-height: 1.45;
+}
+
+.school-transportation-module .main-content .transport-profile-check.is-ready {
+    border-color: #cfe5d8;
+    background: #f0faf4;
+}
+
+.school-transportation-module .main-content .transport-profile-check.is-ready > i {
+    background: #dff4e8;
+    color: var(--gu-success);
+}
+
+.school-transportation-module .main-content .transport-profile-check.is-blocked {
+    border-color: #efd2d4;
+    background: #fff7f7;
+}
+
+.school-transportation-module .main-content .transport-profile-check.is-blocked > i {
+    background: #fce8e9;
+    color: var(--gu-danger);
+}
+
+.school-transportation-module .main-content .transport-profile-check.is-information {
+    border-color: #ceddf6;
+    background: #f3f7ff;
+}
+
+.school-transportation-module .main-content .transport-profile-check.is-information > i {
+    background: #e3edff;
+    color: var(--gu-blue-600);
+}
+
+.school-transportation-module .main-content .transport-status-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 18px 0;
+    padding: 15px 17px;
+    border: 1px solid #cfe5d8;
+    border-radius: 16px;
+    background: #f0faf4;
+    color: #176944;
+}
+
+.school-transportation-module .main-content .transport-status-note.is-blocked {
+    border-color: #efd2d4;
+    background: #fff7f7;
+    color: #942f37;
+}
+
+.school-transportation-module .main-content .transport-status-note > i {
+    margin-top: 1px;
+    font-size: 21px;
+}
+
+.school-transportation-module .main-content .transport-status-note strong,
+.school-transportation-module .main-content .transport-status-note span {
+    display: block;
+}
+
+.school-transportation-module .main-content .transport-status-note span {
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.school-transportation-module .main-content .transport-missing-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.school-transportation-module .main-content .transport-missing-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 11px;
+    border: 1px solid #efd2d4;
+    border-radius: 999px;
+    background: #fff7f7;
+    color: var(--gu-danger);
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.school-transportation-module .main-content .transport-profile-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.school-transportation-module .main-content .transport-profile-details > div {
+    display: grid;
+    gap: 18px;
+}
+
+.school-transportation-module .main-content .transport-profile-details .card {
+    margin-bottom: 0;
+}
+
+.school-transportation-module .main-content .transport-detail-list {
+    border-top: 1px solid var(--gu-border);
+}
+
+.school-transportation-module .main-content .transport-detail-row {
+    display: grid;
+    grid-template-columns: minmax(145px, .7fr) minmax(0, 1.3fr) 20px;
+    gap: 14px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gu-border);
+}
+
+.school-transportation-module .main-content .transport-detail-row > span {
+    color: var(--gu-muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.school-transportation-module .main-content .transport-detail-row > strong {
+    overflow-wrap: anywhere;
+    color: var(--gu-ink);
+    font-size: 13px;
+}
+
+.school-transportation-module .main-content .transport-detail-row > i {
+    color: var(--gu-success);
+    font-size: 17px;
+}
+
+.school-transportation-module .main-content .transport-detail-row > i.is-missing {
+    color: var(--gu-danger);
+}
+
+.school-transportation-module .main-content .transport-fact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.school-transportation-module .main-content .transport-fact-grid > div {
+    min-height: 82px;
+    padding: 13px;
+    border: 1px solid var(--gu-border);
+    border-radius: 14px;
+    background: #f8faff;
+}
+
+.school-transportation-module .main-content .transport-fact-grid span,
+.school-transportation-module .main-content .transport-fact-grid strong {
+    display: block;
+}
+
+.school-transportation-module .main-content .transport-fact-grid span {
+    color: var(--gu-muted);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.school-transportation-module .main-content .transport-fact-grid strong {
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+    color: var(--gu-ink);
+    font-size: 14px;
+}
+
+.school-transportation-module .main-content .transport-inline-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 13px;
+    padding: 11px 12px;
+    border-radius: 12px;
+    background: #eef4ff;
+    color: #435a7b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.school-transportation-module .main-content .transport-inline-note i {
+    color: var(--gu-blue-600);
+    font-size: 17px;
+}
+
+.school-transportation-module .main-content button.is-submitting {
+    cursor: wait;
+    opacity: .78;
+}
+
+.school-transportation-module .main-content .table tbody:empty::after {
+    content: "No records match the selected filters.";
+    display: table-cell;
+    padding: 26px;
+    color: var(--gu-muted);
+    font-weight: 600;
+}
+
+@keyframes gu-transport-enter {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991px) {
+    .school-transportation-module .main-content .card-body {
+        padding: 18px;
+    }
+
+    .school-transportation-module .main-content form.row > [class*="col-"] {
+        margin-bottom: 8px;
+    }
+
+    .school-transportation-module .main-content .transport-command__main {
+        display: block;
+    }
+
+    .school-transportation-module .main-content .transport-command__actions {
+        justify-content: flex-start;
+        margin-top: 18px;
+    }
+
+    .school-transportation-module .main-content .transport-command__kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .school-transportation-module .main-content .page-content > .container-fluid {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .school-transportation-module .main-content .page-title-box h4 {
+        font-size: 24px;
+    }
+
+    .school-transportation-module .main-content .transport-command {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .school-transportation-module .main-content .transport-command__icon {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+    }
+
+    .school-transportation-module .main-content .transport-command__kpis {
+        gap: 7px;
+    }
+
+    .school-transportation-module .main-content .transport-movement-tabs {
+        top: 64px;
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .school-transportation-module .main-content .transport-movement-tabs .nav-link {
+        min-height: 48px;
+        padding: 8px 6px;
+        font-size: 11px;
+        line-height: 1.25;
+    }
+
+    .school-transportation-module .main-content .transport-movement-search {
+        grid-template-columns: 20px minmax(0, 1fr);
+        padding: 8px 12px;
+    }
+
+    .school-transportation-module .main-content .transport-movement-search > span {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        text-align: center;
+    }
+
+    .school-transportation-module .main-content .transport-movement-card {
+        gap: 14px;
+        padding: 15px;
+        border-radius: 17px;
+    }
+
+    .school-transportation-module .main-content .transport-movement-card:hover {
+        transform: none;
+    }
+
+    .school-transportation-module .main-content .transport-movement-card__meta {
+        grid-template-columns: minmax(0, 1.35fr) minmax(86px, .65fr);
+    }
+
+    .school-transportation-module .main-content .transport-kpi {
+        padding: 11px 12px;
+    }
+
+    .school-transportation-module .main-content .transport-kpi strong {
+        font-size: 21px;
+    }
+
+    .school-transportation-module .main-content .journey-line {
+        margin-left: 5px;
+        padding-left: 25px;
+    }
+
+    .school-transportation-module .main-content .journey-stop::before {
+        left: -23px;
+    }
+
+    .school-transportation-module .main-content .journey-stop-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .school-transportation-module .main-content .journey-stop-name {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .school-transportation-module .main-content .journey-load {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+
+    .school-transportation-module .main-content :is(.card, .table-responsive) {
+        border-radius: 16px !important;
+    }
+
+    .school-transportation-module .main-content .card-body {
+        padding: 14px;
+    }
+
+    .school-transportation-module .main-content form.row,
+    .school-transportation-module .main-content form.container {
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .school-transportation-module .main-content .btn {
+        min-height: 44px;
+    }
+
+    .school-transportation-module .main-content .table :is(th, td) {
+        white-space: nowrap;
+    }
+
+    .school-transportation-module .main-content .dataTables_wrapper :is(.dataTables_filter, .dataTables_length) {
+        float: none;
+        text-align: left;
+    }
+
+    .school-transportation-module .main-content .dataTables_wrapper .dataTables_filter input {
+        width: calc(100% - 62px);
+    }
+
+    .school-transportation-module .transport-form-intro {
+        align-items: flex-start;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .school-transportation-module .main-content .transport-editor,
+    .school-transportation-module .modal-body .transport-editor {
+        padding: 14px;
+    }
+
+    .school-transportation-module .transport-editor .form-submit {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .school-transportation-module .transport-editor .form-submit .btn {
+        width: 100%;
+    }
+
+    .school-transportation-module .transport-save-bar {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .school-transportation-module .transport-save-bar > div {
+        display: none;
+    }
+
+    .school-transportation-module .transport-save-bar .btn {
+        width: 100%;
+    }
+
+    .school-transportation-module .main-content .transport-panel-title {
+        flex-direction: column;
+    }
+
+    .school-transportation-module .main-content .transport-gate-card {
+        padding: 15px;
+        border-radius: 17px;
+    }
+
+    .school-transportation-module .main-content .transport-gate-card__details > div {
+        grid-template-columns: 96px minmax(0, 1fr);
+    }
+
+    .school-transportation-module .main-content .transport-profile-overview,
+    .school-transportation-module .main-content .transport-profile-details,
+    .school-transportation-module .main-content .transport-profile-checks {
+        grid-template-columns: 1fr;
+    }
+
+    .school-transportation-module .main-content .transport-detail-row {
+        grid-template-columns: minmax(110px, .65fr) minmax(0, 1.35fr) 18px;
+        gap: 9px;
+    }
+
+    .school-transportation-module .main-content .transport-fact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .school-transportation-module .main-content .page-content > .container-fluid > :not(script):not(style),
+    .school-transportation-module .main-content :is(.report-card, a > .card, .btn) {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}

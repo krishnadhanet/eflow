@@ -1,3 +1,12 @@
+(function ($) {
+  $.ajaxPrefilter(function (options, original, xhr) {
+    var target = new URL(options.url, window.location.href);
+    if (target.origin === window.location.origin && /\/transportation\//i.test(target.pathname) &&
+        !/^(GET|HEAD)$/i.test(options.type || 'GET')) {
+      xhr.setRequestHeader('X-Transport-CSRF', window.transportCsrf || '');
+    }
+  });
+})(jQuery);
 $(function () {
   $(document).on("change", "#ownership", function () {
       if ($(this).val() == '2') {
@@ -12,12 +21,14 @@ $(function () {
   $(document).on("change", "#serviceType", function () {
     var serviceType = $(this).val();
     var selectedText = $(this).find("option:selected").text();
+    var $serviceForm = $(this).closest("form");
+    var $transportSlip = $serviceForm.find(".transportSlip");
+    var hasExistingSlip = String($transportSlip.attr("data-has-existing")) === "1";
     $("#odometer_reading").attr("required",false);
-    $("#expaire_date").val("");
     $("#vehicle").trigger('change');
     $(".cost_amount").attr("required",false);
     $(".cost_amount").attr("min","");
-    $(".transportSlip").attr("required",true);
+    $transportSlip.prop("required", !hasExistingSlip);
     $("#qty").attr("required",true);
     if(selectedText=='Fuel'){
         $(".maintenance, .insurance, .challan").addClass('hide');
@@ -32,7 +43,7 @@ $(function () {
       $(".fuel, .insurance, .challan").addClass('hide');
       $(".maintenance").addClass('show');
       $(".maintenance").removeClass('hide');
-      $(".transportSlip").attr("required",true);
+        $transportSlip.prop("required", !hasExistingSlip);
       $("#qty").attr("required",false);
     }else{
       $(".maintenance, .fuel").addClass('hide');
@@ -40,7 +51,7 @@ $(function () {
       $(".challan").removeClass('hide');
       $(".insurance").addClass('show');
         $(".insurance").removeClass('hide');
-        $(".transportSlip").attr("required",false);
+        $transportSlip.prop("required", false);
         $("#qty").attr("required",false);
     }
 });
@@ -64,7 +75,7 @@ $(function () {
             $("#average").val('');
           }
         },
-      }); 
+      });
   });
   $(document).on("click", ".add-new-boarding-tab", function () {
     const tabId = "boarding-tab-" + boardingIndex;
@@ -155,7 +166,7 @@ $(function () {
         }
     });
   });
-  
+
 });
 let attendanceData = {
   students: [], // {id: 1, status: "present"}
@@ -187,7 +198,6 @@ function collectAttendance(type) {
           date : $("#from_date").val()
       });
   });
-  
 }
 
 function markAll(type, status) {
@@ -199,7 +209,6 @@ function markAll(type, status) {
     card.classList.remove('present', 'absent');
     card.classList.add(status);
   });
-  updateStudentPresentCount();
 }
 function toggleAttendance(card) {
   const currentStatus = card.dataset.status;
@@ -207,7 +216,6 @@ function toggleAttendance(card) {
   card.dataset.status = newStatus;
   card.classList.remove(currentStatus);
   card.classList.add(newStatus);
-  updateStudentPresentCount();
 
 }
 function submitAttendance() {
@@ -226,13 +234,4 @@ function submitAttendance() {
         swal("Failed to save. Try again.");
       }
   });
-}
-function updateStudentPresentCount() {
-  let presentCount = $(`.attendance-card[data-type="student"][data-status="present"]`).length;
-  $("#totalStudentPresent").text(presentCount);
-}
-if($("#totalStudentPresent").length>0){
-  setTimeout(() => {
-    updateStudentPresentCount();
-  }, 100);
 }
