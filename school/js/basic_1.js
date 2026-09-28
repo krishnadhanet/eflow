@@ -438,21 +438,18 @@ $(function () {
       });
     }
     if($('.lib-punch-report').length>0){
-        var libraryMovement = $('.library-movement-page .lib-punch-report').length > 0;
         var application_table = $('.lib-punch-report').DataTable({
           "processing": true,
           "serverSide": true,
           "retrieve": true,
-          "pageLength": 25,
-          "lengthMenu": libraryMovement ? [[10, 25, 50, 100], [10, 25, 50, 100]] : [[10, 25, 50, -1], [10, 25, 50, "All"]],
-          "order": libraryMovement ? [[6, "desc"]] : [],
+          "lengthMenu":[[10, 25, 50, -1], [10, 25, 50, "All"]],
           "dom": 'Blfrtip',
           buttons: [
           {
             extend: "excelHtml5",
           }],
           "ajax": {
-              "url": base_url+(libraryMovement ? "library/getLibReportThroughAjax" : "biometric/getLibReportThroughAjax"),
+              "url": base_url+"biometric/getLibReportThroughAjax",
               "type": "POST",
               "data": function ( d ) {
                   d.from_date = $('.lib-punch-report-filter').find('input[name="from_date"]').val();
@@ -460,34 +457,23 @@ $(function () {
                   d.type = $('.lib-punch-report-filter').find('select[name="type"]').val();
               }
           },
-          'columns': libraryMovement ? [
-              { data: 'sr' },
-              { data: 'type' },
-              { data: 'name' },
-              { data: 'attendance_date' },
-              { data: 'start_time' },
-              { data: 'end_time' },
-              { data: 'last_activity' },
-              { data: 'status' },
-              { data: 'duration' }
-          ] : [
+          'columns': [
               { data: 'sr' },
               { data: 'type' },
               { data: 'name' },
               { data: 'attendance_date' },
               { data: 'start_time' },
               { data: 'end_time' }
-          ],
-          "columnDefs": libraryMovement ? [{ "orderable": false, "targets": [0, 1, 2, 7, 8] }] : []
+          ]
       });
 
       $('.lib-punch-report-search-btn').on('click',function(){
           application_table.draw();
       });
 
-      setInterval(function() {
+      setTimeout(function() {
         application_table.draw();
-      }, libraryMovement ? 60000 : 2*60000);
+      }, 2*60000);
     }
 
     $(document).on("submit", "form", function (event) {
