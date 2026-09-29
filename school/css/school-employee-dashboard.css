@@ -1,0 +1,144 @@
+/* School employee workspace. All rules stay inside the dashboard. */
+#school-employee-dashboard{--ink:#17233d;--muted:#71809a;--line:#e8edf5;--blue:#233d77;--orange:#f58220;--canvas:#f5f7fb;max-width:1580px;margin:0 auto;padding:22px 22px 36px;color:var(--ink);background:radial-gradient(circle at 88% 4%,#e8edf9 0,transparent 24rem),radial-gradient(circle at 0 30%,#fff0e1 0,transparent 28rem),var(--canvas);border-radius:24px;font-family:Inter,'Segoe UI',Arial,sans-serif;box-sizing:border-box}
+#school-employee-dashboard *{box-sizing:border-box}
+#school-employee-dashboard h1,#school-employee-dashboard h2,#school-employee-dashboard h3{font-family:Inter,'Segoe UI',Arial,sans-serif!important;letter-spacing:-.035em}
+#school-employee-dashboard a{text-decoration:none}
+#school-employee-dashboard .sed-hero{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(290px,.72fr);gap:22px;padding:30px;border-radius:24px;color:#fff;background:linear-gradient(115deg,#0c1c43 0%,#19376f 62%,#304d86 100%);box-shadow:0 20px 42px rgba(19,42,89,.17)}
+#school-employee-dashboard .sed-hero:before{content:'';position:absolute;width:420px;height:420px;right:-130px;top:-250px;border:65px solid rgba(255,255,255,.04);border-radius:50%;pointer-events:none}
+#school-employee-dashboard .sed-hero:after{content:'';position:absolute;width:280px;height:280px;left:37%;bottom:-230px;border:55px solid rgba(245,130,32,.1);border-radius:50%;pointer-events:none}
+#school-employee-dashboard .sed-hero-main,#school-employee-dashboard .sed-workday{position:relative;z-index:1}
+#school-employee-dashboard .sed-eyebrow{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#d5e3ff}
+#school-employee-dashboard .sed-live-dot{display:inline-block;flex:none;width:8px;height:8px;border-radius:50%;background:#61d5a0;box-shadow:0 0 0 5px rgba(97,213,160,.13)}
+#school-employee-dashboard .sed-eyebrow-date{margin-left:10px;padding-left:18px;border-left:1px solid rgba(255,255,255,.23);letter-spacing:.05em;color:#adbfe2}
+#school-employee-dashboard .sed-hero h1{max-width:730px;margin:20px 0 8px;color:#fff;font-size:clamp(29px,3vw,43px);font-weight:800;line-height:1.13}
+#school-employee-dashboard .sed-hero h1 span{color:#ffad67}
+#school-employee-dashboard .sed-hero-main>p{margin:0;color:#cad7ee;font-size:14px;line-height:1.6}
+#school-employee-dashboard .sed-identity{display:flex;align-items:center;gap:12px;width:max-content;max-width:100%;margin-top:25px;padding:9px 13px 9px 9px;border:1px solid rgba(255,255,255,.15);border-radius:14px;background:rgba(255,255,255,.08)}
+#school-employee-dashboard .sed-identity img{width:40px;height:40px;object-fit:cover;border-radius:11px;border:2px solid rgba(255,255,255,.3)}
+#school-employee-dashboard .sed-identity strong,#school-employee-dashboard .sed-identity small{display:block}
+#school-employee-dashboard .sed-identity strong{color:#fff;font-size:13px}
+#school-employee-dashboard .sed-identity small{margin-top:3px;color:#bbcae4;font-size:11px}
+#school-employee-dashboard .sed-hero-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+#school-employee-dashboard .sed-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;padding:10px 16px;border-radius:10px;font-size:12px;font-weight:800;transition:transform .2s,background .2s}
+#school-employee-dashboard .sed-button:hover{transform:translateY(-2px)}
+#school-employee-dashboard .sed-button-primary{border:1px solid #ffab62;color:#182849;background:#ffad67;cursor:pointer}
+#school-employee-dashboard .sed-button-outline{border:1px solid rgba(255,255,255,.27);color:#fff;background:rgba(255,255,255,.07)}
+#school-employee-dashboard .sed-button-outline:hover{color:#fff;background:rgba(255,255,255,.14)}
+#school-employee-dashboard .sed-workday{align-self:stretch;padding:20px;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:rgba(255,255,255,.09);backdrop-filter:blur(10px)}
+#school-employee-dashboard .sed-workday-top{display:flex;justify-content:space-between;align-items:center;color:#d2dff6;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+#school-employee-dashboard .sed-workday-top i{font-size:21px;color:#ffbc7f}
+#school-employee-dashboard .sed-workday-date{display:flex;align-items:center;gap:12px;margin:15px 0 19px}
+#school-employee-dashboard .sed-workday-date>strong{font-size:55px;line-height:1;color:#fff;letter-spacing:-.07em}
+#school-employee-dashboard .sed-workday-date>span{display:block;color:#f6f8ff;font-size:16px;font-weight:800;line-height:1.25}
+#school-employee-dashboard .sed-workday-date small{display:block;margin-top:4px;color:#aebedf;font-size:12px;font-weight:500}
+#school-employee-dashboard .sed-punch{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#school-employee-dashboard .sed-punch>div{padding:11px;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:rgba(8,23,55,.22)}
+#school-employee-dashboard .sed-punch span,#school-employee-dashboard .sed-punch strong{display:block}
+#school-employee-dashboard .sed-punch span{color:#aebedf;font-size:11px}
+#school-employee-dashboard .sed-punch span i{color:#ffaf6c;margin-right:3px}
+#school-employee-dashboard .sed-punch strong{margin-top:5px;color:#fff;font-size:13px}
+#school-employee-dashboard .sed-workday-foot{display:flex;align-items:center;gap:9px;margin-top:15px;color:#dce7fa;font-size:11px}
+#school-employee-dashboard .sed-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0 27px}
+#school-employee-dashboard .sed-metric{position:relative;display:flex;align-items:center;gap:12px;min-width:0;min-height:112px;padding:17px;border:1px solid var(--line);border-radius:16px;color:var(--ink);background:#fff;box-shadow:0 6px 20px rgba(24,45,83,.035);transition:transform .2s,box-shadow .2s}
+#school-employee-dashboard .sed-metric:hover,#school-employee-dashboard .sed-action:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(24,45,83,.1)}
+#school-employee-dashboard .sed-metric-icon,#school-employee-dashboard .sed-action-icon,#school-employee-dashboard .sed-simple-icon{display:grid;flex:none;place-items:center;border-radius:12px}
+#school-employee-dashboard .sed-metric-icon{width:46px;height:46px;font-size:21px}
+#school-employee-dashboard .blue{color:#2c5fb0;background:#e9f1ff}
+#school-employee-dashboard .green{color:#168263;background:#e5f7ee}
+#school-employee-dashboard .orange{color:#ca6b19;background:#fff0e2}
+#school-employee-dashboard .violet{color:#7958bd;background:#f2ebff}
+#school-employee-dashboard .rose{color:#c85866;background:#ffecef}
+#school-employee-dashboard .slate{color:#65758e;background:#edf1f5}
+#school-employee-dashboard .red{color:#bb4a50;background:#fff0f0}
+#school-employee-dashboard .sed-metric>span:nth-child(2){display:block;min-width:0}
+#school-employee-dashboard .sed-metric small,#school-employee-dashboard .sed-metric strong,#school-employee-dashboard .sed-metric>span:nth-child(2)>span{display:block}
+#school-employee-dashboard .sed-metric small{color:#75839a;font-size:11px;font-weight:700}
+#school-employee-dashboard .sed-metric strong{margin:2px 0;color:#182a4a;font-size:25px;line-height:1.15;font-weight:800}
+#school-employee-dashboard .sed-metric strong em{font-style:normal;font-size:11px;font-weight:600;color:#7c89a0}
+#school-employee-dashboard .sed-metric>span:nth-child(2)>span{color:#78869b;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#school-employee-dashboard .sed-metric>i{position:absolute;top:15px;right:15px;color:#a5b3c8}
+#school-employee-dashboard .sed-section-title{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:0 2px 13px}
+#school-employee-dashboard .sed-section-title small,#school-employee-dashboard .sed-panel-kicker{display:block;color:#dc792d;font-size:10px;font-weight:800;letter-spacing:.13em}
+#school-employee-dashboard .sed-section-title h2{margin:3px 0 0;color:#1b2e50;font-size:23px;font-weight:800}
+#school-employee-dashboard .sed-section-title p{margin:0 0 3px;color:#8290a5;font-size:12px}
+#school-employee-dashboard .sed-actions{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px;margin-bottom:23px}
+#school-employee-dashboard .sed-action{position:relative;display:flex;flex-direction:column;min-height:142px;padding:15px;border:1px solid var(--line);border-radius:15px;color:var(--ink);background:#fff;transition:transform .2s,box-shadow .2s}
+#school-employee-dashboard .sed-action-icon{width:37px;height:37px;margin-bottom:15px;font-size:19px}
+#school-employee-dashboard .sed-action strong{color:#1c2d4b;font-size:12px;font-weight:800}
+#school-employee-dashboard .sed-action small{margin-top:4px;color:#8995a6;font-size:10px}
+#school-employee-dashboard .sed-action-arrow{position:absolute;top:14px;right:13px;color:#a4afc0;font-size:16px}
+#school-employee-dashboard .sed-content{display:grid;grid-template-columns:minmax(0,1.56fr) minmax(310px,.82fr);gap:17px}
+#school-employee-dashboard .sed-main-column,#school-employee-dashboard .sed-side-column{display:flex;flex-direction:column;gap:17px;min-width:0}
+#school-employee-dashboard .sed-panel{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 6px 22px rgba(24,45,83,.035)}
+#school-employee-dashboard .sed-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 20px 16px;border-bottom:1px solid #f0f3f8}
+#school-employee-dashboard .sed-panel-heading h2{margin:3px 0 0;color:#1a2c4d;font-size:18px;font-weight:800}
+#school-employee-dashboard .sed-panel-heading p{margin:4px 0 0;color:#8a96a8;font-size:11px}
+#school-employee-dashboard .sed-panel-heading>a{flex:none;color:#2a579f;font-size:11px;font-weight:800}
+#school-employee-dashboard .sed-panel-heading>a:hover{color:#ec7b22}
+#school-employee-dashboard .sed-attendance-list{padding:5px 20px 11px}
+#school-employee-dashboard .sed-attendance-row{display:flex;align-items:center;gap:13px;min-height:64px;border-bottom:1px solid #f1f3f7}
+#school-employee-dashboard .sed-attendance-row:last-child{border-bottom:0}
+#school-employee-dashboard .sed-date-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;width:40px;height:43px;border-radius:9px;background:#f0f4fa}
+#school-employee-dashboard .sed-date-tile strong{font-size:16px;line-height:1;color:#294673}
+#school-employee-dashboard .sed-date-tile small{margin-top:3px;font-size:9px;color:#8393ad}
+#school-employee-dashboard .sed-attendance-detail{flex:1;min-width:0}
+#school-employee-dashboard .sed-attendance-detail strong,#school-employee-dashboard .sed-attendance-detail small{display:block}
+#school-employee-dashboard .sed-attendance-detail strong{font-size:12px;color:#263854}
+#school-employee-dashboard .sed-attendance-detail small{margin-top:3px;font-size:10px;color:#8792a5}
+#school-employee-dashboard .sed-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:6px 9px;border-radius:7px;font-size:10px;font-weight:800;white-space:nowrap}
+#school-employee-dashboard .sed-leave-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:18px 20px 5px}
+#school-employee-dashboard .sed-leave-stats>div{padding:12px 8px;text-align:center;background:#f6f8fb;border-radius:10px}
+#school-employee-dashboard .sed-leave-stats strong,#school-employee-dashboard .sed-leave-stats span{display:block}
+#school-employee-dashboard .sed-leave-stats strong{color:#233d77;font-size:20px;font-weight:800}
+#school-employee-dashboard .sed-leave-stats span{margin-top:3px;color:#8793a6;font-size:10px}
+#school-employee-dashboard .sed-leave-list{padding:7px 20px 17px}
+#school-employee-dashboard .sed-leave-row{display:grid;grid-template-columns:minmax(100px,1.2fr) minmax(70px,1fr) auto;align-items:center;gap:15px;padding:10px 0;border-bottom:1px solid #f0f3f7}
+#school-employee-dashboard .sed-leave-row:last-child{border-bottom:0}
+#school-employee-dashboard .sed-leave-row strong,#school-employee-dashboard .sed-leave-row small{display:block}
+#school-employee-dashboard .sed-leave-row strong{color:#243752;font-size:11px}
+#school-employee-dashboard .sed-leave-row small{margin-top:3px;color:#8996a8;font-size:10px}
+#school-employee-dashboard .sed-leave-row>b{color:#2b547d;font-size:11px;white-space:nowrap}
+#school-employee-dashboard .sed-leave-track{height:7px;border-radius:99px;background:#e8edf5;overflow:hidden}
+#school-employee-dashboard .sed-leave-track span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2b5aa4,#62bca4)}
+#school-employee-dashboard .sed-focus{border-color:#f4ddca}
+#school-employee-dashboard .sed-focus .sed-panel-heading{background:#fffaf6}
+#school-employee-dashboard .sed-focus-list{padding:7px 17px 13px}
+#school-employee-dashboard .sed-focus-list a,#school-employee-dashboard .sed-simple-list>a,#school-employee-dashboard .sed-simple-list>div{display:flex;align-items:center;gap:11px;min-height:58px;padding:9px 2px;border-bottom:1px solid #f0f3f7;color:#243752}
+#school-employee-dashboard .sed-focus-list a:last-child,#school-employee-dashboard .sed-simple-list>*:last-child{border-bottom:0}
+#school-employee-dashboard .sed-focus-list a:hover,#school-employee-dashboard .sed-simple-list>a:hover{background:#f8faff}
+#school-employee-dashboard .sed-simple-icon{width:35px;height:35px;font-size:17px}
+#school-employee-dashboard .sed-focus-list a>span:nth-child(2),#school-employee-dashboard .sed-simple-list a>span:nth-child(2),#school-employee-dashboard .sed-simple-list div>span:nth-child(2){flex:1;min-width:0}
+#school-employee-dashboard .sed-focus-list strong,#school-employee-dashboard .sed-focus-list small,#school-employee-dashboard .sed-simple-list strong,#school-employee-dashboard .sed-simple-list small{display:block}
+#school-employee-dashboard .sed-focus-list strong,#school-employee-dashboard .sed-simple-list strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#263752;font-size:11px}
+#school-employee-dashboard .sed-focus-list small,#school-employee-dashboard .sed-simple-list small{margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#8d9aab;font-size:10px}
+#school-employee-dashboard .sed-focus-list b{display:grid;place-items:center;min-width:23px;height:23px;border-radius:7px;background:#f0f3f8;color:#385073;font-size:11px}
+#school-employee-dashboard .sed-simple-list{padding:5px 18px 12px}
+#school-employee-dashboard .sed-simple-list>a>i{color:#a5afbf}
+#school-employee-dashboard .sed-holiday-date{display:flex;flex:none;flex-direction:column;align-items:center;justify-content:center;width:37px;height:39px;border-radius:8px;background:#fff0e2;color:#b75c14}
+#school-employee-dashboard .sed-holiday-date strong{font-size:14px;color:#b75c14}
+#school-employee-dashboard .sed-holiday-date small{font-size:9px;color:#b75c14}
+#school-employee-dashboard .sed-bottom-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-top:17px}
+#school-employee-dashboard .sed-team-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;padding:7px 19px 14px}
+#school-employee-dashboard .sed-team-list>div{display:flex;align-items:center;gap:10px;min-width:0;min-height:57px;border-bottom:1px solid #f0f3f7}
+#school-employee-dashboard .sed-team-avatar{display:grid;flex:none;place-items:center;width:34px;height:34px;border-radius:10px;background:#e7effb;color:#2d5b9e;font-size:13px;font-weight:800}
+#school-employee-dashboard .sed-team-avatar.celebrate{background:#fff0e2;color:#dc792d;font-size:17px}
+#school-employee-dashboard .sed-team-list>div>span:nth-child(2){flex:1;min-width:0}
+#school-employee-dashboard .sed-team-list strong,#school-employee-dashboard .sed-team-list small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#school-employee-dashboard .sed-team-list strong{font-size:11px;color:#263752}
+#school-employee-dashboard .sed-team-list small{font-size:10px;color:#8d9aab}
+#school-employee-dashboard .sed-team-list .sed-badge{font-size:9px;padding:5px 7px}
+#school-employee-dashboard .sed-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:150px;color:#91a0b3;text-align:center;font-size:11px}
+#school-employee-dashboard .sed-empty i{font-size:26px;color:#9db3d6}
+#school-employee-dashboard .sed-empty strong{font-size:12px;color:#385073}
+#school-employee-dashboard .sed-empty.compact{min-height:66px;padding:15px}
+#school-employee-dashboard .sed-app-link{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px;padding:17px 20px;border-radius:14px;background:#e9eef8;color:#23406f}
+#school-employee-dashboard .sed-app-link:hover{background:#dce7f8;color:#173466}
+#school-employee-dashboard .sed-app-link>span:first-child{display:flex;align-items:center;gap:11px}
+#school-employee-dashboard .sed-app-link>span:first-child>i{display:grid;place-items:center;width:35px;height:35px;border-radius:10px;background:#fff;font-size:18px}
+#school-employee-dashboard .sed-app-link strong,#school-employee-dashboard .sed-app-link small{display:block}
+#school-employee-dashboard .sed-app-link strong{font-size:12px}
+#school-employee-dashboard .sed-app-link small{margin-top:2px;font-size:10px;color:#7184a4}
+#school-employee-dashboard .sed-app-link>span:last-child{font-size:11px;font-weight:800}
+@media(max-width:1200px){#school-employee-dashboard .sed-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#school-employee-dashboard .sed-actions{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){#school-employee-dashboard .sed-content{grid-template-columns:1fr}#school-employee-dashboard .sed-hero{grid-template-columns:1fr}#school-employee-dashboard .sed-bottom-grid{grid-template-columns:1fr}}
+@media(max-width:600px){#school-employee-dashboard{padding:12px;border-radius:0}#school-employee-dashboard .sed-hero{padding:22px;border-radius:18px}#school-employee-dashboard .sed-hero h1{font-size:29px}#school-employee-dashboard .sed-eyebrow-date{display:none}#school-employee-dashboard .sed-metrics{gap:9px}#school-employee-dashboard .sed-metric{min-height:103px;padding:11px;gap:8px}#school-employee-dashboard .sed-metric-icon{width:34px;height:34px;font-size:17px}#school-employee-dashboard .sed-metric strong{font-size:20px}#school-employee-dashboard .sed-metric>i,#school-employee-dashboard .sed-metric>span:nth-child(2)>span{display:none}#school-employee-dashboard .sed-section-title p{display:none}#school-employee-dashboard .sed-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#school-employee-dashboard .sed-action{min-height:127px;padding:13px}#school-employee-dashboard .sed-panel-heading{padding:16px}#school-employee-dashboard .sed-panel-heading h2{font-size:16px}#school-employee-dashboard .sed-leave-row{grid-template-columns:1fr auto;gap:7px}#school-employee-dashboard .sed-leave-track{grid-column:1/-1;grid-row:2}#school-employee-dashboard .sed-team-list{grid-template-columns:1fr}#school-employee-dashboard .sed-app-link>span:last-child{font-size:0}#school-employee-dashboard .sed-app-link>span:last-child i{font-size:16px}}
