@@ -1,6 +1,7 @@
 #school-management{--smd-ink:#203d45;--smd-muted:#6d8489;--smd-line:#dfeae7;--smd-teal:#096777;--smd-mint:#e8f4ee;max-width:1600px;margin:0 auto;padding:22px 22px 32px;background:#f7faf8;color:var(--smd-ink);border-radius:22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:1.45}
 #school-management *,#schoolOverviewModal *{box-sizing:border-box}
 #school-management button{font:inherit;cursor:pointer}
+#school-management .smd-data-warning{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:11px 14px;border:1px solid #ead9aa;border-radius:10px;background:#fffbec;color:#765d2d;font-size:13px}
 #school-management .smd-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;min-height:175px;padding:31px 35px;border-radius:21px;background:radial-gradient(circle at 85% -25%,rgba(163,225,195,.2),transparent 30%),linear-gradient(115deg,#073f50,#096879);color:#fff;box-shadow:0 13px 30px rgba(5,80,89,.12)}
 #school-management .smd-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#b9e3d9;font-size:11px;font-weight:700;letter-spacing:.1em}
 #school-management .smd-hero h1{margin:9px 0 5px;color:#fff;font-size:clamp(29px,3vw,42px);font-weight:700;letter-spacing:-.035em;line-height:1.15}
