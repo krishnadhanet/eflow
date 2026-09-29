@@ -1,0 +1,85 @@
+#school-management{--smd-ink:#203d45;--smd-muted:#6d8489;--smd-line:#dfeae7;--smd-teal:#096777;--smd-mint:#e8f4ee;max-width:1600px;margin:0 auto;padding:22px 22px 32px;background:#f7faf8;color:var(--smd-ink);border-radius:22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:1.45}
+#school-management *,#schoolOverviewModal *{box-sizing:border-box}
+#school-management button{font:inherit;cursor:pointer}
+#school-management .smd-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;min-height:175px;padding:31px 35px;border-radius:21px;background:radial-gradient(circle at 85% -25%,rgba(163,225,195,.2),transparent 30%),linear-gradient(115deg,#073f50,#096879);color:#fff;box-shadow:0 13px 30px rgba(5,80,89,.12)}
+#school-management .smd-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#b9e3d9;font-size:11px;font-weight:700;letter-spacing:.1em}
+#school-management .smd-hero h1{margin:9px 0 5px;color:#fff;font-size:clamp(29px,3vw,42px);font-weight:700;letter-spacing:-.035em;line-height:1.15}
+#school-management .smd-hero p{margin:0;color:#d6eae7;font-size:14px}
+#school-management .smd-hero-side{display:flex;flex-direction:column;align-items:flex-end;gap:13px;white-space:nowrap}
+#school-management .smd-hero-side span{font-size:12px;color:#c6e5dc}
+#school-management .smd-hero-side span i{margin-right:5px;color:#9fe6bc}
+#school-management .smd-hero-side button{padding:8px 13px;border:1px solid rgba(255,255,255,.4);border-radius:9px;background:rgba(255,255,255,.1);color:#fff;font-weight:650;font-size:12px}
+#school-management .smd-hero-side button:hover{background:rgba(255,255,255,.2)}
+#school-management .smd-tabs{display:flex;gap:5px;overflow-x:auto;margin:17px 0 22px;padding:6px;border:1px solid var(--smd-line);border-radius:13px;background:#fff;scrollbar-width:thin}
+#school-management .smd-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:none;padding:10px 15px;border:0;border-radius:9px;background:transparent;color:#5f7a81;font-size:13px;font-weight:650;white-space:nowrap}
+#school-management .smd-tabs button:hover{background:#f1f7f4;color:var(--smd-teal)}
+#school-management .smd-tabs button.active{background:#dcefe9;color:#075766;box-shadow:inset 0 0 0 1px #c9e3db}
+#school-management .smd-page{display:none}
+#school-management .smd-page.active{display:block}
+#school-management .smd-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 2px 16px}
+#school-management .smd-heading small,#school-management .smd-card-head small{display:block;color:#148179;font-size:11px;font-weight:700;letter-spacing:.1em}
+#school-management .smd-heading h2{margin:3px 0 3px;color:#1e414a;font-size:25px;font-weight:700;letter-spacing:-.025em}
+#school-management .smd-heading p{margin:0;color:var(--smd-muted);font-size:13px}
+#school-management .smd-date{padding:8px 12px;border:1px solid var(--smd-line);border-radius:8px;background:#fff;color:#58767b;font-size:12px;white-space:nowrap}
+#school-management .smd-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:17px}
+#school-management .smd-kpis-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+#school-management .smd-kpi{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:165px;padding:16px;border:1px solid var(--smd-line);border-radius:16px;background:#fff;color:var(--smd-ink);text-align:left;box-shadow:0 6px 20px rgba(23,75,74,.04)}
+#school-management button.smd-kpi:hover{transform:translateY(-2px);border-color:#b8d9ce;box-shadow:0 12px 26px rgba(23,75,74,.1)}
+#school-management .smd-kpi>i{display:grid;place-items:center;width:38px;height:38px;margin-bottom:12px;border-radius:11px;font-size:20px}
+#school-management .aqua{color:#087c89;background:#e6f3f5}
+#school-management .mint{color:#287d65;background:#e6f5ec}
+#school-management .gold{color:#936e33;background:#faf2e5}
+#school-management .lilac{color:#6d6f9c;background:#efeff9}
+#school-management .coral{color:#a65b58;background:#fbefed}
+#school-management .smd-kpi small{color:#658086;font-size:12px;font-weight:650}
+#school-management .smd-kpi strong{display:block;margin:3px 0;color:#173d47;font-size:26px;line-height:1.2;font-weight:700;letter-spacing:-.02em}
+#school-management .smd-kpi span{display:block;max-width:100%;overflow:hidden;color:#809496;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+#school-management .smd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:15px}
+#school-management .smd-wide{grid-column:span 2}
+#school-management .smd-full{grid-column:1/-1}
+#school-management .smd-card{min-width:0;padding:19px;border:1px solid var(--smd-line);border-radius:17px;background:#fff;box-shadow:0 6px 22px rgba(23,75,74,.035)}
+#school-management .smd-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+#school-management .smd-card-head h3{margin:3px 0 0;color:#24474e;font-size:17px;font-weight:700}
+#school-management .smd-card-head button,#school-management .smd-card-head>span,#school-management .smd-text-link{flex:none;border:0;background:transparent;color:var(--smd-teal);font-size:12px;font-weight:650}
+#school-management .smd-card-head button:hover,#school-management .smd-text-link:hover{text-decoration:underline}
+#school-management .smd-bars{display:flex;flex-direction:column;gap:5px}
+#school-management .smd-bar{display:grid;grid-template-columns:minmax(70px,1fr) minmax(65px,2fr) auto;align-items:center;gap:13px;width:100%;min-height:34px;padding:3px 5px;border:0;border-radius:7px;background:transparent;text-align:left}
+#school-management .smd-bar:hover{background:#f3f8f5}
+#school-management .smd-bar-label{min-width:0;overflow:hidden;color:#527178;font-size:12px;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+#school-management .smd-bar-track{display:block;height:8px;overflow:hidden;border-radius:20px;background:#ecf3f1}
+#school-management .smd-bar-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#0c7580,#64b495)}
+#school-management .smd-bar strong{color:#284c52;font-size:12px;font-weight:700;white-space:nowrap}
+#school-management .smd-pulse{display:flex;flex-direction:column;gap:8px}
+#school-management .smd-pulse button{display:flex;align-items:center;gap:10px;min-height:56px;width:100%;padding:6px;border:0;border-radius:10px;background:transparent;color:var(--smd-ink);text-align:left}
+#school-management .smd-pulse button:hover{background:#f3f8f5}
+#school-management .smd-pulse i{display:grid;flex:none;place-items:center;width:38px;height:38px;border-radius:10px;font-size:18px}
+#school-management .smd-pulse span{flex:1;color:#365b60;font-size:12px;font-weight:650}
+#school-management .smd-pulse small{display:block;margin-top:2px;color:#8a9c9d;font-size:11px;font-weight:400}
+#school-management .smd-pulse strong{font-size:15px;white-space:nowrap}
+#school-management .smd-empty{padding:28px 5px;color:#86999b;text-align:center;font-size:13px}
+#school-management .smd-split{display:flex;justify-content:space-around;gap:10px;padding:24px 10px;color:#70888b;font-size:13px;text-align:center}
+#school-management .smd-split b{display:block;color:#21454c;font-size:25px}
+#school-management .smd-split-track{height:10px;overflow:hidden;border-radius:20px;background:#dfece8}
+#school-management .smd-split-track i{display:block;height:100%;border-radius:inherit;background:#0f8181}
+#school-management .smd-stat-large{margin:15px 0;color:#155d69;font-size:36px;font-weight:700;letter-spacing:-.04em}
+#school-management .smd-stat-large span{display:block;margin-top:1px;color:#789093;font-size:12px;font-weight:500;letter-spacing:0}
+#school-management .smd-coverage{padding:10px 5px 20px}
+#school-management .smd-footnote{margin:14px 0 0;color:#819699;font-size:11px}
+#school-management .smd-route-health{display:flex;flex-wrap:wrap;gap:10px;margin:-3px 0 15px}
+#school-management .smd-route-health span{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid #e8e4d4;border-radius:9px;background:#fffbef;color:#795e2d;font-size:12px}
+#school-management .smd-route-health strong{font-size:15px}
+#school-management .smd-method{display:flex;gap:7px;align-items:center;margin:21px 3px 0;color:#7f9596;font-size:12px}
+#schoolOverviewModal .smd-modal{border:0;border-radius:17px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
+#schoolOverviewModal .modal-header{background:#edf6f2;border-bottom:1px solid #dceae5}
+#schoolOverviewModal .modal-header small{color:#128078;font-size:10px;font-weight:700;letter-spacing:.1em}
+#schoolOverviewModal .modal-title{font-size:20px;font-weight:700;color:#21474e}
+#schoolOverviewModal #schoolOverviewCount{color:#70898d;font-size:12px}
+#schoolOverviewModal .smd-modal-message{padding:15px;color:#6c8488;text-align:center}
+#schoolOverviewModal table{min-width:650px;font-size:12px}
+#schoolOverviewModal th{color:#4a696f;background:#f6faf8;font-weight:700;white-space:nowrap}
+#schoolOverviewModal td{color:#35585f}
+#schoolOverviewModal .smd-export{background:#096777;color:#fff;font-size:12px}
+#schoolOverviewModal .smd-export:hover{background:#075462;color:#fff}
+@media(max-width:1250px){#school-management .smd-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}#school-management .smd-kpis-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:900px){#school-management .smd-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#school-management .smd-wide{grid-column:span 2}#school-management .smd-kpis-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){#school-management{padding:12px;border-radius:0}#school-management .smd-hero{display:block;padding:25px;min-height:0}#school-management .smd-hero-side{align-items:flex-start;margin-top:16px}#school-management .smd-heading{align-items:flex-start;flex-direction:column}#school-management .smd-heading h2{font-size:22px}#school-management .smd-kpis,#school-management .smd-kpis-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#school-management .smd-kpi{min-height:150px;padding:12px}#school-management .smd-kpi strong{font-size:21px}#school-management .smd-grid{grid-template-columns:1fr}#school-management .smd-wide,#school-management .smd-full{grid-column:auto}#school-management .smd-bar{grid-template-columns:minmax(68px,1fr) minmax(50px,1.3fr) auto;gap:8px}#school-management .smd-card{padding:15px}}

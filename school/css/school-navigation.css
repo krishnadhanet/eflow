@@ -1,0 +1,22 @@
+/* School navigation uses the same teal and mint as the employee workspace. */
+.navbar-menu,
+.navbar-menu .nav-link {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 13px;
+    letter-spacing: 0;
+}
+.navbar-menu .navbar-nav .nav-link.menu-link.active,
+.navbar-menu .navbar-nav .nav-sm .nav-link.active {
+    background: #dcefe9 !important;
+    color: #075766 !important;
+    border-radius: 9px;
+    font-weight: 700;
+}
+.navbar-menu .navbar-nav .nav-link.menu-link.active i,
+.navbar-menu .navbar-nav .nav-sm .nav-link.active i {
+    color: #075766 !important;
+}
+.navbar-menu .navbar-nav .nav-link.menu-link:hover,
+.navbar-menu .navbar-nav .nav-sm .nav-link:hover {
+    background: rgba(220, 239, 233, .17);
+}
