@@ -38,6 +38,12 @@
         school_logo: 'School logo', school_name: 'School name', school_address: 'Address',
         school_contact: 'Contact', school_email: 'Email', school_ids: 'Affiliation / code', board_logo: 'Board logo'
     };
+    var coTitleDefault = 'Part-2 : Co-Scholastic Activities';
+    var coNoteDefault = '(to be assessed on a 3 and 5 point scale)';
+    var gradingParts = {
+        scholastic: 'Scholastic marks range', co_five: 'Co-Scholastic 5-point scale',
+        co_three: 'Co-Scholastic 3-point scale'
+    };
 
     function el(id) { return document.getElementById(id); }
     function esc(value) {
@@ -279,8 +285,25 @@
             });
             html += '</div>';
         }
+        if (entry.type === 'grading_scale') {
+            html += '<p class="me-hint">Choose which grading tables appear on this report. Uncheck all three to remove the grading system from print.</p><div class="me-parts">';
+            Object.keys(gradingParts).forEach(function (key) {
+                var checked = !entry.parts || entry.parts[key] !== 0;
+                html += '<label><input type="checkbox" data-part="' + key + '"' + (checked ? ' checked' : '') + '> ' + esc(gradingParts[key]) + '</label>';
+            });
+            html += '</div>';
+        }
+        if (entry.type === 'co_scholastic') {
+            var coTitle = Object.prototype.hasOwnProperty.call(item.labels || {}, 'co_scholastic')
+                ? item.labels.co_scholastic : coTitleDefault;
+            var coNote = Object.prototype.hasOwnProperty.call(item.labels || {}, 'co_scholastic_note')
+                ? item.labels.co_scholastic_note : coNoteDefault;
+            html += '<p class="me-hint">Edit or clear either line. Clear both to print the activities table without a heading.</p>';
+            html += '<label for="meCoTitle">Heading</label><textarea id="meCoTitle" class="form-control" maxlength="120">' + esc(coTitle) + '</textarea>';
+            html += '<label for="meCoNote">Supporting text</label><textarea id="meCoNote" class="form-control" maxlength="160">' + esc(coNote) + '</textarea>';
+        }
         if (entry.type === 'report_title') html += '<label for="meTitle">Printed heading</label><input id="meTitle" class="form-control" maxlength="80" value="' + esc(item.title || '') + '" placeholder="Use report name">';
-        if (selectedLabel && selectedLabel !== 'title') html += '<label for="mePrintedLabel">Selected printed label</label><input id="mePrintedLabel" class="form-control" maxlength="40" value="' + esc((item.labels || {})[selectedLabel] || selectedLabelText) + '">';
+        if (selectedLabel && selectedLabel !== 'title' && entry.type !== 'co_scholastic') html += '<label for="mePrintedLabel">Selected printed label</label><input id="mePrintedLabel" class="form-control" maxlength="40" value="' + esc((item.labels || {})[selectedLabel] || selectedLabelText) + '">';
         if (entry.type === 'text' || entry.type === 'field') {
             html += '<label for="meBlockLabel">Label (optional)</label><input id="meBlockLabel" class="form-control" maxlength="80" value="' + esc(entry.label || '') + '">';
             if (entry.type === 'field') html += '<label for="meBlockSource">Live data source</label><select id="meBlockSource" class="form-select">' + optionList(sources, entry.source) + '</select>';
@@ -358,6 +381,8 @@
         });
         onChange('meTitle', function (input) { item.title = input.value.trim(); });
         onChange('mePrintedLabel', function (input) { item.labels = item.labels || {}; item.labels[selectedLabel] = input.value.trim(); });
+        onChange('meCoTitle', function (input) { item.labels = item.labels || {}; item.labels.co_scholastic = input.value.trim(); });
+        onChange('meCoNote', function (input) { item.labels = item.labels || {}; item.labels.co_scholastic_note = input.value.trim(); });
         onChange('meBlockLabel', function (input) { entry.label = input.value.trim(); });
         onChange('meBlockText', function (input) { entry.text = input.value.trim(); });
         onChange('meBlockSource', function (input) {
@@ -621,7 +646,9 @@
                 selectedId = parent ? parent.dataset.reportBlock : null;
                 selectedCell = null; selectedLabel = node.dataset.editLabel; selectedLabelText = node.textContent.trim();
                 drawInspector(); drawList(); highlight();
-                var input = el(selectedLabel === 'title' ? 'meTitle' : 'mePrintedLabel');
+                var input = el(selectedLabel === 'title' ? 'meTitle'
+                    : (selectedLabel === 'co_scholastic' ? 'meCoTitle'
+                        : (selectedLabel === 'co_scholastic_note' ? 'meCoNote' : 'mePrintedLabel')));
                 if (input) input.focus();
             });
         });
