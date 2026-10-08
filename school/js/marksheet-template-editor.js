@@ -14,6 +14,7 @@
     var history = [];
     var pendingRefresh = false;
     var loading = false;
+    var previewTimeout = null;
     var labels = {
         school_header: 'School header', report_title: 'Report title', student_details: 'Student details',
         scholastic: 'School marks table', total: 'Result summary', co_scholastic: 'Co-scholastic area',
@@ -132,8 +133,38 @@
         var error = validation(false);
         if (error) { notice(error, 'error'); return; }
         sync();
-        if (el('meRefresh').disabled) { pendingRefresh = true; return; }
-        el('meRefresh').click();
+        if (loading) { pendingRefresh = true; return; }
+        loading = true;
+        el('meRefresh').disabled = true;
+        el('meRefresh').innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Loading...';
+        el('mePrint').disabled = true;
+        notice('Loading the report with actual school and student data...');
+        var action = form.action, target = form.target;
+        try {
+            form.action = el('meRefresh').dataset.previewUrl;
+            form.target = frame.name;
+            HTMLFormElement.prototype.submit.call(form);
+        } catch (error) {
+            finishPreview();
+            notice('Preview could not be started. Please try again.', 'error');
+            return;
+        } finally {
+            form.action = action;
+            form.target = target;
+        }
+        previewTimeout = setTimeout(function () {
+            if (!loading) return;
+            finishPreview();
+            pendingRefresh = false;
+            notice('Preview did not finish. Try again.', 'error');
+        }, 20000);
+    }
+    function finishPreview() {
+        loading = false;
+        clearTimeout(previewTimeout);
+        previewTimeout = null;
+        el('meRefresh').disabled = false;
+        el('meRefresh').innerHTML = '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh';
     }
     function newCell(type, value) {
         return { type: type || 'text', value: value || '', source: type === 'field' ? 'student_name' : '', align: 'left', bg: '', color: '' };
@@ -680,23 +711,15 @@
         selectedId = null; selectedCell = null; sync(); drawInspector(); refresh();
     });
     el('mePrint').addEventListener('click', function () { frame.contentWindow.print(); });
-    el('meRefresh').addEventListener('click', function (event) {
-        var error = validation(false);
-        if (error) { event.preventDefault(); notice(error, 'error'); return; }
-        sync(); loading = true; el('mePrint').disabled = true;
-        notice('Loading the report with actual school and student data...');
-        var button = this;
-        setTimeout(function () { if (loading) { button.disabled = true; button.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Loading...'; } }, 0);
-        setTimeout(function () { if (loading) { loading = false; button.disabled = false; button.innerHTML = '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh'; notice('Preview did not finish. Try again.', 'error'); } }, 20000);
-    });
+    el('meRefresh').addEventListener('click', refresh);
     frame.addEventListener('load', function () {
-        loading = false; el('meRefresh').disabled = false;
-        el('meRefresh').innerHTML = '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh';
+        if (!loading) return;
+        try { if (frame.contentDocument && frame.contentDocument.URL === 'about:blank') return; } catch (error) { /* The response may not be readable. */ }
+        finishPreview();
         if (pendingRefresh) { pendingRefresh = false; refresh(); return; }
         try { wireCanvas(); } catch (error) { notice('Preview loaded, but editing could not start. Refresh and try again.', 'error'); }
     });
     form.addEventListener('submit', function (event) {
-        if (event.submitter && event.submitter.id === 'meRefresh') return;
         var error = validation(true);
         if (error) { event.preventDefault(); notice(error, 'error'); return; }
         sync();
