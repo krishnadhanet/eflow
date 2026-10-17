@@ -17,7 +17,7 @@
     max-width: 1550px;
     margin: 0 auto;
     color: var(--gu-ink);
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-family:Saira,sans-serif;
     animation: policyWorkspaceIn .36s cubic-bezier(.2, .8, .2, 1) both;
 }
 

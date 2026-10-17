@@ -184,7 +184,7 @@
 .main-gate-module .main-content button,
 .main-gate-module .main-content input,
 .main-gate-module .main-content select,
-.main-gate-module .main-content textarea{font-family:Inter,"Segoe UI",Arial,sans-serif}
+.main-gate-module .main-content textarea{font-family:Saira,sans-serif}
 .main-gate-module .main-gate-page{min-height:100vh;background:transparent;color:var(--gu-ink);font-size:14px;line-height:1.6;animation:mg-theme-enter .42s var(--gu-motion) both}
 .main-gate-module .main-content :is(h1,h2,h3,h4,h5,h6){color:var(--gu-ink);letter-spacing:-.015em}
 .main-gate-module .mg-hero{

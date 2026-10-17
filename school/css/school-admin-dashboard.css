@@ -1,4 +1,4 @@
-#school-management{--smd-ink:#203d45;--smd-muted:#6d8489;--smd-line:#dfeae7;--smd-teal:#096777;--smd-mint:#e8f4ee;max-width:1600px;margin:0 auto;padding:22px 22px 32px;background:#f7faf8;color:var(--smd-ink);border-radius:22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:1.45}
+#school-management{--smd-ink:#203d45;--smd-muted:#6d8489;--smd-line:#dfeae7;--smd-teal:#096777;--smd-mint:#e8f4ee;max-width:1600px;margin:0 auto;padding:22px 22px 32px;background:#f7faf8;color:var(--smd-ink);border-radius:22px;font-family:Saira,sans-serif;font-size:14px;line-height:1.45}
 #school-management *,#schoolOverviewModal *{box-sizing:border-box}
 #school-management button{font:inherit;cursor:pointer}
 #school-management .smd-data-warning{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:11px 14px;border:1px solid #ead9aa;border-radius:10px;background:#fffbec;color:#765d2d;font-size:13px}
@@ -70,7 +70,7 @@
 #school-management .smd-route-health span{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid #e8e4d4;border-radius:9px;background:#fffbef;color:#795e2d;font-size:12px}
 #school-management .smd-route-health strong{font-size:15px}
 #school-management .smd-method{display:flex;gap:7px;align-items:center;margin:21px 3px 0;color:#7f9596;font-size:12px}
-#schoolOverviewModal .smd-modal{border:0;border-radius:17px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
+#schoolOverviewModal .smd-modal{border:0;border-radius:17px;overflow:hidden;font-family:Saira,sans-serif}
 #schoolOverviewModal .modal-header{background:#edf6f2;border-bottom:1px solid #dceae5}
 #schoolOverviewModal .modal-header small{color:#128078;font-size:10px;font-weight:700;letter-spacing:.1em}
 #schoolOverviewModal .modal-title{font-size:20px;font-weight:700;color:#21474e}

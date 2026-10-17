@@ -47,7 +47,7 @@
 .gu-hostel-module .main-content input,
 .gu-hostel-module .main-content select,
 .gu-hostel-module .main-content textarea {
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-family:Saira,sans-serif;
 }
 
 .gu-hostel-module .main-content h1,
@@ -635,7 +635,7 @@
     border-radius: 22px;
     box-shadow: 0 28px 70px rgba(9, 26, 66, .22);
     color: var(--gu-ink);
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-family:Saira,sans-serif;
 }
 
 .gu-hostel-module .modal-header {

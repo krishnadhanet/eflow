@@ -1,22 +1,54 @@
-/* School navigation uses the same teal and mint as the employee workspace. */
-.navbar-menu,
-.navbar-menu .nav-link {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-    font-size: 13px;
-    letter-spacing: 0;
+/* Geeta-style icon rail with School's blue accent. */
+.navbar-menu{background:#fff!important;border-right:1px solid #e5eaf2!important;box-shadow:2px 0 12px rgba(30,30,32,.035)}
+.navbar-menu .navbar-brand-box{display:flex!important;align-items:center;justify-content:center;height:70px!important;padding:0!important;background:#fff!important;border-bottom:1px solid #edf1f7}
+.navbar-menu .navbar-brand-box .logo-light{width:100%;height:100%;line-height:1!important}
+.navbar-menu .navbar-brand-box .school-brand-crop{display:block!important;flex:none;width:34px;height:34px;margin:auto}
+.navbar-menu .navbar-brand-box .school-brand-crop img{display:block!important;width:34px!important;max-width:34px!important;height:34px!important;object-fit:contain}
+.navbar-menu .navbar-brand-box .school-brand-full{display:none!important;margin:auto}
+.navbar-menu .navbar-brand-box .school-brand-full img{display:block!important;width:165px!important;max-width:165px!important;height:auto!important;max-height:48px;object-fit:contain}
+[data-sidebar-size="sm-hover"] .navbar-menu:hover .school-brand-crop{display:none!important}
+[data-sidebar-size="sm-hover"] .navbar-menu:hover .school-brand-full{display:block!important}
+[data-sidebar="dark"] .navbar-menu .navbar-brand-box .logo-light{display:flex!important;align-items:center;justify-content:center}
+[data-sidebar="dark"] .navbar-menu .navbar-brand-box .logo-dark{display:none!important}
+.navbar-menu #scrollbar .container-fluid{padding:0!important}
+.navbar-menu .navbar-nav .nav-link.menu-link{display:flex;align-items:center;gap:11px;min-height:44px;margin:2px 8px;padding:10px 12px;border-radius:8px;color:#334155!important;line-height:1.3;transition:background-color .15s,color .15s}
+.navbar-menu .navbar-nav .nav-link.menu-link>i{flex:0 0 20px;width:20px;margin:0;color:#334155!important;font-size:19px;text-align:center;line-height:1}
+.navbar-menu .navbar-nav .nav-link.menu-link>span{min-width:0;white-space:normal}
+.navbar-menu .navbar-nav .nav-link.menu-link:after{margin-left:auto;color:#8390a4}
+.navbar-menu .navbar-nav .nav-link.menu-link:hover,.navbar-menu .navbar-nav .nav-link.menu-link:focus-visible,.navbar-menu .navbar-nav .nav-link.menu-link[aria-expanded="true"]{background:#ebf1ff!important;color:#1f2937!important}
+.navbar-menu .navbar-nav .nav-link.menu-link:hover>i,.navbar-menu .navbar-nav .nav-link.menu-link[aria-expanded="true"]>i{color:#1f2937!important}
+.navbar-menu .navbar-nav .nav-link.menu-link.active{background:#315fd4!important;color:#fff!important;}
+.navbar-menu .navbar-nav .nav-link.menu-link.active>i{color:#fff!important}
+.navbar-menu .navbar-nav .menu-dropdown{margin:3px 9px 9px 26px;padding-left:10px;border-left:1px solid #dce5f4}
+.navbar-menu .navbar-nav .nav-sm{gap:1px;padding:0!important}
+.navbar-menu .navbar-nav .nav-sm .nav-link{min-height:34px;margin:1px 0;padding:7px 10px;border-radius:7px;color:#5c687a!important;line-height:1.35;white-space:normal}
+.navbar-menu .navbar-nav .nav-sm .nav-link:before{width:5px;height:5px;top:50%;left:3px;transform:translateY(-50%);border-radius:50%;background:#a3afc2}
+.navbar-menu .navbar-nav .nav-sm .nav-link:hover,.navbar-menu .navbar-nav .nav-sm .nav-link:focus-visible{background:#ebf1ff!important;color:#1f2937!important}
+.navbar-menu .navbar-nav .nav-sm .nav-link.active,.navbar-menu .navbar-nav .nav-sm .nav-item .nav-link.school-current{background:#315fd4!important;color:#fff!important;}
+.navbar-menu .navbar-nav .nav-sm .nav-link.active:before,.navbar-menu .navbar-nav .nav-sm .nav-link.school-current:before{background:#fff}
+.navbar-menu .navbar-nav .nav-link:focus-visible,.navbar-menu .navbar-brand-box a:focus-visible{outline:2px solid #244a9b;outline-offset:2px}
+.navbar-menu .simplebar-scrollbar:before{background:#a8b4c6!important;opacity:.55!important}
+.navbar-menu .simplebar-track.simplebar-vertical{width:7px}
+[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-nav .nav-link.menu-link,[data-sidebar-size="sm"] .navbar-menu .navbar-nav .nav-link.menu-link{justify-content:center;min-height:45px;margin:0;padding:11px 0;border-radius:0}
+[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-nav .nav-link.menu-link>i,[data-sidebar-size="sm"] .navbar-menu .navbar-nav .nav-link.menu-link>i{flex-basis:22px;width:22px}
+.navbar-menu .navbar-nav .menu-link i.user-check{font-family:remixicon!important;font-style:normal}
+.navbar-menu .navbar-nav .menu-link i.user-check:before{content:"\f261"}
+.school-sidebar-mobile-head{display:none}
+@media(max-width:767px){
+  .navbar-menu .navbar-brand-box{display:none!important}
+  .navbar-menu{box-shadow:12px 0 30px rgba(30,30,32,.14)}
+  .school-sidebar-mobile-head{display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 15px 0 20px;border-bottom:1px solid #e5eaf2;background:#fff}
+  .school-sidebar-mobile-head img{display:block;width:auto;max-width:165px;height:auto;max-height:38px;object-fit:contain}
+  .school-sidebar-mobile-head button{display:grid;place-items:center;width:35px;height:35px;border:1px solid #dce5f4;border-radius:8px;background:#f7f9fd;color:#1f2937;font-size:20px}
+  .school-sidebar-mobile-head button:focus-visible{outline:2px solid #244a9b;outline-offset:2px}
+  .navbar-menu #scrollbar{height:calc(100vh - 62px)!important}
+  .navbar-menu #scrollbar .container-fluid{padding:8px 10px 22px!important}
+  .navbar-menu .navbar-nav .nav-link.menu-link{min-height:45px;margin:1px 0;padding:10px 12px;border-radius:8px}
+  #topnav-hamburger-icon{display:grid;place-items:center;min-width:44px;min-height:44px;color:#334155}
+  #topnav-hamburger-icon .hamburger-icon{display:none}
+  #topnav-hamburger-icon:before{content:"";display:block;width:19px;height:2px;background:currentColor;box-shadow:0 6px currentColor,0 -6px currentColor}
 }
-.navbar-menu .navbar-nav .nav-link.menu-link.active,
-.navbar-menu .navbar-nav .nav-sm .nav-link.active {
-    background: #dcefe9 !important;
-    color: #075766 !important;
-    border-radius: 9px;
-    font-weight: 700;
-}
-.navbar-menu .navbar-nav .nav-link.menu-link.active i,
-.navbar-menu .navbar-nav .nav-sm .nav-link.active i {
-    color: #075766 !important;
-}
-.navbar-menu .navbar-nav .nav-link.menu-link:hover,
-.navbar-menu .navbar-nav .nav-sm .nav-link:hover {
-    background: rgba(220, 239, 233, .17);
-}
+@media(prefers-reduced-motion:reduce){.navbar-menu .navbar-nav .nav-link{transition:none}}
+
+.navbar-menu .navbar-nav .nav-sm .school-menu-section{margin:13px 6px 4px;padding:0 8px;color:#526480;font-size:10px;font-weight:700;letter-spacing:.09em;line-height:1.4;text-transform:uppercase}
+.navbar-menu .navbar-nav .nav-sm .school-menu-section:first-child{margin-top:8px}

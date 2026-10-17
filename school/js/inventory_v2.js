@@ -206,7 +206,7 @@ function generateSerialInputs() {
     document.head.appendChild(script);
   }
 
-  window.initInventoryProductAutocomplete = function (scope) {
+  function initInventoryV2ProductAutocomplete(scope) {
     ensureSelect2(function () {
       var $scope = scope ? $(scope) : $(document);
       $scope.find("select.product-ajax").addBack("select.product-ajax").each(function () {
@@ -214,7 +214,12 @@ function generateSerialInputs() {
         // Employee request composer has mode-aware product rules and owns its
         // Select2 lifecycle. The common initializer must not capture it first.
         if ($select.closest("#assetRequestForm,#employeeTransferForm,#warehouseRequestForm,#warehouseEmployeeIssueForm,#transferStockForm").length) return;
-        if ($select.hasClass("select2-hidden-accessible")) return;
+        if ($select.data("inventory-v2-autocomplete") === 1 && $select.hasClass("select2-hidden-accessible")) return;
+        // Legacy basic.js initializes this selector against Inventory V1.
+        // Replace that Select2 instance so V2 forms use their own endpoint.
+        if ($select.hasClass("select2-hidden-accessible")) $select.select2("destroy");
+        $select.data("inventory-product-autocomplete", 1);
+        $select.data("inventory-v2-autocomplete", 1);
         var hideProductImage = $select.hasClass("po-product") || Number($select.data("hide-product-image") || 0) === 1;
         var $parent = $select.closest(".modal.show,.modal,.rq2-item,.rwc-asset-row,.po-product-card,.grn-item,.card,form");
         $select.select2({
@@ -256,7 +261,9 @@ function generateSerialInputs() {
         });
       });
     });
-  };
+  }
+
+  window.initInventoryProductAutocomplete = initInventoryV2ProductAutocomplete;
 
   function initStaticSelects(scope) {
     ensureSelect2(function () {
@@ -268,6 +275,9 @@ function generateSerialInputs() {
   }
 
   function enhancePage() {
+    // basic.js registers its legacy initializer in a ready callback. Install
+    // the V2 initializer after that callback so V2 selects keep the V2 endpoint.
+    window.initInventoryProductAutocomplete = initInventoryV2ProductAutocomplete;
     initStaticSelects(document);
     window.initInventoryProductAutocomplete(document);
     $(".page-header").closest(".container-fluid").addClass("iv2-page-heading");

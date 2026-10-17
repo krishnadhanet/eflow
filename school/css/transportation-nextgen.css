@@ -45,7 +45,7 @@
 .school-transportation-module .main-content input,
 .school-transportation-module .main-content select,
 .school-transportation-module .main-content textarea {
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-family:Saira,sans-serif;
 }
 
 .school-transportation-module .main-content :is(h1, h2, h3, h4, h5, h6) {

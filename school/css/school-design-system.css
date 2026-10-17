@@ -1,0 +1,146 @@
+/* Shared School SaaS UI. Geeta's compact layout, with the verified blue/indigo palette. */
+:where(#layout-wrapper){--school-canvas:#f7f9fd;--school-surface:#fff;--school-ink:#1f2937;--school-muted:#5c687a;--school-line:#e1e7f0;--school-primary:#315fd4;--school-primary-hover:#244fb7;--school-primary-ink:#fff;--school-accent-ink:#244a9b;--school-soft:#eaf0ff;--school-success:#15745b;--school-danger:#ad3545;color:var(--school-ink)}
+:where(#layout-wrapper) .page-content{background:var(--school-canvas)}
+:where(#layout-wrapper) .page-content>.container-fluid{max-width:none}
+#layout-wrapper .school-page-header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:24px;min-height:48px;margin:-23px -24px 18px!important;padding:8px 24px!important;border:0;border-bottom:1px solid var(--school-line);border-radius:0;background:#fff;box-shadow:none}
+#layout-wrapper .school-page-header h4{margin:0;color:var(--school-ink);font-size:16px!important;font-weight:710;letter-spacing:-.01em;text-transform:none!important}
+#layout-wrapper .school-page-header .breadcrumb{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:2px;margin:0;color:#647084;font-size:12px}
+#layout-wrapper .school-page-header .breadcrumb a{color:#244a9b;text-decoration:none}
+#layout-wrapper .school-page-header .breadcrumb a:hover{text-decoration:underline}
+#layout-wrapper .school-page-header .breadcrumb .active{color:#5c687a}
+#layout-wrapper .school-page-header .school-page-actions{display:flex;justify-content:flex-end}
+#layout-wrapper .school-page-header .school-page-actions .btn{min-height:30px;padding:5px 11px;border-radius:5px;font-size:12px}
+:where(#layout-wrapper) .page-content .page-header{padding:10px 24px;margin:-23px -24px 14px;border-bottom:1px solid var(--school-line);background:#fff;box-shadow:none}
+:where(#layout-wrapper) .page-content .page-header h3{margin:0;color:var(--school-ink);font-size:16px;font-weight:710}
+:where(#layout-wrapper) .page-content .page-header .breadcrumb{margin:0;font-size:12px}
+:where(#layout-wrapper) .page-content .page-header .bookmark .btn{min-height:30px;padding:5px 11px;border-radius:5px;font-size:12px}
+:where(#layout-wrapper) .page-content .card{overflow:visible;margin-bottom:17px;border:1px solid var(--school-line);border-radius:9px;background:#fff;box-shadow:0 3px 12px rgba(30,30,32,.035)}
+:where(#layout-wrapper) .page-content .card-header{padding:15px 18px;border-bottom:1px solid var(--school-line);border-radius:9px 9px 0 0;background:#fff}
+:where(#layout-wrapper) .page-content .card-body{overflow:visible;width:auto;padding:18px}
+:where(#layout-wrapper) .page-content :is(h1,h2,h3,h4,h5,h6){color:var(--school-ink)}
+:where(#layout-wrapper) .page-content :is(p,.text-muted,.form-text){line-height:1.5}
+:where(#layout-wrapper) .page-content .text-muted{color:var(--school-muted)!important}
+:where(#layout-wrapper) :is(.btn-primary,.btn-soft-primary){--vz-btn-color:#fff;--vz-btn-bg:#315fd4;--vz-btn-border-color:#315fd4;--vz-btn-hover-color:#fff;--vz-btn-hover-bg:#244fb7;--vz-btn-hover-border-color:#244fb7;--vz-btn-active-color:#fff;--vz-btn-active-bg:#244fb7;--vz-btn-active-border-color:#244fb7}
+body #layout-wrapper .btn-primary{background:#315fd4!important;border-color:#315fd4!important;color:#fff!important}
+body #layout-wrapper .btn-primary:hover{background:#244fb7!important;border-color:#244fb7!important;color:#fff!important}
+:where(#layout-wrapper) .btn{min-height:35px;border-radius:6px;font-weight:650;transition:background-color .15s,border-color .15s,box-shadow .15s}
+:where(#layout-wrapper) .btn-sm{min-height:30px}
+:where(#layout-wrapper) .btn-light,:where(#layout-wrapper) .btn-secondary{background:#f2f5fb;border-color:#dfe6f2;color:#334155}
+:where(#layout-wrapper) .btn-light:hover,:where(#layout-wrapper) .btn-secondary:hover{background:#e7edfb;border-color:#cbd8f0;color:#1f2937}
+:where(#layout-wrapper) .btn-outline-primary{border-color:#7894d7;color:#244a9b}
+:where(#layout-wrapper) .btn-outline-primary:hover{background:#315fd4;border-color:#315fd4;color:#fff}
+:where(#layout-wrapper) .btn-danger{background:#ad3545;border-color:#ad3545;color:#fff}
+:where(#layout-wrapper) .btn-success{background:#15745b;border-color:#15745b;color:#fff}
+:where(#layout-wrapper) .btn-warning{background:#9b6c1d;border-color:#9b6c1d;color:#fff}
+:where(#layout-wrapper) :is(.btn,.form-control,.form-select,.nav-link,.page-link):focus-visible{outline:2px solid #244a9b;outline-offset:2px}
+:where(#layout-wrapper) .form-label,:where(#layout-wrapper) .form-group>label,:where(#layout-wrapper) .modal label{margin-bottom:6px!important;color:#334155;font-size:13px;font-weight:650}
+:where(#layout-wrapper) :is(.form-control,.form-select){min-height:39px;border-color:#cbd6e8;border-radius:6px;background-color:#fff;color:var(--school-ink);font-size:13px}
+:where(#layout-wrapper) :is(.form-control,.form-select):focus{border-color:#6e8de0;box-shadow:0 0 0 3px rgba(49,95,212,.22)}
+:where(#layout-wrapper) :is(.form-control,.form-select)::placeholder{color:#7c8798}
+:where(#layout-wrapper) .input-group-text{border-color:#cbd6e8;border-radius:6px;background:#f5f7fc;color:#5c687a}
+:where(#layout-wrapper) .select2-container--default .select2-selection--single,:where(#layout-wrapper) .select2-container--default .select2-selection--multiple{min-height:39px;border-color:#cbd6e8;border-radius:6px}
+:where(#layout-wrapper) .select2-container--default .select2-selection--multiple .select2-selection__choice{border-color:#becdf0!important;background:#eaf0ff!important;color:#244a9b}
+:where(#layout-wrapper) .table-responsive{max-width:100%}
+:where(#layout-wrapper) .page-content .tableHidden{max-width:100%;overflow-x:auto}
+:where(#layout-wrapper) .page-content .table{margin-bottom:0;white-space:normal!important;color:var(--school-ink);font-size:13px}
+:where(#layout-wrapper) .page-content .table thead th{padding:10px 12px;border-bottom:1px solid #dce4f0;background:#f1f4fa;color:#334155;font-size:12px;font-weight:730;white-space:nowrap}
+:where(#layout-wrapper) .page-content .table tbody :is(td,th){padding:10px 12px;border-color:#edf1f7;vertical-align:middle}
+:where(#layout-wrapper) .page-content .table tbody tr:hover{background:#fafbfe}
+:where(#layout-wrapper) .dataTables_wrapper{max-width:100%;overflow-x:auto}
+:where(#layout-wrapper) .dataTables_wrapper .dataTables_filter input{margin-left:8px;min-height:34px;border:1px solid #cbd6e8;border-radius:5px;padding:5px 9px}
+:where(#layout-wrapper) .pagination .page-link{border-color:#dfe6f2;color:#244a9b}
+:where(#layout-wrapper) .pagination .active .page-link{background:#315fd4;border-color:#315fd4;color:#fff}
+:where(#layout-wrapper) .alert{border-radius:7px;line-height:1.5}
+:where(#layout-wrapper) .alert-danger{border-color:#ebc3cb;background:#fff3f4;color:#8d2435}
+:where(#layout-wrapper) .alert-success{border-color:#b5dfcb;background:#eaf7f0;color:#115d47}
+:where(#layout-wrapper) .nav-tabs{gap:4px;border-bottom-color:#dfe6f2}
+:where(#layout-wrapper) .nav-tabs .nav-link{border-radius:7px 7px 0 0;color:#4e5f7e;font-weight:630}
+:where(#layout-wrapper) .nav-tabs .nav-link.active{border-color:#dfe6f2 #dfe6f2 #fff;color:#244a9b}
+:where(#layout-wrapper) .modal-content{border:1px solid #dfe6f2;border-radius:10px;box-shadow:0 18px 45px rgba(30,30,32,.2)}
+:where(#layout-wrapper) .modal-header{padding:15px 18px;border-bottom-color:#e8edf4;border-radius:10px 10px 0 0;background:#f7f9fd!important}
+:where(#layout-wrapper) .modal-title{font-size:16px;font-weight:700}
+:where(#layout-wrapper) .modal-body{padding:18px}
+:where(#layout-wrapper) .modal-footer{border-top-color:#e8edf4}
+:where(#layout-wrapper) .badge.bg-primary{background:#315fd4!important;color:#fff!important}
+:where(#layout-wrapper) .badge.bg-success{background:#15745b!important}
+:where(#layout-wrapper) .badge.bg-danger{background:#ad3545!important}
+#page-topbar{border-bottom:1px solid #e5eaf2;background:#fff;box-shadow:none}
+#page-topbar .navbar-header strong{color:#334155;font-size:12px;font-weight:650}
+:where(#layout-wrapper) .dropdown-menu{padding:5px;border:1px solid #dfe6f2;border-radius:8px;background:#fff;box-shadow:0 10px 25px rgba(30,30,32,.12)}
+:where(#layout-wrapper) .dropdown-menu .dropdown-item{border-radius:5px;color:#334155}
+:where(#layout-wrapper) .dropdown-menu .dropdown-item:hover{background:#eaf0ff;color:#1f2937}
+@media(max-width:767px){#layout-wrapper .school-page-header{grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;margin:-23px -12px 15px!important;padding:11px 16px!important}#layout-wrapper .school-page-header .breadcrumb{grid-column:1/-1;grid-row:2;justify-content:flex-start}#layout-wrapper .school-page-header .school-page-actions{grid-column:2;grid-row:1}:where(#layout-wrapper) .page-content .card-body{padding:15px}:where(#layout-wrapper) .page-content .table{font-size:12px}:where(#layout-wrapper) .page-content .table tbody :is(td,th){padding:9px 10px}:where(#layout-wrapper) .modal-body{padding:16px}}
+@media print{:where(#layout-wrapper) .page-content{background:#fff}:where(#layout-wrapper) .page-content .card{border:0;box-shadow:none}}
+@media(prefers-reduced-motion:reduce){:where(#layout-wrapper) .btn{transition:none}}
+
+/* The notification center loads its own older blue theme after this sheet. */
+#layout-wrapper .employee-notification-hero{background:linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),radial-gradient(circle at 84% 18%,rgba(49,95,212,.24),transparent 26%),linear-gradient(130deg,#173b91,#2855b5 70%,#4676d6)!important;border-color:#cbd8f5!important}
+#layout-wrapper .employee-notification-eyebrow{color:#dce7ff!important}
+#layout-wrapper .employee-notification-hero__bell{color:#dce7ff!important}
+#layout-wrapper .employee-notification-hero__signal{background:#315fd4!important}
+#layout-wrapper .employee-notification-toolbar{border-color:#dfe6f2!important;color:#1f2937!important}
+#layout-wrapper .employee-notification-search{border-color:#cbd6e8!important;background:#fff!important;color:#1f2937!important}
+#layout-wrapper .employee-notification-filters{color:#1f2937!important}
+#layout-wrapper .employee-notification-filters button.is-active{border-color:#315fd4!important;background:#315fd4!important;color:#fff!important}
+#layout-wrapper .employee-notification-empty>span{background:#e8efff!important;color:#244a9b!important}
+#layout-wrapper .employee-notification-empty>small{color:#244a9b!important}
+#layout-wrapper .employee-notification-empty>a{color:#244a9b!important}
+
+/* Shared palette tokens for the independently styled workspaces. */
+.gu-hostel-module,.school-transportation-module,.gu-policies-module .policies-workspace{--gu-navy-950:#173b91!important;--gu-navy-900:#244da7!important;--gu-navy-800:#315fc2!important;--gu-blue-600:#244a9b!important;--gu-orange-600:#244a9b!important;--gu-orange-500:#244a9b!important;--gu-orange-400:#dce7ff!important;--gu-orange-100:#e8efff!important;--gu-canvas:#f7f9fd!important;--gu-ink:#1f2937!important;--gu-muted:#647084!important;--gu-border:#dfe6f2!important}
+.school-inventory-v2-module{--iv2-navy-950:#173b91!important;--iv2-navy-900:#244da7!important;--iv2-navy-800:#315fc2!important;--iv2-blue:#244a9b!important;--iv2-orange:#244a9b!important;--iv2-orange-soft:#e8efff!important;--iv2-canvas:#f7f9fd!important;--iv2-ink:#1f2937!important;--iv2-muted:#647084!important;--iv2-border:#dfe6f2!important}
+.school-library-module{--lib-navy:#244da7!important;--lib-blue:#244a9b!important;--lib-orange:#244a9b!important;--lib-canvas:#f7f9fd!important;--lib-ink:#1f2937!important;--lib-muted:#647084!important;--lib-border:#dfe6f2!important}
+.student-ticket-page{--ticket-navy:#244da7!important;--ticket-navy-dark:#173b91!important;--ticket-blue:#244a9b!important;--ticket-orange:#315fd4!important;--ticket-canvas:#f7f9fd!important;--ticket-line:#dfe6f2!important;--ticket-muted:#647084!important;--ticket-ink:#1f2937!important}
+.school-visitor-module{--vn-navy:#173b91!important;--vn-blue:#244a9b!important;--vn-orange:#315fd4!important;--vn-canvas:#f7f9fd!important;--vn-ink:#1f2937!important;--vn-muted:#647084!important;--vn-border:#dfe6f2!important}
+#layout-wrapper .visitor-command,#layout-wrapper .ticket-page-heading,#layout-wrapper .mg-hero{background:linear-gradient(125deg,#173b91,#2855b5 68%,#4676d6)!important}
+#layout-wrapper .visitor-eyebrow,#layout-wrapper .ticket-eyebrow,#layout-wrapper .mg-eyebrow{color:#dce7ff!important}
+#layout-wrapper .visitor-btn-primary{background:#315fd4!important;border-color:#315fd4!important;color:#fff!important}
+#layout-wrapper .mg-date-controls .btn,#layout-wrapper .mg-tab.active{background:#244a9b!important;border-color:#244a9b!important;color:#fff!important}
+#layout-wrapper .my-visitor-hero{background:linear-gradient(125deg,#173b91,#2855b5 68%,#4676d6)!important}
+#layout-wrapper .request-note{background:#e8efff!important;color:#244a9b!important}
+@media(max-width:575px){#layout-wrapper .visitor-filter-grid{grid-template-columns:minmax(0,1fr)!important}#layout-wrapper .visitor-filter-grid>*{min-width:0}#layout-wrapper .filter-actions{flex-wrap:wrap}}
+body.student-ticket-page .navbar-menu .navbar-nav .nav-link:hover,body.student-ticket-page .navbar-menu .navbar-nav .nav-link.active{background:#315fd4!important;color:#fff!important}
+body.student-ticket-page .navbar-menu .navbar-nav .nav-link:hover :is(span,i,svg),body.student-ticket-page .navbar-menu .navbar-nav .nav-link.active :is(span,i,svg){color:#fff!important;stroke:#fff!important}
+
+/* DataTables adds its own theme after the shared sheet on some routes. */
+body #layout-wrapper .dataTables_wrapper .pagination .page-item.active .page-link{background:#315fd4!important;border-color:#315fd4!important;color:#fff!important}
+
+/* HR's master cards use their accent classes decoratively. Keep the rhythm in one palette. */
+#layout-wrapper .hr-config-master .hub-card.primary:before{background:#315fd4}
+#layout-wrapper .hr-config-master .hub-card.info:before{background:#5b7ed1}
+#layout-wrapper .hr-config-master .hub-card.success:before{background:#426bc5}
+#layout-wrapper .hr-config-master .hub-card.warning:before{background:#7893cc}
+#layout-wrapper .hr-config-master .hub-card.danger:before{background:#244a9b}
+#layout-wrapper .hr-config-master .hub-card.secondary:before{background:#8a9dc6}
+#layout-wrapper .hr-config-master .hub-card.dark:before{background:#173b91}
+@media(max-width:575px){#layout-wrapper .hr-config-master .hub-card{min-height:142px}}
+
+/* School management still ships an earlier teal skin after the shared CSS. */
+body #school-management{--smd-ink:#1f2937!important;--smd-muted:#647084!important;--smd-line:#dfe6f2!important;--smd-teal:#244a9b!important;--smd-mint:#eaf0ff!important;background:#f7f9fd!important;color:#1f2937!important}
+body #school-management .smd-hero{background:radial-gradient(circle at 85% -25%,rgba(184,206,255,.2),transparent 30%),linear-gradient(115deg,#173b91,#315fc2 76%,#4676d6)!important;box-shadow:0 13px 30px rgba(23,59,145,.14)!important}
+body #school-management .smd-eyebrow,body #school-management .smd-hero-side span{color:#dce7ff!important}
+body #school-management .smd-hero p{color:#edf3ff!important}
+body #school-management .smd-hero-side span i{color:#c8d8ff!important}
+body #school-management .smd-tabs button{color:#53647d!important}
+body #school-management .smd-tabs button:hover,body #school-management .smd-tabs button.active{background:#eaf0ff!important;color:#244a9b!important}
+body #school-management .smd-tabs button.active{box-shadow:inset 0 0 0 1px #c8d7f4!important}
+body #school-management .smd-heading small,body #school-management .smd-card-head small{color:#315fc2!important}
+body #school-management .smd-heading h2,body #school-management .smd-kpi strong,body #school-management .smd-card-head h3,body #school-management .smd-split b{color:#1f2937!important}
+body #school-management .smd-date,body #school-management .smd-kpi small,body #school-management .smd-kpi span,body #school-management .smd-bar-label,body #school-management .smd-pulse span,body #school-management .smd-empty,body #school-management .smd-footnote{color:#647084!important}
+body #school-management .smd-kpi,body #school-management .smd-card{box-shadow:0 6px 20px rgba(31,56,116,.045)!important}
+body #school-management button.smd-kpi:hover{border-color:#b6c9ec!important;box-shadow:0 12px 26px rgba(31,56,116,.1)!important}
+body #school-management .aqua{color:#244a9b!important;background:#e7efff!important}
+body #school-management .mint{color:#315fc2!important;background:#edf3ff!important}
+body #school-management .gold{color:#4769ad!important;background:#f0f3fc!important}
+body #school-management .lilac{color:#5f61a5!important;background:#efeffb!important}
+body #school-management .coral{color:#5a6fbd!important;background:#edf1fb!important}
+body #school-management .smd-bar:hover,body #school-management .smd-pulse button:hover{background:#f2f5fc!important}
+body #school-management .smd-bar-track,body #school-management .smd-split-track{background:#e5ebf7!important}
+body #school-management .smd-bar-track i{background:linear-gradient(90deg,#244da7,#7896d5)!important}
+body #school-management .smd-split-track i{background:#315fd4!important}
+body #school-management .smd-stat-large,body #school-management .smd-card-head button,body #school-management .smd-text-link{color:#244a9b!important}
+body #schoolOverviewModal .modal-header{background:#f2f5fc!important;border-bottom-color:#dfe6f2!important}
+body #schoolOverviewModal :is(.modal-header small,.modal-title,#schoolOverviewCount,.smd-modal-message,th,td){color:#334155!important}
+body #schoolOverviewModal th{background:#f1f4fa!important}
+body #schoolOverviewModal .smd-export{background:#315fd4!important;color:#fff!important}
+body #schoolOverviewModal .smd-export:hover{background:#244fb7!important}

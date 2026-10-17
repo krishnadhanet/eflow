@@ -43,7 +43,10 @@
             const url = new URL(root.dataset.detailUrl, location.href);
             url.search = new URLSearchParams({ type, value }).toString();
             const response = await fetch(url.toString(), { headers: { 'X-Requested-With': 'XMLHttpRequest' }, credentials: 'same-origin' });
-            if (!response.ok) throw new Error('Unable to load this report.');
+            if (!response.ok) {
+                const failure = await response.json().catch(() => ({}));
+                throw new Error(failure.error || 'Unable to load this report.');
+            }
             const result = await response.json();
             current = result;
             title.textContent = result.title || label;
