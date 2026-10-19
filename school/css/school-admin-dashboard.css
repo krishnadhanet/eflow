@@ -11,6 +11,8 @@
 #school-management .smd-hero-side span i{margin-right:5px;color:#9fe6bc}
 #school-management .smd-hero-side button{padding:8px 13px;border:1px solid rgba(255,255,255,.4);border-radius:9px;background:rgba(255,255,255,.1);color:#fff;font-weight:650;font-size:12px}
 #school-management .smd-hero-side button:hover{background:rgba(255,255,255,.2)}
+#school-management .smd-config-link{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border:1px solid rgba(255,255,255,.4);border-radius:9px;color:#fff;background:rgba(255,255,255,.1);font-size:12px;font-weight:650;text-decoration:none}
+#school-management .smd-config-link:hover{background:rgba(255,255,255,.2);color:#fff}
 #school-management .smd-tabs{display:flex;gap:5px;overflow-x:auto;margin:17px 0 22px;padding:6px;border:1px solid var(--smd-line);border-radius:13px;background:#fff;scrollbar-width:thin}
 #school-management .smd-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:none;padding:10px 15px;border:0;border-radius:9px;background:transparent;color:#5f7a81;font-size:13px;font-weight:650;white-space:nowrap}
 #school-management .smd-tabs button:hover{background:#f1f7f4;color:var(--smd-teal)}

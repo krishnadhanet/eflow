@@ -1,0 +1,126 @@
+/* Modular school dashboard, academic calendar, dialogs and card configuration. */
+#school-employee-dashboard{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+#school-employee-dashboard button,.sdc-config button,.sdc-edit-dialog button,.sed-detail-dialog button{font-family:inherit}
+#school-employee-dashboard button:focus-visible,#school-employee-dashboard a:focus-visible,.sdc-config button:focus-visible,.sdc-config select:focus-visible,.sdc-edit-dialog button:focus-visible,.sed-detail-dialog button:focus-visible{outline:3px solid #68b9bf;outline-offset:2px}
+#school-employee-dashboard h1,#school-employee-dashboard h2,#school-employee-dashboard h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important;letter-spacing:-.025em}
+#school-employee-dashboard .sed-hero{grid-template-columns:minmax(0,1.48fr) minmax(290px,.62fr);background:radial-gradient(circle at 80% 10%,rgba(240,193,109,.13),transparent 30%),linear-gradient(118deg,#152f69,#244d9c 61%,#326b9f)}
+#school-employee-dashboard .sed-profile{display:flex;align-items:center;gap:16px;width:max-content;max-width:100%;margin-top:20px;padding:10px 18px 10px 10px;border:1px solid rgba(255,255,255,.24);border-radius:16px;background:rgba(255,255,255,.1)}
+#school-employee-dashboard .sed-profile img{flex:none;width:76px;height:76px;object-fit:cover;border:3px solid rgba(255,255,255,.85);border-radius:14px;background:#fff}
+#school-employee-dashboard .sed-profile div{min-width:0}
+#school-employee-dashboard .sed-profile small{display:block;color:#b5d4f6;font-size:10px;font-weight:750;letter-spacing:.11em}
+#school-employee-dashboard .sed-profile strong{display:block;margin:2px 0 3px;color:#fff;font-size:19px;line-height:1.25}
+#school-employee-dashboard .sed-profile span{display:block;color:#e5edfb;font-size:12px;line-height:1.5}
+#school-employee-dashboard .sed-hero-pulse{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+#school-employee-dashboard .sed-hero-pulse span{display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.08);color:#e9f2ff;font-size:11px}
+#school-employee-dashboard .sed-hero-pulse i{color:#f4d492;font-size:15px}
+#school-employee-dashboard .sed-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:22px 2px 16px}
+#school-employee-dashboard .sed-toolbar>div:first-child{display:flex;align-items:center;gap:8px}
+#school-employee-dashboard .sed-toolbar strong{color:#1d354e;font-size:16px}
+#school-employee-dashboard .sed-toolbar small{color:#728399;font-size:12px}
+#school-employee-dashboard .sed-toolbar-dot{width:8px;height:8px;border-radius:50%;background:#26a483;box-shadow:0 0 0 5px #dff5ed}
+#school-employee-dashboard .sed-toolbar-actions{display:flex;gap:8px;flex-wrap:wrap}
+#school-employee-dashboard .sed-toolbar-actions>*{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid #d9e4ef;border-radius:9px;background:#fff;color:#31549c;font-size:12px;font-weight:700}
+#school-employee-dashboard .sed-toolbar-actions>*:hover{background:#eef4ff;color:#244a9b}
+#school-employee-dashboard .sed-board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;align-items:start}
+#school-employee-dashboard .sed-widget{min-width:0;border:1px solid #e0e7ef;border-radius:17px;background:#fff;box-shadow:0 7px 22px rgba(28,50,82,.055);overflow:hidden}
+#school-employee-dashboard .sed-widget[hidden]{display:none!important}
+#school-employee-dashboard .sed-widget-full{grid-column:span 12}
+#school-employee-dashboard .sed-widget-wide{grid-column:span 8}
+#school-employee-dashboard .sed-widget-narrow{grid-column:span 4}
+#school-employee-dashboard .sed-widget[data-dashboard-card="quick_access"],#school-employee-dashboard .sed-widget[data-dashboard-card="mobile_app"]{border:0;background:transparent;box-shadow:none;overflow:visible}
+#school-employee-dashboard .sed-widget[data-dashboard-card="quick_access"] .sed-section-title{margin:2px 2px 13px}
+#school-employee-dashboard .sed-widget[data-dashboard-card="quick_access"] .sed-actions{margin-bottom:0}
+#school-employee-dashboard .sed-widget[data-dashboard-card="mobile_app"] .sed-app{margin-top:0}
+#school-employee-dashboard .sed-widget[data-dashboard-card="attendance"]{border-top:4px solid #447bd4}
+#school-employee-dashboard .sed-widget[data-dashboard-card="priorities"]{border-top:4px solid #d79a56}
+#school-employee-dashboard .sed-widget[data-dashboard-card="academic_events"]{border-top:4px solid #679a8b}
+#school-employee-dashboard .sed-widget[data-dashboard-card="notices"]{border-top:4px solid #8377bc}
+#school-employee-dashboard .sed-widget[data-dashboard-card="leave"]{border-top:4px solid #61aa84}
+#school-employee-dashboard .sed-widget[data-dashboard-card="holidays"]{border-top:4px solid #d6a75a}
+#school-employee-dashboard .sed-widget[data-dashboard-card="celebrations"]{border-top:4px solid #bf7990}
+#school-employee-dashboard .sed-widget[data-dashboard-card="team"]{border-top:4px solid #5c97b5}
+#school-employee-dashboard .sed-widget[data-dashboard-card="no_dues"]{border-top:4px solid #8d9cb5}
+#school-employee-dashboard .sed-event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;padding:17px}
+#school-employee-dashboard .sed-event-card{display:flex;align-items:center;gap:12px;min-width:0;padding:12px;border:1px solid #e2ebe7;border-radius:13px;background:#fbfdfb;color:#294d4b;text-align:left}
+#school-employee-dashboard .sed-event-card:hover{border-color:#8dc7b1;background:#f0faf4;transform:translateY(-2px)}
+#school-employee-dashboard .sed-event-date{display:flex;flex:none;flex-direction:column;align-items:center;justify-content:center;width:54px;height:58px;border-radius:10px;background:#e7f3ec;color:#287d65}
+#school-employee-dashboard .sed-event-date strong{font-size:23px;line-height:1}
+#school-employee-dashboard .sed-event-date small{font-size:11px;text-transform:uppercase}
+#school-employee-dashboard .sed-event-copy{display:flex;flex:1;flex-direction:column;min-width:0;gap:3px}
+#school-employee-dashboard .sed-event-copy>small{color:#288571;font-size:10px;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
+#school-employee-dashboard .sed-event-copy strong{overflow:hidden;font-size:13px;text-overflow:ellipsis;white-space:nowrap}
+#school-employee-dashboard .sed-event-copy>span{color:#738888;font-size:11px}
+#school-employee-dashboard .sed-event-card>i{color:#84aaa0}
+#school-employee-dashboard .sed-notice-button{display:flex;align-items:center;gap:11px;width:100%;min-height:61px;padding:9px 2px;border:0;border-bottom:1px solid #edf0f4;background:#fff;text-align:left}
+#school-employee-dashboard .sed-notice-button:hover{background:#f6f8fc}
+#school-employee-dashboard .sed-notice-button>span:nth-child(2){flex:1;min-width:0}
+#school-employee-dashboard .sed-notice-button strong,#school-employee-dashboard .sed-notice-button small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#school-employee-dashboard .sed-notice-button strong{color:#334155;font-size:12px}
+#school-employee-dashboard .sed-notice-button small{color:#75849b;font-size:11px}
+#school-employee-dashboard .sed-notice-button>i{color:#8a9ab0}
+#school-employee-dashboard .sed-widget .sed-team-list{grid-template-columns:1fr}
+#school-employee-dashboard .sed-widget[data-dashboard-card="team"] .sed-team-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+#school-employee-dashboard .sed-widget .sed-focus-list{padding:8px 17px 15px}
+#school-employee-dashboard .sed-widget .sed-focus-empty{padding:18px}
+#school-employee-dashboard .sed-widget .sed-celebrate-list{padding:8px 17px}
+#school-employee-dashboard .sed-widget .sed-celebrate-list>div{border-bottom:1px solid #edf1f7}
+#school-employee-dashboard .sed-widget .sed-panel-heading{border-bottom:1px solid #edf1f7}
+.sed-detail-dialog{width:min(620px,calc(100vw - 30px));max-height:min(85vh,800px);padding:0;border:0;border-radius:20px;background:#fff;color:#273e4a;box-shadow:0 30px 90px rgba(15,35,60,.26)}
+.sed-detail-dialog::backdrop{background:rgba(12,25,47,.62);backdrop-filter:blur(3px)}
+.sed-dialog-head{position:relative;padding:27px 30px 25px;background:linear-gradient(120deg,#1e477d,#2d6b8a);color:#fff}
+.sed-dialog-head>span{color:#b9e5dd;font-size:11px;font-weight:750;letter-spacing:.1em}
+.sed-dialog-head h2{margin:9px 38px 7px 0;color:#fff;font-size:25px;line-height:1.2}
+.sed-dialog-head p{margin:0;color:#d8e8f1;font-size:13px}
+.sed-dialog-head button{position:absolute;right:20px;top:20px;width:32px;height:32px;border:1px solid rgba(255,255,255,.38);border-radius:8px;background:rgba(255,255,255,.1);color:#fff}
+.sed-dialog-body{padding:24px 30px}
+.sed-dialog-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}
+.sed-dialog-meta>div{padding:11px;border:1px solid #e5ecee;border-radius:9px;background:#f8fbfa}
+.sed-dialog-meta small{display:block;color:#7c9196;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+.sed-dialog-meta strong{display:block;margin-top:3px;color:#2e555c;font-size:13px}
+.sed-dialog-description small{color:#24816f;font-size:10px;font-weight:750;letter-spacing:.09em}
+.sed-dialog-description p{margin:8px 0 0;color:#455f66;font-size:14px;line-height:1.6;white-space:pre-wrap}
+#sed-dialog-attachment{display:inline-flex;align-items:center;gap:7px;margin-top:17px;color:#285baa;font-size:13px;font-weight:650}
+#sed-dialog-attachment[hidden]{display:none}
+.sed-dialog-foot{display:flex;justify-content:flex-end;padding:14px 30px 22px}
+.sed-dialog-foot button{padding:9px 17px;border:0;border-radius:9px;background:#235d87;color:#fff;font-size:13px;font-weight:700}
+.sdc-config{max-width:1150px;margin:auto;padding:22px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:#263d4b}
+.sdc-config-hero{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:29px;border-radius:20px;background:linear-gradient(120deg,#173b72,#236c87);color:#fff}
+.sdc-config-hero small,.sdc-edit-head small{color:#a9dfd8;font-size:10px;font-weight:750;letter-spacing:.11em}
+.sdc-config-hero h1{margin:7px 0;color:#fff;font-size:31px}
+.sdc-config-hero p{max-width:680px;margin:0;color:#e0eaf2;font-size:13px}
+.sdc-config-hero a{color:#fff;font-size:13px;white-space:nowrap}
+.sdc-config-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:22px 0 12px}
+.sdc-config-head h2{margin:0;font-size:20px}
+.sdc-config-head p{margin:4px 0 0;color:#6c8190;font-size:12px}
+.sdc-config-list{display:flex;flex-direction:column;gap:9px}
+.sdc-config-row{display:grid;grid-template-columns:42px minmax(180px,1fr) minmax(180px,260px) 90px;align-items:center;gap:14px;padding:14px;border:1px solid #e0e9ed;border-radius:12px;background:#fff}
+.sdc-order-actions,.sdc-edit-move{display:flex;flex-direction:column;gap:3px}
+.sdc-order-actions button,.sdc-edit-move button{width:26px;height:25px;border:1px solid #dae6e9;border-radius:5px;background:#f7faf9;color:#416576}
+.sdc-config-copy strong,.sdc-config-copy small,.sdc-edit-copy strong,.sdc-edit-copy small{display:block}
+.sdc-config-copy strong,.sdc-edit-copy strong{font-size:14px}
+.sdc-config-copy small,.sdc-edit-copy small{margin-top:3px;color:#7b8e98;font-size:12px}
+.sdc-type-select{display:block;color:#4c6470;font-size:11px;font-weight:650}
+.sdc-type-select select{display:block;width:100%;min-height:53px;margin-top:4px;border:1px solid #dce7e9;border-radius:7px;color:#395968;font-size:12px}
+.sdc-type-select small{display:block;margin-top:3px;color:#8b9da4;font-size:10px}
+.sdc-toggle{display:inline-flex;align-items:center;gap:7px;color:#395b61;font-size:12px;font-weight:700;white-space:nowrap}
+.sdc-toggle input{width:17px;height:17px;accent-color:#257c83}
+.sdc-edit-dialog{width:min(680px,calc(100vw - 26px));max-height:88vh;padding:0;border:0;border-radius:18px;background:#fff;box-shadow:0 30px 80px rgba(20,40,64,.25)}
+.sdc-edit-dialog::backdrop{background:rgba(12,25,47,.62)}
+.sdc-edit-head{display:flex;justify-content:space-between;gap:20px;padding:22px 24px;background:#1d4b72;color:#fff}
+.sdc-edit-head h2{margin:4px 0;color:#fff;font-size:23px}
+.sdc-edit-head p{margin:0;color:#d9e8ee;font-size:12px}
+.sdc-edit-head>button{align-self:start;width:30px;height:30px;border:1px solid #80a2b3;border-radius:7px;background:transparent;color:#fff}
+.sdc-edit-list{max-height:52vh;overflow:auto;padding:12px 18px}
+.sdc-edit-row{display:flex;align-items:center;gap:10px;min-height:59px;padding:9px;border:1px solid #e5ebef;border-radius:9px;background:#fff;margin-bottom:7px}
+.sdc-edit-row.is-dragging{opacity:.45}
+.sdc-edit-grip{color:#a4b3bb;font-size:19px;cursor:grab}
+.sdc-edit-copy{flex:1;min-width:0}
+.sdc-edit-copy strong,.sdc-edit-copy small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sdc-edit-move{flex-direction:row}
+.sdc-edit-footer{display:flex;align-items:center;justify-content:flex-end;gap:9px;padding:15px 20px;border-top:1px solid #e5edf0}
+.sdc-edit-footer #sdc-edit-status{flex:1;color:#a45353;font-size:12px}
+.sdc-edit-footer button{padding:9px 13px;border:1px solid #d3e0e4;border-radius:8px;background:#fff;color:#2d5967;font-size:12px;font-weight:700}
+.sdc-edit-footer #sdc-save{border-color:#235c88;background:#235c88;color:#fff}
+@media(max-width:1000px){#school-employee-dashboard .sed-widget-wide{grid-column:span 12}#school-employee-dashboard .sed-widget-narrow{grid-column:span 6}}
+@media(max-width:700px){#school-employee-dashboard .sed-toolbar{align-items:flex-start;flex-direction:column}#school-employee-dashboard .sed-widget-narrow{grid-column:span 12}#school-employee-dashboard .sed-event-grid{grid-template-columns:1fr}#school-employee-dashboard .sed-profile img{width:61px;height:61px}#school-employee-dashboard .sed-profile strong{font-size:15px}.sdc-config-hero{align-items:flex-start;flex-direction:column}.sdc-config-row{grid-template-columns:32px 1fr 72px}.sdc-type-select{grid-column:2/-1}.sdc-config-head{align-items:flex-start;flex-direction:column}.sed-dialog-meta{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#school-employee-dashboard .sed-event-card{transition:none;transform:none}}
