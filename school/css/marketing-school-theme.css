@@ -218,6 +218,42 @@ body.gu-marketing-module #layout-wrapper .mk-page-intro {
   line-height: 1.5;
 }
 
+body.gu-marketing-module #layout-wrapper .mk-page-context {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-page-context .mk-page-intro {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-context-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  border: 1px solid #d9e8e3;
+  border-radius: 10px;
+  background: #fff;
+  color: #526c71;
+  font-size: 12px;
+  box-shadow: 0 5px 16px rgba(18, 63, 67, .045);
+}
+
+body.gu-marketing-module #layout-wrapper .mk-context-summary strong {
+  color: #176371;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  body.gu-marketing-module #layout-wrapper .mk-page-context { flex-direction: column; }
+  body.gu-marketing-module #layout-wrapper .mk-context-summary { flex-wrap: wrap; }
+}
+
 /* Shared modal styling must not wash out the white Marketing modal heading. */
 body.gu-marketing-module #layout-wrapper .mk-modal-header {
   border-bottom: 0;
