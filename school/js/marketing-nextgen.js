@@ -145,6 +145,31 @@
     });
   }
 
+  function syncVoucherDistrict(root) {
+    var state = root.querySelector('[data-voucher-state]');
+    var district = root.querySelector('[data-voucher-district]');
+    if (!state || !district) return;
+    if (!district._allDistrictOptions) {
+      district._allDistrictOptions = Array.prototype.slice.call(district.options, 1).map(function (option) {
+        return { value: option.value, state: option.dataset.state, label: option.text };
+      });
+    }
+    var selected = district.value;
+    var available = district._allDistrictOptions.filter(function (option) {
+      return option.state === state.value;
+    });
+    district.replaceChildren(new Option(
+      !state.value ? 'Select state first' : (available.length ? 'Select district' : 'No district for this state — state will be used'),
+      ''
+    ));
+    available.forEach(function (option) {
+      district.add(new Option(option.label, option.value));
+    });
+    district.value = available.some(function (option) { return option.value === selected; }) ? selected : '';
+    district.disabled = available.length === 0;
+    district.required = available.length > 0;
+  }
+
   function renderEmployeeLedger(code) {
     var rows = document.querySelectorAll('[data-employee-ledger-row]');
     var empty = document.querySelector('[data-employee-ledger-empty]');
@@ -183,6 +208,7 @@
   }
 
   document.addEventListener('change', function (event) {
+    if (event.target.matches('[data-voucher-state]')) syncVoucherDistrict(event.target.closest('form'));
     var form = event.target.closest('#mkExpenseForm');
     if (form) {
       if (event.target.matches('input[name="expense_type"]')) configureExpenseForm(form);
@@ -305,6 +331,7 @@
         .then(function (response) { if (!response.ok) throw new Error(response.status === 403 ? 'This action is locked or you no longer have access.' : 'Request could not be loaded.'); return response.text(); })
         .then(function (html) {
           remoteBody.innerHTML = html;
+          syncVoucherDistrict(remoteBody);
           if (window.jQuery && jQuery.fn.select2) jQuery(remoteBody).find('select.select2').each(function () { jQuery(this).select2({width:'100%',dropdownParent:jQuery(remoteModal)}); });
         })
         .catch(function (error) { remoteBody.innerHTML = '<div class="mk-remote-error"><i class="ri-error-warning-line"></i><strong>Unable to open</strong><span>' + String(error.message || error) + '</span></div>'; });
@@ -457,6 +484,7 @@
     var voucherNature = document.querySelector('[data-voucher-nature]');
     var voucherModal = document.getElementById('voucherModal');
     initVoucherCategorySelect();
+    syncVoucherDistrict(document);
     if (voucherModal) voucherModal.addEventListener('shown.bs.modal', initVoucherCategorySelect);
     if (voucherNature) {
       if (voucherModal && voucherModal.dataset.initialNature) voucherNature.value = voucherModal.dataset.initialNature;
