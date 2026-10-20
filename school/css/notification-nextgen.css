@@ -138,6 +138,10 @@
     box-shadow: 0 8px 18px rgba(16, 38, 93, .18);
 }
 
+.school-notification-module .notification-admin-workspace .notification-module-tabs {
+    margin-top: 0;
+}
+
 .school-notification-module .notification-kpi-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
