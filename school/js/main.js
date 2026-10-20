@@ -1039,6 +1039,9 @@ $(function(){
           $.ajax({
             type: "POST",
             url: base_url + "Report/deleteRow2",
+            beforeSend: function (xhr) {
+              if (typeof window.transportCsrf === "string") xhr.setRequestHeader("X-Transport-CSRF", window.transportCsrf);
+            },
             data: { number: $(this).attr('id'),tt: $(this).attr('tt')},
             success: function (data) {
               if(data){
@@ -1046,7 +1049,9 @@ $(function(){
               }else{
                 swal("Something went wrong. Please try again.");
               }
-              
+            },
+            error: function (xhr) {
+              swal(xhr.status === 403 ? "You do not have permission to delete this record." : "This record could not be deleted. It may be in use.");
             },
           });
       }
@@ -1127,7 +1132,6 @@ function cashBookDeleteconfirm(item){
             }else{
               swal("Something went wrong. Please try again.");
             }
-            
           },
         });
     }
@@ -1201,6 +1205,9 @@ function deleteRow(title,number,tt,onlyDependency=null,onlyDependencyId=null){
         $.ajax({
           type: "POST",
           url: base_url + "Report/deleteRow",
+          beforeSend: function (xhr) {
+            if (typeof window.transportCsrf === "string") xhr.setRequestHeader("X-Transport-CSRF", window.transportCsrf);
+          },
           data: { number: number,tt:tt,onlyDependency:onlyDependency,onlyDependencyId:onlyDependencyId},
           success: function (data) {
             if(data){
@@ -1208,7 +1215,9 @@ function deleteRow(title,number,tt,onlyDependency=null,onlyDependencyId=null){
             }else{
               swal("Something went wrong. Please try again.");
             }
-            
+          },
+          error: function (xhr) {
+            swal(xhr.status === 403 ? "You do not have permission to delete this record." : "This record could not be deleted. It may be in use.");
           },
         });
     }
