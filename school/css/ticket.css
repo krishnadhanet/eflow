@@ -1223,3 +1223,146 @@
         width: 100%;
     }
 }
+
+/* Ticket workspace follows the ERP's shared teal and warm neutral palette. */
+.ticket-board,
+.ticket-report-page {
+    --ticket-primary: var(--school-primary, #176b75);
+    --ticket-primary-hover: var(--school-primary-hover, #105762);
+    --ticket-ink: var(--school-ink, #193b43);
+    --ticket-line: var(--school-line, #d9e8e3);
+    --ticket-soft: var(--school-soft, #e5f3ed);
+    color: var(--ticket-ink);
+}
+.ticket-page-header .support-limit {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px;
+    color: #fff;
+    background: rgba(255,255,255,.12);
+    box-shadow: none;
+    font-size: 12px;
+}
+.ticket-create-panel,
+.ticket-search-only,
+.ticket-stage-card,
+.ticket-view-tabs,
+.ticket-pagination,
+.ticket-report-filter,
+.ticket-kpi-card,
+.analytics-panel,
+.analytics-source-section {
+    border-color: var(--ticket-line, #d9e8e3);
+    box-shadow: 0 12px 30px rgba(18,63,67,.07);
+}
+.ticket-create-panel button,
+.ticket-view-tabs a.active,
+.ticket-page-links a.active,
+.analytics-section-links a.primary,
+.drawer-forward-actions #changeCategoryBtn,
+.ticket-report-page .btn-primary {
+    border-color: var(--ticket-primary, #176b75);
+    background: var(--ticket-primary, #176b75);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(23,107,117,.15);
+}
+.ticket-create-panel button:hover,
+.ticket-view-tabs a.active:hover,
+.ticket-report-page .btn-primary:hover {
+    background: var(--ticket-primary-hover, #105762);
+    border-color: var(--ticket-primary-hover, #105762);
+}
+.ticket-file-picker,
+.ticket-number,
+.ticket-status-pill.ticket-status-open,
+.analytics-ranked-list b {
+    border-color: #b9d9d1;
+    color: var(--ticket-primary, #176b75);
+    background: var(--ticket-soft, #e5f3ed);
+}
+.ticket-stage-card.new::before,
+.support-ticket-card .card-glow,
+.ticket-kpi-card::before,
+.analytics-source-icon,
+.report-timeline-item > span {
+    background: var(--ticket-primary, #176b75);
+}
+.ticket-stage-card.active,
+.support-ticket-card.ticket-status-open,
+.ticket-kpi-card,
+.analytics-mini-card.status-new {
+    border-color: #b9d9d1;
+    background: linear-gradient(135deg, rgba(23,107,117,.09), #fff 52%, #edf7f3);
+    box-shadow: 0 12px 28px rgba(18,63,67,.08);
+}
+.support-ticket-card.ticket-status-open:hover,
+.support-ticket-card:hover,
+.ticket-kpi-card:hover,
+.analytics-mini-card:hover {
+    border-color: var(--ticket-primary, #176b75);
+    box-shadow: 0 16px 36px rgba(18,63,67,.13);
+}
+.ticket-kpi-card::after { background: rgba(23,107,117,.09); }
+.ticket-kpi-card.violet,
+.ticket-kpi-card.blue,
+.ticket-kpi-card.cyan,
+.analytics-mini-card.status-active {
+    border-color: #b9d9d1;
+    background: linear-gradient(135deg, rgba(23,107,117,.09), #fff 52%, #edf7f3);
+}
+.ticket-kpi-card.violet::before,
+.ticket-kpi-card.blue::before,
+.ticket-kpi-card.cyan::before { background: var(--ticket-primary, #176b75); }
+.ticket-kpi-card.violet::after { background: rgba(23,107,117,.09); }
+.analytics-hero {
+    background: var(--school-hero, linear-gradient(115deg,#123d4c,#176371 58%,#347f83));
+    box-shadow: 0 17px 36px rgba(18,63,67,.16);
+}
+body #layout-wrapper .analytics-hero h2 { color: #fff !important; }
+.analytics-hero p,
+.analytics-hero-period small { color: #dfefeb; }
+.analytics-eyebrow { color: #eec58b; }
+.analytics-source-section.student,
+.analytics-source-section.employee {
+    background: linear-gradient(135deg, rgba(229,243,237,.75), #fff 44%);
+}
+.analytics-source-section.employee .analytics-source-icon {
+    background: #b7874f;
+    box-shadow: 0 10px 22px rgba(183,135,79,.18);
+}
+.analytics-panel header span,
+.drawer-forward-panel > header span,
+.report-timeline-drawer > header span { color: var(--ticket-primary, #176b75); }
+.ticket-report-row:hover td { background: #edf7f3 !important; }
+.drawer-category-row button,
+.drawer-msg.creator > div,
+#sendDrawerMessage {
+    border-color: var(--school-primary, #176b75);
+    background: var(--school-primary, #176b75);
+    color: #fff;
+}
+.drawer-file-chip,
+.drawer-doc,
+.ai-close-suggestion {
+    border-color: #b9d9d1;
+    background: #e5f3ed;
+    color: #176b75;
+}
+.ticket-loader-card span { border-top-color: #176b75; }
+.ticket-master-page .badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 750;
+}
+.ticket-master-page .badge-success {
+    background: #e5f3ed;
+    color: #17745c;
+}
+.ticket-master-page .badge-danger {
+    background: #fff0f1;
+    color: #b34754;
+}
