@@ -1,0 +1,4 @@
+#layout-wrapper .school-master-tabs .nav-link{color:var(--school-ink,#193b43);border-radius:0;transition:background-color .15s,color .15s}
+#layout-wrapper .school-master-tabs .nav-link:hover:not(.active){background:var(--school-soft,#e5f3ed);color:var(--school-primary,#176b75)}
+#layout-wrapper .school-master-tabs .nav-link.active{background:var(--school-primary,#176b75)!important;border-color:var(--school-primary,#176b75)!important;color:#fff!important;box-shadow:inset 3px 0 0 #d9b477}
+#layout-wrapper .school-master-tabs .nav-link:focus-visible{outline:3px solid #74bdb0;outline-offset:-3px}

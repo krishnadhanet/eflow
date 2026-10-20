@@ -144,3 +144,203 @@ body #schoolOverviewModal :is(.modal-header small,.modal-title,#schoolOverviewCo
 body #schoolOverviewModal th{background:#f1f4fa!important}
 body #schoolOverviewModal .smd-export{background:#315fd4!important;color:#fff!important}
 body #schoolOverviewModal .smd-export:hover{background:#244fb7!important}
+
+/* School-wide workspace language. Loaded after module styles by Template/header.php. */
+html[data-preloader="disable"] #preloader{display:none!important}
+body #layout-wrapper{
+  --school-canvas:#f4f8f7;
+  --school-surface:#fffdfa;
+  --school-ink:#193b43;
+  --school-muted:#657b80;
+  --school-line:#d9e8e3;
+  --school-primary:#176b75;
+  --school-primary-hover:#105762;
+  --school-primary-ink:#fff;
+  --school-accent-ink:#176b75;
+  --school-soft:#e5f3ed;
+  --school-gold:#d3a463;
+  --school-success:#17745c;
+  --school-danger:#b34754;
+  --school-hero:radial-gradient(circle at 91% 0,rgba(242,194,115,.17),transparent 28%),linear-gradient(115deg,#123d4c,#176371 58%,#347f83);
+  --school-shadow:0 12px 30px rgba(18,63,67,.075);
+  --school-font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--school-ink);
+  font-family:var(--school-font);
+}
+body #layout-wrapper .main-content,body #layout-wrapper .main-content :is(button,input,select,textarea){font-family:inherit}
+body #layout-wrapper :is(.mk-workspace,.visitor-workspace,.policies-workspace,.notification-workspace,.library-workspace-nav,.library-landing,.school-inventory-v2-module .main-content,.gu-hostel-module .main-content,.school-transportation-module .main-content){font-family:var(--school-font)!important}
+body:is(.gu-hostel-module,.school-transportation-module,.school-inventory-v2-module,.school-library-module,.school-visitor-module,.school-notification-module,.gu-marketing-module,.gu-policies-module,.student-ticket-page) #layout-wrapper .main-content{font-family:var(--school-font)!important}
+body #layout-wrapper .page-content,body #layout-wrapper .main-content .page-content{background:radial-gradient(circle at 8% 0,rgba(44,144,127,.07),transparent 27rem),var(--school-canvas)!important}
+body #layout-wrapper .page-content :is(h1,h2,h3,h4,h5,h6){font-family:inherit!important;letter-spacing:-.025em}
+body #layout-wrapper .school-page-header{background:var(--school-hero);box-shadow:0 14px 30px rgba(19,77,79,.15)}
+body #layout-wrapper .school-page-header h4{color:#fff!important;font-size:16px!important}
+body #layout-wrapper .school-page-header .breadcrumb,body #layout-wrapper .school-page-header .breadcrumb .active{color:#d8eeea}
+body #layout-wrapper .school-page-header .breadcrumb a{color:#eec58b}
+body #layout-wrapper .school-page-header .school-page-actions .btn-primary{min-height:38px;padding:8px 14px;border-color:#e8ba7a!important;background:#e8ba7a!important;color:#24444a!important;box-shadow:0 7px 15px rgba(14,52,55,.13)}
+body #layout-wrapper .school-page-header .school-page-actions .btn-primary:hover{border-color:#f1c993!important;background:#f1c993!important;color:#24444a!important}
+body #layout-wrapper .page-content .card{border:1px solid var(--school-line);border-radius:16px;background:linear-gradient(155deg,#fff,var(--school-surface));box-shadow:var(--school-shadow)}
+body #layout-wrapper .page-content .card-header{border-bottom-color:var(--school-line);border-radius:16px 16px 0 0;background:#f8fbf9}
+body #layout-wrapper .page-content .card-header :is(h3,h4,h5,h6){color:var(--school-ink)}
+body #layout-wrapper .page-content .table thead th{border-bottom-color:var(--school-line);background:#edf5f1;color:#365861}
+body #layout-wrapper .page-content .table tbody :is(td,th){border-color:#e9f1ed}
+body #layout-wrapper .page-content .table tbody tr:hover{background:#f5faf7}
+body #layout-wrapper :is(.btn-primary,.btn-soft-primary){--vz-btn-color:#fff;--vz-btn-bg:#176b75;--vz-btn-border-color:#176b75;--vz-btn-hover-color:#fff;--vz-btn-hover-bg:#105762;--vz-btn-hover-border-color:#105762;--vz-btn-active-bg:#105762;--vz-btn-active-border-color:#105762}
+body #layout-wrapper .btn-primary{background:#176b75!important;border-color:#176b75!important;color:#fff!important}
+body #layout-wrapper .btn-primary:hover{background:#105762!important;border-color:#105762!important}
+body #layout-wrapper .btn-outline-primary{border-color:#79aaa4;color:#176b75}
+body #layout-wrapper .btn-outline-primary:hover{background:#176b75;border-color:#176b75;color:#fff}
+body #layout-wrapper .btn-success{background:#17745c;border-color:#17745c}
+body #layout-wrapper .btn-warning{background:#b87d37;border-color:#b87d37}
+body #layout-wrapper .btn-danger{background:#b34754;border-color:#b34754}
+body #layout-wrapper :is(.btn-light,.btn-secondary){background:#eef5f1;border-color:#d9e8e3;color:#365861}
+body #layout-wrapper :is(.btn-light,.btn-secondary):hover{background:#e1f0e8;border-color:#bfded1;color:#193b43}
+body #layout-wrapper :is(.form-control,.form-select){border-color:#cddfd9;border-radius:9px;color:var(--school-ink)}
+body #layout-wrapper :is(.form-control,.form-select):focus{border-color:#5aafa3;box-shadow:0 0 0 3px rgba(31,139,123,.15)}
+body #layout-wrapper :is(.btn,.form-control,.form-select,.nav-link,.page-link):focus-visible{outline:3px solid #74bdb0;outline-offset:2px}
+body #layout-wrapper .input-group-text{border-color:#cddfd9;background:#f2f8f5;color:#59737a}
+body #layout-wrapper .select2-container--default :is(.select2-selection--single,.select2-selection--multiple){border-color:#cddfd9;border-radius:9px}
+body #layout-wrapper .select2-container--default .select2-selection--multiple .select2-selection__choice{border-color:#b8dcd1!important;background:#e8f5ef!important;color:#176b75}
+body #layout-wrapper .pagination .page-link{border-color:#d8e8e1;color:#176b75}
+body #layout-wrapper .pagination .active .page-link,body #layout-wrapper .dataTables_wrapper .pagination .page-item.active .page-link{background:#176b75!important;border-color:#176b75!important;color:#fff!important}
+body #layout-wrapper .nav-tabs{border-bottom-color:#d8e8e1}
+body #layout-wrapper .nav-tabs .nav-link{color:#527279}
+body #layout-wrapper .nav-tabs .nav-link.active{border-color:#d8e8e1 #d8e8e1 #fff;color:#176b75}
+body #layout-wrapper .modal-content{border-color:#d9e8e3;border-radius:15px}
+body #layout-wrapper .modal-header{border-bottom-color:#d9e8e3;background:#f1f8f4!important}
+body #layout-wrapper .badge.bg-primary{background:#176b75!important}
+body #layout-wrapper .dropdown-menu .dropdown-item:hover{background:#e7f4ee;color:#193b43}
+body #layout-wrapper .topbar-user .header-profile-user{border:2px solid #cae2d8;object-fit:cover}
+
+/* Reusable page primitives for new screens; existing module selectors below use the same tokens. */
+body #layout-wrapper .school-ui-hero{padding:27px 31px;border:1px solid #176371;border-radius:20px;background:var(--school-hero);color:#fff;box-shadow:0 17px 36px rgba(18,63,67,.16)}
+body #layout-wrapper .school-ui-hero :is(h1,h2,h3,h4){color:#fff!important}
+body #layout-wrapper .school-ui-card{border:1px solid var(--school-line);border-radius:16px;background:linear-gradient(145deg,#fff,var(--school-surface));box-shadow:var(--school-shadow)}
+body #layout-wrapper .school-ui-icon{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:13px;background:#e1f3e9;color:#197963;font-size:21px}
+body #layout-wrapper .school-ui-icon.tone-gold{background:#fff2df;color:#a66b2e}
+body #layout-wrapper .school-ui-icon.tone-blue{background:#e7f1fb;color:#3d72a4}
+body #layout-wrapper .school-ui-icon.tone-violet{background:#f0edfa;color:#7566a9}
+body #layout-wrapper .school-ui-icon.tone-coral{background:#fff0ec;color:#b96e5d}
+
+/* Existing module heroes share the school gradient without changing their layouts. */
+body #layout-wrapper :is(.mk-hero,.visitor-command,.my-visitor-hero,.policy-hero,.library-hero,.library-movement-hero,.notification-hero,.employee-notification-hero,.ticket-page-heading,.mg-hero,.smd-hero,.op8-hero,.psh6-hero,.report-hero,.management-hero,.nd-hero,.my-nd-hero,.gu-ess-hero,.exam-master-hero,.operation-hero,.marks-hero,.paper-hero,.hall-hero,.exam-process-hero){background:var(--school-hero)!important;box-shadow:0 17px 36px rgba(18,63,67,.16)!important}
+body #layout-wrapper :is(.mk-hero,.visitor-command,.my-visitor-hero,.policy-hero,.library-hero,.library-movement-hero,.notification-hero,.employee-notification-hero,.ticket-page-heading,.mg-hero,.smd-hero,.op8-hero,.psh6-hero,.report-hero,.management-hero,.nd-hero,.my-nd-hero,.gu-ess-hero,.exam-master-hero,.operation-hero,.marks-hero,.paper-hero,.hall-hero,.exam-process-hero) :is(h1,h2,h3,h4){color:#fff!important}
+body #layout-wrapper :is(.mk-hero,.visitor-command,.my-visitor-hero,.policy-hero,.library-hero,.library-movement-hero,.notification-hero,.employee-notification-hero,.ticket-page-heading,.mg-hero,.smd-hero,.op8-hero,.psh6-hero,.report-hero,.management-hero,.nd-hero,.my-nd-hero,.gu-ess-hero,.exam-master-hero,.operation-hero,.marks-hero,.paper-hero,.hall-hero,.exam-process-hero) :is(p,small){color:#dfefeb}
+body #layout-wrapper :is(.mk-card,.mk-metric,.visitor-kpi,.library-kpi-card,.notification-kpi,.management-kpi,.policy-kpi,.smd-kpi,.smd-card){border-color:var(--school-line);box-shadow:var(--school-shadow)}
+
+/* Module token bridge preserves each module's layout and semantic status colors. */
+.gu-hostel-module,.school-transportation-module,.gu-policies-module .policies-workspace,.school-notification-module{--gu-navy-950:#123d4c!important;--gu-navy-900:#176371!important;--gu-navy-800:#237984!important;--gu-blue-600:#247c83!important;--gu-orange-600:#b27736!important;--gu-orange-500:#d3a463!important;--gu-orange-400:#efc58a!important;--gu-orange-100:#fbf1df!important;--gu-canvas:#f4f8f7!important;--gu-ink:#193b43!important;--gu-muted:#657b80!important;--gu-border:#d9e8e3!important}
+.school-inventory-v2-module{--iv2-navy-950:#123d4c!important;--iv2-navy-900:#176371!important;--iv2-navy-800:#237984!important;--iv2-blue:#247c83!important;--iv2-orange:#b27736!important;--iv2-orange-soft:#fbf1df!important;--iv2-canvas:#f4f8f7!important;--iv2-ink:#193b43!important;--iv2-muted:#657b80!important;--iv2-border:#d9e8e3!important}
+.school-library-module{--lib-navy:#176371!important;--lib-blue:#247c83!important;--lib-orange:#b27736!important;--lib-canvas:#f4f8f7!important;--lib-ink:#193b43!important;--lib-muted:#657b80!important;--lib-border:#d9e8e3!important}
+.student-ticket-page{--ticket-navy:#176371!important;--ticket-navy-dark:#123d4c!important;--ticket-blue:#247c83!important;--ticket-orange:#c28b46!important;--ticket-canvas:#f4f8f7!important;--ticket-line:#d9e8e3!important;--ticket-muted:#657b80!important;--ticket-ink:#193b43!important}
+.school-visitor-module{--vn-navy:#123d4c!important;--vn-blue:#247c83!important;--vn-orange:#c28b46!important;--vn-canvas:#f4f8f7!important;--vn-ink:#193b43!important;--vn-muted:#657b80!important;--vn-border:#d9e8e3!important}
+.gu-marketing-module{--mk-navy:#176371!important;--mk-deep:#123d4c!important;--mk-blue:#247c83!important;--mk-orange:#c28b46!important;--mk-canvas:#f4f8f7!important;--mk-border:#d9e8e3!important;--mk-ink:#193b43!important;--mk-muted:#657b80!important}
+body #layout-wrapper .gu-marketing-module .mk-btn-primary,body.gu-marketing-module #layout-wrapper .mk-btn-primary{background:#176b75!important;border-color:#176b75!important;color:#fff!important}
+body.gu-marketing-module #layout-wrapper .mk-section-icon{background:#e3f3f1;color:#176b75}
+body.gu-marketing-module #layout-wrapper .mk-eyebrow{color:#f0c88f}
+body.school-library-module #layout-wrapper .library-eyebrow{color:#176b75}
+body.school-library-module #layout-wrapper :is(.library-hero,.library-movement-hero) .library-eyebrow{color:#e8c68f}
+body.school-library-module #layout-wrapper .library-tabs a.active{background:#176b75!important;color:#fff!important;box-shadow:0 5px 12px rgba(22,103,99,.18)}
+body.school-library-module #layout-wrapper .library-tabs a:hover{background:#e6f3ed;color:#176b75}
+body.school-library-module #layout-wrapper .library-page-action-bar{border-color:#d9e8e3;background:linear-gradient(115deg,#fff 72%,#eff8f3)}
+body.school-library-module #layout-wrapper .library-operation-card{--card-accent:#247c83;--card-soft:#e3f3f1}
+body.school-library-module #layout-wrapper .library-operation-card.tone-orange{--card-accent:#bd8340;--card-soft:#fff2df}
+body.school-library-module #layout-wrapper .library-operation-card.tone-green{--card-accent:#197963;--card-soft:#e1f3e9}
+body.school-library-module #layout-wrapper .library-operation-card.tone-violet{--card-accent:#7566a9;--card-soft:#f0edfa}
+body.school-library-module #layout-wrapper .library-issue-guide{border-color:#d9e8e3;background:#eef7f2}
+body.school-library-module #layout-wrapper .library-issue-guide span{background:#176b75}
+body #layout-wrapper .mg-date-icon{background:linear-gradient(135deg,#176371,#318981)}
+body #layout-wrapper .mg-note{border-color:#b9dfd1;background:#eaf7ef;color:#176b75}
+body #layout-wrapper .employee-notification-hero,body #layout-wrapper .visitor-command,body #layout-wrapper .my-visitor-hero,body #layout-wrapper .ticket-page-heading,body #layout-wrapper .mg-hero{background:var(--school-hero)!important}
+body #layout-wrapper .visitor-btn-primary,body #layout-wrapper .mg-date-controls .btn,body #layout-wrapper .mg-tab.active{background:#176b75!important;border-color:#176b75!important;color:#fff!important}
+body #layout-wrapper .request-note{background:#e7f4ee!important;color:#176b75!important}
+body #layout-wrapper .employee-notification-filters button.is-active{border-color:#176b75!important;background:#176b75!important;color:#fff!important}
+body #layout-wrapper .employee-notification-hero__signal{background:#e8ba7a!important}
+body #layout-wrapper .employee-notification-empty>span{background:#e8f5ef!important;color:#176b75!important}
+body #layout-wrapper .employee-notification-empty>small,body #layout-wrapper .employee-notification-empty>a{color:#176b75!important}
+body #school-management{--smd-ink:#193b43!important;--smd-muted:#657b80!important;--smd-line:#d9e8e3!important;--smd-teal:#176b75!important;--smd-mint:#e5f3ed!important;background:#f4f8f7!important;color:#193b43!important;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body #school-management .smd-hero{background:var(--school-hero)!important;box-shadow:0 17px 36px rgba(18,63,67,.16)!important}
+body #school-management .smd-heading small,body #school-management .smd-card-head small,body #school-management .smd-stat-large,body #school-management .smd-card-head button,body #school-management .smd-text-link{color:#176b75!important}
+body #school-management .aqua{color:#147b82!important;background:#e3f3f1!important}
+body #school-management .mint{color:#197963!important;background:#e1f3e9!important}
+body #school-management .gold{color:#a66b2e!important;background:#fff2df!important}
+body #school-management .lilac{color:#7566a9!important;background:#f0edfa!important}
+body #school-management .coral{color:#b96e5d!important;background:#fff0ec!important}
+body #school-management .smd-tabs button.active{background:#e5f3ed!important;color:#176b75!important;box-shadow:inset 0 0 0 1px #b9dbd1!important}
+body #school-management .smd-bar-track,body #school-management .smd-split-track{background:#e4f0ea!important}
+body #school-management .smd-bar-track i{background:linear-gradient(90deg,#176b75,#71b5a4)!important}
+body #school-management .smd-split-track i{background:#176b75!important}
+body #school-management .smd-export{background:#176b75!important;color:#fff!important}
+body #schoolOverviewModal .modal-header{background:#f1f8f4!important;border-bottom-color:#d9e8e3!important}
+body #schoolOverviewModal th{background:#edf5f1!important}
+body #schoolOverviewModal .smd-export{background:#176b75!important;color:#fff!important}
+body #schoolOverviewModal .smd-export:hover{background:#105762!important}
+body #layout-wrapper .hr-config-master .hub-card.primary:before{background:#176b75}
+body #layout-wrapper .hr-config-master .hub-card.info:before{background:#3d72a4}
+body #layout-wrapper .hr-config-master .hub-card.success:before{background:#197963}
+body #layout-wrapper .hr-config-master .hub-card.warning:before{background:#c28b46}
+body #layout-wrapper .hr-config-master .hub-card.danger:before{background:#b96e5d}
+body #layout-wrapper .hr-config-master .hub-card.secondary:before{background:#7566a9}
+body #layout-wrapper .hr-config-master .hub-card.dark:before{background:#123d4c}
+body.student-ticket-page .navbar-menu .navbar-nav .nav-link:hover,body.student-ticket-page .navbar-menu .navbar-nav .nav-link.active{background:#176b75!important;color:#fff!important}
+
+/* The student portal uses its own header, but shares the same school surfaces and icon language. */
+body #layout-wrapper .school-ui-icon.tone-green{background:#e1f3e9;color:#197963}
+body #layout-wrapper .school-student-dashboard{max-width:1440px;margin:0 auto;padding:0 0 30px;color:var(--school-ink)}
+body #layout-wrapper .student-dashboard-hero{display:flex;align-items:center;justify-content:space-between;gap:26px;min-height:188px;margin-bottom:19px;padding:29px 33px;overflow:hidden}
+body #layout-wrapper .student-dashboard-eyebrow{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;color:#eac995;font-size:11px;font-weight:800;letter-spacing:.15em}
+body #layout-wrapper .student-dashboard-hero h1{margin:0 0 8px;font-size:clamp(25px,3vw,34px);font-weight:780}
+body #layout-wrapper .student-dashboard-hero p{margin:0;color:#dfefeb;font-size:14px}
+body #layout-wrapper .student-dashboard-school{display:inline-flex;align-items:center;gap:7px;margin-top:14px;color:#eac995;font-size:12px;font-weight:700}
+body #layout-wrapper .student-dashboard-avatar{flex:none;width:76px;height:76px;border:4px solid rgba(255,255,255,.82);border-radius:21px;object-fit:cover;box-shadow:0 10px 24px rgba(10,45,49,.22)}
+body #layout-wrapper .student-dashboard-app{display:flex;align-items:center;gap:15px;padding:16px 19px;margin-bottom:26px}
+body #layout-wrapper .student-dashboard-app__icon{width:50px;height:50px;border-radius:15px;font-size:25px}
+body #layout-wrapper .student-dashboard-app__copy{display:flex;flex:1;flex-direction:column;gap:2px;min-width:0}
+body #layout-wrapper .student-dashboard-app__copy strong{font-size:15px;font-weight:760}
+body #layout-wrapper .student-dashboard-app__copy span{color:var(--school-muted);font-size:13px}
+body #layout-wrapper .student-dashboard-app .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap;border-radius:9px;font-weight:700}
+body #layout-wrapper .student-dashboard-section-title{display:flex;align-items:baseline;gap:12px;margin:0 0 13px}
+body #layout-wrapper .student-dashboard-section-title h2{margin:0;color:var(--school-ink);font-size:19px;font-weight:780}
+body #layout-wrapper .student-dashboard-section-title span{color:var(--school-muted);font-size:12px}
+body #layout-wrapper .student-dashboard-menu{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px;margin-bottom:23px}
+body #layout-wrapper .student-dashboard-link{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-height:121px;padding:17px 18px;color:var(--school-ink);text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+body #layout-wrapper .student-dashboard-link:hover{transform:translateY(-3px);border-color:#a8d4c8;box-shadow:0 16px 28px rgba(18,63,67,.11);color:var(--school-ink)}
+body #layout-wrapper .student-dashboard-link:focus-visible{outline:3px solid #74bdb0;outline-offset:2px}
+body #layout-wrapper .student-dashboard-link strong{font-size:13px;font-weight:750}
+body #layout-wrapper .student-dashboard-link__arrow{position:absolute;right:17px;top:18px;color:#9bb4af;font-size:18px}
+body #layout-wrapper .student-dashboard-updates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+body #layout-wrapper .student-dashboard-update-card{min-height:215px;padding:19px}
+body #layout-wrapper .student-dashboard-update-head{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+body #layout-wrapper .student-dashboard-update-head .school-ui-icon{width:40px;height:40px;font-size:19px}
+body #layout-wrapper .student-dashboard-update-head div{flex:1;min-width:0}
+body #layout-wrapper .student-dashboard-update-head h2{margin:0;color:var(--school-ink);font-size:15px;font-weight:770}
+body #layout-wrapper .student-dashboard-update-head small{color:var(--school-muted);font-size:11px}
+body #layout-wrapper .student-dashboard-update-head>a{color:var(--school-primary);font-size:12px;font-weight:750;text-decoration:none;white-space:nowrap}
+body #layout-wrapper .student-dashboard-update-head>a:hover{text-decoration:underline}
+body #layout-wrapper .student-dashboard-update-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #e9f1ed}
+body #layout-wrapper .student-dashboard-update-row strong{overflow:hidden;color:var(--school-ink);font-size:13px;font-weight:650;text-overflow:ellipsis;white-space:nowrap}
+body #layout-wrapper .student-dashboard-update-row time{flex:none;color:var(--school-muted);font-size:12px}
+body #layout-wrapper .student-dashboard-empty{margin:18px 0 0;padding:20px;border:1px dashed #cddfd9;border-radius:11px;background:#f7fbf8;color:var(--school-muted);font-size:13px;text-align:center}
+@media(max-width:1100px){body #layout-wrapper .student-dashboard-menu{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:767px){body #layout-wrapper .student-dashboard-hero{min-height:160px;padding:24px 21px}body #layout-wrapper .student-dashboard-avatar{width:61px;height:61px;border-radius:17px}body #layout-wrapper .student-dashboard-menu{grid-template-columns:repeat(2,minmax(0,1fr))}body #layout-wrapper .student-dashboard-updates{grid-template-columns:1fr}body #layout-wrapper .student-dashboard-section-title{display:block}body #layout-wrapper .student-dashboard-section-title span{display:block;margin-top:3px}}
+@media(max-width:520px){body #layout-wrapper .student-dashboard-hero{align-items:flex-start}body #layout-wrapper .student-dashboard-hero p{font-size:12px}body #layout-wrapper .student-dashboard-avatar{width:51px;height:51px}body #layout-wrapper .student-dashboard-app{flex-wrap:wrap}body #layout-wrapper .student-dashboard-app .btn{width:100%;margin-top:3px}body #layout-wrapper .student-dashboard-link{min-height:112px;padding:15px}}
+
+/* The bundled Remix Icon version lacks these newer names used by existing modules. */
+.ri-box-3-line:before{content:"\f116"}
+.ri-graduation-cap-line:before{content:"\eadb"}
+.ri-money-rupee-circle-line:before{content:"\f2ac"}
+.ri-inbox-2-line:before{content:"\ee4f"}
+.ri-archive-stack-line:before{content:"\ea48"}
+.ri-equalizer-2-line:before{content:"\ec9d"}
+.ri-megaphone-line:before{content:"\ef94"}
+.ri-speed-up-line:before{content:"\f177"}
+.ri-receipt-line:before{content:"\eac2"}
+.ri-list-check-3:before,.ri-list-check-3-line:before{content:"\eeb9"}
+.ri-database-off-line:before{content:"\ec16"}
+.ri-corner-down-right-line:before{content:"\ea6a"}
+.ri-presentation-line:before{content:"\f158"}
+.ri-hourglass-line:before{content:"\f20f"}
+.ri-loop-right-line:before{content:"\f064"}
+.ri-user-send-line:before{content:"\f272"}
+.ri-map-pin-search-line:before{content:"\ef14"}
+.ri-sparkling-2-line:before{content:"\f18b"}
+.ri-draggable:before{content:"\ec60"}

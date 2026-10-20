@@ -987,6 +987,35 @@ $(function(){
       }
     })
   });
+  $(document).on('click', '.school-student-profile .sp-tab', function () {
+    const button = $(this);
+    const profile = button.closest('.school-student-profile');
+    const tab = button.data('tab');
+    profile.attr('data-active-tab', tab);
+    profile.find('.sp-tab').attr('aria-selected', 'false');
+    button.attr('aria-selected', 'true');
+    const url = button.data('url');
+    if (!url) return;
+
+    const panel = profile.find('#sp-panel-' + tab);
+    if (panel.data('loaded') || panel.data('loading')) return;
+    panel.data('loading', true).html('<div class="sp-empty"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Loading...</div>');
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: { student: profile.data('student-id') },
+      success: function (html) {
+        panel.html($.trim(html) || '<div class="sp-empty">No records found.</div>');
+        panel.data('loaded', true);
+      },
+      error: function () {
+        panel.html('<div class="sp-empty text-danger">Could not load this section. Select the tab again to retry.</div>');
+      },
+      complete: function () {
+        panel.data('loading', false);
+      }
+    });
+  });
   $(document).on("click", ".changeEmployeeRequisition", function () {
     const selectedValues = [];
     document.querySelectorAll('input[name="employeeChecked[]"]:checked').forEach((checkbox) => {
