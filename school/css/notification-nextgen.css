@@ -430,6 +430,70 @@
     border-radius: 10px;
 }
 
+/* Employee administration uses the school header and a compact, readable workspace. */
+.school-notification-module .notification-employee-workspace {
+    --gu-navy-900: #176371;
+    --gu-ink: #193b43;
+    --gu-muted: #637a7c;
+    --gu-border: #d9e9e5;
+    --gu-success: #15745b;
+    padding-bottom: 28px;
+    font-family: var(--school-font, inherit);
+}
+.school-notification-module .notification-employee-workspace .notification-module-tabs {
+    margin: 0 0 18px;
+    padding: 6px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(18,63,67,.05);
+}
+.school-notification-module .notification-employee-workspace .notification-module-tabs a.active {
+    box-shadow: 0 6px 14px rgba(23,99,113,.18);
+}
+.school-notification-module .notification-employee-workspace .notification-kpi-grid { gap: 14px; }
+.school-notification-module .notification-employee-workspace .notification-kpi {
+    min-height: 142px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 23px rgba(18,63,67,.055);
+}
+.school-notification-module .notification-employee-workspace .notification-kpi::after { display: none; }
+.school-notification-module .notification-employee-workspace .notification-kpi__icon {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #176371;
+    background: #e6f3f1;
+    font-size: 19px;
+}
+.school-notification-module .notification-employee-workspace .notification-kpi--active .notification-kpi__icon { color: #15745b; background: #e4f5ed; }
+.school-notification-module .notification-employee-workspace .notification-kpi--inactive .notification-kpi__icon { color: #ab7135; background: #fff3e4; }
+.school-notification-module .notification-employee-workspace .notification-kpi__value { margin-top: 4px; font-size: 30px; }
+.school-notification-module .notification-employee-workspace .notification-panel {
+    border-radius: 16px;
+    box-shadow: 0 8px 23px rgba(18,63,67,.055);
+}
+.school-notification-module .notification-employee-workspace .notification-panel__header h2 { font-size: 17px; }
+.school-notification-module .notification-employee-workspace .notification-filter-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.school-notification-module .notification-employee-workspace .notification-filter-grid > div { min-width: 0; }
+.school-notification-module .notification-employee-workspace .notification-filter-actions { justify-content: flex-start; }
+.school-notification-module .notification-employee-workspace .notification-filter-actions .btn { white-space: nowrap; }
+.school-notification-module .notification-employee-workspace .notification-btn--primary { background: #176371; border-color: #176371; }
+.school-notification-module .notification-employee-workspace .notification-btn--primary:hover { background: #114c58; border-color: #114c58; color: #fff; }
+.school-notification-module .notification-employee-workspace .notification-table-wrap thead th { background: #f0f7f5 !important; color: #3f6065; }
+.school-notification-module .notification-employee-workspace .notification-table-wrap tbody tr:hover { background: #f5faf8; }
+.school-notification-module .notification-employee-workspace .notification-scope-chip { color: #176371; background: #e6f3f1; }
+.school-notification-module .notification-employee-workspace .notification-empty strong { display: block; color: #193b43; }
+@media (max-width: 1100px) {
+    .school-notification-module .notification-employee-workspace .notification-filter-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 767px) {
+    .school-notification-module .notification-employee-workspace .notification-filter-grid { grid-template-columns: 1fr; }
+}
+
 @keyframes guNotificationEnter {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
