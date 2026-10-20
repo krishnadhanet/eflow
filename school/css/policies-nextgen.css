@@ -462,7 +462,7 @@
 }
 
 .gu-policies-module .policy-card-action.is-view:hover { color: #fff; box-shadow: 0 8px 18px rgba(16,38,93,.2); }
-.gu-policies-module .policy-card-action.is-delete { flex: 0 0 42px; color: var(--gu-danger); border-color: #f2d4d6; }
+.gu-policies-module .policy-card-action.is-delete { flex: 0 0 auto; color: var(--gu-danger); border-color: #f2d4d6; cursor: pointer; }
 .gu-policies-module .policy-card-action.is-delete:hover { color: #a82a31; background: #fff4f4; }
 
 .gu-policies-module .policy-empty {
