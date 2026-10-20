@@ -81,6 +81,35 @@
         document.getElementById('closeReportTimeline').addEventListener('click', closeReportTimeline);
         reportBackdrop.addEventListener('click', closeReportTimeline);
     }
+    document.addEventListener('click', event => {
+        const button = event.target.closest('.ticket-type-delete');
+        if (!button) return;
+        event.preventDefault();
+        const typeName = button.dataset.name || 'this ticket type';
+        const confirmation = window.swal
+            ? swal({ title: 'Delete ticket type?', text: `Delete ${typeName}?`, icon: 'warning', buttons: true, dangerMode: true })
+            : Promise.resolve(window.confirm(`Delete ${typeName}?`));
+        Promise.resolve(confirmation).then(confirmed => {
+            if (!confirmed) return;
+            button.disabled = true;
+            fetch(button.dataset.url, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest' },
+                body: new URLSearchParams({ id: button.dataset.id })
+            })
+                .then(async response => {
+                    const result = await response.json();
+                    if (!response.ok || !result.status) throw new Error(result.message || 'Ticket type could not be deleted.');
+                    window.location.reload();
+                })
+                .catch(error => {
+                    button.disabled = false;
+                    if (window.swal) swal({ title: 'Could not delete', text: error.message, icon: 'error' });
+                    else window.alert(error.message);
+                });
+        });
+    });
     if (!board) {
         return;
     }

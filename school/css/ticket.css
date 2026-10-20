@@ -1366,3 +1366,17 @@ body #layout-wrapper .analytics-hero h2 { color: #fff !important; }
     background: #fff0f1;
     color: #b34754;
 }
+.ticket-master-page .table-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+.ticket-master-page .ticket-type-delete {
+    border: 0;
+    padding: 2px;
+    color: #b34754;
+    background: transparent;
+    cursor: pointer;
+}
+.ticket-master-page .ticket-type-delete:hover { color: #8e3041; }
+.ticket-master-page .ticket-type-delete:disabled { opacity: .5; cursor: wait; }
