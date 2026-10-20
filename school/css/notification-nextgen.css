@@ -1053,11 +1053,20 @@
 }
 
 /* Employee notification detail modal */
+.school-notification-module .employee-notification-modal {
+    --gu-navy-900: #176371;
+    --gu-navy-800: #176371;
+    --gu-ink: #193b43;
+    --gu-muted: #617a7d;
+    --gu-border: #d9e8e3;
+    --gu-success: #17745c;
+    font-family: var(--school-font, Inter, sans-serif);
+}
 .school-notification-module .employee-notification-modal .modal-content {
     overflow: hidden;
-    border: 0;
-    border-radius: 27px;
-    box-shadow: 0 35px 95px rgba(9,26,66,.33);
+    border: 1px solid #d9e8e3;
+    border-radius: 24px;
+    box-shadow: 0 30px 85px rgba(13,58,60,.29);
 }
 
 .school-notification-module .employee-notification-modal__hero {
@@ -1068,10 +1077,8 @@
     overflow: hidden;
     color: #fff;
     background:
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(130deg, #091a42, #173b7d);
-    background-size: 28px 28px, 28px 28px, auto;
+        radial-gradient(circle at 89% 5%, rgba(236,190,115,.19), transparent 29%),
+        linear-gradient(115deg, #123d4c, #176371 60%, #347f83);
 }
 
 .school-notification-module .employee-notification-modal__glow {
@@ -1082,8 +1089,8 @@
     right: -90px;
     top: -170px;
     border-radius: 50%;
-    background: var(--gu-orange-500);
-    opacity: .36;
+    background: #e8ba7a;
+    opacity: .18;
 }
 
 .school-notification-module .employee-notification-modal__identity {
@@ -1100,15 +1107,15 @@
     width: 57px;
     height: 57px;
     place-items: center;
-    color: #ffb16c;
-    border: 1px solid rgba(255,255,255,.14);
+    color: #f2cb92;
+    border: 1px solid rgba(255,255,255,.22);
     border-radius: 18px;
     background: rgba(255,255,255,.09);
     font-size: 27px;
 }
 
 .school-notification-module .employee-notification-modal__identity small {
-    color: #ffd2aa;
+    color: #f3d6aa;
     font-size: 9px;
     font-weight: 850;
     letter-spacing: .08em;
@@ -1134,7 +1141,7 @@
     top: 21px;
     place-items: center;
     color: #fff;
-    border: 1px solid rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.25);
     border-radius: 13px;
     background: rgba(255,255,255,.09);
     font-size: 21px;
@@ -1160,7 +1167,7 @@
     gap: 10px;
     border: 1px solid var(--gu-border);
     border-radius: 14px;
-    background: #f8faff;
+    background: #f5faf8;
 }
 
 .school-notification-module .employee-notification-modal__meta article > span {
@@ -1169,9 +1176,9 @@
     height: 36px;
     flex: 0 0 36px;
     place-items: center;
-    color: var(--gu-navy-800);
+    color: #176371;
     border-radius: 10px;
-    background: #eaf1fc;
+    background: #e1f0eb;
     font-size: 16px;
 }
 
@@ -1182,7 +1189,7 @@
 
 .school-notification-module .employee-notification-modal__meta small {
     color: var(--gu-muted);
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 800;
     letter-spacing: .05em;
     text-transform: uppercase;
@@ -1201,9 +1208,9 @@
     margin-top: 15px;
     padding: 19px;
     border: 1px solid var(--gu-border);
-    border-left: 4px solid var(--gu-orange-500);
+    border-left: 4px solid #d3a463;
     border-radius: 15px;
-    background: linear-gradient(135deg, #fbfcff, #fff);
+    background: linear-gradient(135deg, #fffcf6, #fff);
 }
 
 .school-notification-module .employee-notification-modal__message header {
@@ -1221,7 +1228,7 @@
 }
 
 .school-notification-module .employee-notification-modal__message header i {
-    color: #e3e9f3;
+    color: #c8ddd5;
     font-size: 26px;
 }
 
@@ -1229,8 +1236,8 @@
     max-height: 280px;
     margin: 8px 0 0;
     overflow-y: auto;
-    color: #4d5870;
-    font-size: 13px;
+    color: #34545a;
+    font-size: 14px;
     line-height: 1.8;
     white-space: pre-line;
 }
@@ -1243,9 +1250,9 @@
     align-items: center;
     gap: 11px;
     color: inherit;
-    border: 1px solid #ffd7b5;
+    border: 1px solid #cde4db;
     border-radius: 14px;
-    background: #fff8f1;
+    background: #f1f8f4;
 }
 
 .school-notification-module .employee-notification-modal__attachment[hidden] {
@@ -1257,9 +1264,9 @@
     width: 43px;
     height: 43px;
     place-items: center;
-    color: var(--gu-orange-600);
+    color: #176371;
     border-radius: 12px;
-    background: #ffe9d5;
+    background: #dceee7;
     font-size: 20px;
 }
 
@@ -1282,9 +1289,14 @@
 
 .school-notification-module .employee-notification-modal__attachment em {
     margin-top: 2px;
-    color: #8b6b4e;
+    color: #607875;
     font-size: 9px;
     font-style: normal;
+}
+
+.school-notification-module .employee-notification-modal__attachment:hover {
+    border-color: #a8d4c3;
+    background: #e9f5ef;
 }
 
 .school-notification-module .employee-notification-modal__published {
@@ -1319,12 +1331,12 @@
     justify-content: space-between;
     gap: 18px;
     border-top: 1px solid var(--gu-border);
-    background: #f8faff;
+    background: #f2f8f5;
 }
 
 .school-notification-module .employee-notification-modal__footer > span {
     color: var(--gu-muted);
-    font-size: 9px;
+    font-size: 10px;
 }
 
 .school-notification-module .employee-notification-modal__footer button {
@@ -1336,9 +1348,15 @@
     color: #fff;
     border: 0;
     border-radius: 11px;
-    background: var(--gu-navy-900);
+    background: #176371;
     font-size: 11px;
     font-weight: 850;
+}
+
+.school-notification-module .employee-notification-modal__footer button:hover,
+.school-notification-module .employee-notification-modal__footer button:focus-visible {
+    background: #10545e;
+    color: #fff;
 }
 
 @keyframes employeeNotificationPulse {
