@@ -11,7 +11,7 @@ $(document).on('change',"#member_type",function () {
       var pagefor = $(this).attr('pagefor');
       $('#systemModal #member,#fullPage #member').select2({
           dropdownParent: $('#'+pagefor),
-          placeholder: 'Search for a value',
+          placeholder: 'Search student name, roll no. or mobile',
           minimumInputLength: 2,
           ajax: {
           url: url_1,
@@ -38,7 +38,7 @@ $('#return_member').html('');
 if($(this).val()==2){
     url = base_url + 'employee/autocomplete';
     $('#return_member').select2({
-        placeholder: 'Search for a value',
+        placeholder: 'Search employee name or code',
         minimumInputLength: 2,
         ajax: {
         url: url,
@@ -56,7 +56,7 @@ if($(this).val()==2){
 else{
     url_1 = base_url + 'Student/autocomplete';
     $('#return_member').select2({
-        placeholder: 'Search for a value',
+        placeholder: 'Search student name, roll no. or mobile',
         minimumInputLength: 2,
         ajax: {
         url: url_1,
@@ -160,7 +160,7 @@ if($('#employeeAuto').length > 0){
 function employeeAuto(url,pagefor){
   $('#systemModal #member,#fullPage #member').select2({
     dropdownParent: $('#'+pagefor),
-    placeholder: 'Search for a value',
+    placeholder: 'Search employee name or code',
     minimumInputLength: 2,
     ajax: {
     url: url,
@@ -178,7 +178,7 @@ function employeeAuto(url,pagefor){
 function callFilterBook(){
 
   $('.filterbook').select2({
-      placeholder: 'Search for a value',
+      placeholder: 'Search title, code, book no. or barcode',
       minimumInputLength: 2,
       ajax: {
           url: base_url + 'library/bookautocomplete',
@@ -204,7 +204,7 @@ setTimeout(() => {
 function callFilterBookHmt(){
 
   $('.return_book').select2({
-      placeholder: 'Search for a value',
+      placeholder: 'Search title, code, book no. or barcode',
       minimumInputLength: 2,
       ajax: {
           url: base_url + 'library/bookautocompleteHmt',
@@ -227,7 +227,7 @@ var that = $(this);
   $.ajax({
       type: "POST",
       url: base_url + "library/getIssuedBookHtmlByBook",
-      data: { book: $(this).val(),'member_type':$("#member_type").val()},
+      data: { book: $(this).val(),'member_type':$("#return_member_type").val()},
       success: function (data) {
          $(".returnmainDiv").html(data);
       }
@@ -266,11 +266,16 @@ swal({
     $.ajax({
       type: "POST",
       url: base_url + "library/updateBookIssue",
-      data: {barcode:$('#barcode').val(),per_renew_limit_day: $('#per_renew_limit_day').val(), status: $('#issued_status_change').val(),expire_date:$('#expire_date').val(),issue_date:$('#issue_date').val(),amount:$('#book_fine').val(),discount:$('#book_discount').val(),final_amount:$('#book_final_amount').val(),remark:$('#notes').val(),id:$('#issue').val()},
+      data: {status: $('#issued_status_change').val(),discount:$('#book_discount').val(),remark:$('#notes').val(),id:$('#issue').val()},
       success: function (data) {
+        if (String(data).trim() !== '1') { swal('The movement could not be saved. Please try again.'); return; }
           $("#return_member").trigger('change');
+          $(".bulkBookIssue-member").trigger('change');
           closeModal();
       },
+      error: function (xhr) {
+        swal(xhr.responseText || 'The movement could not be saved. Please try again.');
+      }
     });
   }
 });
@@ -285,12 +290,12 @@ if ($(".checkduplicatebook").length > 0) {
   var duplicateValue='';
   selectBoxes.each(function () {
       var selectedValue = $(this).val();
-      if (selectedValues.indexOf(selectedValue) !== -1) {
+      if (selectedValue && selectedValues.indexOf(selectedValue) !== -1) {
           duplicateValue='yes';
           swal('Duplicate Product found');
           return false
       }
-      selectedValues.push(selectedValue);
+      if (selectedValue) selectedValues.push(selectedValue);
   });
   if(duplicateValue==''){
     return true;

@@ -466,6 +466,7 @@ body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link[a
 body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link.active small { color: #e1f4ef; }
 body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link:focus-visible { outline: 3px solid #e8ba7a; outline-offset: 2px; }
 body.school-library-module #layout-wrapper .library-circulation-help { margin: 0 0 14px; color: #58737a; font-size: 13px; }
+body.school-library-module #layout-wrapper .library-search-hint { display: block; margin-top: 5px; color: #60777b; font-size: 11px; line-height: 1.4; }
 
 body.school-library-module #layout-wrapper .library-flat-card,
 body.school-library-module #layout-wrapper .library-flat-card > .card-body,
