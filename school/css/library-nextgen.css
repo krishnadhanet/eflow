@@ -425,6 +425,87 @@
     .school-library-module .library-modal-form .form-submit { flex-direction: column-reverse; }
     .school-library-module .library-modal-form .form-submit .btn { justify-content: center; width: 100%; }
 }
+
+/* Circulation and forms use the same teal, white and warm accent as the school header. */
+body.school-library-module #layout-wrapper .library-circulation-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 0 16px;
+    padding: 6px;
+    background: #f2f7f5;
+    border: 1px solid #deebe6;
+    border-radius: 14px;
+}
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-item { min-width: 0; }
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 58px;
+    padding: 8px 12px;
+    color: #42656b;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    text-align: left;
+}
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link i { font-size: 17px; }
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link span { display: grid; gap: 1px; }
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link strong { font-size: 13px; line-height: 1.2; }
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link small { font-size: 11px; font-weight: 500; line-height: 1.2; }
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link.active,
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link[aria-selected="true"] {
+    color: #fff !important;
+    background: #176b75 !important;
+    border-color: #176b75 !important;
+    box-shadow: 0 4px 10px rgba(23,107,117,.17);
+}
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link.active small { color: #e1f4ef; }
+body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link:focus-visible { outline: 3px solid #e8ba7a; outline-offset: 2px; }
+body.school-library-module #layout-wrapper .library-circulation-help { margin: 0 0 14px; color: #58737a; font-size: 13px; }
+
+body.school-library-module #layout-wrapper .library-flat-card,
+body.school-library-module #layout-wrapper .library-flat-card > .card-body,
+body.school-library-module #layout-wrapper .library-flat-form {
+    background: #fff !important;
+    background-image: none !important;
+}
+body.school-library-module #layout-wrapper .library-flat-card { border: 1px solid #dce9e4; box-shadow: none; }
+body.school-library-module #layout-wrapper .library-flat-form { margin: 0; padding: 0; border: 0; box-shadow: none; }
+body.school-library-module #layout-wrapper .library-flat-form #book,
+body.school-library-module #layout-wrapper .library-flat-form #barcode { display: none !important; }
+body.school-library-module #layout-wrapper .library-flat-form .select2-container { width: 100% !important; max-width: 100%; }
+body.school-library-module #layout-wrapper .library-form-hint { margin: 0 0 16px; color: #58737a; font-size: 13px; line-height: 1.5; }
+body.school-library-module #layout-wrapper .library-sample-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 4px; color: #176b75; font-weight: 700; text-decoration: none; }
+body.school-library-module #layout-wrapper .library-sample-link:hover { text-decoration: underline; }
+body.school-library-module #layout-wrapper .library-flat-form .form-submit { display: flex; justify-content: flex-end; gap: 8px; padding: 14px 0 0; border-top: 1px solid #e4eeea; }
+body.school-library-module #layout-wrapper .library-flat-form .btn-primary { color: #fff; background: #176b75; border-color: #176b75; }
+body.school-library-module #layout-wrapper .library-flat-form .btn-outline-secondary { color: #42656b; border-color: #b7cbc7; }
+
+body.school-library-module #systemModal .modal-content { border: 1px solid #dce9e4; border-radius: 16px; box-shadow: 0 22px 60px rgba(19,55,61,.22); }
+body.school-library-module #systemModal .modal-header { padding: 15px 20px; background: linear-gradient(105deg,#173f4d,#176b75 70%,#478a86) !important; }
+body.school-library-module #systemModal .modal-header .modal-title { color: #fff !important; font-size: 17px; }
+body.school-library-module #systemModal .modal-body { padding: 18px 20px 0; background: #fff; }
+body.school-library-module #systemModal .library-modal-intro { gap: 11px; margin-bottom: 17px; padding: 0 0 15px; background: #fff; background-image: none; border: 0; border-bottom: 1px solid #e5eeea; border-radius: 0; }
+body.school-library-module #systemModal .library-modal-intro > span { width: 40px; height: 40px; flex-basis: 40px; color: #176b75; background: #e8f4ef; box-shadow: none; }
+body.school-library-module #systemModal .library-modal-intro > span i { color: #176b75; font-size: 18px; }
+body.school-library-module #systemModal .library-modal-intro h4 { color: #193b43; font-size: 16px; }
+body.school-library-module #systemModal .library-modal-intro p { color: #627b7f; }
+body.school-library-module #systemModal label { color: #244951; font-weight: 650; }
+body.school-library-module #systemModal .form-control:focus,
+body.school-library-module #systemModal .form-select:focus { border-color: #176b75 !important; box-shadow: 0 0 0 3px rgba(23,107,117,.12); }
+body.school-library-module #systemModal .library-modal-form .form-submit { margin-inline: -20px; padding: 13px 20px; background: #fff; border-top-color: #e4eeea; }
+body.school-library-module #systemModal .btn-primary { color: #fff; background: #176b75; border-color: #176b75; }
+body.school-library-module #systemModal .btn-primary:hover { background: #115760; border-color: #115760; }
+@media (max-width: 520px) {
+    body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link { min-height: 54px; gap: 6px; padding: 7px; }
+    body.school-library-module #layout-wrapper .library-circulation-tabs .nav-link small { display: none; }
+    body.school-library-module #systemModal .modal-body { padding: 15px 15px 0; }
+    body.school-library-module #systemModal .library-modal-form .form-submit { margin-inline: -15px; padding: 12px 15px; }
+}
 @media (max-width: 420px) { .school-library-module .library-kpi-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .school-library-module * { scroll-behavior: auto !important; transition: none !important; } }
 
