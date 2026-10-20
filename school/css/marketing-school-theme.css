@@ -1,0 +1,150 @@
+/* Marketing workspaces use the shared school palette while retaining semantic status tones. */
+body.gu-marketing-module #layout-wrapper {
+  --mk-navy: #176371;
+  --mk-deep: #123d4c;
+  --mk-blue: #247c83;
+  --mk-orange: #c28b46;
+  --mk-canvas: #f4f8f7;
+  --mk-soft: #f6faf8;
+  --mk-border: #d9e8e3;
+  --mk-ink: #193b43;
+  --mk-muted: #657b80;
+  --mk-shadow: 0 8px 24px rgba(18, 63, 67, .075);
+  --mk-shadow-hover: 0 15px 32px rgba(18, 63, 67, .13);
+}
+
+body.gu-marketing-module #layout-wrapper .mk-workspace {
+  color: var(--school-ink, #193b43);
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-hero, .mk-config-hero, .mk-directory-hero, .mk-insight-hero, .mk-analysis-hero) {
+  background: var(--school-hero, linear-gradient(115deg, #123d4c, #176371 58%, #347f83)) !important;
+  box-shadow: 0 17px 36px rgba(18, 63, 67, .16) !important;
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-hero, .mk-config-hero, .mk-directory-hero) :is(h1, h2, h3, h4) {
+  color: #fff !important;
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-hero, .mk-config-hero, .mk-directory-hero) p,
+body.gu-marketing-module #layout-wrapper :is(.mk-hero, .mk-config-hero, .mk-directory-hero) .mk-config-kpis span {
+  color: #deefea;
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-card, .mk-metric, .mk-control-card, .mk-config-guide, .mk-expense-shortcuts a, .mk-approval-nav > *, .mk-account-workspace-tabs > *) {
+  border-color: #d9e8e3;
+  box-shadow: 0 8px 24px rgba(18, 63, 67, .075);
+}
+
+body.gu-marketing-module #layout-wrapper .mk-control-card {
+  --control-soft: #e5f3ed;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-control-card.mk-tone-violet { --control-accent: #7566a9; --control-soft: #f0edfa; }
+body.gu-marketing-module #layout-wrapper .mk-control-card.mk-tone-green { --control-accent: #197963; --control-soft: #e1f3e9; }
+body.gu-marketing-module #layout-wrapper .mk-control-card.mk-tone-orange { --control-accent: #b47b36; --control-soft: #fff2df; }
+body.gu-marketing-module #layout-wrapper .mk-control-card.mk-tone-cyan { --control-accent: #247c83; --control-soft: #e3f3f1; }
+body.gu-marketing-module #layout-wrapper .mk-control-card.mk-tone-slate { --control-accent: #58747b; --control-soft: #edf3f1; }
+
+body.gu-marketing-module #layout-wrapper .mk-tone-blue { --tone: #247c83; }
+body.gu-marketing-module #layout-wrapper .mk-tone-violet { --tone: #7566a9; }
+body.gu-marketing-module #layout-wrapper .mk-tone-amber { --tone: #bd8340; }
+body.gu-marketing-module #layout-wrapper .mk-tone-green { --tone: #197963; }
+body.gu-marketing-module #layout-wrapper .mk-tone-cyan { --tone: #3b8f91; }
+body.gu-marketing-module #layout-wrapper .mk-tone-red { --tone: #b34754; }
+
+body.gu-marketing-module #layout-wrapper .mk-metric strong,
+body.gu-marketing-module #layout-wrapper .mk-control-head h2 {
+  color: #193b43;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-kpis .mk-expense-total-card {
+  background: var(--school-hero, linear-gradient(115deg, #123d4c, #176371 58%, #347f83)) !important;
+  box-shadow: 0 12px 26px rgba(18, 63, 67, .19);
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-tabs a.active, .mk-expense-shortcuts a.active, .mk-approval-nav .active, .mk-ledger-tabs button.active, .mk-account-workspace-tabs button.active) {
+  background: #176b75 !important;
+  border-color: #176b75 !important;
+  color: #fff !important;
+  box-shadow: 0 8px 18px rgba(18, 63, 67, .16);
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-tabs a.active, .mk-expense-shortcuts a.active, .mk-approval-nav .active, .mk-account-workspace-tabs button.active) small {
+  color: #dcefea;
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-engine-intro, .mk-form-intro, .mk-filter-note, .mk-register-filters, .mk-filter-grid, .mk-history-filters, .mk-employee-ledger-select, .mk-account-bulk-tools) {
+  border-color: #d9e8e3;
+  background: #f5faf7;
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-engine-intro > i, .mk-form-intro > span, .mk-filter-note > i, .mk-register-filters > summary > span > i, .mk-route-choice i, .mk-expense-types i, .mk-expense-shortcuts a > i, .mk-account-workspace-tabs button > i) {
+  background: #e3f3f1;
+  color: #176b75;
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-view-note, .mk-icon-button, .mk-ledger-timeline > summary) {
+  border-color: #d9e8e3 !important;
+  background: #edf6f2 !important;
+  color: #176b75 !important;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-filter-note {
+  color: #526c71;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-full-detail-link,
+body.gu-marketing-module #layout-wrapper .mk-detail-attachments a {
+  color: #176b75;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-detail-attachments a {
+  background: #e8f5ef;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-config-guide > i {
+  background: #e1f3e9;
+  color: #197963;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-readiness > div,
+body.gu-marketing-module #layout-wrapper .mk-budget-progress {
+  background: #e7efeb;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-filter-note > i {
+  flex: 0 0 32px;
+}
+
+body.gu-marketing-module #layout-wrapper table thead th {
+  background: #edf5f1 !important;
+  color: #365861 !important;
+}
+
+body.gu-marketing-module #layout-wrapper table tbody tr:hover {
+  background: #f5faf7;
+}
+
+body.gu-marketing-module #layout-wrapper .alert-warning {
+  border-color: #ecd9b3;
+  background: #fff6e6;
+  color: #80591c;
+}
+
+body.gu-marketing-module #layout-wrapper .alert-warning strong {
+  color: inherit;
+}
+
+body.gu-marketing-module .mk-approval-fullscreen-modal .modal-header {
+  background: linear-gradient(115deg, #123d4c, #176371 58%, #347f83) !important;
+  box-shadow: 0 8px 26px rgba(18, 63, 67, .2);
+}
+
+body.gu-marketing-module .mk-approval-fullscreen-modal :is(.modal-content, .modal-body) {
+  background: #f4f8f7;
+}
+
+@media (max-width: 700px) {
+  body.gu-marketing-module #layout-wrapper .mk-config-hero { padding: 21px; }
+}
