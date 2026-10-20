@@ -80,3 +80,32 @@
 @media(max-width:600px){.sp-hero{padding:19px}.sp-hero-main{display:block}.sp-hero h2{font-size:23px}.sp-back{margin-top:14px}.sp-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.sp-stats>div{min-width:0;padding:8px}.sp-stats strong,.sp-stats strong span{font-size:17px}.sp-toolbar{position:static}.sp-toolbar-fields{grid-template-columns:1fr}.sp-toolbar-actions{grid-column:auto}.sp-toolbar-actions button{flex:1}.sp-toolbar-foot{align-items:flex-start;flex-direction:column}.sp-segments{width:100%}.sp-segments button{flex:1;padding:6px}.sp-menu-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.sp-savebar{bottom:8px}.sp-savebar small{display:none}}
 @media(max-height:650px){.sp-savebar{position:static;left:auto;bottom:auto;transform:none;margin:14px auto 0}}
 @media(prefers-reduced-motion:reduce){.sp-chevron{transition:none}}
+
+/* Role workspace: use the School teal and warm amber palette. */
+.school-permissions--role{--sp-ink:#173a42;--sp-muted:#5b7379;--sp-line:#d8e7e8;--sp-primary:#087482;--sp-soft:#e8f5f3}
+.school-permissions--role .sp-hero{border-color:#07515d;background:radial-gradient(circle at 90% 10%,rgba(237,133,73,.24),transparent 28%),linear-gradient(125deg,#073845,#075b69 72%,#087f88);box-shadow:0 18px 38px rgba(7,70,78,.17)}
+.school-permissions--role .sp-eyebrow{color:#c8f1ee}
+.school-permissions--role .sp-eyebrow i{color:#ffbd89}
+.school-permissions--role .sp-hero p,.school-permissions--role .sp-stats span{color:#daf0ee}
+.school-permissions--role .sp-stats>div{border-color:rgba(206,251,244,.24);background:rgba(255,255,255,.09)}
+.school-permissions--role .sp-toolbar{box-shadow:0 8px 22px rgba(8,74,79,.08)}
+.school-permissions--role .sp-search i{color:#60878a}
+.school-permissions--role .sp-toolbar button,.school-permissions--role .sp-module-actions button{color:#15535d}
+.school-permissions--role .sp-toolbar button:hover,.school-permissions--role .sp-module-actions button:hover{border-color:#9fcfcb;background:#edf8f6}
+.school-permissions--role .sp-toolbar-actions button:last-child,.school-permissions--role .sp-module-actions button:last-child{color:#a45335}
+.school-permissions--role .sp-segments{background:#edf5f4}
+.school-permissions--role .sp-segments button.is-active{color:#075b66;box-shadow:0 1px 5px rgba(7,80,84,.14)}
+.school-permissions--role .sp-module{box-shadow:0 4px 15px rgba(8,69,75,.045)}
+.school-permissions--role .sp-module[open]{border-color:#bfddda}
+.school-permissions--role .sp-module-actions,.school-permissions--role .sp-menu:hover{background:#f7fbfa}
+.school-permissions--role .sp-menu:hover{border-color:#d9eae8}
+.school-permissions--role .sp-menu.is-parent{background:#edf7f5}
+.school-permissions--role .sp-menu-name i{color:#49828a}
+.school-permissions--role .sp-progress-track{background:#dcece9}
+.school-permissions--role .sp-choice input:checked+span{border-color:#a7d3cb;background:#e4f5f0;color:#075b54}
+.school-permissions--role .sp-choice input:checked+span:before{border-color:#087482;background:#087482}
+.school-permissions--role .sp-savebar{border-color:#c6e0dd;box-shadow:0 18px 40px rgba(6,65,71,.19)}
+.school-permissions--role .sp-savebar.is-dirty{border-color:#087482}
+.school-permissions--role .sp-savebar button{border-color:#087482;background:#087482}
+.school-permissions--role .sp-savebar button:hover{background:#075765}
+.school-permissions--role :is(button,a,input,select,summary):focus-visible{outline-color:#db7b42}

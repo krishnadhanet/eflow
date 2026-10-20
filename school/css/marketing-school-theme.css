@@ -70,6 +70,27 @@ body.gu-marketing-module #layout-wrapper :is(.mk-tabs a.active, .mk-expense-shor
   box-shadow: 0 8px 18px rgba(18, 63, 67, .16);
 }
 
+body.gu-marketing-module #layout-wrapper :is(.mk-report-tabs button.active, .mk-directory-status-filter a.active) {
+  border-color: #176b75;
+  background: #176b75;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(18, 63, 67, .18);
+}
+
+body.gu-marketing-module #layout-wrapper :is(.mk-report-tabs button.active, .mk-directory-status-filter a.active) small {
+  color: #dcefea;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-directory-status-filter a > i {
+  background: #e3f3f1;
+  color: #176b75;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-directory-status-filter a.active > i {
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+}
+
 body.gu-marketing-module #layout-wrapper :is(.mk-tabs a.active, .mk-expense-shortcuts a.active, .mk-approval-nav .active, .mk-account-workspace-tabs button.active) small {
   color: #dcefea;
 }
@@ -134,6 +155,98 @@ body.gu-marketing-module #layout-wrapper .alert-warning {
 
 body.gu-marketing-module #layout-wrapper .alert-warning strong {
   color: inherit;
+}
+
+/* Report controls stay together when their filter grid wraps. */
+body.gu-marketing-module #layout-wrapper .mk-report-command .mk-management-report-filters {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: end;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-report-command .mk-management-report-filters .mk-field {
+  min-width: 0;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-report-command .mk-report-filter-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-report-command .mk-report-filter-actions .btn {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-report-result-count {
+  background: #e5f3ed;
+  color: #176b75;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-page-breadcrumb .breadcrumb-item {
+  white-space: nowrap;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-page-breadcrumb .mk-page-actions {
+  align-items: center;
+  gap: 8px;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-page-breadcrumb .mk-page-actions .btn {
+  white-space: nowrap;
+}
+
+body.gu-marketing-module #layout-wrapper .mk-page-intro {
+  margin: 0 0 13px;
+  padding: 9px 13px;
+  border-left: 3px solid #d3a463;
+  border-radius: 0 10px 10px 0;
+  background: #f6faf7;
+  color: #526c71;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  body.gu-marketing-module #layout-wrapper .mk-page-breadcrumb .mk-page-actions {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1100px) {
+  body.gu-marketing-module #layout-wrapper .mk-report-command .mk-management-report-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  body.gu-marketing-module #layout-wrapper .mk-report-command .mk-management-report-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.gu-marketing-module #layout-wrapper .mk-report-command .mk-report-filter-actions {
+    justify-content: stretch;
+  }
+  body.gu-marketing-module #layout-wrapper .mk-report-command .mk-report-filter-actions .btn {
+    flex: 1 1 calc(50% - 8px);
+  }
+}
+
+@media (max-width: 480px) {
+  body.gu-marketing-module #layout-wrapper .mk-report-command .mk-management-report-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body.gu-marketing-module #layout-wrapper .mk-report-command .mk-report-filter-actions .btn {
+    flex-basis: 100%;
+  }
 }
 
 body.gu-marketing-module .mk-approval-fullscreen-modal .modal-header {
