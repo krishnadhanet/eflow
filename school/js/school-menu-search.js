@@ -40,6 +40,12 @@
                 child.classList.toggle('school-menu-search-hidden', !show);
                 if (searching && !parentMatches && show) childMatches++;
             });
+            children.forEach(function (child) {
+                if (!child.classList.contains('school-account-group')) return;
+                if (child.querySelector('.nav-item:not(.school-menu-search-hidden)')) {
+                    child.classList.remove('school-menu-search-hidden');
+                }
+            });
             item.querySelectorAll('.school-menu-section').forEach(function (section) {
                 section.classList.toggle('school-menu-search-hidden', searching);
             });

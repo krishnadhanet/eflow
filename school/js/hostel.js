@@ -7,7 +7,7 @@
   });
 })(jQuery);
 function loadRoomDetail(hostel) {
-    window.location.href = base_url+'hostel/detail/'+hostel;
+    window.location.href = base_url+'hostel/detail/'+hostel+'#rooms';
 }
 let user_type = 1;
 $(document).on("change", "#user_type", function (e) {

@@ -26,6 +26,11 @@
 .navbar-menu .navbar-nav .nav-sm .nav-link:hover,.navbar-menu .navbar-nav .nav-sm .nav-link:focus-visible{background:#e5f3f1!important;color:#134e5a!important}
 .navbar-menu .navbar-nav .nav-sm .nav-link.active,.navbar-menu .navbar-nav .nav-sm .nav-item .nav-link.school-current{background:#176b75!important;color:#fff!important;}
 .navbar-menu .navbar-nav .nav-sm .nav-link.active:before,.navbar-menu .navbar-nav .nav-sm .nav-link.school-current:before{background:#fff}
+.navbar-menu .navbar-nav .nav-sm .school-account-group>.school-group-toggle{display:flex;align-items:center;gap:7px;font-weight:700;color:#245776!important}
+.navbar-menu .navbar-nav .nav-sm .school-account-group>.school-group-toggle>.school-group-chevron{margin-left:auto;transition:transform .15s}
+.navbar-menu .navbar-nav .nav-sm .school-account-group>.school-group-toggle[aria-expanded="true"]>.school-group-chevron{transform:rotate(180deg)}
+.navbar-menu .navbar-nav .school-account-group>.menu-dropdown{margin:1px 0 5px 10px;padding-left:9px;border-left:1px solid #b9d8d7}
+.navbar-menu .navbar-nav .school-account-group>.menu-dropdown .nav-link{font-size:12px;padding-left:13px}
 .navbar-menu .navbar-nav .nav-link:focus-visible,.navbar-menu .navbar-brand-box a:focus-visible{outline:2px solid #176b75;outline-offset:2px}
 .navbar-menu .simplebar-scrollbar:before{background:#a8b4c6!important;opacity:.55!important}
 .navbar-menu .simplebar-track.simplebar-vertical{width:7px}
