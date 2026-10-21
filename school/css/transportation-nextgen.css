@@ -1987,3 +1987,133 @@
         transform: none !important;
     }
 }
+
+/* Keep operational actions readable after the legacy icon font was removed. */
+.school-transportation-module .main-content .transport-action-table > tbody > tr > td:first-child {
+    min-width: 154px;
+}
+.school-transportation-module .main-content .transport-grid-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 32px;
+    margin: 2px 4px 2px 0;
+    padding: 5px 9px;
+    border: 1px solid #cce2dc;
+    border-radius: 8px;
+    background: #edf7f3;
+    color: #176371 !important;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.school-transportation-module .main-content .transport-grid-action:hover,
+.school-transportation-module .main-content .transport-grid-action:focus-visible {
+    border-color: #78b8aa;
+    background: #dff0e9;
+    color: #123d4c !important;
+}
+.school-transportation-module .main-content .transport-grid-action--danger {
+    border-color: #f0d3d4;
+    background: #fff4f4;
+    color: #b93640 !important;
+}
+.school-transportation-module .main-content .transport-grid-action--danger:hover,
+.school-transportation-module .main-content .transport-grid-action--danger:focus-visible {
+    border-color: #e9a7ab;
+    background: #ffe9e9;
+    color: #a62934 !important;
+}
+
+/* The theme's light status text disappears on pastel badges in fleet grids. */
+.school-transportation-module .main-content .badge.bg-success-subtle.text-success {
+    background: #dff2e7 !important;
+    color: #116146 !important;
+}
+.school-transportation-module .main-content .badge.bg-danger-subtle.text-danger {
+    background: #fdebec !important;
+    color: #a62b34 !important;
+}
+.school-transportation-module .main-content .badge.bg-primary-subtle.text-primary {
+    background: #e8f3f0 !important;
+    color: #176371 !important;
+}
+.school-transportation-module .main-content .badge.bg-warning-subtle.text-warning {
+    background: #fff1db !important;
+    color: #86551b !important;
+}
+.school-transportation-module .main-content .badge.bg-light.text-muted {
+    color: #4d666b !important;
+}
+.school-transportation-module .main-content .badge.request-approved,
+.school-transportation-module .main-content td.request-approved {
+    background: #e7f3f0 !important;
+    color: #176371 !important;
+}
+.school-transportation-module .main-content .badge.request-allotted,
+.school-transportation-module .main-content td.request-allotted {
+    background: #dff2e7 !important;
+    color: #116146 !important;
+}
+
+/* Popup inputs and Select2 search must retain contrast and enough room to type. */
+.school-transportation-module #systemModal .transport-editor :is(label, .form-label),
+.school-transportation-module #systemModal_new .transport-editor :is(label, .form-label) {
+    color: #29444b;
+}
+.school-transportation-module :is(#systemModal, #systemModal_new) .transport-editor :is(.form-control, .form-select) {
+    min-width: 0;
+    background: #fff;
+    color: #193b43;
+}
+.school-transportation-module :is(#systemModal, #systemModal_new) .transport-editor :is(.form-control, .form-select)::placeholder {
+    color: #71858a;
+    opacity: 1;
+}
+.school-transportation-module :is(#systemModal, #systemModal_new) .transport-editor .select2-container {
+    width: 100% !important;
+    max-width: 100%;
+}
+.school-transportation-module :is(#systemModal, #systemModal_new) .transport-editor .select2-selection__rendered {
+    color: #193b43 !important;
+}
+.school-transportation-module .select2-container--open .select2-dropdown {
+    min-width: min(260px, calc(100vw - 56px));
+    max-width: calc(100vw - 56px);
+    border: 1px solid #b9d8cf;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 14px 30px rgba(20, 67, 72, .18);
+    overflow: hidden;
+}
+.school-transportation-module .select2-container--open .select2-search--dropdown {
+    padding: 8px;
+    background: #f4faf7;
+}
+.school-transportation-module .select2-container--open .select2-search--dropdown .select2-search__field {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 38px;
+    padding: 7px 10px;
+    border: 1px solid #a9cec2;
+    border-radius: 7px;
+    background: #fff;
+    color: #193b43;
+    outline: none;
+}
+.school-transportation-module .select2-container--open .select2-search--dropdown .select2-search__field:focus {
+    border-color: #176371;
+    box-shadow: 0 0 0 3px rgba(23, 99, 113, .13);
+}
+.school-transportation-module .select2-container--open .select2-results__option {
+    color: #29444b;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+.school-transportation-module .select2-container--open .select2-results__option--highlighted[aria-selected] {
+    background: #176371;
+    color: #fff;
+}

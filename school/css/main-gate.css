@@ -269,3 +269,14 @@
     .main-gate-module .mg-card-permission{text-align:right}
     .main-gate-module .mg-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+.main-gate-config-module .page-content{padding-top:70px}
+.sdc-page.mg-campus-config{max-width:none;padding:0 12px 32px}
+.mg-campus-config .mg-config-header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:2px 0 18px;padding:0 2px}
+.mg-campus-config .mg-config-header h1{margin:5px 0 4px;font-size:clamp(24px,2.5vw,32px);font-weight:800}
+.mg-campus-config .mg-config-header p{margin:0;color:#667e85;font-size:13px;line-height:1.5}
+.mg-campus-config .mg-config-count{flex:none;padding:9px 13px;border:1px solid #cfe3df;border-radius:10px;background:#eaf7f3;color:#246458;font-size:12px;font-weight:750;white-space:nowrap}
+.mg-campus-config .mg-config-count strong{font-size:18px}
+.mg-campus-config .sdc-setting-card{grid-template-columns:minmax(0,1fr) auto}
+.mg-campus-config .sdc-setting-controls{align-items:center;justify-content:flex-end}
+.mg-campus-config .sdc-savebar{position:static;margin-top:16px}
+@media(max-width:680px){.main-gate-config-module .page-content{padding-top:70px}.sdc-page.mg-campus-config{padding:0 0 24px}.mg-campus-config .mg-config-header{align-items:flex-start;flex-direction:column;gap:10px}.mg-campus-config .sdc-setting-card{grid-template-columns:1fr}.mg-campus-config .sdc-setting-controls{justify-content:flex-end;padding:0}}

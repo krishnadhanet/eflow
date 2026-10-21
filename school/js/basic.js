@@ -499,8 +499,7 @@ $(function () {
         return false;
       }
 
-      if($("form#myForm").length > 0){
-      }else{
+      if (!$form.is('#schoolPermissionForm') && $("form#myForm").length === 0) {
         $(this).find("input[type=checkbox]:not(:checked)").prop("checked", true).val(0);
       }
 

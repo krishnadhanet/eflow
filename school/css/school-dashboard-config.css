@@ -86,6 +86,10 @@
 .sdc-role-entry>div span{margin-top:3px;color:#6d8589;font-size:11px}
 .sdc-role-entry a{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:9px;background:#176b75;color:#fff;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
 .sdc-role-entry a:hover{background:#105661;color:#fff}
+.sdc-role-entry-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 12px 17px}
+.sdc-role-entry-list .sdc-role-entry{margin:0;min-width:0}
+@media(max-width:1250px){.sdc-role-entry-list{grid-template-columns:1fr}}
+@media(max-width:680px){.sdc-role-entry-list{margin:0 12px 15px}.sdc-role-entry-list .sdc-role-entry{margin:0}}
 @media(max-width:1180px){.sdc-section-head{align-items:stretch;flex-direction:column}.sdc-filters label{flex:1;min-width:170px}.sdc-filters select,.sdc-filters input{width:100%;min-width:0}}
 @media(max-width:1000px){.sdc-page-hero{align-items:start;flex-direction:column}.sdc-hero-metrics{width:100%;min-width:0}.sdc-list-head{display:none}.sdc-setting-card{grid-template-columns:1fr}.sdc-setting-controls{padding-left:81px}.sdc-role-picker{padding-left:81px}}
 @media(max-width:680px){.sdc-page{padding:16px 12px 30px}.sdc-page-hero{padding:24px 19px;border-radius:17px}.sdc-hero-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.sdc-hero-metrics>div{padding:11px 8px}.sdc-section-head{align-items:stretch;flex-direction:column}.sdc-filters{flex-direction:column}.sdc-filters select,.sdc-filters input{width:100%}.sdc-setting-card{padding:13px}.sdc-setting-main{gap:9px}.sdc-card-icon{flex-basis:39px;width:39px;height:39px;font-size:19px}.sdc-setting-controls,.sdc-role-picker{padding-left:0}.sdc-setting-controls{align-items:stretch;flex-wrap:wrap}.sdc-audience-select{flex-basis:calc(100% - 110px)}.sdc-audience-select select{min-width:0}.sdc-savebar{bottom:7px;align-items:stretch;flex-direction:column}.sdc-savebar button{width:100%}.sdc-role-entry{align-items:flex-start;flex-wrap:wrap;margin:0 12px 15px}.sdc-role-entry>div{flex-basis:calc(100% - 60px)}.sdc-role-entry a{justify-content:center;width:100%}}

@@ -44,6 +44,36 @@
         scope.querySelectorAll('form.transport-editor, form.transport-document-form').forEach(function (form) {
             if (form.dataset.transportEnhanced === '1') return;
             form.dataset.transportEnhanced = '1';
+            if (window.jQuery) {
+                window.jQuery(form).on('select2:open.transportation', 'select', function () {
+                    var select = this;
+                    window.requestAnimationFrame(function () {
+                        var modal = select.closest('.modal');
+                        var selection = select.nextElementSibling;
+                        var layer = modal && Array.prototype.find.call(modal.children, function (child) {
+                            return child.classList.contains('select2-container--open');
+                        });
+                        var dropdown = layer && layer.querySelector('.select2-dropdown');
+                        if (!selection || !dropdown || !selection.classList.contains('select2-container')) return;
+                        var field = selection.getBoundingClientRect();
+                        var dropdownHeight = dropdown.getBoundingClientRect().height;
+                        var belowSpace = Math.max(0, window.innerHeight - field.bottom - 12);
+                        var aboveSpace = Math.max(0, field.top - 12);
+                        var below = belowSpace >= Math.min(dropdownHeight, 140) || belowSpace >= aboveSpace;
+                        var options = dropdown.querySelector('.select2-results__options');
+                        if (options) {
+                            var chromeHeight = dropdownHeight - options.getBoundingClientRect().height;
+                            options.style.maxHeight = Math.max(75, (below ? belowSpace : aboveSpace) - chromeHeight) + 'px';
+                            options.style.overflowY = 'auto';
+                            dropdownHeight = dropdown.getBoundingClientRect().height;
+                        }
+                        var top = below ? field.bottom : field.top - dropdownHeight;
+                        layer.style.top = (top - modal.getBoundingClientRect().top + modal.scrollTop) + 'px';
+                        dropdown.classList.toggle('select2-dropdown--above', !below);
+                        dropdown.classList.toggle('select2-dropdown--below', below);
+                    });
+                });
+            }
             form.addEventListener('submit', function () {
                 var submit = form.querySelector('button[type="submit"], input[type="submit"]');
                 if (!submit || submit.disabled) return;
