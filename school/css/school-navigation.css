@@ -78,3 +78,70 @@
   [data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .school-menu-search-field input{position:static;width:100%;height:auto;overflow:visible;opacity:1;pointer-events:auto}
   [data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .school-menu-search-clear{position:absolute;top:16px;right:21px;width:22px;height:22px;overflow:visible;opacity:1;pointer-events:auto}
 }
+
+/* The mobile drawer has its own surface. The legacy sidebar's dark background
+   otherwise remains visible behind the school navigation's dark text. */
+@media(max-width:767px){
+  [data-layout="vertical"] .navbar-menu,
+  [data-layout="semibox"] .navbar-menu{
+    display:flex!important;
+    flex-direction:column;
+    width:min(320px,calc(100vw - 48px))!important;
+    height:100vh!important;
+    height:100dvh!important;
+    padding:0!important;
+    border-right:1px solid #d7e7e3!important;
+    background:#f6faf9!important;
+    box-shadow:12px 0 36px rgba(12,51,58,.22)!important;
+  }
+  .navbar-menu .sidebar-background{background:#f6faf9!important;background-image:none!important}
+  .school-sidebar-mobile-head{
+    flex:none;
+    gap:10px;
+    min-height:68px;
+    height:auto;
+    padding:9px 15px 9px 18px;
+    border-top:4px solid #d3a463;
+    border-bottom:1px solid #dceae7;
+    background:#fff;
+  }
+  .school-sidebar-mobile-head img{min-width:0;max-width:198px;max-height:42px}
+  .school-sidebar-mobile-head button{flex:none;width:40px;height:40px;border-color:#cfe2dd;border-radius:11px;background:#eef6f3;color:#176b75;font-size:23px}
+  .school-sidebar-mobile-head button:focus-visible{outline-color:#176b75}
+  .school-menu-search,[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .school-menu-search{flex:none;padding:12px 14px;border-bottom:1px solid #dceae7;background:#f6faf9}
+  .school-menu-search-field{height:43px;background:#fff;border-color:#cfe1dc;border-radius:11px}
+  .school-menu-search-field input{font-size:13px}
+  .school-menu-search-clear{top:22px;right:23px}
+  .navbar-menu #scrollbar{flex:1 1 auto;min-height:0;height:auto!important;background:#f6faf9!important}
+  .navbar-menu #scrollbar .container-fluid{padding:10px 12px max(112px,calc(84px + env(safe-area-inset-bottom)))!important;background:#f6faf9}
+  .navbar-menu .navbar-nav .nav-link.menu-link,
+  [data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-nav .nav-link.menu-link,
+  [data-sidebar-size="sm"] .navbar-menu .navbar-nav .nav-link.menu-link{
+    justify-content:flex-start;
+    min-height:47px;
+    margin:2px 0;
+    padding:11px 13px;
+    border-radius:10px;
+    color:#294750!important;
+    font:600 13px/1.35 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  }
+  .navbar-menu .navbar-nav .nav-link.menu-link>i,
+  [data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-nav .nav-link.menu-link>i,
+  [data-sidebar-size="sm"] .navbar-menu .navbar-nav .nav-link.menu-link>i{flex:0 0 21px;width:21px;color:#297d83!important;font-size:19px}
+  .navbar-menu .navbar-nav .nav-link.menu-link>span{color:inherit!important;opacity:1!important;visibility:visible!important}
+  .navbar-menu .navbar-nav .nav-link.menu-link:after{color:#77979b!important}
+  .navbar-menu .navbar-nav .nav-link.menu-link:hover,
+  .navbar-menu .navbar-nav .nav-link.menu-link:focus-visible,
+  .navbar-menu .navbar-nav .nav-link.menu-link[aria-expanded="true"]{background:#e4f1ed!important;color:#125b64!important}
+  .navbar-menu .navbar-nav .nav-link.menu-link.active{background:#176b75!important;color:#fff!important;box-shadow:0 5px 13px rgba(23,107,117,.18)}
+  .navbar-menu .navbar-nav .nav-link.menu-link.active>i,
+  .navbar-menu .navbar-nav .nav-link.menu-link.active:after{color:#fff!important}
+  .navbar-menu .navbar-nav .menu-dropdown{margin:2px 0 8px 17px;padding-left:10px;border-left-color:#c9dfd9}
+  .navbar-menu .navbar-nav .nav-sm .nav-link{min-height:38px;padding:9px 11px!important;color:#41636b!important;font:500 12px/1.4 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+  .navbar-menu .navbar-nav .nav-sm .nav-link:hover,
+  .navbar-menu .navbar-nav .nav-sm .nav-link:focus-visible{background:#e4f1ed!important;color:#125b64!important}
+  .navbar-menu .navbar-nav .nav-sm .nav-link.active,
+  .navbar-menu .navbar-nav .nav-sm .nav-link.school-current{background:#176b75!important;color:#fff!important}
+  .navbar-menu .navbar-nav .nav-sm .school-menu-section{color:#718b8d}
+  #topnav-hamburger-icon{color:#176b75}
+}
