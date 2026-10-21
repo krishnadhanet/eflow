@@ -415,6 +415,11 @@
     box-shadow: 0 7px 16px rgba(16, 38, 93, .18);
 }
 
+.gu-hostel-module .main-content .hostel-command .hc-tab.quick {
+    background: var(--gu-navy-900) !important;
+    color: #fff !important;
+}
+
 /* KPI hierarchy. */
 .gu-hostel-module .main-content :is(
     .control-kpi strong,

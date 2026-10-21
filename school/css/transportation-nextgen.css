@@ -2117,3 +2117,99 @@
     background: #176371;
     color: #fff;
 }
+
+/* Route attendance: readable controls and passenger roster at every width. */
+.school-transportation-module .transport-attendance-page .attendance-operation {
+    padding: 20px 24px;
+    border: 1px solid #c8dfd9;
+    border-left: 5px solid #176371;
+    border-radius: 18px;
+    background: linear-gradient(115deg, #f0f8f5, #f8fbfa);
+    color: #203f46;
+}
+.school-transportation-module .transport-attendance-page .attendance-operation.is-override { border-left-color: #bb7b30; background: #fff8ed; }
+.school-transportation-module .transport-attendance-page .attendance-eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    color: #176371; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+}
+.school-transportation-module .transport-attendance-page .attendance-operation h3 { margin: 8px 0 3px; color: #153a43; font-size: 24px; font-weight: 800; }
+.school-transportation-module .transport-attendance-page .attendance-operation p { margin: 0; color: #4b666d; font-size: 14px; }
+.school-transportation-module .transport-attendance-page .attendance-operation-route > small { display: block; margin-top: 5px; color: #685735; }
+.school-transportation-module .transport-attendance-page .attendance-gate-status { display: flex; flex-wrap: wrap; gap: 9px; }
+.school-transportation-module .transport-attendance-page .attendance-gate-chip {
+    display: grid; gap: 3px; min-width: 124px; padding: 9px 13px; border-radius: 12px;
+    text-align: center; font-size: 12px; line-height: 1.2;
+}
+.school-transportation-module .transport-attendance-page .attendance-gate-chip small { font-size: 11px; font-weight: 650; }
+.school-transportation-module .transport-attendance-page .attendance-gate-chip strong { font-size: 13px; font-weight: 800; }
+.school-transportation-module .transport-attendance-page .attendance-gate-chip.is-out { background: #fff0d9; color: #79501e; }
+.school-transportation-module .transport-attendance-page .attendance-gate-chip.is-in { background: #e2f2e8; color: #176044; }
+.school-transportation-module .transport-attendance-page .attendance-help {
+    display: flex; align-items: flex-start; gap: 10px; margin: 0 0 16px; padding: 12px 15px;
+    border: 1px solid #d7e8e4; border-radius: 12px; background: #f5faf8;
+    color: #31575c; font-size: 13px; line-height: 1.5;
+}
+.school-transportation-module .transport-attendance-page .attendance-help i { color: #176371; font-size: 18px; line-height: 1.1; }
+.school-transportation-module .transport-attendance-page .attendance-stats { position: relative; top: auto; z-index: auto; }
+.school-transportation-module .transport-attendance-page .attendance-stat {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 66px;
+    padding: 12px 15px; border: 1px solid #d9e8e4; border-radius: 14px;
+    background: #f7faf9; color: #28484f; font-size: 13px; font-weight: 700;
+}
+.school-transportation-module .transport-attendance-page .attendance-stat strong { font-size: 25px; line-height: 1; font-weight: 800; }
+.school-transportation-module .transport-attendance-page .attendance-stat.is-present { border-color: #cde5d8; background: #ecf8f1; color: #176044; }
+.school-transportation-module .transport-attendance-page .attendance-stat.is-absent { border-color: #f0d9dc; background: #fff5f5; color: #98363d; }
+.school-transportation-module .transport-attendance-page #attendanceTabs {
+    display: flex; gap: 8px; padding: 5px; border: 1px solid #d8e7e3; border-radius: 13px; background: #f5faf8;
+}
+.school-transportation-module .transport-attendance-page #attendanceTabs .nav-link {
+    display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 8px 15px;
+    border: 0; border-radius: 9px; background: transparent; color: #3c5e63 !important;
+    font-size: 14px; font-weight: 750;
+}
+.school-transportation-module .transport-attendance-page #attendanceTabs .nav-link.active {
+    background: #176371 !important; color: #fff !important; box-shadow: 0 5px 12px rgba(23,99,113,.18);
+}
+.school-transportation-module .transport-attendance-page #attendanceTabs .nav-link span {
+    min-width: 23px; padding: 2px 5px; border-radius: 6px; background: #e2efeb; color: #176371; font-size: 11px; text-align: center;
+}
+.school-transportation-module .transport-attendance-page #attendanceTabs .nav-link.active span { background: rgba(255,255,255,.2); color: #fff; }
+.school-transportation-module .transport-attendance-page .attendance-bulk-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 9px; margin: 0 0 16px; }
+.school-transportation-module .transport-attendance-page .attendance-bulk-actions .btn { min-height: 40px; padding: 8px 14px; border-radius: 9px; color: #fff !important; font-weight: 750; }
+.school-transportation-module .transport-attendance-page .attendance-bulk-actions .btn-success { background: #137553 !important; border-color: #137553 !important; }
+.school-transportation-module .transport-attendance-page .attendance-bulk-actions .btn-danger { background: #af3746 !important; border-color: #af3746 !important; }
+.school-transportation-module .transport-attendance-page .attendance-card {
+    min-height: 142px; padding: 14px; border: 1px solid #d8e5e2; border-radius: 14px;
+    background: #fff; box-shadow: 0 3px 12px rgba(28,71,72,.05); cursor: pointer; user-select: none;
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.school-transportation-module .transport-attendance-page .attendance-card.present { border-color: #a7dbc5; background: #f0faf5; }
+.school-transportation-module .transport-attendance-page .attendance-card.absent { border-color: #eabdc3; background: #fff5f5; }
+.school-transportation-module .transport-attendance-page .attendance-card:hover { box-shadow: 0 6px 18px rgba(28,71,72,.12); }
+.school-transportation-module .transport-attendance-page .attendance-avatar {
+    flex: 0 0 60px; width: 60px; height: 60px; object-fit: cover; border: 2px solid #fff;
+    border-radius: 50%; background: #e7f1ee; box-shadow: 0 0 0 2px #d8e9e4;
+}
+.school-transportation-module .transport-attendance-page .attendance-card .flex-grow-1 { min-width: 0; }
+.school-transportation-module .transport-attendance-page .attendance-card h6 { color: #1d4148; font-size: 14px; font-weight: 800; line-height: 1.35; }
+.school-transportation-module .transport-attendance-page .attendance-card h6 small { color: #5c7479 !important; font-size: 12px; font-weight: 600; }
+.school-transportation-module .transport-attendance-page .attendance-card p { color: #466169; font-size: 12px; line-height: 1.4; }
+.school-transportation-module .transport-attendance-page .attendance-card p i { margin-right: 2px; color: #176371; font-size: 13px; }
+.school-transportation-module .transport-attendance-page .attendance-actions { display: flex; justify-content: center; margin-top: 22px; }
+.school-transportation-module .transport-attendance-page .attendance-actions .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 10px 23px; border-radius: 11px; background: #176371 !important; color: #fff !important; font-weight: 800; }
+@media (max-width: 767px) {
+    .school-transportation-module .transport-attendance-page .attendance-operation { padding: 16px; }
+    .school-transportation-module .transport-attendance-page .attendance-gate-status { width: 100%; }
+    .school-transportation-module .transport-attendance-page .attendance-gate-chip { flex: 1; min-width: 0; }
+    .school-transportation-module .transport-attendance-page .attendance-filter > div { width: 100%; }
+    .school-transportation-module .transport-attendance-page .attendance-stat { min-height: 60px; padding: 10px; font-size: 12px; }
+    .school-transportation-module .transport-attendance-page .attendance-stat strong { font-size: 22px; }
+    .school-transportation-module .transport-attendance-page #attendanceTabs .nav-item { flex: 1; }
+    .school-transportation-module .transport-attendance-page #attendanceTabs .nav-link { width: 100%; justify-content: center; padding: 8px; }
+    .school-transportation-module .transport-attendance-page .attendance-bulk-actions { justify-content: stretch; }
+    .school-transportation-module .transport-attendance-page .attendance-bulk-actions .btn { flex: 1; }
+    .school-transportation-module .transport-attendance-page .attendance-card { min-height: 112px; }
+    .school-transportation-module .transport-attendance-page .attendance-avatar { flex-basis: 52px; width: 52px; height: 52px; }
+    .school-transportation-module .transport-attendance-page .attendance-actions { position: sticky; bottom: 8px; z-index: 10; }
+    .school-transportation-module .transport-attendance-page .attendance-actions .btn { width: 100%; justify-content: center; box-shadow: 0 7px 18px rgba(23,99,113,.22); }
+}
