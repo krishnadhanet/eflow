@@ -51,8 +51,6 @@
 .sp-menu+.sp-menu{margin-top:4px}
 .sp-menu:hover{border-color:#e6ecf5;background:#fafbfe}
 .sp-menu.is-parent{background:#f2f5fc}
-.sp-menu.is-group{margin-left:10px;background:#f7f9fc;border-left:2px solid #9dc2c4}
-.sp-menu.is-account-child{margin-left:22px}
 .sp-menu-name{display:flex;align-items:flex-start;gap:9px;min-width:0}
 .sp-menu-name i{margin-top:2px;color:#8390a4}
 .sp-menu-name strong{display:block;color:var(--sp-ink);font-size:13px;white-space:normal}
