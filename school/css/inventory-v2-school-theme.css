@@ -1,0 +1,95 @@
+/* School palette for every Inventory V2 screen, including AJAX-loaded forms. */
+@media screen {
+  body.school-inventory-v2-module {
+    --iv2-hero:radial-gradient(circle at 91% 0,rgba(242,194,115,.17),transparent 28%),linear-gradient(115deg,#123d4c,#176371 58%,#347f83);
+    --iv2-primary:#176b75;
+    --iv2-primary-hover:#125560;
+    --iv2-primary-soft:#e7f4f0;
+    --iv2-gold:#d3a463;
+    --iv2-line:#d9e8e3;
+    --iv2-text:#193b43;
+    --iv2-subtle:#607b7d;
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  }
+
+  /* The V2 views use several generations of hero markup. Keep their layouts and
+     bring each one onto the same campus surface. */
+  body.school-inventory-v2-module #layout-wrapper :is(
+    .iv2-hero,.iv2-command-hero,.iv2-page-heading,.im2-page-head,
+    .am2-hero,.arw12-hero,.ba15-hero,.bi12-hero,.bv11-hero,
+    .co-hero,.cs10-hero,.ed5-hero,.et4-hero,.gl13-hero,.grn-hero,
+    .ig12-hero,.irx-hero,.lzr-hero,.nrp-hero,.op8-hero,.ph10-hero,
+    .pom-hero,.ps2-hero,.psh6-hero,.ram5-hero,.rch2-toolbar,
+    .receive-hero,.rq2-hero,.rq3-hero,.rw-hero,.rw-detail-hero,
+    .rwc-hero,.rwl-hero,.sa11-hero,.sl9-hero,.tr9-hero,.ts7-hero,
+    .tw5-hero,.wh2-hero,.wh3-hero,.wh7-context,.wip-hero,.wr4-hero
+  ) {
+    background:var(--iv2-hero)!important;
+    border-color:rgba(23,107,117,.28)!important;
+    box-shadow:0 18px 38px rgba(18,66,73,.16)!important;
+    color:#fff;
+  }
+  body.school-inventory-v2-module #layout-wrapper :is(
+    .iv2-command-hero,.im2-page-head,.am2-hero,.arw12-hero,.ba15-hero,
+    .bi12-hero,.bv11-hero,.co-hero,.cs10-hero,.ed5-hero,.et4-hero,
+    .gl13-hero,.grn-hero,.ig12-hero,.irx-hero,.lzr-hero,.nrp-hero,
+    .op8-hero,.ph10-hero,.pom-hero,.ps2-hero,.psh6-hero,.ram5-hero,
+    .rq3-hero,.rw-hero,.rw-detail-hero,.sa11-hero,.sl9-hero,
+    .tr9-hero,.ts7-hero,.tw5-hero,.wip-hero,.wr4-hero
+  ) :is(h1,h2,h3) {color:#fff!important}
+  body.school-inventory-v2-module #layout-wrapper :is(
+    .iv2-command-hero,.im2-page-head,.am2-hero,.arw12-hero,.ba15-hero,
+    .bi12-hero,.bv11-hero,.co-hero,.cs10-hero,.ed5-hero,.et4-hero,
+    .gl13-hero,.grn-hero,.ig12-hero,.irx-hero,.lzr-hero,.nrp-hero,
+    .op8-hero,.ph10-hero,.pom-hero,.ps2-hero,.psh6-hero,.ram5-hero,
+    .rq3-hero,.rw-hero,.rw-detail-hero,.sa11-hero,.sl9-hero,
+    .tr9-hero,.ts7-hero,.tw5-hero,.wip-hero,.wr4-hero
+  ) p {color:#dcefea!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-eyebrow,.im2-page-copy>span,.nrp-hero>div>span,.arw12-eyebrow){color:#f0c88f}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-kicker,.nrp-filter>header span,.irx-control-strip .iv2-kicker){color:var(--iv2-primary)}
+
+  /* Primary actions and active navigation use teal; the prominent creation
+     action keeps the warm school gold. Semantic success/danger states stay intact. */
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-btn-primary,.op8-tabs a.active,.tw5-filter.active,.ia9-tabs a.active,.ed10-navigation>a.active,.wh10-action-tabs button.is-active){background:var(--iv2-primary)!important;border-color:var(--iv2-primary)!important;color:#fff!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-btn-primary,.op8-tabs a.active,.tw5-filter.active,.ia9-tabs a.active,.ed10-navigation>a.active,.wh10-action-tabs button.is-active):hover{background:var(--iv2-primary-hover)!important;border-color:var(--iv2-primary-hover)!important;color:#fff!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-btn-accent,.irx-primary){background:var(--iv2-gold)!important;border-color:var(--iv2-gold)!important;color:#193b43!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-btn-accent,.irx-primary):hover{background:#e4b979!important;border-color:#e4b979!important;color:#193b43!important}
+  body.school-inventory-v2-module #layout-wrapper .op8-hero-action{background:var(--iv2-gold)!important;border-color:var(--iv2-gold)!important;color:#193b43!important}
+  body.school-inventory-v2-module #layout-wrapper .op8-hero-action:hover{background:#e4b979!important;border-color:#e4b979!important;color:#193b43!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-btn-ghost,.iv2-btn-secondary){border-color:#cfe2dc!important;background:#f4faf7!important;color:var(--iv2-primary)!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-btn-ghost,.iv2-btn-secondary):hover{background:#e4f2ed!important;color:var(--iv2-primary-hover)!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.op8-tabs a,.tw5-filter,.ia9-tabs a,.ed10-navigation>a,.wh10-action-tabs button):not(.active):not(.is-active):hover{background:var(--iv2-primary-soft)!important;color:var(--iv2-primary)!important}
+
+  /* Cards, filters and data grids share readable neutral surfaces. */
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-card,.iv2-panel,.op8-panel,.nrp-filter,.nrp-results,.irx-group,.irx-control-strip,.ed5-panel,.rw-panel,.ps2-panel){border-color:var(--iv2-line)}
+  body.school-inventory-v2-module #layout-wrapper :is(.nrp-page,.irx-page,.wip-page,.lzr-page){color:var(--iv2-text)}
+  body.school-inventory-v2-module #layout-wrapper .nrp-page{--nrp-ink:#193b43;--nrp-muted:#657b80;--nrp-line:#d9e8e3}
+  body.school-inventory-v2-module #layout-wrapper :is(.nrp-kpis article>i,.irx-kpis article.blue>i,.wip-kpis article.blue>i,.lzr-kpis article.blue>i,.ed10-sidebar-title>i){background:#e3f3ee;color:var(--iv2-primary)}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-note,.op8-note:not(.warning),.am2-guidance,.bv11-screen-note,.ph10-note){border-color:#c9e3d8;background:#ecf7f1;color:#235d60}
+  body.school-inventory-v2-module #layout-wrapper :is(.iv2-note,.op8-note:not(.warning),.am2-guidance,.bv11-screen-note,.ph10-note) :is(i,strong){color:var(--iv2-primary)}
+  body.school-inventory-v2-module #layout-wrapper .pom-mode-choice{border-color:var(--iv2-line);background:#f8fbf9;color:var(--iv2-text)}
+  body.school-inventory-v2-module #layout-wrapper .pom-mode-choice>i{color:var(--iv2-primary)}
+  body.school-inventory-v2-module #layout-wrapper .pom-mode-choice.active{border-color:var(--iv2-primary);background:var(--iv2-primary-soft);box-shadow:0 0 0 2px #d4e9e1}
+  body.school-inventory-v2-module #layout-wrapper :is(.nrp-filter footer button[type=submit],.wip-search>button,.lzr-filter button){background:var(--iv2-primary);color:#fff}
+  body.school-inventory-v2-module #layout-wrapper :is(.nrp-filter footer button[type=submit],.wip-search>button,.lzr-filter button):hover{background:var(--iv2-primary-hover);color:#fff}
+  body.school-inventory-v2-module #layout-wrapper :is(.nrp-badge,.irx-group>header>i){background:var(--iv2-primary-soft);color:var(--iv2-primary)}
+  body.school-inventory-v2-module #layout-wrapper :is(.irx-group header small,.irx-group a>i,.wip-search>label>i,.irx-no-results>i,.wip-empty>i,.wip-start>i){color:var(--iv2-primary)}
+  body.school-inventory-v2-module #layout-wrapper .irx-group>header{background:linear-gradient(120deg,#f2faf6,#fff);border-color:var(--iv2-line)}
+  body.school-inventory-v2-module #layout-wrapper .wip-search>label{background:#f8fbf9;border-color:var(--iv2-line)}
+  body.school-inventory-v2-module #layout-wrapper :is(.table,.dataTable) thead th{background:#eaf4f0!important;color:#2b5960!important;border-color:#d8e7e1!important}
+  body.school-inventory-v2-module #layout-wrapper :is(.table,.dataTable) tbody tr:hover{background:#f3faf7}
+  body.school-inventory-v2-module #layout-wrapper :is(.form-control,.form-select,.select2-selection){border-color:#c9dcd6;color:var(--iv2-text)}
+  body.school-inventory-v2-module #layout-wrapper :is(.form-control,.form-select,.select2-selection):focus{border-color:#48a294!important;box-shadow:0 0 0 3px rgba(34,132,117,.14)!important}
+  body.school-inventory-v2-module .select2-container--default .select2-results__option--highlighted[aria-selected]{background:var(--iv2-primary)}
+  body.school-inventory-v2-module #layout-wrapper .iv2-modal .modal-header{border-bottom-color:var(--iv2-line);background:linear-gradient(115deg,#eaf5f0,#f8fbf9)}
+  body.school-inventory-v2-module #layout-wrapper .iv2-modal .modal-title{color:var(--iv2-text)}
+  body.school-inventory-v2-module #layout-wrapper .summary-box{border-color:#235a62;background:linear-gradient(145deg,#123d4c,#176371);box-shadow:0 13px 28px rgba(18,66,73,.15)}
+
+  /* DataTables controls are shared by master, stock, audit and accounts pages. */
+  body.school-inventory-v2-module #layout-wrapper .dataTables_wrapper :is(input,select){border-color:#c9dcd6!important;color:var(--iv2-text)!important}
+  body.school-inventory-v2-module #layout-wrapper .dataTables_wrapper :is(input,select):focus{border-color:#48a294!important;outline:3px solid rgba(34,132,117,.13)!important}
+  body.school-inventory-v2-module #layout-wrapper .dataTables_wrapper .dt-buttons .dt-button{display:inline-flex;align-items:center;justify-content:center;min-height:41px;margin:0;padding:8px 13px;border:1px solid #b9dfd0;border-radius:10px;background:#eaf9f2;color:#087050;font-size:13px;font-weight:800;line-height:1.3;box-shadow:none}
+  body.school-inventory-v2-module #layout-wrapper .dataTables_wrapper .dt-buttons .dt-button:hover{border-color:#79c1a6;background:#dff5eb;color:#075f45}
+  body.school-inventory-v2-module #layout-wrapper .dataTables_wrapper .paginate_button.current,
+  body.school-inventory-v2-module #layout-wrapper .dataTables_wrapper .paginate_button.current:hover{border-color:var(--iv2-primary)!important;background:var(--iv2-primary)!important;color:#fff!important}
+}
