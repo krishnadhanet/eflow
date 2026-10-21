@@ -220,3 +220,24 @@
 #school-employee-dashboard .sed-widget[data-dashboard-card="priorities"] .sed-simple-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;border:1px solid rgba(21,62,70,.08);border-radius:12px;font-size:19px}
 #school-employee-dashboard .sed-widget[data-dashboard-card="priorities"] .sed-simple-icon i,#school-employee-dashboard .sed-widget[data-dashboard-card="priorities"] .sed-panel-icon i{line-height:1}
 #school-employee-dashboard .sed-widget[data-dashboard-card="priorities"] .sed-focus-list b{min-width:27px;height:27px;border-radius:9px;background:#f1f7f5;color:#176b75}
+
+/* Keep the hero in one column after the palette override above. */
+@media(max-width:900px){
+  #school-employee-dashboard .sed-hero{grid-template-columns:minmax(0,1fr)}
+  #school-employee-dashboard .sed-hero-main,#school-employee-dashboard .sed-workday{min-width:0}
+}
+@media(max-width:600px){
+  #school-employee-dashboard .sed-hero{gap:16px;padding:20px 18px}
+  #school-employee-dashboard .sed-hero h1{overflow-wrap:anywhere;font-size:clamp(24px,7vw,29px);line-height:1.2}
+  #school-employee-dashboard .sed-profile{width:100%;gap:12px;margin-top:18px;padding:9px}
+  #school-employee-dashboard .sed-profile div{overflow-wrap:anywhere}
+  #school-employee-dashboard .sed-hero-buttons .sed-button{width:100%}
+  #school-employee-dashboard .sed-workday{align-self:start;padding:16px}
+  #school-employee-dashboard .sed-hero-pulse{margin-top:14px}
+}
+@media(max-width:360px){
+  #school-employee-dashboard .sed-hero{padding:17px 14px}
+  #school-employee-dashboard .sed-profile img{width:52px;height:52px}
+  #school-employee-dashboard .sed-profile strong{font-size:14px}
+  #school-employee-dashboard .sed-punch{grid-template-columns:1fr}
+}
