@@ -246,22 +246,14 @@ $(function () {
   });
   /* End Periods */
   $(document).on("change", "#program,#section", function () {
-    if($("#staff_planning_page").length>0 || $("#period_page").length>0 || $("#timetable_planning_page").length>0){
+    if($("#staff_planning_page").length>0 || $("#period_page").length>0){
       $(".list-courses").addClass("hide");
       $(".list-periods").addClass("d-none");
       $(".list-time-table").addClass("d-none");
     }
-    if($("#timetable_planning_page").length>0){
-      const format = $('#program option:selected').data('formate');
-      if (format == 2) {
-        $('.small-class-dates').removeClass('d-none');
-      } else {
-        $('.small-class-dates').addClass('d-none');
-      }
-    }
-    
   });
   /* time table */
+  if (!$('#timetable_planning_page').length) {
   // 📦 Merged getTimeTable Function for Standard & Date-wise View
   const getTimeTable = (filter) => {
     const programId = $('#program').val();
@@ -673,6 +665,7 @@ $(function () {
     });
 
   });
+  }
 
   $(document).on("submit", "#date_time_table_lms_saver", function (e) {
     link = $("#backLink").val();
