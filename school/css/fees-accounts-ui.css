@@ -1,0 +1,129 @@
+/* Accounts menu pages follow the shared school palette and controls. */
+#layout-wrapper.accounts-module .account-menu-page{max-width:1500px;margin:0 auto;padding-bottom:30px}
+#layout-wrapper.accounts-module .account-menu-page *{box-sizing:border-box}
+#layout-wrapper.accounts-module .account-menu-heading{display:flex;align-items:center;gap:17px;min-height:125px;margin-bottom:24px;padding:23px 27px;border-radius:16px;background:var(--school-hero);box-shadow:0 17px 36px rgba(18,63,67,.16)}
+#layout-wrapper.accounts-module .account-menu-emblem{display:grid;place-items:center;flex:none;width:55px;height:55px;border:1px solid rgba(255,255,255,.24);border-radius:14px;background:rgba(255,255,255,.12);color:#fff;font-size:26px}
+#layout-wrapper.accounts-module .account-menu-heading-copy{min-width:0;flex:1}
+#layout-wrapper.accounts-module .account-menu-eyebrow{color:#efc58a;font-size:11px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .account-menu-heading h1{margin:4px 0 3px;color:#fff!important;font-size:25px;font-weight:800;letter-spacing:0}
+#layout-wrapper.accounts-module .account-menu-heading p{margin:0;color:#dfefeb;font-size:13px;line-height:1.5}
+#layout-wrapper.accounts-module .account-menu-total{flex:none;align-self:center;padding:7px 11px;border:1px solid rgba(255,255,255,.22);border-radius:8px;color:#fff;font-size:12px;font-weight:750;white-space:nowrap}
+#layout-wrapper.accounts-module .account-menu-setup{display:flex;align-items:flex-start;gap:12px;margin:-7px 0 23px;padding:13px 15px;border:1px solid var(--school-line);border-left:4px solid var(--school-primary);border-radius:10px;background:var(--school-surface)}
+#layout-wrapper.accounts-module .account-menu-setup-icon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:8px;background:var(--school-soft);color:var(--school-primary);font-size:18px}
+#layout-wrapper.accounts-module .account-menu-setup strong{display:block;color:var(--school-ink);font-size:12px;font-weight:800}
+#layout-wrapper.accounts-module .account-menu-setup p{margin:3px 0 0;color:var(--school-muted);font-size:12px;line-height:1.5}
+#layout-wrapper.accounts-module .account-menu-section{margin-bottom:26px}
+#layout-wrapper.accounts-module .account-menu-section-head{display:flex;align-items:baseline;gap:9px;margin-bottom:12px}
+#layout-wrapper.accounts-module .account-menu-section-head h2{margin:0;color:var(--school-ink);font-size:17px;font-weight:800}
+#layout-wrapper.accounts-module .account-menu-section-head span{color:var(--school-muted);font-size:12px}
+#layout-wrapper.accounts-module .account-menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#layout-wrapper.accounts-module :is(.account-menu-page-operations,.account-menu-page-books) .account-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#layout-wrapper.accounts-module .account-menu-icon{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:11px;background:var(--school-soft);color:var(--school-primary);font-size:22px}
+#layout-wrapper.accounts-module .account-menu-config{position:relative;display:flex;flex-direction:column;min-width:0;min-height:288px;overflow:hidden;padding:20px;border:1px solid var(--school-line);border-radius:14px;background:var(--school-surface);box-shadow:var(--school-shadow);color:var(--school-ink);text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s}
+#layout-wrapper.accounts-module .account-menu-config:before{content:"";position:absolute;top:0;right:0;left:0;height:4px;background:var(--school-primary)}
+#layout-wrapper.accounts-module .account-menu-config:nth-child(2):before{background:#c28b46}
+#layout-wrapper.accounts-module .account-menu-config:hover{transform:translateY(-3px);border-color:#a8d4c8;box-shadow:0 16px 28px rgba(18,63,67,.11);color:var(--school-ink)}
+#layout-wrapper.accounts-module .account-menu-config:focus-visible{outline:3px solid #74bdb0;outline-offset:2px}
+#layout-wrapper.accounts-module .account-menu-config-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+#layout-wrapper.accounts-module .account-menu-config-top .account-menu-icon{width:48px;height:48px;font-size:23px}
+#layout-wrapper.accounts-module .account-menu-config:nth-child(2) .account-menu-icon{background:#fbf1df;color:#a66b2e}
+#layout-wrapper.accounts-module .account-menu-step{color:#8da9a3;font-size:11px;font-weight:800}
+#layout-wrapper.accounts-module .account-menu-config>strong{display:block;color:var(--school-ink);font-size:17px;font-weight:800}
+#layout-wrapper.accounts-module .account-menu-config-description{display:block;margin-top:7px;color:var(--school-muted);font-size:12px;line-height:1.55}
+#layout-wrapper.accounts-module .account-menu-features{display:flex;flex-wrap:wrap;gap:5px 15px;margin:13px 0 17px;color:#365861;font-size:11px;font-weight:700}
+#layout-wrapper.accounts-module .account-menu-features span{display:inline-flex;align-items:center;gap:4px}
+#layout-wrapper.accounts-module .account-menu-features i{color:var(--school-primary);font-size:13px}
+#layout-wrapper.accounts-module .account-menu-config-foot{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:auto;padding-top:15px;border-top:1px solid var(--school-line)}
+#layout-wrapper.accounts-module .account-menu-config-count b{display:block;color:var(--school-ink);font-size:21px;line-height:1;font-variant-numeric:tabular-nums}
+#layout-wrapper.accounts-module .account-menu-config-count small{display:block;margin-top:4px;color:var(--school-muted);font-size:10px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .account-menu-config-kind{color:var(--school-muted);font-size:10px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .account-menu-config-action{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:7px 11px;border-radius:7px;background:var(--school-primary);color:#fff;font-size:11px;font-weight:750;white-space:nowrap}
+#layout-wrapper.accounts-module .account-menu-config:hover .account-menu-config-action{background:var(--school-primary-hover)}
+#layout-wrapper.accounts-module .account-balance-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+#layout-wrapper.accounts-module .account-balance-item{min-width:0;padding:16px 18px;border:1px solid var(--school-line);border-radius:12px;background:var(--school-surface);box-shadow:var(--school-shadow)}
+#layout-wrapper.accounts-module .account-balance-item span{display:block;color:var(--school-muted);font-size:11px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .account-balance-item strong{display:block;margin-top:6px;color:var(--school-ink);font-size:21px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#layout-wrapper.accounts-module .account-balance-item:last-child strong{color:var(--school-primary)}
+#layout-wrapper.accounts-module .account-receipt-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+#layout-wrapper.accounts-module .account-receipt-actions .btn{margin:0!important}
+@media(max-width:1100px){#layout-wrapper.accounts-module .account-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){#layout-wrapper.accounts-module .account-menu-heading{align-items:flex-start;padding:21px;gap:12px}#layout-wrapper.accounts-module .account-menu-emblem{width:44px;height:44px;font-size:22px}#layout-wrapper.accounts-module .account-menu-heading h1{font-size:21px}#layout-wrapper.accounts-module .account-menu-total{display:none}#layout-wrapper.accounts-module .account-balance-strip{grid-template-columns:1fr}#layout-wrapper.accounts-module .account-receipt-actions{justify-content:flex-start}}
+@media(max-width:600px){#layout-wrapper.accounts-module .account-menu-grid,#layout-wrapper.accounts-module :is(.account-menu-page-operations,.account-menu-page-books) .account-menu-grid{grid-template-columns:1fr}#layout-wrapper.accounts-module .account-menu-config{min-height:250px}}
+@media print{#layout-wrapper.accounts-module .account-menu-heading,#layout-wrapper.accounts-module .account-menu-config{box-shadow:none}}
+
+/* School Receipt keeps the existing fee workflow in a compact account layout. */
+#layout-wrapper.accounts-module .school-receipt-page{max-width:1580px;margin:0 auto;padding-bottom:28px}
+#layout-wrapper.accounts-module .school-receipt-page *{box-sizing:border-box}
+#layout-wrapper.accounts-module .school-receipt-search{display:grid;grid-template-columns:minmax(190px,250px) minmax(0,1fr) auto;align-items:center;gap:18px;margin-bottom:14px;padding:15px 18px;border:1px solid var(--school-line);border-radius:8px;background:var(--school-surface);box-shadow:var(--school-shadow)}
+#layout-wrapper.accounts-module .school-receipt-search-intro{display:flex;align-items:center;gap:11px;min-width:0}
+#layout-wrapper.accounts-module .school-receipt-search-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:8px;background:var(--school-soft);color:var(--school-primary);font-size:20px}
+#layout-wrapper.accounts-module .school-receipt-search-intro :is(strong,small){display:block}
+#layout-wrapper.accounts-module .school-receipt-search-intro strong{color:var(--school-ink);font-size:14px;font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-search-intro small{margin-top:2px;color:var(--school-muted);font-size:11px;line-height:1.35}
+#layout-wrapper.accounts-module .school-receipt-search-form{min-width:0}
+#layout-wrapper.accounts-module .school-receipt-search-form form{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px;margin:0!important}
+#layout-wrapper.accounts-module .school-receipt-search-form form>div{width:auto;max-width:none;margin:0!important;padding:0}
+#layout-wrapper.accounts-module .school-receipt-search-form label{margin-bottom:4px;color:var(--school-muted);font-size:11px;font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-search-form :is(select,.select2-container){width:100%!important}
+#layout-wrapper.accounts-module .school-receipt-search-form form>div:last-child{display:flex;gap:7px;white-space:nowrap}
+#layout-wrapper.accounts-module .school-receipt-search-form .btn{min-height:39px}
+#layout-wrapper.accounts-module .school-receipt-waiver{align-self:end;display:inline-flex;align-items:center;gap:6px;min-height:39px;white-space:nowrap}
+#layout-wrapper.accounts-module .school-receipt-student{overflow:hidden;margin-bottom:13px;border:1px solid var(--school-line);border-radius:8px;background:var(--school-surface);box-shadow:var(--school-shadow)}
+#layout-wrapper.accounts-module .school-receipt-student-main{display:grid;grid-template-columns:minmax(250px,320px) minmax(0,1fr);gap:24px;align-items:center;padding:18px 21px}
+#layout-wrapper.accounts-module .school-receipt-identity{display:flex;align-items:center;gap:12px;min-width:0}
+#layout-wrapper.accounts-module .school-receipt-avatar{display:grid;place-items:center;flex:none;width:56px;height:56px;border-radius:8px;background:var(--school-primary);color:#fff;font-size:22px;font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-identity>div{min-width:0}
+#layout-wrapper.accounts-module .school-receipt-overline{color:#a66b2e;font-size:10px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .school-receipt-identity h2{overflow-wrap:anywhere;margin:2px 0;color:var(--school-ink);font-size:19px;font-weight:800;line-height:1.2}
+#layout-wrapper.accounts-module .school-receipt-identity p{margin:0;color:var(--school-muted);font-size:11px;line-height:1.4}
+#layout-wrapper.accounts-module .school-receipt-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px 17px;min-width:0;margin:0}
+#layout-wrapper.accounts-module .school-receipt-facts div{min-width:0}
+#layout-wrapper.accounts-module .school-receipt-facts dt,#layout-wrapper.accounts-module .school-receipt-class label,#layout-wrapper.accounts-module .school-receipt-scholarship>span{display:block;margin:0 0 3px;color:var(--school-muted);font-size:10px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .school-receipt-facts dd{overflow-wrap:anywhere;margin:0;color:var(--school-ink);font-size:12px;font-weight:700}
+#layout-wrapper.accounts-module .school-receipt-student-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:end;padding:12px 21px;border-top:1px solid var(--school-line);background:#f8fbf9}
+#layout-wrapper.accounts-module .school-receipt-class{min-width:0}
+#layout-wrapper.accounts-module .school-receipt-class .select2-container{width:100%!important}
+#layout-wrapper.accounts-module .school-receipt-scholarship{min-width:0}
+#layout-wrapper.accounts-module .school-receipt-scholarship strong{display:inline;color:var(--school-ink);font-size:12px;font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-scholarship>div{display:inline-flex;flex-wrap:wrap;gap:10px;margin-left:12px}
+#layout-wrapper.accounts-module .school-receipt-scholarship a{color:var(--school-primary);font-size:11px;font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-balances{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--school-line)}
+#layout-wrapper.accounts-module .school-receipt-balances>div{min-width:0;padding:13px 21px;border-right:1px solid var(--school-line)}
+#layout-wrapper.accounts-module .school-receipt-balances>div:last-child{border-right:0}
+#layout-wrapper.accounts-module .school-receipt-balances span{display:block;color:var(--school-muted);font-size:10px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .school-receipt-balances strong{display:block;margin-top:3px;color:var(--school-ink);font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#layout-wrapper.accounts-module .school-receipt-balances .school-receipt-balance-total{background:var(--school-primary)}
+#layout-wrapper.accounts-module .school-receipt-balance-total :is(span,strong){color:#fff}
+#layout-wrapper.accounts-module .school-receipt-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-bottom:13px}
+#layout-wrapper.accounts-module .school-receipt-actions .btn{display:inline-flex;align-items:center;gap:6px;margin:0!important}
+#layout-wrapper.accounts-module .school-receipt-workspace{overflow:hidden;border:1px solid var(--school-line);border-radius:8px;background:var(--school-surface);box-shadow:var(--school-shadow)}
+#layout-wrapper.accounts-module .school-receipt-tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:0;padding:6px;border:0;border-bottom:1px solid var(--school-line);background:#f8fbf9;list-style:none}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-item{min-width:0;margin:0}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link{display:flex;align-items:center;gap:9px;width:100%;min-height:56px;padding:8px 10px;border:0!important;border-radius:7px;color:var(--school-muted);text-align:left;text-decoration:none;white-space:normal}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link>i{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:6px;background:var(--school-soft);color:var(--school-primary);font-size:17px}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link span{min-width:0;color:inherit;font-size:12px;font-weight:800;line-height:1.25}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link small{display:block;margin-top:2px;color:inherit;font-size:10px;font-weight:500;opacity:.85}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link:hover{background:#edf5f1;color:var(--school-ink)}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link.active{background:var(--school-primary);color:#fff;box-shadow:0 6px 15px rgba(18,63,67,.17)}
+#layout-wrapper.accounts-module .school-receipt-tabs .nav-link.active>i{background:#fff;color:var(--school-primary)}
+#layout-wrapper.accounts-module .school-receipt-tab-content>.tab-pane{min-width:0;padding:15px 17px}
+#layout-wrapper.accounts-module .school-receipt-tab-content .table-responsive{overflow-x:auto}
+#layout-wrapper.accounts-module .school-receipt-tab-content :is(#top-home,#top-receipt,#top-fine,#top-refundreceipt,#top-commitment) table{min-width:760px}
+#layout-wrapper.accounts-module .school-receipt-tab-content #top-transction table{min-width:1450px}
+#layout-wrapper.accounts-module .school-receipt-tab-content .table th{padding:10px 11px;white-space:nowrap;font-size:11px;font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-tab-content .table td{padding:10px 11px;vertical-align:middle;font-size:12px}
+#layout-wrapper.accounts-module .school-receipt-tab-content .main-fee-row{background:#e7f3ef}
+#layout-wrapper.accounts-module .school-receipt-tab-content .main-fee-row td:first-child{color:var(--school-ink);font-weight:800}
+#layout-wrapper.accounts-module .school-receipt-tab-content .installment-row td:first-child{padding-left:25px;color:var(--school-muted)}
+#layout-wrapper.accounts-module .school-receipt-tab-content input[type=number]{min-width:120px}
+#layout-wrapper.accounts-module .school-receipt-tab-content .table a.btn{margin:2px 2px 2px 0}
+#layout-wrapper.accounts-module .school-receipt-empty{display:flex;min-height:180px;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--school-muted);text-align:center}
+#layout-wrapper.accounts-module .school-receipt-empty i{color:var(--school-primary);font-size:28px}
+#layout-wrapper.accounts-module .school-receipt-empty strong{color:var(--school-ink);font-size:14px}
+#layout-wrapper.accounts-module .school-receipt-empty span{font-size:12px}
+#layout-wrapper.accounts-module .school-receipt-empty-account{display:flex;min-height:220px;align-items:center;justify-content:center;gap:10px;border:1px dashed #bdd4cd;border-radius:8px;background:#f9fcfa;color:var(--school-muted)}
+#layout-wrapper.accounts-module .school-receipt-empty-account i{color:var(--school-primary);font-size:24px}
+#layout-wrapper.accounts-module .school-receipt-empty-account strong{color:var(--school-ink);font-size:14px}
+@media(max-width:1100px){#layout-wrapper.accounts-module .school-receipt-search{grid-template-columns:minmax(180px,230px) minmax(0,1fr)}#layout-wrapper.accounts-module .school-receipt-waiver{grid-column:2;justify-self:end}#layout-wrapper.accounts-module .school-receipt-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){#layout-wrapper.accounts-module .school-receipt-search{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-waiver{grid-column:auto;justify-self:start}#layout-wrapper.accounts-module .school-receipt-student-main{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){#layout-wrapper.accounts-module .school-receipt-search{padding:13px}#layout-wrapper.accounts-module .school-receipt-search-form form{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-search-form form>div:last-child{justify-content:flex-start}#layout-wrapper.accounts-module .school-receipt-student-main{gap:16px;padding:15px}#layout-wrapper.accounts-module .school-receipt-facts{grid-template-columns:repeat(2,minmax(0,1fr))}#layout-wrapper.accounts-module .school-receipt-student-controls{grid-template-columns:1fr;gap:11px;padding:13px 15px}#layout-wrapper.accounts-module .school-receipt-balances{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-balances>div{border-right:0;border-bottom:1px solid var(--school-line)}#layout-wrapper.accounts-module .school-receipt-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}#layout-wrapper.accounts-module .school-receipt-tabs .nav-link{min-height:53px;padding:7px}#layout-wrapper.accounts-module .school-receipt-tabs .nav-link>i{width:28px;height:28px;font-size:15px}#layout-wrapper.accounts-module .school-receipt-tab-content>.tab-pane{padding:10px}#layout-wrapper.accounts-module .school-receipt-actions{justify-content:flex-start}}
