@@ -725,88 +725,210 @@ $(function () {
   /* End time table */
 
   /* attendance */
-  $('#attendanceFilterForm').submit(function (e) {
-    e.preventDefault();
-    $('#loader').show();
-    $('#attendanceForm').hide();
-    $('#form_program').val($('#program').val());
-    $('#form_attendance_date').val($('#attendance_date').val());
-    if ($('#form_section').length > 0) {
-      $('#form_section').val($('#program option:selected').data('section'));
+  if ($('.school-attendance').length) {
+    let roster = [];
+    let selected = {};
+    let loading = false;
+    let request = null;
+    let loadedFilter = null;
+    let interacted = false;
+    const fallbackPhoto = base_url + 'assets/images/erp/user.png';
+    const escapeText = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[char]);
+    const chosen = (row) => selected[row.id] || 0;
+    const needsSave = (row) => row.can_change && chosen(row) > 0 && (!row.attendance_id || chosen(row) !== Number(row.attendance_type));
+    const attendanceState = (row) => {
+      const pending = !row.attendance_id || Number(row.attendance_type) === 0;
+      if (needsSave(row) && row.attendance_id) return { label: 'Changed', className: 'is-changed' };
+      if (pending) return { label: 'Not recorded', className: 'is-pending' };
+      if (Number(row.attendance_type) === 3 && !chosen(row)) return { label: 'Holiday', className: 'is-recorded' };
+      return { label: 'Recorded', className: 'is-recorded' };
+    };
+
+    function showAttendanceMessage(message, success) {
+      $('#attendanceMessage').text(message).removeClass('is-success is-error')
+        .addClass(success ? 'is-success' : 'is-error').prop('hidden', !message);
     }
-    $.ajax({
-      url: base_url + 'academic/getAttendance',
-      type: 'GET',
-      data: $(this).serialize(),
-      dataType: 'json',
-      success: function (res) {
-        let html = '';
-        if (res && res.length) {
-          res.forEach((row, index) => {
-            const img = row.profile ? row.profile : base_url + 'assets/images/erp/user.png';
-            const status = row.attendance_type > 0
-              ? '<span class="badge bg-success">Yes</span>'
-              : '<span class="badge bg-danger">No</span>';
-            html += `
-              <tr>
-                <td>${index + 1}</td>
-                <td><img src="${img}" alt="profile" class="rounded-circle" width="40" height="40"></td>
-                <td>${row.enrollno}</td>
-                <td>${row.name}</td>
-                <td>${row.rollno}</td>
-                <td>${status}</td>
-                <td>
-                  <div class="form-check">
-                    <label><input class="form-check-input" type="radio" name="attendance_type[${row.id}]" value="1" ${row.attendance_type != 2 ? 'checked' : ''}> Present</label><br>
-                    <label><input class="form-check-input" type="radio" name="attendance_type[${row.id}]" value="2" ${row.attendance_type == 2 ? 'checked' : ''}> Absent</label>
-                  </div>
-                  <input type="hidden" name="student[]" value="${row.id}">
-                  <input type="hidden" name="attendace[]" value="${row.attendance_id}">
-                </td>
-                <td><textarea class="form-control" rows="1" name="remark[]">${row.remark ?? ''}</textarea></td>
-              </tr>
-            `;
-          });
-        } else {
-          html = `<tr><td colspan="8" class="text-center text-danger">No student found.</td></tr>`;
+
+    function restoreAttendanceFilter() {
+      if (!loadedFilter) return;
+      $('#program')[0].selectedIndex = loadedFilter.selectedIndex;
+      $('#program').trigger('change.select2');
+      $('#section').val(loadedFilter.section);
+      $('#attendance_date').val(loadedFilter.date);
+    }
+
+    function updateAttendanceSummary() {
+      $('#attendanceTotal').text(roster.length);
+      $('#attendancePresent').text(roster.filter((row) => chosen(row) === 1).length);
+      $('#attendanceAbsent').text(roster.filter((row) => chosen(row) === 2).length);
+      $('#attendancePending').text(roster.filter((row) => !row.attendance_id || Number(row.attendance_type) === 0).length);
+      const editable = roster.some((row) => row.can_change);
+      $('.att-mark-all').prop('disabled', loading || !editable);
+      $('.att-save').prop('disabled', loading || !roster.some(needsSave));
+    }
+
+    function renderAttendanceRows() {
+      const query = $('#attendanceSearch').val().trim().toLowerCase();
+      const visible = roster.filter((row) => [row.name, row.enrollno, row.rollno].some((value) => String(value || '').toLowerCase().includes(query)));
+      if (!visible.length) {
+        $('#attendanceData').html('<div class="att-empty"><i class="ri-user-search-line"></i>No matching students.</div>');
+        updateAttendanceSummary();
+        return;
+      }
+      const html = visible.map((row) => {
+        const id = Number(row.id);
+        const state = attendanceState(row);
+        const photo = escapeText(row.profile || fallbackPhoto);
+        const photoOpen = row.profile ? `<a class="att-photo" href="${photo}" target="_blank" rel="noopener" title="Open student photo">` : '<span class="att-photo">';
+        const photoClose = row.profile ? '</a>' : '</span>';
+        const name = escapeText(row.name || 'Student');
+        const enrollment = escapeText(row.enrollno || '-');
+        const roll = escapeText(row.rollno || '-');
+        const disabled = row.can_change ? '' : 'disabled';
+        return `<div class="att-student ${chosen(row) === 1 ? 'is-present' : chosen(row) === 2 ? 'is-absent' : ''}" data-student="${id}">
+          <div class="att-student-top">
+            ${photoOpen}<img src="${photo}" alt="Photo of ${name}" loading="lazy">${photoClose}
+            <div class="att-identity"><strong>${name}</strong><small class="att-state ${state.className}">${state.label}</small></div>
+            <span class="att-no">#${roster.indexOf(row) + 1}</span>
+          </div>
+          <div class="att-details"><div class="att-detail"><span>Enrollment no.</span><strong>${enrollment}</strong></div><div class="att-detail"><span>Roll no.</span><strong>${roll}</strong></div></div>
+          <div class="att-choice" role="group" aria-label="Attendance for ${name}">
+            <input type="radio" id="att-${id}-present" name="att-${id}" value="1" ${chosen(row) === 1 ? 'checked' : ''} ${disabled}><label class="is-present" for="att-${id}-present"><i class="ri-check-line"></i> Present</label>
+            <input type="radio" id="att-${id}-absent" name="att-${id}" value="2" ${chosen(row) === 2 ? 'checked' : ''} ${disabled}><label class="is-absent" for="att-${id}-absent"><i class="ri-close-line"></i> Absent</label>
+          </div>
+        </div>`;
+      }).join('');
+      $('#attendanceData').html(html);
+      $('#attendanceData img').one('error', function () {
+        this.src = fallbackPhoto;
+      });
+      updateAttendanceSummary();
+    }
+
+    function loadAttendance(keepMessage) {
+      if (!$('#attendanceFilterForm')[0].checkValidity()) {
+        $('#attendanceFilterForm')[0].reportValidity();
+        return;
+      }
+      if (!keepMessage && interacted && roster.some(needsSave) && !window.confirm('Discard unsaved attendance changes?')) {
+        restoreAttendanceFilter();
+        return;
+      }
+      if (request) request.abort();
+      if (!keepMessage) showAttendanceMessage('', false);
+      loading = true;
+      $('#attendanceContent, #attendanceEmpty').prop('hidden', true);
+      $('#attendanceLoader').css('display', 'flex');
+      $('.att-save').prop('disabled', true);
+      const className = $('#program option:selected').text().trim();
+      const section = $('#section').val();
+      const scope = { program: $('#program').val(), section, date: $('#attendance_date').val(), className, selectedIndex: $('#program')[0].selectedIndex };
+      request = $.ajax({
+        url: base_url + 'academic/getAttendance', type: 'GET', data: $('#attendanceFilterForm').serialize(), dataType: 'json'
+      }).done((response) => {
+        if (!response.status) {
+          showAttendanceMessage(response.message || 'Attendance could not be loaded.', false);
+          restoreAttendanceFilter();
+          if (roster.length) $('#attendanceContent').prop('hidden', false);
+          else {
+            $('#attendanceEmpty span').text('No attendance data available.');
+            $('#attendanceEmpty').prop('hidden', false);
+          }
+          return;
         }
+        loadedFilter = scope;
+        $('#attendanceRosterTitle').text(className ? className + (className.includes('Section ') ? '' : ' - Section ' + section) : 'Student attendance');
+        $('#attendanceRosterSubtitle').text(scope.date);
+        roster = response.students || [];
+        selected = {};
+        interacted = false;
+        roster.forEach((row) => {
+          const saved = Number(row.attendance_type);
+          selected[row.id] = saved === 1 || saved === 2 ? saved : (!row.attendance_id && row.can_change ? 1 : 0);
+        });
+        $('#attendanceSearch').val('');
+        if (roster.length) {
+          $('#attendanceContent').prop('hidden', false);
+          renderAttendanceRows();
+        } else {
+          $('#attendanceEmpty span').text('No attendance-enabled students in this class and section.');
+          $('#attendanceEmpty').prop('hidden', false);
+        }
+      }).fail((xhr, status) => {
+        if (status === 'abort') return;
+        showAttendanceMessage((xhr.responseJSON && xhr.responseJSON.message) || 'Could not load attendance. Please try again.', false);
+        restoreAttendanceFilter();
+        if (roster.length) $('#attendanceContent').prop('hidden', false);
+        else {
+          $('#attendanceEmpty span').text('Attendance could not be loaded.');
+          $('#attendanceEmpty').prop('hidden', false);
+        }
+      }).always(() => {
+        loading = false;
+        request = null;
+        $('#attendanceLoader').hide();
+        updateAttendanceSummary();
+      });
+    }
 
-        $('#attendanceData').html(html);
-        $('#attendanceForm').show();
-        $('#loader').hide();
-      },
-      error: function () {
-        swal('Failed to load attendance data.');
-        $('#loader').hide();
-      }
+    $('#program').on('change', function () {
+      if ($('#section').is('[type="hidden"]')) $('#section').val($('#program option:selected').data('section') || '');
+      if ($('.school-attendance').data('auto-load') && $(this).val()) loadAttendance(false);
     });
-  });
-
-  // Attendance submit form
-  $('#attendanceForm').submit(function (e) {
-    e.preventDefault();
-    $('#loader').show();
-    $.ajax({
-      url: base_url + 'academic/submitAttendance',
-      type: 'POST',
-      data: $(this).serialize(),
-      dataType: 'json',
-      success: function (response) {
-        swal(response.message || 'Attendance submitted successfully!');
-        $('#attendanceFilterForm').trigger('submit');
-      },
-      error: function () {
-        swal('Failed to submit attendance.');
-        $('#loader').hide();
-      }
+    $('#attendanceFilterForm').on('submit', function (event) {
+      event.preventDefault();
+      loadAttendance(false);
     });
-  });
-
-  $('input[name="all_present"]').on('change', function () {
-    const value = $(this).val();
-    $('input[type="radio"][value="1"]').prop('checked', value === 'present');
-    $('input[type="radio"][value="2"]').prop('checked', value === 'absent');
-  });
+    $('#attendanceToday').on('click', function () {
+      $('#attendance_date').val($('#attendance_date').attr('max'));
+      if ($('#program').val()) loadAttendance(false);
+    });
+    $('#attendanceSearch').on('input', renderAttendanceRows);
+    $('#attendanceData').on('change', 'input[type="radio"]', function () {
+      const $row = $(this).closest('.att-student');
+      const id = Number($row.data('student'));
+      selected[id] = Number(this.value);
+      interacted = true;
+      const student = roster.find((item) => Number(item.id) === id);
+      if (student) {
+        const state = attendanceState(student);
+        $row.find('.att-state').text(state.label).removeClass('is-recorded is-pending is-changed').addClass(state.className);
+        $row.toggleClass('is-present', selected[id] === 1).toggleClass('is-absent', selected[id] === 2);
+      }
+      updateAttendanceSummary();
+    });
+    $('.att-mark-all').on('click', function () {
+      const value = Number($(this).data('mark'));
+      roster.forEach((row) => { if (row.can_change) selected[row.id] = value; });
+      interacted = true;
+      renderAttendanceRows();
+    });
+    $('.att-save').on('click', function () {
+      const changed = roster.filter(needsSave);
+      if (loading || !loadedFilter || !changed.length) return;
+      const values = {};
+      changed.forEach((row) => { values[row.id] = chosen(row); });
+      loading = true;
+      updateAttendanceSummary();
+      let reloadAfterSave = false;
+      $.ajax({
+        url: base_url + 'academic/submitAttendance', type: 'POST', dataType: 'json',
+        data: { program: loadedFilter.program, section: loadedFilter.section, attendance_date: loadedFilter.date, student: changed.map((row) => row.id), attendance_type: values }
+      }).done((response) => {
+        showAttendanceMessage(response.message || 'Attendance saved.', !!response.status);
+        reloadAfterSave = !!response.status;
+      }).fail((xhr) => {
+        showAttendanceMessage((xhr.responseJSON && xhr.responseJSON.message) || 'Could not save attendance. Please try again.', false);
+      }).always(() => {
+        loading = false;
+        updateAttendanceSummary();
+        if (reloadAfterSave) loadAttendance(true);
+      });
+    });
+    if ($('.school-attendance').data('auto-load')) loadAttendance(false);
+  }
 
   $(document).on("change", "#building", function () {
     if ($(this).val()) {
@@ -1095,64 +1217,6 @@ $(function () {
     $('.check-all').prop('checked', false);
   });
 
-  $('.submitAttendaceButton').click(function() {
-    if($("#mergeWith").attr('extravalue')>0){
-
-      swal({
-        title: "Alert!",
-        text: "You want to merge attendance with next period please click yes otherwise press No ...",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        closeOnClickOutside: false,
-        closeOnEsc: false,
-        buttons: {
-          cancel: true,
-          confirm: "No",
-          roll: {
-            text: "Yes",
-            value: "yes",
-          },
-        },
-      })
-      .then((willDelete) => {
-          if(willDelete=='yes') {
-            $("#mergeWith").val($("#mergeWith").attr('extravalue'));
-            $(".submitAttendace").submit();
-          }
-          else if(willDelete==true){
-            $("#mergeWith").val('');
-            $(".submitAttendace").submit();
-          }
-          else{
-            $("#mergeWith").val('');
-          }
-      });
-    
-      
-    }else{
-      $(".submitAttendace").submit();
-    }
-
-  });
-  
-  $('.resetAttendaceButton').click(function() {
-
-    swal({
-      title: "Are you sure?",
-      text: "You want to delete this",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-      })
-      .then((willDelete) => {
-        if(willDelete) {
-          $(".deleteAttendace").submit();
-        }
-    });
-
-  });
-  
 });
 
 function resetEverything() {
