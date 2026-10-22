@@ -1,0 +1,21 @@
+.schedule-modal-content{color:#273d46;max-width:920px;margin:auto}
+.schedule-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:0 0 18px;border-bottom:1px solid #dce6e9}
+.schedule-modal-head h5{margin:0;font-size:17px;font-weight:700}
+.schedule-modal-head p{margin:4px 0 0;color:#637984;font-size:12px}
+.schedule-modal-list{display:grid;gap:10px;margin-top:16px}
+.schedule-modal-item{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:15px;border:1px solid #dce6e9;border-radius:6px;background:#fff}
+.schedule-modal-item-main{min-width:0;overflow-wrap:anywhere}
+.schedule-modal-item strong{display:block;font-size:14px}
+.schedule-modal-item p{margin:6px 0;color:#536b77;font-size:13px;white-space:pre-wrap}
+.schedule-modal-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:9px}
+.schedule-modal-links a{font-size:12px;font-weight:600;text-decoration:none}
+.schedule-modal-empty{display:flex;flex-direction:column;align-items:center;gap:5px;padding:42px 14px;text-align:center;color:#657d87}
+.schedule-modal-empty i{font-size:30px;color:#458d7e}
+.schedule-modal-empty strong{color:#344f59}
+.schedule-modal-empty span{font-size:12px}
+.schedule-modal-form{padding:18px 0 2px}
+.schedule-modal-form .form-label{font-size:12px;font-weight:700;color:#445c67}
+.schedule-modal-form .form-control,.schedule-modal-form .form-select{min-height:40px}
+.schedule-modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:17px 0 0;border-top:1px solid #dce6e9;margin-top:18px}
+.schedule-modal-error{font-size:13px}
+@media(max-width:600px){.schedule-modal-head{gap:10px}.schedule-modal-head .btn{width:100%}.schedule-modal-item{padding:12px}.schedule-modal-footer .btn{flex:1}}

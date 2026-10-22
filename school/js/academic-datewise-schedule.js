@@ -120,11 +120,11 @@ $(function () {
     renderDay();
   });
   $('#ds-agenda').on('click', '.ds-action', function () {
-    if (!window.openModalPopup) return;
+    if (!window.scheduleModalOpen) return;
     const id = Number($(this).data('id')), action = $(this).data('action');
     const routes = { lms: ['LMS Management', 'viewdatetimetablelms'], homework: ['Home Work', 'timetablehw'], status: ['Status', 'timetablelmsstatus'] };
     if (!routes[action] || !id) return;
-    openModalPopup(routes[action][0], `${base_url}academic/${routes[action][1]}/${id}`, action === 'status' ? '' : 'full-screen');
+    scheduleModalOpen(routes[action][0], `${base_url}academic/${routes[action][1]}/${id}`);
   });
   $('.ds-quick').on('click', function () {
     const shift = Number($(this).data('shift'));

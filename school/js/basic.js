@@ -589,6 +589,9 @@ $(function () {
     $("#systemModal_new").find(".modal-header .modal-title").text($(this).attr("poptitle"));
     $("#systemModal_new").modal("show");
   });
+  $(document).on('click', '#systemModal_new .schedule-modal-back', function () {
+    $('#systemModal_new').modal('hide');
+  });
   $(document).on("click", ".openPopupImage", function (e) {
     e.preventDefault();
     $("#systemModal").find(".modal-dialog").addClass(" pulse animated full-screen");
