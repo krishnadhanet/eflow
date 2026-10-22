@@ -96,6 +96,8 @@
 #layout-wrapper.accounts-module .school-receipt-balance-total :is(span,strong){color:#fff}
 #layout-wrapper.accounts-module .school-receipt-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-bottom:13px}
 #layout-wrapper.accounts-module .school-receipt-actions .btn{display:inline-flex;align-items:center;gap:6px;margin:0!important}
+#layout-wrapper.accounts-module .school-receipt-print-action{display:flex;justify-content:flex-end;margin:-4px 0 12px}
+#layout-wrapper.accounts-module .school-receipt-print-action .btn{display:inline-flex;align-items:center;gap:6px}
 #layout-wrapper.accounts-module .school-receipt-workspace{overflow:hidden;border:1px solid var(--school-line);border-radius:8px;background:var(--school-surface);box-shadow:var(--school-shadow)}
 #layout-wrapper.accounts-module .school-receipt-tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:0;padding:6px;border:0;border-bottom:1px solid var(--school-line);background:#f8fbf9;list-style:none}
 #layout-wrapper.accounts-module .school-receipt-tabs .nav-item{min-width:0;margin:0}
@@ -127,3 +129,48 @@
 @media(max-width:1100px){#layout-wrapper.accounts-module .school-receipt-search{grid-template-columns:minmax(180px,230px) minmax(0,1fr)}#layout-wrapper.accounts-module .school-receipt-waiver{grid-column:2;justify-self:end}#layout-wrapper.accounts-module .school-receipt-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){#layout-wrapper.accounts-module .school-receipt-search{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-waiver{grid-column:auto;justify-self:start}#layout-wrapper.accounts-module .school-receipt-student-main{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){#layout-wrapper.accounts-module .school-receipt-search{padding:13px}#layout-wrapper.accounts-module .school-receipt-search-form form{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-search-form form>div:last-child{justify-content:flex-start}#layout-wrapper.accounts-module .school-receipt-student-main{gap:16px;padding:15px}#layout-wrapper.accounts-module .school-receipt-facts{grid-template-columns:repeat(2,minmax(0,1fr))}#layout-wrapper.accounts-module .school-receipt-student-controls{grid-template-columns:1fr;gap:11px;padding:13px 15px}#layout-wrapper.accounts-module .school-receipt-balances{grid-template-columns:1fr}#layout-wrapper.accounts-module .school-receipt-balances>div{border-right:0;border-bottom:1px solid var(--school-line)}#layout-wrapper.accounts-module .school-receipt-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}#layout-wrapper.accounts-module .school-receipt-tabs .nav-link{min-height:53px;padding:7px}#layout-wrapper.accounts-module .school-receipt-tabs .nav-link>i{width:28px;height:28px;font-size:15px}#layout-wrapper.accounts-module .school-receipt-tab-content>.tab-pane{padding:10px}#layout-wrapper.accounts-module .school-receipt-actions{justify-content:flex-start}}
+
+/* The fine editor scrolls its rows while the column labels stay in view. */
+#systemModal .fine-rule-table-wrap{max-height:min(65vh,680px);overflow:auto;border:1px solid #d9e8e3;border-radius:6px}
+#systemModal .fine-rule-table{min-width:1150px;margin:0}
+#systemModal .fine-rule-table thead th{position:sticky;top:0;z-index:2;background:#eef5f3;box-shadow:inset 0 -1px #c9dbd5;white-space:nowrap}
+#systemModal .fine-rule-table td,#systemModal .fine-rule-table th{vertical-align:top}
+
+#systemModal .receipt-transfer-warning{color:#50390f!important;background:#fff3cf!important;border-color:#e4c76b!important;font-weight:600}
+#systemModal .modal-dialog:has(.adjustment-transaction){width:calc(100% - 32px);max-width:1080px}
+#systemModal .adjustment-transaction{width:100%;min-width:0}
+#systemModal .adjustment-transaction h4{margin:0 0 12px;color:#203b3b;font-size:16px;font-weight:800}
+#systemModal .adjustment-table-wrap{width:100%;overflow-x:auto;overflow-y:visible}
+#systemModal .adjustment-table{width:100%;min-width:740px;margin:0;table-layout:fixed}
+#systemModal .adjustment-table th,#systemModal .adjustment-table td{padding:7px 8px;vertical-align:middle;font-size:12px;white-space:normal;overflow-wrap:anywhere}
+#systemModal .adjustment-table th:first-child{width:24%}
+#systemModal .adjustment-table th:last-child{width:17%}
+#systemModal .adjustment-table th:not(:first-child):not(:last-child){width:11.8%}
+#systemModal .adjustment-table .form-control{width:100%;min-width:0;padding:6px;font-size:12px}
+#systemModal .adjustment-actions{padding-top:14px}
+#systemModal .adjustment-actions .btn{margin:0 3px}
+
+#layout-wrapper.accounts-module .yearly-report-page{max-width:1500px;margin:0 auto;padding-bottom:30px}
+#layout-wrapper.accounts-module .yearly-report-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:17px}
+#layout-wrapper.accounts-module .yearly-report-heading span{color:var(--school-primary);font-size:11px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .yearly-report-heading h1{margin:3px 0;color:var(--school-ink);font-size:22px;font-weight:800}
+#layout-wrapper.accounts-module .yearly-report-heading p{margin:0;color:var(--school-muted);font-size:12px}
+#layout-wrapper.accounts-module .yearly-report-back{display:inline-flex;align-items:center;gap:6px;color:var(--school-primary);font-size:12px;font-weight:800;white-space:nowrap;text-decoration:none}
+#layout-wrapper.accounts-module .yearly-report-filter{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:0 0 16px;padding:14px 0;border-top:1px solid var(--school-line);border-bottom:1px solid var(--school-line)}
+#layout-wrapper.accounts-module .yearly-report-filter>div{width:min(100%,290px)}
+#layout-wrapper.accounts-module .yearly-report-filter label{display:block;margin-bottom:5px;color:var(--school-muted);font-size:11px;font-weight:800}
+#layout-wrapper.accounts-module .yearly-report-filter .btn{display:inline-flex;align-items:center;gap:6px;min-height:38px;margin:0!important}
+#layout-wrapper.accounts-module .yearly-report-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:15px;border:1px solid var(--school-line);border-radius:7px;background:var(--school-surface)}
+#layout-wrapper.accounts-module .yearly-report-summary>div{min-width:0;padding:14px 19px;border-right:1px solid var(--school-line)}
+#layout-wrapper.accounts-module .yearly-report-summary>div:last-child{border-right:0}
+#layout-wrapper.accounts-module .yearly-report-summary span{display:block;color:var(--school-muted);font-size:10px;font-weight:800;text-transform:uppercase}
+#layout-wrapper.accounts-module .yearly-report-summary strong{display:block;margin-top:4px;color:var(--school-ink);font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#layout-wrapper.accounts-module .yearly-report-table-wrap{overflow-x:auto;border:1px solid var(--school-line);border-radius:7px;background:var(--school-surface)}
+#layout-wrapper.accounts-module .yearly-report-table{width:100%;min-width:760px;margin:0;font-variant-numeric:tabular-nums}
+#layout-wrapper.accounts-module .yearly-report-table :is(th,td){padding:11px 12px;white-space:nowrap;font-size:12px}
+#layout-wrapper.accounts-module .yearly-report-table thead th{background:#edf5f1;color:var(--school-ink);font-size:11px;font-weight:800}
+#layout-wrapper.accounts-module .yearly-report-table tfoot th{background:#edf5f1;color:var(--school-ink);font-weight:800}
+#layout-wrapper.accounts-module .yearly-report-mobile{display:none}
+#layout-wrapper.accounts-module .yearly-report-empty{padding:35px 18px;border:1px dashed var(--school-line);border-radius:7px;color:var(--school-muted);font-size:13px;text-align:center}
+@media(max-width:600px){#layout-wrapper.accounts-module .yearly-report-heading h1{font-size:19px}#layout-wrapper.accounts-module .yearly-report-summary{grid-template-columns:1fr}#layout-wrapper.accounts-module .yearly-report-summary>div{padding:10px 14px;border-right:0;border-bottom:1px solid var(--school-line)}#layout-wrapper.accounts-module .yearly-report-summary>div:last-child{border-bottom:0}#layout-wrapper.accounts-module .yearly-report-summary strong{font-size:18px}#layout-wrapper.accounts-module .yearly-report-table-wrap{display:none}#layout-wrapper.accounts-module .yearly-report-mobile{display:grid;gap:10px}#layout-wrapper.accounts-module .yearly-report-mobile-row{min-width:0;padding:13px;border:1px solid var(--school-line);border-radius:7px;background:var(--school-surface)}#layout-wrapper.accounts-module .yearly-report-mobile-row header{display:flex;align-items:baseline;justify-content:space-between;gap:10px}#layout-wrapper.accounts-module .yearly-report-mobile-row header strong{color:var(--school-ink);font-size:13px}#layout-wrapper.accounts-module .yearly-report-mobile-row header span{color:var(--school-muted);font-size:11px;white-space:nowrap}#layout-wrapper.accounts-module .yearly-report-mobile-row dl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}#layout-wrapper.accounts-module .yearly-report-mobile-row dt{color:var(--school-muted);font-size:10px;text-transform:uppercase}#layout-wrapper.accounts-module .yearly-report-mobile-row dd{margin:3px 0 0;color:var(--school-ink);font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}#layout-wrapper.accounts-module .yearly-report-mobile-row dl>div:last-child{grid-column:1/-1;padding-top:8px;border-top:1px solid var(--school-line)}#layout-wrapper.accounts-module .yearly-report-mobile-row small{color:var(--school-muted);font-size:10px;line-height:1.4}}
+@media print{#layout-wrapper.accounts-module .yearly-report-page{max-width:none}#layout-wrapper.accounts-module .yearly-report-filter,#layout-wrapper.accounts-module .yearly-report-back,#layout-wrapper.accounts-module .yearly-report-mobile{display:none!important}#layout-wrapper.accounts-module .yearly-report-table-wrap{display:block!important;overflow:visible}#layout-wrapper.accounts-module .yearly-report-table{min-width:0!important;width:100%!important}#layout-wrapper.accounts-module .yearly-report-table :is(th,td){padding:4px 3px!important;white-space:normal!important;font-size:9px!important}}
