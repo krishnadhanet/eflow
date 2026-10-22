@@ -366,7 +366,7 @@ $(function () {
     // dropdowns
     $("#period").html(parsed.periods.map(p => `<option value='${p.id}'>${p.period}. ${p.start_time} - ${p.end_time}</option>`).join(""));
     $("#course").html('');
-    if(parsed.courses){
+    if(Array.isArray(parsed.courses)){
       if($("#courseCards").length>0){
         html = courseCards(parsed.courses);
         $("#courseCards").html(html);
@@ -455,7 +455,8 @@ $(function () {
 
     // dropdowns
     $("#dateperiod").html(parsed.periods.map(p => `<option value='${p.id}'>${p.period}. ${p.start_time} - ${p.end_time}</option>`).join(""));
-    $("#datecourse").html(parsed.courses.map(c => `<option value='${c.id}'>${c.name} (${c.display_code})</option>`).join(""));
+    const courses = Array.isArray(parsed.courses) ? parsed.courses : [];
+    $("#datecourse").html(courses.map(c => `<option value='${c.id}'>${c.name} (${c.display_code})</option>`).join(""));
   }
   function courseCards(data){
 
