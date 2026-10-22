@@ -6,6 +6,8 @@ $(function () {
   const canEdit = $page.data('can-edit') === 1;
   const canDelete = $page.data('can-delete') === 1;
   const entryModal = document.getElementById('tt-entry-modal');
+  const copyModal = document.getElementById('tt-copy-modal');
+  const clashModal = document.getElementById('tt-clash-modal');
   const moveModal = document.getElementById('tt-move-modal');
   const state = {
     format: 0, scope: null, periods: [], courses: [], entries: [], slots: new Map(),
@@ -145,6 +147,7 @@ $(function () {
     $('#tt-stat-filled').text(state.entries.length);
     $('#tt-stat-open').text(Math.max(0, units * state.periods.length - state.slots.size));
     $('#tt-clear,#tt-export').prop('disabled', !state.entries.length);
+    $('#tt-copy').prop('disabled', !state.entries.length);
     $('#tt-new').prop('disabled', !canEdit || !state.periods.length || !state.courses.length);
   }
   function renderWeeklyDay() {
@@ -441,6 +444,95 @@ $(function () {
     const when = state.format === 2 ? state.selectedDate : state.selectedDay;
     const available = state.periods.find((period) => !slotEntries(when, period.id).length);
     fillEditor(null, when, (available || state.periods[0]).id);
+  });
+  function updateCopyDayOptions() {
+    const source = String($('#tt-copy-day').val());
+    $('#tt-copy-days input').each(function () {
+      const same = this.value === source;
+      this.disabled = same;
+      if (same) this.checked = false;
+    });
+  }
+  $('#tt-copy').on('click', function () {
+    if (!state.scope || !state.entries.length) return;
+    $('#tt-copy-error').prop('hidden', true).text('');
+    $('#tt-copy-scope').text(`${state.scope.className} / Section ${state.scope.section} / ${state.format === 2 ? 'Date-wise' : 'Weekly'}`);
+    $('.tt-copy-weekly').prop('hidden', state.format !== 1);
+    $('.tt-copy-datewise').prop('hidden', state.format !== 2);
+    if (state.format === 1) {
+      $('#tt-copy-day').val(state.selectedDay);
+      $('#tt-copy-days input').prop('checked', false);
+      updateCopyDayOptions();
+    } else {
+      const source = state.selectedDate || state.scope.from;
+      const next = isoDate(addDays(parseDate(source), 1));
+      $('#tt-copy-source-date').val(source);
+      $('#tt-copy-from,#tt-copy-to').val(next);
+    }
+    modalInstance(copyModal)?.show();
+  });
+  $('#tt-copy-day').on('change', updateCopyDayOptions);
+  $('#tt-copy-form').on('submit', function (event) {
+    event.preventDefault();
+    if (!state.scope) return;
+    const data = { program: state.scope.program, section: state.scope.section };
+    if (state.format === 1) {
+      data.source_day = $('#tt-copy-day').val();
+      data.target_days = $('#tt-copy-days input:checked').map(function () { return this.value; }).get();
+      if (!data.target_days.length) {
+        $('#tt-copy-error').text('Select at least one target day.').prop('hidden', false);
+        return;
+      }
+    } else {
+      data.source_date = $('#tt-copy-source-date').val();
+      data.target_from = $('#tt-copy-from').val();
+      data.target_to = $('#tt-copy-to').val();
+      const start = parseDate(data.target_from), end = parseDate(data.target_to);
+      const span = start && end ? Math.round((end - start) / 86400000) + 1 : 0;
+      if (!parseDate(data.source_date) || span < 1 || span > 31) {
+        $('#tt-copy-error').text('Select a valid source and target range of 1 to 31 days.').prop('hidden', false);
+        return;
+      }
+    }
+    $('#tt-copy-error').prop('hidden', true);
+    const $button = $('#tt-copy-save').prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span> Copying');
+    $.ajax({ url: `${base_url}academic/copyTimeTable`, type: 'POST', dataType: 'json', data })
+      .done((response) => {
+        if (!response.status) {
+          $('#tt-copy-error').text(response.message || 'Could not copy lessons.').prop('hidden', false);
+          return;
+        }
+        modalInstance(copyModal)?.hide();
+        if (state.format === 2) {
+          $('#start_date').val(data.target_from);
+          $('#end_date').val(data.target_to);
+        }
+        loadSchedule({ selectedDate: state.format === 2 ? data.target_from : null, message: response.message });
+      }).fail((xhr) => $('#tt-copy-error').text((xhr.responseJSON && xhr.responseJSON.message) || 'Could not copy lessons.').prop('hidden', false))
+      .always(() => $button.prop('disabled', false).html('<i class="ri-file-copy-line me-1"></i> Copy lessons'));
+  });
+  $('#tt-clashes').on('click', function () {
+    $('#tt-clash-count').text('');
+    $('#tt-clash-table-wrap').prop('hidden', true);
+    $('#tt-clash-message').text('Loading clashes...').prop('hidden', false);
+    modalInstance(clashModal)?.show();
+    $.getJSON(`${base_url}academic/timetableClashes`).done((response) => {
+      const rows = Array.isArray(response.rows) ? response.rows : [];
+      const total = Number(response.total) || 0;
+      $('#tt-clash-count').text(`${total} clash${total === 1 ? '' : 'es'}${total > rows.length ? ` · first ${rows.length} shown; download CSV for all` : ''}`);
+      if (!rows.length) {
+        $('#tt-clash-message').text('No staff or room clashes found.');
+        return;
+      }
+      $('#tt-clash-body').html(rows.map((row) => `<tr>
+        <td><span class="badge ${row.type === 'Room' ? 'bg-warning-subtle text-warning' : 'bg-danger-subtle text-danger'}">${escapeHtml(row.type)}</span></td>
+        <td>${escapeHtml(row.when)}</td><td>${escapeHtml(row.period)}</td>
+        <td>${escapeHtml(row.type === 'Room' ? row.room : row.staff)}</td>
+        <td>${escapeHtml(row.first_class)}</td><td>${escapeHtml(row.second_class)}</td>
+      </tr>`).join(''));
+      $('#tt-clash-message').prop('hidden', true);
+      $('#tt-clash-table-wrap').prop('hidden', false);
+    }).fail(() => $('#tt-clash-message').text('Clashes could not be loaded. Please try again.'));
   });
   $('#tt-entry-form').on('submit', saveEntry);
   $('#tt-export').on('click', exportPdf);

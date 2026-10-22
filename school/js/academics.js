@@ -813,7 +813,7 @@ $(function () {
       if (request) request.abort();
       if (!keepMessage) showAttendanceMessage('', false);
       loading = true;
-      $('#attendanceContent, #attendanceEmpty').prop('hidden', true);
+      $('#attendanceContent, #attendanceEmpty, #attendanceHoliday').prop('hidden', true);
       $('#attendanceLoader').css('display', 'flex');
       $('.att-save').prop('disabled', true);
       const className = $('#program option:selected').text().trim();
@@ -835,6 +835,14 @@ $(function () {
         loadedFilter = scope;
         $('#attendanceRosterTitle').text(className ? className + (className.includes('Section ') ? '' : ' - Section ' + section) : 'Student attendance');
         $('#attendanceRosterSubtitle').text(scope.date);
+        if (response.holiday) {
+          roster = [];
+          selected = {};
+          interacted = false;
+          $('#attendanceHolidayTitle').text(response.holiday.title || 'Holiday');
+          $('#attendanceHoliday').prop('hidden', false);
+          return;
+        }
         roster = response.students || [];
         selected = {};
         interacted = false;
