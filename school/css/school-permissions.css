@@ -1,6 +1,9 @@
 .school-permissions{--sp-ink:#1f2937;--sp-muted:#5c687a;--sp-line:#e1e7f0;--sp-primary:#315fd4;--sp-soft:#eaf0ff;max-width:1580px;margin:0 auto 96px;color:var(--sp-ink)}
 .school-permissions [hidden]{display:none!important}
 .sp-hero{position:relative;overflow:hidden;padding:25px 28px;border:1px solid #31437f;border-radius:18px;background:linear-gradient(125deg,#173b91,#2855b5 72%,#4676d6);color:#fff;box-shadow:0 18px 38px rgba(22,45,80,.13)}
+html.school-hr-route .school-permissions .sp-hero{border-color:#176371;background:var(--school-hero,linear-gradient(115deg,#123e4c,#176b74 70%,#548d84));box-shadow:0 14px 30px rgba(19,77,79,.15)}
+html.school-hr-route .school-permissions .sp-hero p{color:rgba(255,255,255,.85)}
+html.school-hr-route .school-permissions .sp-eyebrow{color:#f4cb8c}
 .sp-hero:after{content:"";position:absolute;right:-70px;top:-165px;width:310px;height:310px;border:55px solid rgba(255,255,255,.055);border-radius:50%}
 .sp-hero-main,.sp-stats{position:relative;z-index:1}
 .sp-hero-main{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
