@@ -66,18 +66,24 @@ $(document).on('change', '#bulkFeesAllotForm input[name="fees[]"]', function () 
   var label = document.querySelector('#bulkFeesAllotForm .fee-allotment-item-count');
   if (label) label.textContent = count ? count + ' fee item' + (count === 1 ? '' : 's') + ' selected' : 'Select at least one item';
 });
-$(document).on('change',".getFees",function (event) {
+var feeAllotmentItemsRequest = null;
+$(document).on('change',".getFees, #programmanage",function (event) {
+  if (feeAllotmentItemsRequest) feeAllotmentItemsRequest.abort();
   $('.showPricing').html('<p>Loading fee items...</p>');
   $('.fee-allotment-item-count').text('Select at least one item');
-  if($("#programmanage").val()!='' && $('input[name="headType"]:checked').val()!=''){
-    $.ajax({
+  var program = $("#programmanage").val();
+  var headType = $('#bulkFeesAllotForm input[name="headType"]:checked').val();
+  if(program && headType){
+    feeAllotmentItemsRequest = $.ajax({
       url: base_url + "fees/getFeesAllotment",
       type: "POST",
-      data: {program:$("#programmanage").val(),head:$('input[name="headType"]:checked').val()},
+      data: {program:program,head:headType},
       success: function(response) {
+        if (program !== $("#programmanage").val() || headType !== $('#bulkFeesAllotForm input[name="headType"]:checked').val()) return;
         $('.showPricing').html($.trim(response) ? response : '<p>No fee items are configured for this class and fee type.</p>');
       },
-      error: function () {
+      error: function (xhr, status) {
+        if (status === 'abort') return;
         $('.showPricing').html('<p>Fee items could not be loaded. Try selecting the fee type again.</p>');
       }
     });
@@ -94,7 +100,12 @@ $(document).on('submit',".submitFeesAllotment",function (event) {
     var form = this;
     var button = form.querySelector('.openFeesallotment');
     if (button) button.disabled = true;
+    var selectedIds = Array.from(form.querySelectorAll('.is_lock:checked')).map(function (box) { return box.value; });
     var formData = $(this).serialize();
+    function restoreSelection() {
+      form.querySelectorAll('.is_lock').forEach(function (box) { box.checked = selectedIds.indexOf(box.value) !== -1; });
+      updateFeeAllotmentSelection(form);
+    }
     $.ajax({
       url: base_url + "fees/submitFeesAllotment",
       type: "POST",
@@ -106,10 +117,10 @@ $(document).on('submit',".submitFeesAllotment",function (event) {
         else{
           swal(response || 'Select students before allotting fees.');
         }
-        if (button) updateFeeAllotmentSelection(form);
+        if (button) restoreSelection();
       },
       error: function () {
-        if (button) updateFeeAllotmentSelection(form);
+        if (button) restoreSelection();
         swal('Could not prepare fee allotment. Please try again.');
       }
     });

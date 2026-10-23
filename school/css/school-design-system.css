@@ -171,6 +171,7 @@ body #layout-wrapper .main-content,body #layout-wrapper .main-content :is(button
 body #layout-wrapper :is(.mk-workspace,.visitor-workspace,.policies-workspace,.notification-workspace,.library-workspace-nav,.library-landing,.school-inventory-v2-module .main-content,.gu-hostel-module .main-content,.school-transportation-module .main-content){font-family:var(--school-font)!important}
 body:is(.gu-hostel-module,.school-transportation-module,.school-inventory-v2-module,.school-library-module,.school-visitor-module,.school-notification-module,.gu-marketing-module,.gu-policies-module,.student-ticket-page) #layout-wrapper .main-content{font-family:var(--school-font)!important}
 body #layout-wrapper .page-content,body #layout-wrapper .main-content .page-content{background:radial-gradient(circle at 8% 0,rgba(44,144,127,.07),transparent 27rem),var(--school-canvas)!important}
+@media screen{body #layout-wrapper .main-content>.page-content{min-height:100vh!important;min-height:100dvh!important}}
 body #layout-wrapper .page-content :is(h1,h2,h3,h4,h5,h6){font-family:inherit!important;letter-spacing:-.025em}
 body #layout-wrapper .school-page-header{background:var(--school-hero);box-shadow:0 14px 30px rgba(19,77,79,.15)}
 body #layout-wrapper .school-page-header h4{color:#fff!important;font-size:16px!important}

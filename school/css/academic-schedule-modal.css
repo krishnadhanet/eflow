@@ -5,6 +5,7 @@
 .schedule-modal-list{display:grid;gap:10px;margin-top:16px}
 .schedule-modal-item{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:15px;border:1px solid #dce6e9;border-radius:6px;background:#fff}
 .schedule-modal-item-main{min-width:0;overflow-wrap:anywhere}
+.schedule-modal-actions{display:flex;gap:6px;flex:none}
 .schedule-modal-item strong{display:block;font-size:14px}
 .schedule-modal-item p{margin:6px 0;color:#536b77;font-size:13px;white-space:pre-wrap}
 .schedule-modal-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:9px}

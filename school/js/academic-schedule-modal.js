@@ -27,6 +27,17 @@ $(function () {
       loadPage(history[history.length - 1]);
     } else $modal.modal('hide');
   });
+  $(document).on('click', '#systemModal .schedule-modal-delete', function () {
+    if (!window.confirm('Delete this resource?')) return;
+    const $button = $(this).prop('disabled', true);
+    const $error = $modal.find('.schedule-modal-error').prop('hidden', true);
+    $.post($button.data('url'), { id: $button.data('id') })
+      .done(function (response) {
+        if (String(response).trim() === '1' && history.length) loadPage(history[history.length - 1]);
+        else $error.text('Could not delete this resource. Please retry.').prop('hidden', false);
+      }).fail(function () { $error.text('Delete failed. Please retry.').prop('hidden', false); })
+      .always(function () { $button.prop('disabled', false); });
+  });
   $(document).on('submit', '#systemModal #date_time_table_lms_saver, #systemModal #date_time_table_status_saver', function (event) {
     event.preventDefault();
     if (!this.checkValidity()) { this.reportValidity(); return; }
