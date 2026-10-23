@@ -109,10 +109,7 @@
 #layout-wrapper.accounts-module .school-receipt-tabs .nav-link.active{background:var(--school-primary);color:#fff;box-shadow:0 6px 15px rgba(18,63,67,.17)}
 #layout-wrapper.accounts-module .school-receipt-tabs .nav-link.active>i{background:#fff;color:var(--school-primary)}
 #layout-wrapper.accounts-module .school-receipt-tab-content>.tab-pane{min-width:0;padding:15px 17px}
-#layout-wrapper.accounts-module .school-receipt-refund-summary{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin-bottom:14px;padding:11px 14px;border:1px solid #d7e7e1;border-radius:8px;background:#edf7f3;color:#28545b}
-#layout-wrapper.accounts-module .school-receipt-refund-summary span{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:750}
-#layout-wrapper.accounts-module .school-receipt-refund-summary strong{margin-left:auto;color:#155d63;font-size:16px;font-variant-numeric:tabular-nums}
-#layout-wrapper.accounts-module .school-receipt-refund-summary small{width:100%;color:#627b7b;font-size:11px}
+#layout-wrapper.accounts-module .school-receipt-head-refund{display:inline-flex;align-items:center;gap:4px;margin-top:5px;padding:3px 7px;border-radius:4px;background:#fff0e8;color:#9e4c25;font-size:10px;font-weight:800;line-height:1.3;white-space:nowrap}
 #layout-wrapper.accounts-module .school-receipt-tab-content .table-responsive{overflow-x:auto}
 #layout-wrapper.accounts-module .school-receipt-tab-content :is(#top-home,#top-receipt,#top-fine,#top-refundreceipt,#top-commitment) table{min-width:760px}
 #layout-wrapper.accounts-module .school-receipt-tab-content #top-transction table{min-width:1450px}
