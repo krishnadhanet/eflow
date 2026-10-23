@@ -50,11 +50,14 @@ $(function () {
     }).join(''));
   }
   function loadPlans() {
-    $('#lessonBody').html('<div class="lesson-empty"><span class="spinner-border spinner-border-sm me-2"></span> Loading lesson plans...</div>');
+    const hasVisiblePlans = $('#lessonBody .lesson-plan-row').length > 0;
+    const previousContent = $('#lessonBody').html();
+    if (!hasVisiblePlans) $('#lessonBody').html('<div class="lesson-empty"><span class="spinner-border spinner-border-sm me-2"></span> Loading lesson plans...</div>');
     api('getPlans', { class_id: config.classId, subject: config.courseId, section: config.section })
-      .done((result) => { if (result.status) renderPlans(result.data || []); else notice(result.msg, true); })
-      .fail((xhr) => { $('#lessonBody').html(''); notice(errorText(xhr), true); });
+      .done((result) => { if (result.status) { renderPlans(result.data || []); notice(''); } else { $('#lessonBody').html(previousContent); notice(result.msg, true); } })
+      .fail((xhr) => { $('#lessonBody').html(previousContent); notice(errorText(xhr) + (hasVisiblePlans ? ' Showing saved plans.' : ''), true); });
   }
+  $('#refreshLessonPlans').on('click', loadPlans);
   function topicCard() {
     const uid = `lessonTopic${nextTopic++}`;
     return `<article class="lesson-topic-card" data-topic-id=""><div class="lesson-topic-top"><strong>Topic <span class="topic-number"></span></strong><button type="button" class="btn btn-light border btn-sm remove-topic" title="Remove topic" aria-label="Remove topic"><i class="ri-delete-bin-line"></i></button></div>
