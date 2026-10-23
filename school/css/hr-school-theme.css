@@ -1,0 +1,563 @@
+/* HR route only. Keep status colours meaningful and inherit the configured school shell. */
+html.school-hr-route {
+  --hr-ink: var(--school-ink, #193b43);
+  --hr-muted: #607980;
+  --hr-brand: var(--school-primary, #176b75);
+  --hr-brand-deep: var(--school-primary-hover, #123d4c);
+  --hr-line: #d9e8e3;
+  --hr-soft: #f4f9f7;
+  --hr-shadow: 0 9px 27px rgba(18, 63, 67, .075);
+}
+html.school-hr-route body #layout-wrapper {
+  --hr-ink: var(--school-ink, #193b43);
+  --hr-brand: var(--school-primary, #176b75);
+  --hr-brand-deep: var(--school-primary-hover, #123d4c);
+}
+
+html.school-hr-route #layout-wrapper .main-content {
+  font-family: var(--school-font, "Inter", "Segoe UI", sans-serif);
+  color: var(--hr-ink);
+}
+html.school-hr-route #layout-wrapper .main-content :is(h1, h2, h3, h4, h5, h6, label, th, button, a) {
+  font-style: normal;
+}
+html.school-hr-route #layout-wrapper .main-content .page-content {
+  padding-top: 74px;
+}
+
+/* Page introductions and navigation */
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .mgmt-v2, .recruit-v2, .interview-v2, .hr-attendance-v2, .hr-leave-master, .payroll-v2, .performance-v2, .ess-v2, .pg-wrap, .pa-wrap, .rel-page, .life-page, .docp, .bulk-reporting, .nd-page, .my-nd, .duty-location-report, .payroll-account, .hrv2-manage, .self-edit-page, .payslip-portal) {
+  --ink: var(--hr-ink);
+  --muted: var(--hr-muted);
+  --line: var(--hr-line);
+  background-color: transparent;
+  color: var(--hr-ink);
+  font-family: var(--school-font, "Inter", "Segoe UI", sans-serif);
+}
+html.school-hr-route #layout-wrapper .page-title-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--hr-line);
+  border-left: 4px solid var(--hr-brand);
+  border-radius: 16px;
+  background: linear-gradient(110deg, #fff 0%, #f0f8f4 100%);
+  box-shadow: var(--hr-shadow);
+}
+html.school-hr-route #layout-wrapper .page-title-box :is(h3, h4, h5) {
+  color: var(--hr-brand-deep);
+  font-weight: 750;
+  letter-spacing: -.025em;
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-head, .recruit-v2 .topbar, .hr-attendance-v2 .topbar, .hr-leave-master .topbar, .payroll-v2 .topbar) {
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--hr-line);
+  border-radius: 17px;
+  background: linear-gradient(115deg, #fff, #eef7f3);
+  box-shadow: var(--hr-shadow);
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-head, .recruit-v2 .topbar) h3 {
+  color: var(--hr-brand-deep);
+  font-weight: 760;
+  letter-spacing: -.025em;
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-head, .recruit-v2 .topbar) p {
+  color: var(--hr-muted);
+}
+
+/* Landing workspaces */
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .master-grid {
+  gap: 15px;
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .hub-card {
+  min-height: 164px;
+  border: 1px solid var(--hr-line);
+  border-radius: 17px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: var(--hr-shadow);
+  transition: border-color .18s, box-shadow .18s, transform .18s;
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .hub-card:hover {
+  border-color: #9fc9be;
+  box-shadow: 0 16px 35px rgba(18, 63, 67, .13);
+  transform: translateY(-3px);
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .hub-card:before {
+  width: 5px;
+  border-radius: 17px 0 0 17px;
+  background: var(--hr-brand);
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .hub-card :is(strong, strong span:first-child) {
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .hub-card small {
+  color: var(--hr-muted);
+  line-height: 1.55;
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .record-count {
+  background: #e6f3ee;
+  color: var(--hr-brand-deep);
+}
+
+/* Work panels, rows, and filters */
+html.school-hr-route #layout-wrapper :is(.mgmt-v2, .recruit-v2, .hr-attendance-v2, .hr-leave-master, .payroll-v2) {
+  background-image: none;
+}
+html.school-hr-route #layout-wrapper :is(.panel, .card, .master-panel, .mgmt-kpi, .recruit-v2 .kpi, .mgmt-v2 .hub-card) {
+  border-color: var(--hr-line);
+  box-shadow: var(--hr-shadow);
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .panel, .recruit-v2 .panel, .hr-config-master .master-panel) {
+  border-radius: 17px;
+  overflow: hidden;
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .panel-head, .recruit-v2 .panel-head, .card-header) {
+  border-bottom-color: var(--hr-line);
+  background: #f4f9f7;
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .panel-head, .recruit-v2 .panel-head) h5,
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .hub-card, .recruit-v2 .panel) h5 {
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .mgmt-kpi, .recruit-v2 .kpi) {
+  border-radius: 16px;
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .mgmt-kpi, .recruit-v2 .kpi):before {
+  background: var(--hr-brand);
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .mgmt-kpi, .recruit-v2 .kpi) strong {
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .hub-card, .recruit-v2 .note) {
+  border-color: var(--hr-line);
+  background: #f5faf7;
+}
+html.school-hr-route #layout-wrapper .mgmt-v2 .hub-card:before {
+  background: var(--hr-brand);
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-v2 .hub-card .pill, .recruit-v2 .note) {
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper .mgmt-v2 .hub-card .pill {
+  background: #e3f3ec;
+}
+html.school-hr-route #layout-wrapper :is(.hr-attendance-v2 .module-card, .hr-leave-master .hub-card, .payroll-v2 .hub-card) {
+  border-color: var(--hr-line);
+  border-radius: 17px;
+  box-shadow: var(--hr-shadow);
+}
+html.school-hr-route #layout-wrapper :is(.hr-attendance-v2 .module-card, .hr-leave-master .hub-card, .payroll-v2 .hub-card):hover {
+  border-color: #9fc9be;
+  box-shadow: 0 16px 35px rgba(18, 63, 67, .13);
+}
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-card:before {
+  background: var(--hr-brand);
+}
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-card .count-pill {
+  background: #e6f3ee;
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper .performance-v2 {
+  --ink: var(--hr-ink);
+  --muted: var(--hr-muted);
+  --line: var(--hr-line);
+  --canvas: #f4f9f7;
+  --navy: var(--hr-brand-deep);
+  --navy2: var(--hr-brand);
+  --blue: var(--hr-brand);
+  font-family: var(--school-font, "Inter", "Segoe UI", sans-serif);
+}
+html.school-hr-route #layout-wrapper .performance-v2 .hero {
+  background: var(--school-hero, linear-gradient(115deg, #123d4c, #176371 58%, #347f83));
+  box-shadow: 0 17px 36px rgba(18, 63, 67, .16);
+}
+html.school-hr-route #layout-wrapper .performance-v2 .hero-grid {
+  grid-template-columns: 1fr;
+}
+html.school-hr-route #layout-wrapper .performance-v2 .hero:after {
+  background: rgba(242, 194, 115, .19);
+}
+html.school-hr-route #layout-wrapper .performance-v2 :is(.filter-card, .panel, .kpi) {
+  border-color: var(--hr-line);
+  box-shadow: var(--hr-shadow);
+}
+html.school-hr-route #layout-wrapper .performance-v2 :is(.report-grid, .panel, .table-responsive) {
+  min-width: 0;
+}
+html.school-hr-route #layout-wrapper .performance-v2 .table-responsive {
+  overflow-x: auto;
+}
+html.school-hr-route #layout-wrapper .performance-v2 .mini-table {
+  min-width: 580px;
+}
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .monthly-register thead th {
+  background: #176371 !important;
+  color: #fff !important;
+}
+html.school-hr-route #layout-wrapper :is(.filter-grid, .filters, .filter-bar, .report-filters) {
+  min-width: 0;
+}
+html.school-hr-route #layout-wrapper :is(.filter-grid, .filters, .filter-bar, .report-filters) > * {
+  min-width: 0;
+}
+
+/* Consistent accessible controls across old and new HR screens. */
+html.school-hr-route #layout-wrapper .main-content :is(.form-control, .form-select, select.form-control, input[type="date"], input[type="time"]) {
+  min-height: 39px;
+  border-color: #cddfd9;
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--hr-ink);
+  box-shadow: none;
+}
+html.school-hr-route #layout-wrapper .main-content textarea.form-control {
+  min-height: 88px;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.form-control, .form-select, select.form-control):focus {
+  border-color: var(--hr-brand);
+  box-shadow: 0 0 0 3px rgba(23, 107, 117, .13);
+}
+html.school-hr-route #layout-wrapper .main-content :is(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--hr-brand);
+  outline-offset: 2px;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-primary, button.btn-primary) {
+  border-color: var(--hr-brand);
+  background: var(--hr-brand);
+  color: #fff;
+  box-shadow: 0 7px 17px rgba(23, 107, 117, .16);
+}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-primary, button.btn-primary):hover {
+  border-color: var(--hr-brand-deep);
+  background: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-outline-primary, .btn-light, .soft-btn) {
+  border-color: #b6d8cd;
+  background: #fff;
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-outline-primary, .btn-light, .soft-btn):hover {
+  border-color: var(--hr-brand);
+  background: #eaf5ef;
+  color: var(--hr-brand-deep);
+}
+html.school-hr-route #layout-wrapper .main-content :is(.mgmt-tab.active, .recruit-v2 .tab-btn.active, .nav-pills .nav-link.active) {
+  border-color: var(--hr-brand);
+  background: var(--hr-brand);
+  color: #fff;
+  box-shadow: 0 8px 19px rgba(23, 107, 117, .18);
+}
+html.school-hr-route #layout-wrapper .main-content :is(.mgmt-tab, .recruit-v2 .tab-btn, .nav-pills .nav-link) {
+  font-weight: 700;
+}
+
+/* Tables and feedback */
+html.school-hr-route #layout-wrapper .main-content .table-responsive {
+  border: 1px solid var(--hr-line);
+  border-radius: 13px;
+}
+html.school-hr-route #layout-wrapper .main-content table thead th {
+  background: #eaf5ef;
+  color: #315860;
+  font-weight: 750;
+  border-color: var(--hr-line);
+  white-space: nowrap;
+}
+html.school-hr-route #layout-wrapper .main-content table tbody tr:hover {
+  background: #f6faf8;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.alert-info, .note-box) {
+  border-color: #c5e0d5;
+  background: #edf7f1;
+  color: #315860;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.text-muted, .sub, .muted) {
+  color: var(--hr-muted) !important;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.badge.bg-primary, .bg-primary) {
+  background-color: var(--hr-brand) !important;
+}
+
+/* Dialogs use the same surface and hierarchy without changing their scripts. */
+html.school-hr-route .modal-content {
+  border: 1px solid var(--hr-line);
+  border-radius: 18px;
+  box-shadow: 0 28px 70px rgba(18, 63, 67, .2);
+  overflow: hidden;
+}
+html.school-hr-route .modal-header {
+  border-bottom-color: var(--hr-line);
+  background: #eef7f2;
+}
+html.school-hr-route .modal-title {
+  color: var(--hr-brand-deep);
+  font-weight: 750;
+}
+html.school-hr-route .modal-footer {
+  border-top-color: var(--hr-line);
+  background: #fafdfb;
+}
+html.school-hr-route .modal :is(.form-control, .form-select):focus {
+  border-color: var(--hr-brand);
+  box-shadow: 0 0 0 3px rgba(23, 107, 117, .13);
+}
+html.school-hr-route .final-approval-modal .modal-header.pro {
+  background: linear-gradient(115deg, #123d4c, #176371 68%, #347f83);
+}
+html.school-hr-route .final-approval-modal .modal-title {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  html.school-hr-route #layout-wrapper .main-content :is(.mgmt-head, .recruit-v2 .topbar) {
+    align-items: stretch;
+  }
+  html.school-hr-route #layout-wrapper :is(.mgmt-v2, .recruit-v2, .hr-attendance-v2, .hr-leave-master, .payroll-v2) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 600px) {
+  html.school-hr-route #layout-wrapper .page-title-box,
+  html.school-hr-route #layout-wrapper :is(.mgmt-head, .recruit-v2 .topbar) {
+    padding: 14px;
+  }
+  html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .master-grid {
+    grid-template-columns: 1fr;
+  }
+  html.school-hr-route #layout-wrapper :is(.hr-config-master, .hr-leave-master, .payroll-v2) .hub-card {
+    min-height: auto;
+  }
+  html.school-hr-route .modal-dialog {
+    margin: 10px;
+    max-width: calc(100vw - 20px);
+  }
+}
+
+/* Consolidated HR school workspace styles */
+html.school-hr-route { --hr-primary:#176b75; --hr-primary-dark:#124f59; --hr-gold:#e8ba7a; }
+/* Landing cards retain distinct accents while sharing the same geometry. */
+html.school-hr-route #layout-wrapper :is(.hr-config-master,.hr-leave-master,.payroll-v2) .master-grid,
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-grid,
+html.school-hr-route #layout-wrapper .mgmt-v2 .hub-grid {gap:16px}
+html.school-hr-route #layout-wrapper :is(.hr-config-master,.hr-leave-master,.payroll-v2,.mgmt-v2) .hub-card,
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-card {
+  --hr-card-accent:#176b75;--hr-card-soft:#e4f4f0;position:relative;display:flex;flex-direction:column;
+  min-height:194px;padding:19px!important;overflow:hidden;border:1px solid var(--hr-line)!important;
+  border-radius:17px!important;background:#fff!important;color:var(--hr-ink)!important;
+  box-shadow:var(--hr-shadow)!important;transition:transform .18s,border-color .18s,box-shadow .18s!important;
+}
+html.school-hr-route #layout-wrapper [data-hr-tone=blue]{--hr-card-accent:#316cb1!important;--hr-card-soft:#e8f1fc!important}
+html.school-hr-route #layout-wrapper [data-hr-tone=amber]{--hr-card-accent:#a66a20!important;--hr-card-soft:#fff1dc!important}
+html.school-hr-route #layout-wrapper [data-hr-tone=green]{--hr-card-accent:#188269!important;--hr-card-soft:#e3f5ed!important}
+html.school-hr-route #layout-wrapper [data-hr-tone=violet]{--hr-card-accent:#7657aa!important;--hr-card-soft:#f0eafb!important}
+html.school-hr-route #layout-wrapper [data-hr-tone=coral]{--hr-card-accent:#b65b56!important;--hr-card-soft:#fff0eb!important}
+html.school-hr-route #layout-wrapper :is(.hr-config-master,.hr-leave-master,.payroll-v2,.mgmt-v2) .hub-card:before,
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-card:before {
+  content:"";position:absolute!important;inset:0 0 auto!important;width:auto!important;height:4px!important;
+  border-radius:17px 17px 0 0!important;background:var(--hr-card-accent)!important;
+}
+html.school-hr-route #layout-wrapper :is(.hr-config-master,.hr-leave-master,.payroll-v2,.mgmt-v2) .hub-card:hover,
+html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-card:hover {
+  transform:translateY(-3px)!important;border-color:var(--hr-card-accent)!important;
+  box-shadow:0 17px 34px rgba(19,77,79,.14)!important;text-decoration:none;
+}
+html.school-hr-route #layout-wrapper .hr-card-icon {
+  display:grid;place-items:center;flex:none;width:45px;height:45px;margin-bottom:13px;
+  border:1px solid color-mix(in srgb,var(--hr-card-accent) 20%,white);border-radius:12px;
+  background:var(--hr-card-soft);color:var(--hr-card-accent);font-size:23px;line-height:1;
+}
+html.school-hr-route #layout-wrapper .hub-card :is(strong,h4),
+html.school-hr-route #layout-wrapper .module-card strong {color:var(--hr-ink)!important;font-size:16px;font-weight:800;line-height:1.3}
+html.school-hr-route #layout-wrapper :is(.hub-card,.module-card) :is(small,p) {color:var(--hr-muted)!important;font-size:12px;line-height:1.55}
+html.school-hr-route #layout-wrapper :is(.hub-card,.module-card) :is(.record-count,.count-pill,.pill) {
+  border:1px solid color-mix(in srgb,var(--hr-card-accent) 17%,white)!important;
+  background:var(--hr-card-soft)!important;color:var(--hr-card-accent)!important;font-weight:800;
+}
+html.school-hr-route #layout-wrapper .hub-card .btn-outline-primary {margin-top:auto!important;background:var(--hr-card-soft)!important;border-color:transparent!important;color:var(--hr-card-accent)!important}
+
+/* Distinct, meaningful KPI colours without colouring large card backgrounds. */
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi) {
+  --hr-kpi-accent:#176b75;--hr-kpi-soft:#e4f4f0;border:1px solid var(--hr-line)!important;
+  border-radius:14px!important;background:#fff!important;box-shadow:var(--hr-shadow)!important;
+}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi):nth-child(6n+2) {--hr-kpi-accent:#316cb1;--hr-kpi-soft:#e8f1fc}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi):nth-child(6n+3) {--hr-kpi-accent:#a66a20;--hr-kpi-soft:#fff1dc}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi):nth-child(6n+4) {--hr-kpi-accent:#188269;--hr-kpi-soft:#e3f5ed}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi):nth-child(6n+5) {--hr-kpi-accent:#7657aa;--hr-kpi-soft:#f0eafb}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi):nth-child(6n) {--hr-kpi-accent:#b65b56;--hr-kpi-soft:#fff0eb}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.payroll-v2 .kpi,.performance-v2 .kpi):before {background:var(--hr-kpi-accent)!important}
+html.school-hr-route #layout-wrapper :is(.mgmt-kpi,.recruit-v2 .kpi,.interview-v2 .kpi,.hr-attendance-v2 .kpi,.hr-leave-master .application-kpi,.duty-kpi,.payroll-v2 .kpi,.performance-v2 .kpi) strong {color:var(--hr-kpi-accent)!important;font-variant-numeric:tabular-nums}
+
+/* Inner pages, forms and grids share calm surfaces and school controls. */
+html.school-hr-route #layout-wrapper .main-content :is(.panel,.card,.master-panel,.active-panel,.emp-card,.mapping-card,.employee-balance-card,.process-card,.analysis-card,.hrv2-card,.filter-card,.report-topbar,.duty-filter,.duty-table-wrap,.register-wrap,.active-filter) {
+  border-color:var(--hr-line)!important;border-radius:15px!important;box-shadow:var(--hr-shadow);background-color:#fff;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.panel-head,.card-header,.mapping-card-head,.employee-head,.active-filter,.report-filter-grid) {
+  background:linear-gradient(115deg,#f0f8f4,#fff)!important;border-color:var(--hr-line)!important;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.mgmt-v2,.recruit-v2,.interview-v2,.hr-attendance-v2,.hr-leave-master,.payroll-v2,.active-page) {background-image:none!important;background-color:transparent!important}
+html.school-hr-route #layout-wrapper .main-content :is(.mgmt-head,.recruit-v2 .topbar,.interview-v2 .topbar,.hr-attendance-v2 .topbar,.hr-leave-master .topbar,.payroll-v2 .topbar,.duty-hero,.payroll-v2 .readiness-hero,.performance-v2 .hero) {
+  border:1px solid rgba(23,107,117,.28)!important;border-radius:17px!important;
+  background:var(--school-hero,linear-gradient(115deg,#123d4c,#176371 58%,#347f83))!important;
+  color:#fff!important;box-shadow:0 16px 34px rgba(19,77,79,.16)!important;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.mgmt-head,.recruit-v2 .topbar,.interview-v2 .topbar,.duty-hero,.payroll-v2 .readiness-hero,.performance-v2 .hero) :is(h2,h3,h4,h5) {color:#fff!important}
+html.school-hr-route #layout-wrapper .main-content :is(.mgmt-head,.recruit-v2 .topbar,.interview-v2 .topbar,.duty-hero,.payroll-v2 .readiness-hero,.performance-v2 .hero) p {color:#dfefeb!important}
+html.school-hr-route #layout-wrapper .main-content .interview-v2 .topbar {padding:18px 20px!important}
+
+/* Older HR V2 screens still use university-era local variables. Rebase them on the school palette. */
+html.school-hr-route #layout-wrapper :is(.pg-wrap,.pa-wrap,.my-nd,.self-edit-page,.gu-ess,.ess-v2,.rel-page,.nd-page,.payroll-account,.team-v2,.hrv2-manage) {
+  --gu-navy-950:#123d4c;--gu-navy-900:#176371;--gu-navy-800:#347f83;
+  --gu-blue-600:#176b75;--gu-orange-600:#a66a20;--gu-orange-500:#c58b47;
+  --gu-orange-100:#fff1dc;--gu-canvas:#f5faf7;--gu-ink:#193b43;
+  --gu-muted:#617982;--gu-border:#d6e5df;
+  background-color:transparent!important;font-family:var(--school-font,Inter,"Segoe UI",Arial,sans-serif)!important;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.pg-hero,.pa-hero,.my-nd-hero,.gu-ess-hero,.self-edit-head,.rel-head,.nd-hero) {
+  background:var(--school-hero,linear-gradient(115deg,#123d4c,#176371 58%,#347f83))!important;
+  border:1px solid rgba(23,107,117,.28)!important;border-radius:18px!important;
+  box-shadow:0 16px 34px rgba(19,77,79,.16)!important;
+}
+html.school-hr-route #layout-wrapper .main-content :is(.pg-hero,.pa-hero,.my-nd-hero,.gu-ess-hero,.self-edit-head,.rel-head,.nd-hero) :is(h2,h3,h4,h5) {color:#fff!important}
+html.school-hr-route #layout-wrapper .main-content :is(.pg-hero,.pa-hero,.my-nd-hero,.gu-ess-hero,.self-edit-head,.rel-head,.nd-hero) p {color:#dfefeb!important}
+html.school-hr-route #layout-wrapper .main-content :is(.pg-panel,.pa-panel,.pg-filter-panel,.pa-filter-panel,.pg-rule-card,.pg-builder-section,.pa-card,.my-nd-panel,.rel-panel,.nd-panel,.team-panel,.self-form-card) {
+  border-color:var(--hr-line)!important;border-radius:15px!important;background-color:#fff!important;box-shadow:var(--hr-shadow)!important;
+}
+html.school-hr-route #layout-wrapper .pg-wrap .pg-kpi,
+html.school-hr-route #layout-wrapper .pa-wrap .pa-kpi {--hr-kpi-accent:#176b75;border-color:var(--hr-line)!important;border-radius:15px!important;box-shadow:var(--hr-shadow)!important}
+html.school-hr-route #layout-wrapper :is(.pg-kpi,.pa-kpi):nth-child(5n+2) {--hr-kpi-accent:#316cb1}
+html.school-hr-route #layout-wrapper :is(.pg-kpi,.pa-kpi):nth-child(5n+3) {--hr-kpi-accent:#a66a20}
+html.school-hr-route #layout-wrapper :is(.pg-kpi,.pa-kpi):nth-child(5n+4) {--hr-kpi-accent:#188269}
+html.school-hr-route #layout-wrapper :is(.pg-kpi,.pa-kpi):nth-child(5n) {--hr-kpi-accent:#7657aa}
+html.school-hr-route #layout-wrapper :is(.pg-kpi,.pa-kpi):before {background:var(--hr-kpi-accent)!important}
+html.school-hr-route #layout-wrapper :is(.pg-kpi,.pa-kpi) strong {color:var(--hr-kpi-accent)!important}
+html.school-hr-route .pg-modal {--gu-navy-950:#123d4c;--gu-navy-900:#176371;--gu-navy-800:#347f83;--gu-orange-500:#c58b47;--gu-border:#d6e5df;font-family:var(--school-font,Inter,"Segoe UI",Arial,sans-serif)!important}
+html.school-hr-route .pg-modal .pg-modal-head {background:var(--school-hero,linear-gradient(115deg,#123d4c,#176371 58%,#347f83))!important}
+html.school-hr-route #layout-wrapper .main-content :is(.ess-v2,.team-v2,.payslip-portal,.ess-leave,.rel-page,.nd-page,.bulk-reporting) {background-image:none!important;background-color:transparent!important}
+html.school-hr-route #layout-wrapper .main-content :is(.ess-v2 > .topbar,.ess-leave > .hero,.team-v2 > .topbar,.bulk-reporting > .bulk-head) {border:1px solid var(--hr-line)!important;border-radius:16px!important;background:linear-gradient(115deg,#eaf6f0,#f7fbf9)!important;padding:18px!important;box-shadow:var(--hr-shadow)!important}
+html.school-hr-route #layout-wrapper .main-content .ess-v2 .avatar {background:var(--hr-primary)!important}
+html.school-hr-route #layout-wrapper .main-content [hidden] {display:none!important}
+html.school-hr-route #layout-wrapper .main-content :is(.doc-tab.active,.pg-wrap .nav-pills .nav-link.active,.pa-wrap .nav-pills .nav-link.active) {background:var(--hr-primary)!important;border-color:var(--hr-primary)!important;color:#fff!important}
+html.school-hr-route #layout-wrapper .main-content :is(.team-v2 .tab-link.active,.ess-leave .tab-link.active,.payslip-portal .switcher .btn-view,.payslip-portal .view-pill,.ess-v2 .load-more) {background:var(--hr-primary)!important;border-color:var(--hr-primary)!important;color:#fff!important;box-shadow:0 7px 17px rgba(23,107,117,.16)!important}
+html.school-hr-route #layout-wrapper .main-content .ess-v2 .day-card.today-card {border-color:#9bcbbb!important;background:linear-gradient(135deg,#eaf6f0,#fff)!important;box-shadow:var(--hr-shadow)!important}
+html.school-hr-route #layout-wrapper .main-content .rel-mode:has(input:checked) {border-color:var(--hr-primary)!important;background:#eaf6f0!important;box-shadow:0 0 0 3px rgba(23,107,117,.1)!important}
+html.school-hr-route #layout-wrapper .main-content .alert-warning {border-color:#e7c587!important;background:#fff3dd!important;color:#76501e!important}
+html.school-hr-route #layout-wrapper .main-content :is(.bulk-panel,.bulk-card,.bulk-kpi) {border-color:var(--hr-line)!important;border-radius:15px!important;box-shadow:var(--hr-shadow)!important}
+html.school-hr-route #layout-wrapper .main-content .bulk-kpi strong {color:var(--hr-primary)!important}
+html.school-hr-route #layout-wrapper .main-content .bulk-kpi:nth-child(2) strong {color:#188269!important}
+html.school-hr-route #layout-wrapper .main-content .bulk-kpi:nth-child(3) strong {color:#a66a20!important}
+html.school-hr-route #layout-wrapper .main-content .bulk-kpi:nth-child(4) strong {color:#7657aa!important}
+html.school-hr-route #layout-wrapper .main-content :is(.form-control,.form-select,select.form-control,.select2-selection) {min-height:40px;border:1px solid #c9dcd6!important;border-radius:9px!important;background:#fff!important;color:var(--hr-ink)!important;box-shadow:none!important}
+html.school-hr-route #layout-wrapper .main-content :is(.form-control,.form-select,select.form-control,.select2-selection):focus {border-color:#48a294!important;box-shadow:0 0 0 3px rgba(34,132,117,.14)!important}
+html.school-hr-route #layout-wrapper .main-content label {color:#34545b;font-weight:750}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-primary,.active-btn.primary,.pager-btn.active,.detail-tab.active,.type-tab.active,.leave-tab.active,.mgmt-tab.active,.recruit-v2 .tab-btn.active,.nav-pills .nav-link.active) {background:var(--hr-primary)!important;border-color:var(--hr-primary)!important;color:#fff!important;box-shadow:0 7px 17px rgba(23,107,117,.16)!important}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-primary,.active-btn.primary,.pager-btn.active,.detail-tab.active,.type-tab.active,.leave-tab.active,.mgmt-tab.active,.recruit-v2 .tab-btn.active,.nav-pills .nav-link.active):hover {background:var(--hr-primary-dark)!important;border-color:var(--hr-primary-dark)!important}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-outline-primary,.active-btn:not(.primary):not(.active),.quick-action,.pager-btn,.soft-btn) {background:#f4faf7!important;border-color:#c6e0d4!important;color:var(--hr-primary-dark)!important}
+html.school-hr-route #layout-wrapper .main-content :is(.btn-outline-primary,.active-btn:not(.primary):not(.active),.quick-action,.pager-btn,.soft-btn):hover {background:#e5f3ed!important;border-color:#8dc2af!important;color:var(--hr-primary-dark)!important}
+html.school-hr-route #layout-wrapper .main-content .nav-tabs .nav-link.active {border-color:var(--hr-primary)!important;background:#e9f5ef!important;color:var(--hr-primary-dark)!important;font-weight:800}
+html.school-hr-route #layout-wrapper .main-content :is(.table,.dataTable) thead th {background:#eaf4f0!important;border-color:var(--hr-line)!important;color:#2b5960!important}
+html.school-hr-route #layout-wrapper .main-content :is(.table,.dataTable) tbody tr:hover {background:#f3faf7!important}
+html.school-hr-route #layout-wrapper .main-content .dataTables_wrapper :is(input,select) {border-color:#c9dcd6!important;color:var(--hr-ink)!important}
+html.school-hr-route #layout-wrapper .main-content .dataTables_wrapper .paginate_button.current {background:var(--hr-primary)!important;border-color:var(--hr-primary)!important;color:#fff!important}
+html.school-hr-route #layout-wrapper .active-page .emp-card {border-top:3px solid var(--hr-primary)!important}
+html.school-hr-route #layout-wrapper .active-page .emp-card:nth-child(3n+2) {border-top-color:#316cb1!important}
+html.school-hr-route #layout-wrapper .active-page .emp-card:nth-child(3n) {border-top-color:#a66a20!important}
+html.school-hr-route #layout-wrapper .active-page :is(.emp-avatar,.drawer-avatar) {background:#e4f4f0!important;border-color:#c5e2d9!important;color:var(--hr-primary)!important}
+html.school-hr-route #layout-wrapper .active-page :is(.emp-info-box,.emp-extra span,.info-item) {background:#f7fbf9!important;border-color:var(--hr-line)!important}
+html.school-hr-route #layout-wrapper .active-page .drawer-cover {background:var(--school-hero,linear-gradient(115deg,#123d4c,#176371 58%,#347f83))!important;color:#fff!important;border:0!important}
+html.school-hr-route #layout-wrapper .active-page .drawer-cover :is(h4,p) {color:#fff!important}
+html.school-hr-route #layout-wrapper .active-page .drawer-close {background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35);color:#fff}
+
+/* Modal and AJAX form treatment stays scoped to HR routes. */
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-content {border:1px solid var(--hr-line)!important;border-radius:17px!important;box-shadow:0 30px 70px rgba(18,63,67,.22)!important;overflow:hidden}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-header:not(.bg-danger):not(.bg-success):not(.bg-warning) {padding:16px 20px;border:0!important;background:var(--school-hero,linear-gradient(115deg,#123d4c,#176371 58%,#347f83))!important;color:#fff!important}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-header:not(.bg-danger):not(.bg-success):not(.bg-warning) :is(.modal-title,h4,h5,p) {color:#fff!important}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-header .btn-close {filter:brightness(0) invert(1)}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-body {background:#f8fbf9;color:var(--hr-ink)}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-footer {border-color:var(--hr-line);background:#fff}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) :is(.form-control,.form-select,.select2-selection) {border-color:#c9dcd6!important;color:var(--hr-ink)!important;background:#fff!important}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) :is(.form-control,.form-select,.select2-selection):focus {border-color:#48a294!important;box-shadow:0 0 0 3px rgba(34,132,117,.14)!important}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .btn-primary {background:var(--hr-primary)!important;border-color:var(--hr-primary)!important;color:#fff!important}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) :is(.form-check-input,input[type=checkbox],input[type=radio]):checked {background-color:var(--hr-primary)!important;border-color:var(--hr-primary)!important}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) :is(input[type=checkbox],input[type=radio]) {accent-color:var(--hr-primary)}
+html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) :is(.form-check-input,input[type=checkbox],input[type=radio]):focus {box-shadow:0 0 0 3px rgba(34,132,117,.14)!important}
+html.school-hr-route .select2-container--open {z-index:20000!important}
+html.school-hr-route .select2-container--default .select2-results__option--highlighted[aria-selected] {background:var(--hr-primary)!important;color:#fff!important}
+@media(max-width:991px){
+  html.school-hr-route #layout-wrapper :is(.mgmt-v2,.recruit-v2,.interview-v2,.hr-attendance-v2,.hr-leave-master,.payroll-v2) {padding-left:8px!important;padding-right:8px!important}
+  html.school-hr-route #layout-wrapper .hr-school-page-head {align-items:flex-start}
+  html.school-hr-route #layout-wrapper .hr-school-page-head .hr-school-breadcrumb {width:100%;margin-left:0}
+}
+@media(max-width:600px){
+  html.school-hr-route #layout-wrapper :is(.hr-school-page-head,.hr-school-route-bar) {padding:14px!important;border-radius:12px!important}
+  html.school-hr-route #layout-wrapper .hr-school-page-head :is(h3,h4,h5) {font-size:17px!important}
+  html.school-hr-route #layout-wrapper .hr-school-breadcrumb {font-size:11px}
+  html.school-hr-route #layout-wrapper :is(.hr-config-master,.hr-leave-master,.payroll-v2) .master-grid,
+  html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-grid,
+  html.school-hr-route #layout-wrapper .mgmt-v2 .hub-grid {grid-template-columns:1fr!important}
+  html.school-hr-route #layout-wrapper :is(.hr-config-master,.hr-leave-master,.payroll-v2,.mgmt-v2) .hub-card,
+  html.school-hr-route #layout-wrapper .hr-attendance-v2 .module-card {min-height:0!important}
+  html.school-hr-route :is(#systemModal,#systemModal_new,.modal.show) .modal-dialog {max-width:calc(100vw - 18px);margin:9px}
+}
+
+/* HR landing pages use the Accounts workspace hierarchy and the existing school header. */
+html.school-hr-route #layout-wrapper .hr-workspace-landing {max-width:1500px;margin:0 auto;padding-bottom:30px}
+html.school-hr-route #layout-wrapper .hr-workspace-heading {display:flex;align-items:center;gap:17px;min-height:125px;margin-bottom:24px;padding:23px 27px;border-radius:16px;background:var(--school-hero);box-shadow:0 17px 36px rgba(18,63,67,.16)}
+html.school-hr-route #layout-wrapper .hr-workspace-emblem {display:grid;place-items:center;flex:none;width:55px;height:55px;border:1px solid rgba(255,255,255,.24);border-radius:14px;background:rgba(255,255,255,.12);color:#fff;font-size:26px}
+html.school-hr-route #layout-wrapper .hr-workspace-heading-copy {min-width:0;flex:1}
+html.school-hr-route #layout-wrapper .hr-workspace-eyebrow {color:#efc58a;font-size:11px;font-weight:800;text-transform:uppercase}
+html.school-hr-route #layout-wrapper .hr-workspace-heading h1 {margin:4px 0 3px;color:#fff!important;font-size:25px;font-weight:800;letter-spacing:0}
+html.school-hr-route #layout-wrapper .hr-workspace-heading p {margin:0;color:#dfefeb!important;font-size:13px;line-height:1.5}
+html.school-hr-route #layout-wrapper .hr-workspace-total {flex:none;padding:7px 11px;border:1px solid rgba(255,255,255,.22);border-radius:8px;color:#fff;font-size:12px;font-weight:750;white-space:nowrap}
+html.school-hr-route #layout-wrapper .hr-workspace-setup {display:flex;align-items:flex-start;gap:12px;margin:-7px 0 23px;padding:13px 15px;border:1px solid var(--school-line);border-left:4px solid var(--school-primary);border-radius:10px;background:var(--school-surface)}
+html.school-hr-route #layout-wrapper .hr-workspace-setup-icon {display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:8px;background:var(--school-soft);color:var(--school-primary);font-size:18px}
+html.school-hr-route #layout-wrapper .hr-workspace-setup strong {display:block;color:var(--school-ink);font-size:12px;font-weight:800}
+html.school-hr-route #layout-wrapper .hr-workspace-setup p {margin:3px 0 0;color:var(--school-muted);font-size:12px;line-height:1.5}
+html.school-hr-route #layout-wrapper .hr-workspace-toolbar {display:flex;justify-content:flex-end;margin:-10px 0 15px}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.master-grid,.module-grid) {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card) {min-width:0;min-height:0!important;padding:18px!important;border-radius:14px!important;box-shadow:var(--school-shadow)!important}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card):before {height:4px!important;border-radius:14px 14px 0 0!important}
+html.school-hr-route #layout-wrapper .hr-workspace-landing .hr-card-icon {width:42px;height:42px;margin-bottom:10px;border:0;border-radius:10px;font-size:21px}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card)>strong {display:block;margin:0;color:var(--school-ink)!important;font-size:17px;line-height:1.3}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card)>strong>span:first-child {display:block;padding-right:45px;color:var(--school-ink)!important}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.record-count,.count-pill) {position:absolute;top:25px;right:18px;min-width:28px;padding:5px 8px;border-radius:8px;text-align:center;font-size:12px}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card)>small {display:block;margin-top:7px;color:var(--school-muted)!important;font-size:12px;line-height:1.55}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card)>.mt-3 {display:flex;align-items:center;justify-content:flex-end;margin-top:auto!important;padding-top:11px;border-top:1px solid var(--school-line)}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card)>.mt-3 .btn {min-height:34px;padding:7px 11px;border:0!important;border-radius:7px;background:var(--school-primary)!important;color:#fff!important;font-size:11px;font-weight:750;box-shadow:none!important}
+html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card):hover>.mt-3 .btn {background:var(--school-primary-hover)!important}
+html.school-hr-route #layout-wrapper .hr-workspace-landing .hub-card.pending>.mt-3 .btn {background:#e8ecea!important;color:#51666b!important}
+
+html.school-hr-route body #layout-wrapper .page-title-box.school-page-header {display:grid!important;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:24px;min-height:48px;margin:-23px -24px 18px!important;padding:8px 24px!important;border:0!important;border-radius:0!important;background:var(--school-hero)!important;box-shadow:0 14px 30px rgba(19,77,79,.15)!important;position:relative!important;top:auto!important;z-index:auto!important}
+html.school-hr-route body #layout-wrapper .page-title-box.school-page-header :is(h3,h4,h5) {margin:0;color:#fff!important;font-size:16px!important;font-weight:710;letter-spacing:-.01em;text-transform:none!important}
+html.school-hr-route body #layout-wrapper .school-page-header .breadcrumb {display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:2px;margin:0;color:#d8eeea;font-size:12px}
+html.school-hr-route body #layout-wrapper .school-page-header .breadcrumb a {color:#eec58b}
+html.school-hr-route body #layout-wrapper .school-page-header .breadcrumb .active {color:#d8eeea}
+html.school-hr-route body #layout-wrapper .school-page-header .school-page-actions {display:flex;justify-content:flex-end;gap:8px}
+html.school-hr-route body #layout-wrapper .school-page-header .school-page-actions :is(.btn,.active-btn) {min-height:38px;padding:8px 14px;border-color:#e8ba7a!important;border-radius:7px;background:#e8ba7a!important;color:#24444a!important;box-shadow:0 7px 15px rgba(14,52,55,.13)!important}
+html.school-hr-route body #layout-wrapper .school-page-header .school-page-actions :is(.btn,.active-btn):hover {background:#f1c993!important}
+html.school-hr-route #layout-wrapper .main-content .school-page-header .school-page-actions :is(.btn-primary,.btn-outline-primary,.active-btn.primary) {border-color:#e8ba7a!important;background:#e8ba7a!important;color:#24444a!important;box-shadow:0 7px 15px rgba(14,52,55,.13)!important}
+html.school-hr-route #layout-wrapper .main-content .school-page-header .school-page-actions .hr-header-back {display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 13px;border:1px solid rgba(255,255,255,.45)!important;border-radius:7px;background:rgba(255,255,255,.12)!important;color:#fff!important;font-size:12px;font-weight:750;white-space:nowrap;box-shadow:none!important;text-decoration:none}
+html.school-hr-route #layout-wrapper .main-content .school-page-header .school-page-actions .hr-header-back:hover {background:rgba(255,255,255,.22)!important;color:#fff!important}
+html.school-hr-route body #layout-wrapper .school-page-header .school-page-actions [hidden] {display:none!important}
+html.school-hr-route #layout-wrapper .hr-duplicate-page-title {display:none!important}
+html.school-hr-route #layout-wrapper .hr-hero-breadcrumb {display:flex;align-items:center;justify-content:flex-end;margin:-4px 0 10px}
+html.school-hr-route #layout-wrapper .hr-hero-breadcrumb .breadcrumb {margin:0;font-size:12px}
+
+@media(max-width:1100px){html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.master-grid,.module-grid){grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){
+  html.school-hr-route #layout-wrapper .hr-workspace-heading{align-items:flex-start;gap:12px;padding:21px}
+  html.school-hr-route #layout-wrapper .hr-workspace-emblem{width:44px;height:44px;font-size:22px}
+  html.school-hr-route #layout-wrapper .hr-workspace-heading h1{font-size:21px}
+  html.school-hr-route #layout-wrapper .hr-workspace-total{display:none}
+  html.school-hr-route body #layout-wrapper .page-title-box.school-page-header{grid-template-columns:1fr;gap:8px;margin:-23px -12px 15px!important;padding:11px 16px!important}
+  html.school-hr-route body #layout-wrapper .school-page-header .breadcrumb{grid-column:1;grid-row:3;justify-content:flex-start}
+  html.school-hr-route body #layout-wrapper .school-page-header .school-page-actions{grid-column:1;grid-row:2;justify-content:flex-start;flex-wrap:wrap}
+}
+@media(max-width:600px){html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.master-grid,.module-grid){grid-template-columns:1fr!important}html.school-hr-route #layout-wrapper .hr-workspace-landing :is(.hub-card,.module-card){min-height:0!important}}

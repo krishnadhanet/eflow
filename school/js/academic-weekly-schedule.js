@@ -21,7 +21,7 @@ $(function () {
     $('#weeklyClassActionGrid').html([...unique.values()].map((course) => {
       const program = Number(course.program), section = encodeURIComponent(course.section), subject = Number(course.courses);
       const title = `${course.course_name || 'Subject'} Class ${course.pr_name || ''} Section ${course.section}`;
-      const lessonUrl = `${base_url}lessonplanning/?course=${subject}&class=${program}&section=${section}&title=${encodeURIComponent(title)}`;
+      const lessonUrl = `${base_url}academic/lessonPlanning?course=${subject}&class=${program}&section=${section}&title=${encodeURIComponent(title)}`;
       const studentUrl = `${base_url}academic/classStudentList?program=${program}&section=${section}`;
       const attendanceUrl = `${base_url}academic/classAttendanceDetail?program=${program}&section=${section}`;
       return `<div class="class-action-item"><strong>${esc(course.pr_name || 'Class')} - ${esc(course.section)}</strong><small>${esc(course.course_name || 'Subject')}${course.display_code ? ` · ${esc(course.display_code)}` : ''}</small><div class="class-action-links"><a class="btn btn-outline-primary btn-sm" href="${lessonUrl}"><i class="ri-book-2-line me-1"></i> Lesson plan</a><a class="btn btn-outline-secondary btn-sm openPopup" poptitle="Class students" href="${studentUrl}"><i class="ri-group-line me-1"></i> Students</a>${$page.data('can-attendance') === 1 ? `<a class="btn btn-outline-secondary btn-sm openPopup" poptitle="Attendance summary" href="${attendanceUrl}"><i class="ri-bar-chart-line me-1"></i> Attendance</a>` : ''}</div></div>`;

@@ -472,7 +472,7 @@ $(function () {
               
             </p>
             <div class="d-grid gap-2">
-              <a target="_blank" class="btn btn-outline-primary btn-sm w-100" href="${base_url}lessonplanning/?course=${course.courses}&class=${course.program}&section=${course.section}&title=${encodeURIComponent(course.course_name)} Class ${encodeURIComponent(course.pr_name)} Section ${course.section}">📘 Lesson Planning / Syllabus Tracker</a>
+              <a target="_blank" class="btn btn-outline-primary btn-sm w-100" href="${base_url}academic/lessonPlanning?course=${course.courses}&class=${course.program}&section=${course.section}&title=${encodeURIComponent(course.course_name)} Class ${encodeURIComponent(course.pr_name)} Section ${course.section}">📘 Lesson Planning / Syllabus Tracker</a>
               
               <a class="btn btn-outline-info btn-sm w-100 openPopup full-screen"  href="${base_url}academic/classStudentList/?program=${course.program}&section=${course.section}">👥 Class-wise Student</a>
               <a class="btn btn-outline-dark btn-sm w-100 openPopup full-screen"

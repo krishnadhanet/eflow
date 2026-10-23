@@ -6,7 +6,7 @@ $(function () {
   const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[char]);
-  const api = (route, data) => $.ajax({ url: `${base_url}lessonplanning/${route}`, type: 'POST', data, dataType: 'json' });
+  const api = (route, data) => $.ajax({ url: `${base_url}academic/lesson${route.charAt(0).toUpperCase()}${route.slice(1)}`, type: 'POST', data, dataType: 'json' });
   const errorText = (xhr) => (xhr.responseJSON && xhr.responseJSON.msg) || 'Could not complete this action. Please retry.';
   let currentPlan = 0;
   let currentDetails = [];
