@@ -499,7 +499,7 @@ $(function () {
         return false;
       }
 
-      if (!$form.is('#schoolPermissionForm') && $("form#myForm").length === 0) {
+      if (!$form.is('#schoolPermissionForm, .fee-allotment-form, #bulkFeesAllotForm') && $("form#myForm").length === 0) {
         $(this).find("input[type=checkbox]:not(:checked)").prop("checked", true).val(0);
       }
 
@@ -670,6 +670,7 @@ $(document).ready(function() {
       $('.action_'+actionValue).removeClass('hide');
     });
     $(document).on("click", ".lockAll", function () {
+      if (this.closest('.fee-allotment-form')) return;
       if(this.checked){
           $('.is_lock').prop('checked', 'checked');
       }else{
