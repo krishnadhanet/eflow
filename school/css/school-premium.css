@@ -47,15 +47,15 @@ body #layout-wrapper .school-employee-profile-menu__arrow{margin-left:auto;color
 body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout{color:#9f3f46!important}
 body #layout-wrapper .school-employee-profile-menu__logout .school-employee-profile-menu__icon{background:#fff0ef;color:#b34754}
 body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout:hover,body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout:focus{background:#fff2f1!important;color:#9f3f46!important}
-body:not(.school-student-portal) #layout-wrapper .navbar-menu{border-right:1px solid var(--premium-border)!important;background:linear-gradient(180deg,#fff 0%,#fbfdfc 100%)!important;box-shadow:5px 0 24px rgba(22,70,68,.04)}
-body:not(.school-student-portal) #layout-wrapper .navbar-menu .navbar-brand-box{border-bottom-color:#e9f1ed!important}
-body:not(.school-student-portal) #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link{border-radius:10px;font-weight:670}
-body:not(.school-student-portal) #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link.active{box-shadow:0 6px 16px rgba(23,107,117,.16)}
-body:not(.school-student-portal) #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.active,
-body:not(.school-student-portal) #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.school-current{box-shadow:0 4px 10px rgba(23,107,117,.12)}
-body:not(.school-student-portal) #layout-wrapper .navbar-menu .navbar-nav .nav-sm .school-menu-section{color:#7b9291;letter-spacing:.11em}
-body:not(.school-student-portal) #layout-wrapper .school-menu-search{border-bottom-color:#e9f1ed}
-body:not(.school-student-portal) #layout-wrapper .school-menu-search-field{height:41px;border-radius:11px;background:#f7faf8}
+body #layout-wrapper .navbar-menu{border-right:1px solid var(--premium-border)!important;background:linear-gradient(180deg,#fff 0%,#fbfdfc 100%)!important;box-shadow:5px 0 24px rgba(22,70,68,.04)}
+body #layout-wrapper .navbar-menu .navbar-brand-box{border-bottom-color:#e9f1ed!important}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link{border-radius:10px;font-weight:670}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link.active{box-shadow:0 6px 16px rgba(23,107,117,.16)}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.active,
+body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.school-current{box-shadow:0 4px 10px rgba(23,107,117,.12)}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .school-menu-section{color:#7b9291;letter-spacing:.11em}
+body #layout-wrapper .school-menu-search{border-bottom-color:#e9f1ed}
+body #layout-wrapper .school-menu-search-field{height:41px;border-radius:11px;background:#f7faf8}
 body #layout-wrapper .school-page-header{min-height:78px;margin-bottom:23px!important;padding:16px 26px!important;border:1px solid rgba(255,255,255,.14);border-radius:0 0 20px 20px;box-shadow:0 16px 30px rgba(19,77,79,.12)}
 body #layout-wrapper .school-page-header h4{font-size:20px!important;font-weight:780;letter-spacing:-.035em}
 body #layout-wrapper .school-page-header .breadcrumb{font-size:12px}
