@@ -256,6 +256,7 @@
             return;
         }
         jQuery('#newTicketType').each(function () {
+            if (this.closest('.ticket-create-dialog')) return;
             if (!jQuery(this).hasClass('select2-hidden-accessible')) {
                 jQuery(this).select2({ width: '100%' });
             }
@@ -306,35 +307,113 @@
         }
     }
 
-    if (qs('toggleCreateTicket')) {
-        qs('toggleCreateTicket').onclick = () => qs('ticketCreatePanel').classList.toggle('open');
-    }
-
-    if (qs('createTicketBtn')) {
-        qs('createTicketBtn').onclick = async () => {
-            if (!filesAreValid(qs('newTicketFiles').files)) {
-                ticketAlert('Maximum 3 JPG, PNG, WebP or GIF images are allowed. Each original image must be 20 MB or smaller.');
-                return;
-            }
+    const createPanel = qs('ticketCreatePanel');
+    const createTrigger = qs('toggleCreateTicket');
+    let creatingTicket = false;
+    let createPreviewUrls = [];
+    const createFilesAreValid = files => {
+        const selected = Array.from(files || []);
+        return selected.length <= 3 && selected.every(file => file.size > 0 && file.size <= 12 * 1024 * 1024 && ['image/jpeg', 'image/png', 'image/webp'].includes(file.type));
+    };
+    const createMessageError = message => {
+        const clean = String(message || '').trim().replace(/\s+/g, ' ');
+        if (!clean) return 'Please describe your issue before sending.';
+        if (clean.length < 8) return 'Please write at least 8 characters.';
+        if (clean.length > 2000) return 'Maximum 2000 characters are allowed.';
+        const words = clean.match(/[\p{L}\p{N}]+/gu) || [];
+        if (words.length < 2) return 'Please write at least two clear words.';
+        return '';
+    };
+    const createError = message => {
+        const error = qs('ticketCreateError');
+        if (!error) return;
+        error.textContent = message || '';
+        error.hidden = !message;
+    };
+    const setCreateOpen = open => {
+        if (!createPanel || (!open && creatingTicket)) return;
+        createPanel.classList.toggle('open', open);
+        createPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+        createPanel.inert = !open;
+        qs('ticketCreateBackdrop').classList.toggle('open', open);
+        if (createTrigger) createTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('employee-ticket-create-open', open);
+        if (open) window.setTimeout(() => qs('newTicketType').focus(), 80);
+        else { createError(''); if (createTrigger) createTrigger.focus(); }
+    };
+    const renderCreatePreviews = () => {
+        createPreviewUrls.forEach(url => URL.revokeObjectURL(url));
+        createPreviewUrls = [];
+        const files = Array.from(qs('newTicketFiles').files || []);
+        qs('newTicketFilesLabel').textContent = fileText(files, 'JPEG, PNG or WebP');
+        qs('clearTicketImages').hidden = !files.length;
+        const preview = qs('ticketCreatePreview');
+        preview.replaceChildren();
+        files.forEach((file, index) => {
+            const tile = document.createElement('div');
+            const image = document.createElement('img');
+            const label = document.createElement('span');
+            const url = URL.createObjectURL(file);
+            createPreviewUrls.push(url);
+            image.src = url;
+            image.alt = 'Selected image ' + (index + 1);
+            label.textContent = file.name;
+            tile.append(image, label);
+            preview.appendChild(tile);
+        });
+    };
+    if (createPanel && createTrigger) {
+        createTrigger.addEventListener('click', () => setCreateOpen(!createPanel.classList.contains('open')));
+        qs('closeTicketCreate').addEventListener('click', () => setCreateOpen(false));
+        qs('cancelTicketCreate').addEventListener('click', () => setCreateOpen(false));
+        qs('ticketCreateBackdrop').addEventListener('click', () => setCreateOpen(false));
+        document.addEventListener('keydown', event => {
+            if (!createPanel.classList.contains('open')) return;
+            if (event.key === 'Escape' && !creatingTicket) { setCreateOpen(false); return; }
+            if (event.key !== 'Tab') return;
+            const focusable = Array.from(createPanel.querySelectorAll('button:not([disabled]):not([hidden]),select,textarea,input:not([disabled]):not(.ticket-native-file)'));
+            if (!focusable.length) return;
+            if (event.shiftKey && document.activeElement === focusable[0]) { event.preventDefault(); focusable[focusable.length - 1].focus(); }
+            else if (!event.shiftKey && document.activeElement === focusable[focusable.length - 1]) { event.preventDefault(); focusable[0].focus(); }
+        });
+        qs('newTicketFiles').addEventListener('change', function () {
+            if (!createFilesAreValid(this.files)) { this.value = ''; createError('Choose up to 3 JPEG, PNG or WebP images, maximum 12 MB each.'); }
+            else createError('');
+            renderCreatePreviews();
+        });
+        qs('clearTicketImages').addEventListener('click', () => { qs('newTicketFiles').value = ''; renderCreatePreviews(); });
+        qs('newTicketType').addEventListener('change', () => createError(''));
+        qs('newTicketMessage').addEventListener('input', () => createError(''));
+        qs('createTicketBtn').addEventListener('click', async () => {
+            if (creatingTicket) return;
+            const files = qs('newTicketFiles').files;
+            if (!qs('newTicketType').value) { createError('Choose a support area first.'); qs('newTicketType').focus(); return; }
+            const messageProblem = createMessageError(qs('newTicketMessage').value);
+            if (messageProblem) { createError(messageProblem); qs('newTicketMessage').focus(); return; }
+            if (!createFilesAreValid(files)) { createError('Choose up to 3 JPEG, PNG or WebP images, maximum 12 MB each.'); return; }
+            createError('');
+            creatingTicket = true;
+            qs('createTicketBtn').disabled = true;
+            qs('createTicketBtnLabel').textContent = 'Creating ticket...';
             setLoading(true);
             try {
                 const fd = new FormData();
                 fd.append('complaint_type', qs('newTicketType').value);
                 fd.append('message', qs('newTicketMessage').value);
-                const images = await prepareImages(qs('newTicketFiles').files);
+                const images = await prepareImages(files);
                 images.forEach(file => fd.append('attachments[]', file, file.name));
                 const res = await postForm(base + 'ticket/raisechat/' + type, fd);
-                if (!res.status) {
-                    ticketAlert(res.message);
-                    return;
-                }
+                if (!res.status) { createError(res.message || 'Ticket could not be created. Please try again.'); return; }
                 window.location.href = home;
             } catch (error) {
-                ticketAlert(error.message);
+                createError(error.message);
             } finally {
+                creatingTicket = false;
+                qs('createTicketBtn').disabled = false;
+                qs('createTicketBtnLabel').textContent = 'Create ticket';
                 setLoading(false);
             }
-        };
+        });
     }
 
     document.querySelectorAll('.ticket-view-tabs a, .ticket-page-links a, .ticket-search-only button, .ticket-search-only a').forEach(element => {
@@ -347,11 +426,7 @@
         }
     });
 
-    if (qs('newTicketFiles')) {
-        qs('newTicketFiles').addEventListener('change', () => {
-            qs('newTicketFilesLabel').textContent = fileText(qs('newTicketFiles').files, 'No file selected');
-        });
-    }
+    // The requester dialog updates its own attachment label and preview.
 
     if (qs('drawerFilesInput')) {
         qs('drawerFilesInput').addEventListener('change', () => {
