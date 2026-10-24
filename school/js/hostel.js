@@ -91,33 +91,27 @@ $(document).on("submit", "#allotForm", function (e) {
   e.preventDefault();
   const form = $(this);
   const submitButton = form.find('button[type="submit"]');
-  if (submitButton.prop('disabled')) return;
+  if (submitButton.prop('disabled') || form.data('allotmentSaving')) return;
+  const status = form.find('#allot-save-status');
+  const payload = form.serialize();
+  form.data('allotmentSaving', true);
+  status.removeClass('success error').addClass('saving').text('Saving allotment. Please wait for confirmation.');
   submitButton.prop('disabled', true).html('<i class="fa fa-spinner fa-spin me-1"></i>Saving...');
-  $.post(base_url+'hostel/save_allotment', form.serialize(), function (res) {
+  $.ajax({url:base_url+'hostel/save_allotment',type:'POST',data:payload,dataType:'json',global:false,timeout:25000}).done(function (res) {
     if (res.status === 'success') {
-        swal({
-          icon: 'success',
-          title: 'Allotment Updated',
-          text: res.message
-        }).then(function(){ loadRoomDetail($('#hostel').val()); });
-      } else if (res.status === 'error') {
-        swal({
-          icon: 'error',
-          title: 'Unable to Complete Allotment',
-          text: res.message
-        });
-      } else {
-        swal({
-          icon: 'warning',
-          title: 'Unknown Response',
-          text: 'Something went wrong.'
-        });
-      }
-    }, 'json').fail(function(){
-      swal({icon:'error',title:'Connection Error',text:'The request could not be completed. Please try again.'});
-    }).always(function(){
-      submitButton.prop('disabled', false).html('<i class="fa fa-check me-1"></i>Confirm Allotment');
-    });
+      status.removeClass('saving').addClass('success').text(res.message || 'Allotment saved. Refreshing rooms...');
+      window.location.href=base_url+'hostel/detail/'+form.find('[name="hostel"]').val()+'#rooms';
+      return;
+    }
+    status.removeClass('saving').addClass('error').text(res.message || 'Allotment could not be saved. Review the details and try again.');
+    form.removeData('allotmentSaving');
+    syncHostelAllotmentButton();
+    submitButton.html('<i class="fa fa-check me-1"></i>Confirm Allotment');
+  }).fail(function(){
+    status.removeClass('saving').addClass('error').text('Save confirmation was not received. The allotment may already exist. Close this popup and refresh the room before trying again.');
+    submitButton.html('<i class="fa fa-exclamation-triangle me-1"></i>Refresh room to verify');
+    form.removeData('allotmentSaving');
+  });
   });
 
 function shiftUser() {
