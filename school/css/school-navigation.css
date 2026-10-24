@@ -6,6 +6,8 @@
 .navbar-menu .navbar-brand-box .school-brand-crop img{display:block!important;width:34px!important;max-width:34px!important;height:34px!important;object-fit:contain}
 .navbar-menu .navbar-brand-box .school-brand-full{display:none!important;margin:auto}
 .navbar-menu .navbar-brand-box .school-brand-full img{display:block!important;width:165px!important;max-width:165px!important;height:auto!important;max-height:48px;object-fit:contain}
+[data-sidebar-size="lg"] .navbar-menu .school-brand-crop,[data-sidebar-size="sm-hover-active"] .navbar-menu .school-brand-crop{display:none!important}
+[data-sidebar-size="lg"] .navbar-menu .school-brand-full,[data-sidebar-size="sm-hover-active"] .navbar-menu .school-brand-full{display:block!important}
 [data-sidebar-size="sm-hover"] .navbar-menu:hover .school-brand-crop{display:none!important}
 [data-sidebar-size="sm-hover"] .navbar-menu:hover .school-brand-full{display:block!important}
 [data-sidebar="dark"] .navbar-menu .navbar-brand-box .logo-light{display:flex!important;align-items:center;justify-content:center}
