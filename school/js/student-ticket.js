@@ -109,15 +109,76 @@
     function post(url, data) { return request(url, {method:'POST', body:data, credentials:'same-origin', headers:{'X-Requested-With':'XMLHttpRequest'}}); }
     function fileLabel(files, empty) { return !files.length ? empty : (files.length === 1 ? files[0].name : files.length + ' images selected'); }
 
-    if (window.jQuery && window.jQuery.fn.select2) {
-        window.jQuery('#newTicketType').select2({width:'100%'});
+    var createPanel = el('ticketCreatePanel');
+    var createTrigger = el('toggleCreateTicket');
+    var createPreviewUrls = [];
+    function createError(message) {
+        var error = el('studentTicketCreateError');
+        error.textContent = message || '';
+        error.hidden = !message;
     }
-    el('toggleCreateTicket') && el('toggleCreateTicket').addEventListener('click', function () {
-        el('ticketCreatePanel').classList.toggle('open');
+    function setCreateOpen(open) {
+        if (!open && creatingTicket) return;
+        createPanel.classList.toggle('open', open);
+        createPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+        createPanel.inert = !open;
+        el('ticketCreateBackdrop').classList.toggle('open', open);
+        if (createTrigger) createTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('student-ticket-create-open', open);
+        if (open) {
+            window.setTimeout(function () { el('newTicketType').focus(); }, 80);
+        } else {
+            createError('');
+            if (createTrigger) createTrigger.focus();
+        }
+    }
+    function renderCreatePreviews() {
+        createPreviewUrls.forEach(function (url) { URL.revokeObjectURL(url); });
+        createPreviewUrls = [];
+        var files = Array.from(el('newTicketFiles').files || []);
+        var preview = el('ticketCreatePreview');
+        preview.replaceChildren();
+        el('newTicketFilesLabel').textContent = fileLabel(files, 'JPEG, PNG or WebP');
+        el('clearTicketImages').hidden = !files.length;
+        files.forEach(function (file, index) {
+            var tile = document.createElement('div');
+            var image = document.createElement('img');
+            var label = document.createElement('span');
+            var url = URL.createObjectURL(file);
+            createPreviewUrls.push(url);
+            image.src = url;
+            image.alt = 'Selected image ' + (index + 1);
+            label.textContent = file.name;
+            tile.append(image, label);
+            preview.appendChild(tile);
+        });
+    }
+    if (createTrigger) createTrigger.addEventListener('click', function () { setCreateOpen(!createPanel.classList.contains('open')); });
+    el('closeTicketCreate').addEventListener('click', function () { setCreateOpen(false); });
+    el('cancelTicketCreate').addEventListener('click', function () { setCreateOpen(false); });
+    el('ticketCreateBackdrop').addEventListener('click', function () { setCreateOpen(false); });
+    document.addEventListener('keydown', function (event) {
+        if (!createPanel.classList.contains('open')) return;
+        if (event.key === 'Escape' && !creatingTicket) { setCreateOpen(false); return; }
+        if (event.key !== 'Tab') return;
+        var focusable = Array.from(createPanel.querySelectorAll('button:not([disabled]):not([hidden]),select,textarea,input:not([disabled]):not(.ticket-native-file)'));
+        if (!focusable.length) return;
+        if (event.shiftKey && document.activeElement === focusable[0]) { event.preventDefault(); focusable[focusable.length - 1].focus(); }
+        else if (!event.shiftKey && document.activeElement === focusable[focusable.length - 1]) { event.preventDefault(); focusable[0].focus(); }
     });
     el('newTicketFiles').addEventListener('change', function () {
-        el('newTicketFilesLabel').textContent = fileLabel(this.files, 'No image selected');
+        if (!validFiles(this.files)) {
+            this.value = '';
+            createError('Choose up to 3 JPEG, PNG or WebP images, maximum 12 MB each.');
+        } else createError('');
+        renderCreatePreviews();
     });
+    el('clearTicketImages').addEventListener('click', function () {
+        el('newTicketFiles').value = '';
+        renderCreatePreviews();
+    });
+    el('newTicketType').addEventListener('change', function () { createError(''); });
+    el('newTicketMessage').addEventListener('input', function () { createError(''); });
     el('drawerFilesInput').addEventListener('change', function () {
         el('drawerFilesLabel').textContent = fileLabel(this.files, 'Attach images');
     });
@@ -126,11 +187,13 @@
         if (creatingTicket) return;
         var files = el('newTicketFiles').files;
         var validationError = messageError(el('newTicketMessage').value, false);
-        if (validationError) return alertTicket(validationError);
-        if (!validFiles(files)) return alertTicket('Maximum 3 JPEG, PNG or WebP images up to 12 MB each are allowed.');
+        if (!el('newTicketType').value) { createError('Choose a support area first.'); el('newTicketType').focus(); return; }
+        if (validationError) { createError(validationError); el('newTicketMessage').focus(); return; }
+        if (!validFiles(files)) { createError('Choose up to 3 JPEG, PNG or WebP images, maximum 12 MB each.'); return; }
+        createError('');
         creatingTicket = true;
         el('createTicketBtn').disabled = true;
-        el('createTicketBtn').textContent = 'Creating...';
+        el('createTicketBtnLabel').textContent = 'Creating ticket...';
         setLoading(true);
         prepareImages(files).then(function (uploadFiles) {
             var data = new FormData();
@@ -139,12 +202,12 @@
             uploadFiles.forEach(function (file) { data.append('attachments[]', file, file.name); });
             return post(base + 'supportticket/raisechat', data);
         }).then(function (result) {
-            if (!result.status) return alertTicket(result.message);
+            if (!result.status) { createError(result.message || 'Ticket could not be created. Please try again.'); return; }
             window.location.href = home;
-        }).catch(function (error) { alertTicket(error.message); }).finally(function () {
+        }).catch(function (error) { createError(error.message); }).finally(function () {
             creatingTicket = false;
             el('createTicketBtn').disabled = false;
-            el('createTicketBtn').textContent = 'Create Thread';
+            el('createTicketBtnLabel').textContent = 'Create ticket';
             setLoading(false);
         });
     });

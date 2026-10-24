@@ -1,0 +1,116 @@
+/* Finishing layer for the shared inner page shell. Keep module layouts intact. */
+@font-face{font-family:remixicon;src:url(../fonts/remixicondf6d.woff) format('woff');font-style:normal;font-weight:400;font-display:block}
+body #layout-wrapper{
+  --premium-accent:#176b75;
+  --premium-accent-soft:#e9f5f1;
+  --premium-border:#dbe9e4;
+  --premium-ink:#193c45;
+  --premium-muted:#6a8186;
+  --premium-shadow:0 12px 34px rgba(19,71,73,.07);
+}
+body.school-student-portal #layout-wrapper{
+  --premium-accent:var(--st-primary,#176b75);
+  --premium-accent-soft:var(--st-soft,#e9f5f1);
+  --premium-border:var(--st-line,#dbe9e4);
+  --premium-ink:var(--st-ink,#193c45);
+  --premium-muted:var(--st-muted,#6a8186);
+}
+body #layout-wrapper .page-content{
+  background:radial-gradient(circle at 8% 3%,rgba(91,169,151,.09),transparent 31rem),#f5f9f7!important;
+}
+body.school-student-portal #layout-wrapper .page-content{
+  background:radial-gradient(circle at 8% 3%,rgba(91,169,151,.06),transparent 31rem),var(--st-canvas,#f5f9f7)!important;
+}
+body #layout-wrapper .page-content>.container-fluid{max-width:1660px;margin-inline:auto}
+body #layout-wrapper #page-topbar{border-bottom:1px solid #e4eeea;background:rgba(255,255,255,.97);box-shadow:0 4px 22px rgba(14,58,64,.045)}
+body #layout-wrapper #page-topbar .navbar-header{min-height:69px}
+body #layout-wrapper #page-topbar .navbar-header strong{color:var(--premium-ink);font-size:13px;font-weight:750;letter-spacing:-.01em}
+body #layout-wrapper #page-header-user-dropdown{display:flex;align-items:center;min-height:42px;padding:5px 8px;border-radius:12px;transition:background-color .18s}
+body #layout-wrapper #page-header-user-dropdown:hover{background:var(--premium-accent-soft)}
+body #layout-wrapper .topbar-user .header-profile-user{width:34px;height:34px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px var(--premium-border),0 3px 10px rgba(17,75,75,.11)}
+body #layout-wrapper .dropdown-menu{border-color:var(--premium-border);border-radius:13px;box-shadow:0 18px 45px rgba(19,71,73,.14)}
+body #layout-wrapper .dropdown-menu .dropdown-item{border-radius:8px}
+body #layout-wrapper .dropdown-menu .dropdown-item:hover{background:var(--premium-accent-soft);color:var(--premium-ink)}
+body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu.dropdown-menu.dropdown-menu-end{width:288px;max-width:calc(100vw - 24px);margin-top:10px;padding:7px;border:1px solid #d9e9e2;border-radius:16px;background:#fff;color:var(--premium-ink)!important;box-shadow:0 22px 48px rgba(18,63,67,.17);font-family:var(--school-font,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);white-space:normal}
+body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu.dropdown-menu.dropdown-menu-end.show{background:#fff!important;color:var(--premium-ink)!important}
+body #layout-wrapper .school-employee-profile-menu__header{display:flex;align-items:center;gap:11px;padding:12px 11px 14px;border-bottom:1px solid #e7f0eb}
+body #layout-wrapper .school-employee-profile-menu__header img{flex:none;width:42px;height:42px;border:2px solid #fff;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #dcece5}
+body #layout-wrapper .school-employee-profile-menu__identity{display:flex;min-width:0;flex-direction:column;line-height:1.3}
+body #layout-wrapper .school-employee-profile-menu__identity span{color:#68827f;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+body #layout-wrapper .school-employee-profile-menu__identity strong{overflow:hidden;margin-top:2px;color:#183e45;font-size:14px;font-weight:780;text-overflow:ellipsis;white-space:nowrap}
+body #layout-wrapper .school-employee-profile-menu__identity small{margin-top:2px;color:#68827f;font-size:11px;font-weight:650}
+body #layout-wrapper .school-employee-profile-menu__actions{display:grid;gap:3px;padding-top:6px}
+body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .dropdown-item{display:flex!important;align-items:center;gap:11px;min-height:43px;padding:6px 9px;border-radius:10px;background:transparent!important;color:#294c51!important;font-size:12px;font-weight:700;line-height:1.3;white-space:normal;transition:background-color .16s,color .16s}
+body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .dropdown-item:hover,body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .dropdown-item:focus{background:#eaf5f0!important;color:#135f67!important}
+body #layout-wrapper .school-employee-profile-menu__icon{display:grid;flex:none;place-items:center;width:30px;height:30px;border-radius:9px;background:#e5f3ed;color:#176b75;font-size:16px}
+body #layout-wrapper .school-employee-profile-menu__arrow{margin-left:auto;color:#8aa5a0;font-size:16px}
+body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout{color:#9f3f46!important}
+body #layout-wrapper .school-employee-profile-menu__logout .school-employee-profile-menu__icon{background:#fff0ef;color:#b34754}
+body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout:hover,body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout:focus{background:#fff2f1!important;color:#9f3f46!important}
+body #layout-wrapper .navbar-menu{border-right:1px solid var(--premium-border)!important;background:linear-gradient(180deg,#fff 0%,#fbfdfc 100%)!important;box-shadow:5px 0 24px rgba(22,70,68,.04)}
+body #layout-wrapper .navbar-menu .navbar-brand-box{border-bottom-color:#e9f1ed!important}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link{border-radius:10px;font-weight:670}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link.active{box-shadow:0 6px 16px rgba(23,107,117,.16)}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.active,
+body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.school-current{box-shadow:0 4px 10px rgba(23,107,117,.12)}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .school-menu-section{color:#7b9291;letter-spacing:.11em}
+body #layout-wrapper .school-menu-search{border-bottom-color:#e9f1ed}
+body #layout-wrapper .school-menu-search-field{height:41px;border-radius:11px;background:#f7faf8}
+body #layout-wrapper .school-page-header{min-height:78px;margin-bottom:23px!important;padding:16px 26px!important;border:1px solid rgba(255,255,255,.14);border-radius:0 0 20px 20px;box-shadow:0 16px 30px rgba(19,77,79,.12)}
+body #layout-wrapper .school-page-header h4{font-size:20px!important;font-weight:780;letter-spacing:-.035em}
+body #layout-wrapper .school-page-header .breadcrumb{font-size:12px}
+body #layout-wrapper .school-page-header .school-page-actions .btn{min-height:37px;padding:7px 13px;border-radius:9px;font-weight:750}
+body #layout-wrapper .page-content .page-header{margin-bottom:23px;border-radius:0 0 17px 17px;box-shadow:0 9px 22px rgba(28,75,75,.055)}
+body #layout-wrapper .page-content .page-header h3{font-size:18px;font-weight:770;letter-spacing:-.025em}
+body #layout-wrapper .page-content .card{margin-bottom:20px;border:1px solid var(--premium-border);border-radius:17px;box-shadow:var(--premium-shadow)}
+body #layout-wrapper .page-content .card-header{padding:17px 20px;border-bottom-color:#e9f1ed;border-radius:17px 17px 0 0;background:linear-gradient(110deg,#fff,#f8fbf9)}
+body #layout-wrapper .page-content .card-header :is(h3,h4,h5,h6){margin-bottom:0;font-weight:760}
+body #layout-wrapper .page-content .card-body{padding:21px}
+body #layout-wrapper .page-content .card-footer{padding:14px 20px;border-top:1px solid var(--premium-border);border-radius:0 0 17px 17px;background:#fbfdfc}
+body #layout-wrapper .page-content :is(.form-label,.form-group>label){color:#34545b;font-size:12px;font-weight:730}
+body #layout-wrapper :is(.form-control,.form-select){min-height:41px;border:1px solid #cadfd9;border-radius:10px;background-color:#fff;color:var(--premium-ink);font-size:13px;transition:border-color .15s,box-shadow .15s}
+body #layout-wrapper :is(.form-control,.form-select):focus{border-color:#2d9188;box-shadow:0 0 0 4px rgba(42,145,136,.12)}
+body #layout-wrapper :is(.form-control,.form-select)::placeholder{color:#8aa19f}
+body #layout-wrapper .input-group-text{border-color:#cadfd9;border-radius:10px;background:#f4f9f6;color:#5e7f80}
+body #layout-wrapper :is(.btn,.page-link){border-radius:9px}
+body #layout-wrapper .btn{font-weight:710;letter-spacing:.005em;transition:transform .17s,box-shadow .17s,background-color .17s,border-color .17s}
+body #layout-wrapper .btn-primary{box-shadow:0 6px 14px rgba(23,107,117,.13)}
+body #layout-wrapper .btn-primary:hover{box-shadow:0 9px 18px rgba(23,107,117,.2)}
+body #layout-wrapper :is(.btn,.form-control,.form-select,.page-link,.nav-link):focus-visible{outline:3px solid #6dbbb0;outline-offset:2px}
+body #layout-wrapper .page-content .table{border-collapse:separate;border-spacing:0;color:var(--premium-ink)}
+body #layout-wrapper .page-content .table thead th{padding:12px 13px;border-bottom:1px solid var(--premium-border);background:#f0f7f3;color:#46646a;font-size:11px;font-weight:800;letter-spacing:.035em}
+body #layout-wrapper .page-content .table tbody :is(td,th){padding:12px 13px;border-color:#e9f1ed}
+body #layout-wrapper .page-content .table tbody tr{transition:background-color .14s}
+body #layout-wrapper .page-content .table tbody tr:hover{background:#f6fbf8}
+body #layout-wrapper .dataTables_wrapper .dataTables_filter input,
+body #layout-wrapper .dataTables_wrapper .dataTables_length select{min-height:37px;padding:6px 10px;border:1px solid #cadfd9;border-radius:9px;background:#fff;color:var(--premium-ink)}
+body #layout-wrapper .dataTables_wrapper .dataTables_filter input:focus,
+body #layout-wrapper .dataTables_wrapper .dataTables_length select:focus{border-color:#2d9188;outline:3px solid rgba(42,145,136,.14)}
+body #layout-wrapper .pagination{gap:4px}
+body #layout-wrapper .pagination .page-link{min-width:32px;text-align:center}
+body #layout-wrapper .nav-tabs{gap:6px}
+body #layout-wrapper .nav-tabs .nav-link{font-weight:700}
+body #layout-wrapper .modal-content{border-color:var(--premium-border);border-radius:18px;box-shadow:0 28px 70px rgba(12,53,58,.18)}
+body #layout-wrapper .modal-header{padding:18px 22px;border-bottom-color:var(--premium-border);border-radius:18px 18px 0 0;background:#f5faf7!important}
+body #layout-wrapper .modal-title{color:var(--premium-ink);font-size:18px;font-weight:780}
+body #layout-wrapper .modal-body{padding:22px}
+body #layout-wrapper .modal-footer{padding:15px 22px;border-top-color:var(--premium-border)}
+body #layout-wrapper .alert{border-radius:11px}
+@media(max-width:767px){
+  body #layout-wrapper #page-topbar .navbar-header{min-height:62px}
+  body #layout-wrapper .school-page-header{min-height:0;margin-bottom:17px!important;padding:15px 16px!important;border-radius:0 0 15px 15px}
+  body #layout-wrapper .school-page-header h4{font-size:17px!important}
+  body #layout-wrapper .page-content .card{border-radius:14px}
+  body #layout-wrapper .page-content .card-header{padding:14px 16px;border-radius:14px 14px 0 0}
+  body #layout-wrapper .page-content .card-body{padding:16px}
+  body #layout-wrapper .page-content .table tbody :is(td,th){padding:10px 11px}
+  body #layout-wrapper .modal-body{padding:17px}
+}
+@media print{
+  body #layout-wrapper .page-content,body.school-student-portal #layout-wrapper .page-content{background:#fff!important}
+  body #layout-wrapper .page-content .card{box-shadow:none}
+}
+@media(prefers-reduced-motion:reduce){
+  body #layout-wrapper :is(.btn,.form-control,.form-select),
+  body #layout-wrapper .page-content .table tbody tr{transition:none}
+}

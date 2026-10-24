@@ -94,7 +94,7 @@
 #school-management .smd-pl-meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px 16px;margin:4px 0 13px;color:#56777b;font-size:12px}
 #school-management .smd-pl-meta i{margin-right:4px;color:#16817e}
 #school-management .smd-pl-provisional{padding:4px 8px;border-radius:4px;background:#fff2da;color:#865815;font-size:11px}
-#school-management .smd-pl-summary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:14px}
+#school-management .smd-pl-summary{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:14px}
 #school-management .smd-pl-summary>div{display:flex;flex-direction:column;justify-content:space-between;gap:6px;min-height:78px;padding:12px;border:1px solid #dce9e4;border-radius:7px;background:#fff}
 #school-management .smd-pl-summary span{color:#648084;font-size:11px;font-weight:650}
 #school-management .smd-pl-summary strong{color:#234d52;font-size:17px;font-weight:750;white-space:nowrap}
@@ -104,11 +104,11 @@
 #school-management .smd-pl-notes p{margin:0}
 #school-management .smd-pl-notes i{margin-right:4px}
 #school-management .smd-pl-table-wrap{max-width:100%;overflow-x:auto;border:1px solid #d8e6e1;border-radius:7px;background:#fff}
-#school-management .smd-pl-table{width:100%;min-width:1190px;border-collapse:collapse;font-size:11px}
+#school-management .smd-pl-table{width:100%;min-width:0;border-collapse:collapse;font-size:11px;table-layout:auto}
 #school-management .smd-pl-table th,#school-management .smd-pl-table td{padding:9px 8px;border-bottom:1px solid #e6eeea;vertical-align:top}
-#school-management .smd-pl-table thead th{position:sticky;top:0;z-index:1;background:#e9f3f0;color:#294f54;font-weight:750;white-space:nowrap}
+#school-management .smd-pl-table thead th{position:sticky;top:0;z-index:1;background:#e9f3f0;color:#294f54;font-weight:750;white-space:normal;line-height:1.25}
 #school-management .smd-pl-table tbody tr:not(.smd-pl-detail-row):hover{background:#f8fbfa}
-#school-management .smd-pl-table tbody th{min-width:135px;color:#284c51;font-weight:700}
+#school-management .smd-pl-table tbody th{min-width:105px;color:#284c51;font-weight:700}
 #school-management .smd-pl-row-title{display:block}
 #school-management .smd-pl-table small{display:block;color:#749092;font-size:10px;font-weight:400}
 #school-management .smd-pl-num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -134,6 +134,47 @@
 #school-management .smd-pl-detail-stats span{padding:8px 10px;border:1px solid #d8e8e0;border-radius:5px;background:#fff}
 #school-management .smd-pl-detail-stats strong{display:block;color:#315d60}
 #school-management .smd-pl-empty,#school-management .smd-pl-detail-empty{padding:20px;color:#678185}
+#school-management .smd-today-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);align-items:start;gap:16px}
+#school-management .smd-today-panel{min-width:0;padding:18px;border:1px solid #dce8e4;background:#fff;border-radius:8px}
+#school-management .smd-table-wrap{max-width:100%;overflow-x:auto}
+#school-management .smd-data-table{width:100%;border-collapse:collapse;font-size:12px}
+#school-management .smd-data-table th,#school-management .smd-data-table td{padding:8px 10px;border-bottom:1px solid #e4eeea;text-align:right;font-variant-numeric:tabular-nums}
+#school-management .smd-data-table th:first-child,#school-management .smd-data-table td:first-child{text-align:left}
+#school-management .smd-data-table thead,#school-management .smd-data-table tfoot{background:#edf6f2;color:#214d51}
+#school-management .smd-inline-stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+#school-management .smd-inline-stats span{display:flex;gap:8px;justify-content:space-between;padding:7px 10px;border:1px solid #dce8e4;border-radius:5px;background:#f7faf8;color:#496a6e;font-size:12px}
+#school-management .smd-activity-list{padding:0;margin:0;list-style:none}
+#school-management .smd-activity-list li{display:grid;grid-template-columns:95px minmax(0,1fr) 75px;gap:8px;align-items:center;padding:10px 4px;border-bottom:1px solid #e4eeea;font-size:12px}
+#school-management .smd-activity-list li span{color:#0b6a73;font-weight:700}
+#school-management .smd-activity-list li strong{overflow-wrap:anywhere}
+#school-management .smd-activity-list li small{text-align:right;color:#627f83}
+#school-management .smd-kpi span{overflow:visible;white-space:normal;text-overflow:clip}
+@media(max-width:1000px){#school-management .smd-today-grid{grid-template-columns:1fr}}
+@media(max-width:780px){
+ #school-management .smd-pl-table-wrap{overflow:visible;border:0;background:transparent}
+ #school-management .smd-pl-table,#school-management .smd-pl-table tbody,#school-management .smd-pl-table tfoot{display:block;width:100%}
+ #school-management .smd-pl-table thead{display:none}
+ #school-management .smd-pl-table tbody tr:not(.smd-pl-detail-row),#school-management .smd-pl-table tfoot tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px;margin-bottom:10px;padding:8px 11px;border:1px solid #dce8e4;border-radius:7px;background:#fff}
+ #school-management .smd-pl-table tbody th,#school-management .smd-pl-table tfoot th:first-child{grid-column:1/-1;min-width:0;padding:8px 2px;font-size:13px}
+ #school-management .smd-pl-table tbody td,#school-management .smd-pl-table tfoot td{display:flex;align-items:center;justify-content:space-between;gap:5px;min-width:0;padding:7px 2px;text-align:right;white-space:normal}
+ #school-management .smd-pl-table tbody td::before,#school-management .smd-pl-table tfoot td::before{flex:none;color:#698085;font-size:10px;font-weight:600;text-align:left}
+ #school-management .smd-pl-table td:nth-child(2)::before{content:'Students'}
+ #school-management .smd-pl-table[data-report-kind="transport"] td:nth-child(2)::before{content:'Riders'}
+ #school-management .smd-pl-table td:nth-child(3)::before{content:'Net fees'}
+ #school-management .smd-pl-table td:nth-child(4)::before{content:'Session paid'}
+ #school-management .smd-pl-table td:nth-child(5)::before{content:'Outstanding'}
+ #school-management .smd-pl-table td:nth-child(6)::before{content:'FY collected'}
+ #school-management .smd-pl-table td:nth-child(7)::before{content:'Salary cost'}
+ #school-management .smd-pl-table[data-report-kind="transport"] td:nth-child(7)::before{content:'Expense'}
+ #school-management .smd-pl-table td:nth-child(8)::before{content:'Profit / Loss'}
+ #school-management .smd-pl-table td:nth-child(9)::before{content:'Remarks'}
+ #school-management .smd-pl-table td:nth-child(10)::before{content:'Details'}
+ #school-management .smd-pl-table tfoot tr>th:last-child{display:none}
+ #school-management .smd-pl-table .smd-pl-detail-row:not([hidden]){display:block;margin:-10px 0 10px;border:1px solid #dce8e4;border-top:0}
+ #school-management .smd-pl-table .smd-pl-detail-row td{display:block;white-space:normal}
+ #school-management .smd-pl-table .smd-pl-detail-row td::before{content:none}
+ #school-management .smd-pl-detail-heading{flex-direction:column;gap:4px}
+}
 @media(max-width:1100px){#school-management .smd-pl-summary{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){#school-management .smd-pl-summary{grid-template-columns:repeat(2,minmax(0,1fr))}#school-management .smd-pl-toolbar{align-items:stretch;flex-direction:column}#school-management .smd-pl-actions button{flex:1;justify-content:center}#school-management .smd-pl-detail-heading{flex-direction:column;gap:3px}}
 @media print{@page{size:A3 landscape;margin:10mm}body *{visibility:hidden!important}#school-management .smd-pl-page.active,#school-management .smd-pl-page.active *{visibility:visible!important}#school-management .smd-pl-page.active{display:block!important;position:absolute;left:0;top:0;width:100%;padding:0;background:#fff}#school-management .smd-pl-toolbar,#school-management .smd-pl-action,#school-management .smd-pl-detail-row{display:none!important}#school-management .smd-pl-table-wrap{overflow:visible;border:0}#school-management .smd-pl-table{min-width:0;font-size:9px}#school-management .smd-pl-table thead th{position:static}#school-management .smd-pl-table th,#school-management .smd-pl-table td{padding:5px}#school-management .smd-pl-summary>div{min-height:55px;break-inside:avoid}#school-management .smd-pl-summary strong{font-size:13px}}
