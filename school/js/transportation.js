@@ -104,6 +104,7 @@ $(function () {
 
     $content.find(".boarding-time").attr("name", `bording_points[${boardingIndex}][time]`);
     $content.find(".boarding-droptime").attr("name", `bording_points[${boardingIndex}][droptime]`);
+    $content.find(".boarding-fee-item").attr("name", `bording_points[${boardingIndex}][fees_transport_id]`);
     $content.find(".boarding-employee").attr("name", `bording_points[${boardingIndex}][employee][]`);
     $content.find(".boarding-student").attr("name", `bording_points[${boardingIndex}][student][]`);
 
