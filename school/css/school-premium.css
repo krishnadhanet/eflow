@@ -106,6 +106,13 @@ body #layout-wrapper .alert{border-radius:11px}
   body #layout-wrapper .page-content .table tbody :is(td,th){padding:10px 11px}
   body #layout-wrapper .modal-body{padding:17px}
 }
+@media(min-width:768px){
+  body:not(.school-student-portal) #layout-wrapper #page-topbar{height:58px}
+  body:not(.school-student-portal) #layout-wrapper #page-topbar .navbar-header{height:57px;min-height:57px}
+  body:not(.school-student-portal) #layout-wrapper .school-page-header{min-height:52px;margin:-16px -24px 18px!important;padding:7px 24px!important;border:0;border-radius:0;box-shadow:0 14px 30px rgba(19,77,79,.15)}
+  body:not(.school-student-portal) #layout-wrapper .school-page-header h4{font-size:16px!important;letter-spacing:-.01em}
+  body:not(.school-student-portal) #layout-wrapper .school-page-header .school-page-actions .btn{min-height:35px;padding:6px 12px}
+}
 @media print{
   body #layout-wrapper .page-content,body.school-student-portal #layout-wrapper .page-content{background:#fff!important}
   body #layout-wrapper .page-content .card{box-shadow:none}
