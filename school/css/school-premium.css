@@ -49,7 +49,7 @@ body #layout-wrapper .school-employee-profile-menu__logout .school-employee-prof
 body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout:hover,body #layout-wrapper #page-topbar .topbar-user .school-employee-profile-menu .school-employee-profile-menu__logout:focus{background:#fff2f1!important;color:#9f3f46!important}
 body #layout-wrapper .navbar-menu{border-right:1px solid var(--premium-border)!important;background:linear-gradient(180deg,#fff 0%,#fbfdfc 100%)!important;box-shadow:5px 0 24px rgba(22,70,68,.04)}
 body #layout-wrapper .navbar-menu .navbar-brand-box{border-bottom-color:#e9f1ed!important}
-body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link{border-radius:10px;font-weight:670}
+body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link{border-radius:10px;font-weight:400}
 body #layout-wrapper .navbar-menu .navbar-nav .nav-link.menu-link.active{box-shadow:0 6px 16px rgba(23,107,117,.16)}
 body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.active,
 body #layout-wrapper .navbar-menu .navbar-nav .nav-sm .nav-link.school-current{box-shadow:0 4px 10px rgba(23,107,117,.12)}
