@@ -97,6 +97,11 @@
 
 /* Student configuration is isolated from the employee card editor. */
 .sdc-student-settings{margin-top:43px;padding-top:7px;border-top:1px solid #dce8e7;scroll-margin-top:90px}
+.sdc-student-page .sdc-student-settings{margin-top:17px;padding-top:0;border-top:0}
+.sdc-student-settings-link{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:22px 0 0;padding:15px 18px;border:1px solid #dce8e7;border-radius:13px;background:#f8fcfb;color:#405d65;font-size:12px;scroll-margin-top:90px}
+.sdc-student-settings-link>i{color:#176b75;font-size:18px}
+.sdc-student-settings-link a{display:inline-flex;align-items:center;gap:5px;color:#176b75;font-weight:800;text-decoration:none}
+.sdc-student-settings-link a:hover{text-decoration:underline}
 .sdc-student-settings .sdc-section-head{margin-top:22px}
 .sdc-student-form{overflow:hidden;border:1px solid #dce8e7;border-radius:19px;background:#fff;box-shadow:0 12px 31px rgba(22,67,73,.055)}
 .sdc-student-option{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;border-bottom:1px solid #e8eeee}

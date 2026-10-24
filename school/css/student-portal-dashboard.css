@@ -375,3 +375,996 @@ body.school-student-portal .student-support-fixed:focus-visible{outline:3px soli
     body.school-student-portal .student-home__shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}
     body.school-student-portal .student-support-fixed{right:15px;bottom:calc(15px + env(safe-area-inset-bottom));min-height:43px;padding:9px 13px}
 }
+
+/* Legacy inner-page rules consolidated here; themed refinements follow. */
+/* timetable inner page */
+.timeline{
+    border-left:3px solid var(--st-line);
+    margin-left:10px;
+    padding-left:15px;
+}
+
+.tt-item{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.tt-dot{
+    position:absolute;
+    left:-22px;
+    top:6px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#ccc;
+}
+
+.tt-item.active .tt-dot{ background:var(--st-primary); }
+.tt-item.next .tt-dot{ background:var(--st-primary-deep); }
+
+.tt-card{
+    background:#fff;
+    border:1px solid var(--st-line);
+    border-radius:14px;
+    padding:12px;
+}
+
+.tt-item.active .tt-card{
+    border-left:4px solid var(--st-primary);
+    background:var(--st-soft);
+}
+
+.tt-item.next .tt-card{
+    border-left:4px solid var(--st-primary-deep);
+    background:var(--st-hero-start);
+}
+
+.tt-time{
+    font-weight:600;
+    color:var(--st-primary-deep);
+}
+
+.tt-subject{
+    font-weight:600;
+}
+
+.day-header{
+    font-weight:700;
+    margin:15px 0 10px;
+    font-size:16px;
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:5;
+    padding:8px 10px;
+    border-radius:10px;
+    transition:0.2s;
+}
+
+/* 🔥 TODAY SELECTED */
+.day-header.active-day{
+    background: linear-gradient(135deg,var(--st-primary),var(--st-primary-deep));
+    color:#000;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* timeline highlight */
+.active-day + .timeline{
+    border-left:3px solid var(--st-primary);
+    background:var(--st-canvas);
+    padding:10px;
+    border-radius:10px;
+}
+#todayBlock{
+    background:var(--st-soft);
+    border-radius:8px;
+}
+
+/* subject inner page */
+.course-card{
+    border-radius:16px;
+    border:1px solid var(--st-line);
+    padding:15px;
+    transition:0.3s;
+    background:#fff;
+}
+.course-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.course-icon{
+    width:50px;
+    height:50px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    color:#fff;
+}
+
+.badge-type{
+    font-size:11px;
+}
+
+/* myattendance inner page */
+.att-card{
+    border-radius:14px;
+    padding:12px;
+    border:1px solid var(--st-line);
+    background:#fff;
+    transition:0.2s;
+}
+.att-card:hover{
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.status-badge{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:500;
+}
+
+.present{ background:#d4edda; color:#155724; }
+.absent{ background:#f8d7da; color:#721c24; }
+.leave{ background:#fff3cd; color:#856404; }
+.holiday{ background:#d1ecf1; color:#0c5460; }
+
+/* homework inner page */
+.hw-card{
+    border-radius:14px;
+    border:1px solid var(--st-line);
+    padding:15px;
+    background:#fff;
+    transition:0.2s;
+}
+.hw-card:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.hw-img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* lms inner page */
+.lms-card{
+    border-radius:14px;
+    border:1px solid var(--st-line);
+    padding:15px;
+    background:#fff;
+    transition:0.2s;
+}
+.lms-card:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.lms-img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* library inner page */
+.student-library-card{background:#fff;border:1px solid #e8edf2;border-radius:14px;padding:16px;margin-bottom:14px}
+.student-library-card h5{margin:0 0 5px;font-size:16px}
+.student-library-muted{color:#667085;font-size:13px}
+.student-library-badge{display:inline-block;border-radius:20px;padding:4px 10px;font-size:12px;background:#e9f5ed;color:#17613b}
+.student-library-badge.overdue{background:#fff0e6;color:#ae4b12}
+.student-library-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+
+/* calendar inner page */
+.event-card{
+    border-radius:16px;
+    padding:15px;
+    background:#fff;
+    border:1px solid var(--st-line);
+    margin-bottom:12px;
+    transition:0.2s;
+}
+.event-card:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.badge-type{
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.event{ background:#e7f1ff; color:#084298; }
+.holiday{ background:#fff3cd; color:#664d03; }
+
+.date-box{
+    font-size:13px;
+    color:#888;
+}
+
+/* profile inner page */
+.profile-card{
+    border-radius:16px;
+    background:#fff;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+.profile-img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--st-line);
+}
+.info-card{
+    background:#fff;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    border:1px solid var(--st-line);
+}
+.tab-card{
+    background:#fff;
+    border-radius:12px;
+    padding:15px;
+    border:1px solid var(--st-line);
+}
+
+/* feedback inner page */
+.feedback-card{
+    border-radius:16px;
+    padding:15px;
+    background:#fff;
+    border:1px solid var(--st-line);
+    transition:0.2s;
+    position:relative;
+}
+.feedback-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.feedback-status{
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+
+.badge-live{
+    background:var(--st-primary);
+}
+.badge-expired{
+    background:#dc3545;
+}
+.badge-upcoming{
+    background:var(--st-primary-deep);
+    color:#000;
+}
+
+/* feedback_form inner page */
+.subject-card{
+    border-radius:12px;
+    padding:12px;
+    border:1px solid var(--st-line);
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.done{
+    background:var(--st-soft);
+    border-left:4px solid var(--st-primary);
+}
+.pending{
+    background:var(--st-hero-start);
+    border-left:4px solid var(--st-primary-deep);
+}
+
+/* ⭐ Star */
+.star-rating label{
+    font-size:24px;
+    color:#ddd;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.star-rating label:hover{
+    transform:scale(1.2);
+}
+.star-rating{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+}
+.star-rating input{ display:none; }
+.star-rating label{
+    font-size:22px;
+    color:#ddd;
+    cursor:pointer;
+}
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+    color:var(--st-primary-deep);
+}
+
+/* hostel inner page */
+.school-hostel{max-width:1400px;margin:auto}.school-hostel .hero{background:var(--st-primary-dark);color:white;border-radius:16px;padding:24px;margin-bottom:20px}.school-hostel h1{color:white}.school-hostel section{background:white;border:1px solid #e0e6ee;border-radius:14px;padding:20px;margin:16px 0}.school-hostel label{display:block;margin:12px 0 5px}.school-hostel input,.school-hostel select,.school-hostel textarea{max-width:100%}.school-hostel .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.school-hostel table{width:100%;font-size:13px}.school-hostel th,.school-hostel td{padding:10px;border-bottom:1px solid var(--st-line)}.school-hostel small{color:#64748b}.school-hostel .table-wrap{overflow:auto}
+
+/* transport inner page */
+.transport-workspace{--tw-navy:var(--st-primary-deep);--tw-deep:var(--st-primary-dark);--tw-orange:var(--st-primary);--tw-ink:#17233d;--tw-muted:#6b7890;--tw-line:#e5eaf2;max-width:1450px;margin:0 auto;padding:4px 0 42px;color:var(--tw-ink);font-family:Saira,sans-serif}.transport-workspace *{box-sizing:border-box}.tw-hero{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(250px,.6fr);gap:24px;align-items:center;padding:27px 30px;border-radius:25px;background:linear-gradient(120deg,var(--tw-deep),var(--tw-navy) 62%,var(--st-primary));color:#fff;box-shadow:0 20px 50px rgba(16,38,93,.2)}.tw-hero:before,.tw-hero:after{content:"";position:absolute;z-index:-1;border-radius:50%;background:rgba(245,130,32,.17)}.tw-hero:before{width:280px;height:280px;right:-70px;top:-175px}.tw-hero:after{width:150px;height:150px;right:23%;bottom:-110px}.tw-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:7px;color:#ffc794;font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.tw-hero h1{margin:0;color:#fff;font-size:clamp(27px,3vw,39px);font-weight:900;letter-spacing:-.035em}.tw-hero p{max-width:720px;margin:7px 0 0;color:rgba(255,255,255,.75);font-size:13px}.tw-route-chip{padding:18px 20px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(4,15,43,.26);backdrop-filter:blur(9px)}.tw-route-chip small{display:block;color:#ffc794;font-size:10px;font-weight:900;text-transform:uppercase}.tw-route-chip strong{display:block;margin:4px 0;color:#fff;font-size:21px}.tw-route-chip span{color:#dbe5fa;font-size:12px}.tw-grid{display:grid;grid-template-columns:minmax(285px,.72fr) minmax(0,1.55fr);gap:18px;margin-top:18px}.tw-card{overflow:hidden;border:1px solid var(--tw-line);border-radius:20px;background:#fff;box-shadow:0 12px 34px rgba(16,38,93,.07)}.tw-card-head{padding:19px 21px;border-bottom:1px solid var(--tw-line)}.tw-card-head h2{margin:0;color:var(--tw-deep);font-size:17px;font-weight:900}.tw-card-head p{margin:3px 0 0;color:var(--tw-muted);font-size:11px}.tw-allotted{margin:18px;padding:17px;border:1px solid #ffd7b3;border-radius:16px;background:#fff7ef}.tw-allotted-label{display:flex;align-items:center;gap:7px;color:#b65409;font-size:10px;font-weight:900;text-transform:uppercase}.tw-allotted h3{margin:7px 0 2px;color:var(--tw-deep);font-size:19px}.tw-time-pair{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.tw-time-box{padding:11px;border-radius:12px;background:#fff}.tw-time-box small{display:block;color:var(--tw-muted);font-size:9px;font-weight:800;text-transform:uppercase}.tw-time-box strong{display:block;margin-top:3px;color:var(--tw-deep);font-size:14px}.tw-detail-list{padding:0 20px 18px}.tw-detail-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px dashed var(--tw-line)}.tw-detail-row:last-child{border:0}.tw-detail-row span{color:var(--tw-muted);font-size:11px}.tw-detail-row strong{color:var(--tw-ink);font-size:12px;text-align:right}.tw-timeline{padding:8px 20px 22px}.tw-stop{position:relative;display:grid;grid-template-columns:58px 34px minmax(0,1fr) minmax(145px,.55fr);gap:8px;align-items:center;min-height:78px}.tw-stop:before{content:"";position:absolute;left:74px;top:0;bottom:0;width:3px;background:#dbe2ee}.tw-stop:first-child:before{top:50%}.tw-stop:last-child:before{bottom:50%}.tw-stop-number{color:#9aa5b7;font-size:10px;font-weight:900;text-align:center}.tw-dot{position:relative;z-index:1;width:16px;height:16px;margin:auto;border:4px solid #fff;border-radius:50%;background:var(--tw-navy);box-shadow:0 0 0 3px #cbd5e5}.tw-stop.is-allotted{margin:4px -8px;padding:5px 8px;border-radius:14px;background:#fff5eb}.tw-stop.is-allotted .tw-dot{background:var(--tw-orange);box-shadow:0 0 0 4px #ffd7b3}.tw-stop-name strong{display:block;color:var(--tw-deep);font-size:13px}.tw-stop-name span{display:inline-block;margin-top:3px;padding:3px 7px;border-radius:99px;background:#ffe1c7;color:#a94703;font-size:8px;font-weight:900;text-transform:uppercase}.tw-stop-times{display:grid;grid-template-columns:1fr 1fr;gap:7px}.tw-stop-times div{padding:8px 9px;border-radius:9px;background:var(--st-canvas)}.tw-stop-times small{display:block;color:var(--tw-muted);font-size:8px;font-weight:800;text-transform:uppercase}.tw-stop-times strong{display:block;margin-top:2px;color:var(--tw-ink);font-size:11px}.tw-empty{padding:65px 24px;text-align:center}.tw-empty i{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 14px;border-radius:20px;background:#fff0e2;color:var(--tw-orange);font-size:30px}.tw-empty h2{margin:0 0 6px;color:var(--tw-deep);font-size:20px}.tw-empty p{max-width:520px;margin:auto;color:var(--tw-muted);font-size:13px}.tw-note{margin:0 20px 18px;padding:10px 12px;border-radius:10px;background:var(--st-canvas);color:var(--tw-muted);font-size:10px}.tw-note i{color:var(--tw-orange)}
+@media(max-width:900px){.tw-hero{grid-template-columns:1fr}.tw-grid{grid-template-columns:1fr}.tw-route-chip{max-width:420px}.tw-stop{grid-template-columns:42px 30px minmax(0,1fr)}.tw-stop:before{left:56px}.tw-stop-times{grid-column:3;margin:0 0 10px}.tw-stop-number{text-align:left}}@media(max-width:560px){.tw-hero{padding:22px 20px;border-radius:19px}.tw-grid{gap:13px}.tw-time-pair{grid-template-columns:1fr}.tw-timeline{padding-left:12px;padding-right:12px}.tw-stop-times{grid-template-columns:1fr 1fr}.tw-card-head{padding:17px}}
+.service-form-gate{display:grid;margin-top:14px;padding:15px 18px;grid-template-columns:auto 1fr auto;align-items:center;gap:13px;border:1px solid #dce4ef;border-radius:16px;background:#fff;box-shadow:0 9px 25px rgba(16,38,93,.06)}.service-form-gate>i{display:grid;width:43px;height:43px;place-items:center;color:#fff;border-radius:12px;background:var(--tw-navy);font-size:21px}.service-form-gate h3{margin:0;color:var(--tw-deep);font-size:15px}.service-form-gate p{margin:3px 0 0;color:var(--tw-muted);font-size:10px}.service-form-gate form{display:flex;max-width:460px;align-items:center;gap:9px}.service-form-gate label{display:flex;align-items:flex-start;gap:6px;color:var(--tw-ink);font-size:10px}.service-form-gate .btn{white-space:nowrap}.service-form-progress{color:var(--tw-orange);font-weight:900}@media(max-width:720px){.service-form-gate{grid-template-columns:auto 1fr}.service-form-gate form,.service-form-gate>a{grid-column:1/-1}}
+
+/* Student inner pages share the configured school palette. */
+body.school-student-portal{
+    --st-control-radius:11px;
+    --st-card-radius:18px;
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+body.school-student-portal :is(.student-home,.student-home__modal,.student-lightbox,.navbar-menu .navbar-nav .nav-link.menu-link,.navbar-menu .navbar-nav .nav-sm .nav-link,.school-menu-search-field input,.student-topbar-school,.student-topbar-action){
+    font-family:inherit;
+}
+body.school-student-portal #layout-wrapper .page-content>.container-fluid{max-width:1570px;margin-inline:auto}
+body.school-student-portal #layout-wrapper .school-page-header{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    min-height:118px;
+    gap:9px 24px;
+    margin:0 0 24px!important;
+    padding:25px 30px!important;
+    overflow:hidden;
+    border:1px solid var(--st-line)!important;
+    border-radius:var(--st-card-radius);
+    background:linear-gradient(112deg,var(--st-hero-start),var(--st-hero-end))!important;
+    box-shadow:var(--st-shadow)!important;
+}
+body.school-student-portal #layout-wrapper .school-page-header:before{position:absolute;inset:0 auto 0 0;width:5px;background:var(--st-primary);content:""}
+body.school-student-portal #layout-wrapper .school-page-header:after{position:absolute;right:-64px;top:-110px;width:250px;height:250px;border:35px solid var(--st-soft-strong);border-radius:50%;content:"";opacity:.36;pointer-events:none}
+body.school-student-portal #layout-wrapper .school-page-header>*{position:relative;z-index:1}
+body.school-student-portal #layout-wrapper .school-page-header h4{color:var(--st-ink)!important;font-family:inherit;font-size:clamp(24px,2.4vw,32px)!important;font-weight:750;letter-spacing:-.035em;line-height:1.2}
+body.school-student-portal #layout-wrapper .school-page-header .breadcrumb{color:var(--st-muted);font-family:inherit;font-size:12px}
+body.school-student-portal #layout-wrapper .school-page-header .breadcrumb a{color:var(--st-primary-deep);font-weight:650}
+body.school-student-portal #layout-wrapper .school-page-header .breadcrumb .active{color:var(--st-muted)}
+body.school-student-portal .page-content :is(.btn-primary,.btn-outline-primary):focus-visible,
+body.school-student-portal .page-content :is(a,button,input,select,textarea):focus-visible{outline:3px solid var(--st-soft-strong);outline-offset:2px}
+body.school-student-portal .page-content .btn-primary{border-color:var(--st-primary)!important;background:var(--st-primary)!important;color:var(--st-white)!important;box-shadow:none}
+body.school-student-portal .page-content .btn-primary:hover{border-color:var(--st-primary-deep)!important;background:var(--st-primary-deep)!important}
+body.school-student-portal .page-content .btn-outline-primary{border-color:var(--st-soft-strong)!important;background:var(--st-surface);color:var(--st-primary-deep)!important}
+body.school-student-portal .page-content .btn-outline-primary:hover{border-color:var(--st-primary)!important;background:var(--st-soft);color:var(--st-primary-deep)!important}
+body.school-student-portal .page-content :is(.form-control,.form-select,select){min-height:42px;border:1px solid var(--st-line);border-radius:var(--st-control-radius);background:var(--st-surface);color:var(--st-ink);font:inherit;font-size:13px}
+body.school-student-portal .page-content :is(.form-control,.form-select,select):focus{border-color:var(--st-primary);box-shadow:0 0 0 3px var(--st-soft)}
+body.school-student-portal .page-content form label{color:var(--st-ink);font-size:12px;font-weight:650}
+body.school-student-portal .page-content .text-primary{color:var(--st-primary-deep)!important}
+body.school-student-portal .page-content .text-info{color:var(--st-primary-deep)!important}
+body.school-student-portal .page-content .bg-primary{background:var(--st-primary)!important}
+body.school-student-portal .page-content .border-primary{border-color:var(--st-primary)!important}
+body.school-student-portal .page-content .badge.bg-primary{border-radius:7px;padding:6px 9px;font-weight:650}
+body.school-student-portal .page-content .text-muted{color:var(--st-muted)!important}
+body.school-student-portal .page-content .nav-tabs{gap:5px;border-bottom:1px solid var(--st-line)}
+body.school-student-portal .page-content .nav-tabs .nav-link{min-height:42px;border:0;border-radius:9px 9px 0 0;color:var(--st-muted);font-size:12px;font-weight:700}
+body.school-student-portal .page-content .nav-tabs .nav-link:hover{background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .page-content .nav-tabs .nav-link.active{border-bottom:2px solid var(--st-primary);background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .page-content :is(.table,table){color:var(--st-ink)}
+body.school-student-portal .page-content .table thead th{border-bottom-color:var(--st-line);background:var(--st-soft);color:var(--st-primary-dark);font-size:11px;font-weight:750;letter-spacing:.025em}
+body.school-student-portal .page-content .table tbody :is(td,th){border-color:var(--st-line-soft);font-size:12px}
+body.school-student-portal .page-content .table tbody tr:hover{background:var(--st-canvas)}
+body.school-student-portal .page-content .card{border-color:var(--st-line);border-radius:var(--st-card-radius);background:var(--st-surface);box-shadow:var(--st-shadow)}
+body.school-student-portal .page-content .card-body{padding:20px}
+body.school-student-portal .page-content .alert-info{border-color:var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-dark)}
+body.school-student-portal .page-content .alert-warning{border-color:var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-dark)}
+body.school-student-portal .page-content .alert-heading{color:var(--st-primary-dark)}
+body.school-student-portal .page-content .modal-content{border:1px solid var(--st-line);border-radius:16px;box-shadow:var(--st-shadow)}
+body.school-student-portal .page-content .modal-header{border-bottom-color:var(--st-line);background:var(--st-soft)}
+body.school-student-portal .page-content .modal-title{color:var(--st-ink)}
+body.school-student-portal .page-content .modal-footer{border-top-color:var(--st-line)}
+
+/* Learning, timetable and attendance cards. */
+body.school-student-portal :is(.course-card,.att-card,.hw-card,.lms-card,.event-card,.profile-card,.info-card,.tab-card,.feedback-card,.student-library-card,.subject-card){
+    border:1px solid var(--st-line);
+    border-radius:var(--st-card-radius);
+    background:var(--st-surface);
+    box-shadow:0 8px 23px rgba(35,35,44,.045);
+    color:var(--st-ink);
+}
+body.school-student-portal :is(.course-card,.att-card,.hw-card,.lms-card,.event-card,.feedback-card):hover{border-color:var(--st-soft-strong);box-shadow:var(--st-shadow);transform:translateY(-2px)}
+body.school-student-portal :is(.course-card,.att-card,.hw-card,.lms-card,.event-card,.feedback-card){transition:transform .18s,box-shadow .18s,border-color .18s}
+body.school-student-portal :is(.course-card,.att-card,.hw-card,.lms-card,.event-card,.feedback-card,.student-library-card){padding:20px}
+body.school-student-portal .course-icon{background:var(--st-soft)!important;color:var(--st-primary-deep)!important}
+body.school-student-portal .course-card h6,
+body.school-student-portal :is(.hw-card,.lms-card,.feedback-card) h6{color:var(--st-ink);font-size:16px;font-weight:750;line-height:1.35}
+body.school-student-portal .course-card .badge-type{border:1px solid var(--st-soft-strong);background:var(--st-soft)!important;color:var(--st-primary-deep);font-size:10px;font-weight:750}
+body.school-student-portal :is(.hw-card,.lms-card){display:flex;flex-direction:column;gap:8px;min-height:235px;height:100%}
+body.school-student-portal :is(.hw-card,.lms-card) p{color:var(--st-muted);font-size:12px;line-height:1.6}
+body.school-student-portal :is(.hw-card,.lms-card) small{color:var(--st-muted)}
+body.school-student-portal :is(.hw-card,.lms-card) .badge.bg-primary{align-self:flex-start}
+body.school-student-portal :is(.hw-card,.lms-card) a{color:var(--st-primary-deep);font-weight:650}
+body.school-student-portal .lms-card .btn{border-color:var(--st-soft-strong)!important;background:var(--st-soft)!important;color:var(--st-primary-deep)!important}
+body.school-student-portal .lms-card .btn:hover{border-color:var(--st-primary)!important}
+body.school-student-portal .att-card{min-height:88px;gap:12px}
+body.school-student-portal .att-card strong{color:var(--st-ink);font-size:14px}
+body.school-student-portal .status-badge{display:inline-flex;align-items:center;min-height:30px;border:1px solid transparent;border-radius:999px;font-size:11px;font-weight:750}
+body.school-student-portal .status-badge.present{border-color:var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .status-badge.absent{background:#fbe9e9;color:#973d3d}
+body.school-student-portal .status-badge.leave{background:#fff1db;color:#8a5a19}
+body.school-student-portal .status-badge.holiday{background:var(--st-canvas);color:var(--st-primary-deep)}
+body.school-student-portal .timeline{margin-left:18px;padding-left:23px;border-left:2px solid var(--st-soft-strong)}
+body.school-student-portal .tt-item{margin-bottom:13px}
+body.school-student-portal .tt-dot{left:-31px;top:19px;width:14px;height:14px;border:3px solid var(--st-surface);background:var(--st-soft-strong);box-shadow:0 0 0 2px var(--st-soft-strong)}
+body.school-student-portal .tt-item.active .tt-dot{background:var(--st-primary);box-shadow:0 0 0 2px var(--st-primary)}
+body.school-student-portal .tt-item.next .tt-dot{background:var(--st-primary-deep);box-shadow:0 0 0 2px var(--st-primary-deep)}
+body.school-student-portal .tt-card{padding:17px 19px;border:1px solid var(--st-line);border-radius:14px;background:var(--st-surface);box-shadow:0 7px 19px rgba(35,35,44,.04)}
+body.school-student-portal .tt-item.active .tt-card{border-left:4px solid var(--st-primary);background:var(--st-soft)}
+body.school-student-portal .tt-item.next .tt-card{border-left:4px solid var(--st-primary-deep);background:var(--st-hero-start)}
+body.school-student-portal .tt-time{color:var(--st-primary-deep);font-size:11px;font-weight:750;letter-spacing:.025em}
+body.school-student-portal .tt-subject{margin-top:3px;color:var(--st-ink);font-size:16px;font-weight:750}
+body.school-student-portal .day-header{top:63px;margin:23px 0 14px;padding:12px 16px;border:1px solid var(--st-line);border-radius:12px;background:var(--st-surface);color:var(--st-ink);box-shadow:0 5px 15px rgba(35,35,44,.04)}
+body.school-student-portal .day-header.active-day{border-color:var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-deep);box-shadow:none}
+body.school-student-portal .active-day+.timeline{border-left-color:var(--st-primary)}
+body.school-student-portal #todayBlock{background:var(--st-soft)}
+body.school-student-portal .day-header small{margin-left:5px;color:var(--st-muted);font-weight:500}
+
+/* Calendar, library, feedback and profile. */
+body.school-student-portal .event-card.event,
+body.school-student-portal .event-card.holiday{background:var(--st-surface);color:var(--st-ink)}
+body.school-student-portal .event-card>div:first-child{align-items:flex-start}
+body.school-student-portal .event-card>div:first-child strong{color:var(--st-ink);font-size:16px;font-weight:750}
+body.school-student-portal .event-card .badge-type{border:1px solid var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .event-card .date-box{color:var(--st-muted);font-size:12px}
+body.school-student-portal .student-library-card{margin-bottom:0}
+body.school-student-portal .student-library-grid{gap:15px;margin-bottom:19px}
+body.school-student-portal .student-library-card h4,
+body.school-student-portal .student-library-card h5{color:var(--st-ink);font-weight:750}
+body.school-student-portal .student-library-card h4{font-size:19px}
+body.school-student-portal .student-library-card h5{font-size:15px}
+body.school-student-portal .student-library-muted{color:var(--st-muted);font-size:12px;line-height:1.55}
+body.school-student-portal .student-library-badge{border:1px solid var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .student-library-badge.overdue{border-color:#f0d3c0;background:#fff0e7;color:#a24f28}
+body.school-student-portal .student-library-card hr{border-color:var(--st-line-soft)}
+body.school-student-portal .profile-card{padding:24px}
+body.school-student-portal .profile-img{width:108px;height:108px;border:4px solid var(--st-soft-strong);box-shadow:0 7px 18px rgba(35,35,44,.09)}
+body.school-student-portal .profile-card h5{margin:14px 0 4px!important;color:var(--st-ink);font-size:20px;font-weight:750}
+body.school-student-portal .profile-card small{color:var(--st-muted)}
+body.school-student-portal .profile-card p{display:flex;justify-content:space-between;gap:10px;margin:0;padding:9px 0;border-bottom:1px solid var(--st-line-soft);color:var(--st-ink);font-size:12px;text-align:left}
+body.school-student-portal .profile-card p:last-child{border-bottom:0}
+body.school-student-portal .profile-card p strong{color:var(--st-muted);font-weight:600}
+body.school-student-portal .info-card{display:flex;min-height:92px;flex-direction:column;align-items:flex-start;justify-content:center;padding:17px;text-align:left}
+body.school-student-portal .info-card h6{margin:0 0 5px;color:var(--st-muted);font-size:11px;font-weight:650}
+body.school-student-portal .info-card strong{overflow-wrap:anywhere;color:var(--st-ink);font-size:16px;font-weight:750}
+body.school-student-portal .tab-card{padding:20px}
+body.school-student-portal .tab-card table{width:100%}
+body.school-student-portal .tab-card table th{width:34%;min-width:100px;color:var(--st-muted);font-size:12px;font-weight:650}
+body.school-student-portal .tab-card table td{overflow-wrap:anywhere;color:var(--st-ink);font-size:12px}
+body.school-student-portal .feedback-card{min-height:154px;padding-right:100px}
+body.school-student-portal .feedback-card .feedback-status{top:17px;right:17px;border-radius:99px;padding:6px 9px;font-size:10px}
+body.school-student-portal .feedback-card .badge-live{background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .feedback-card .badge-upcoming{background:var(--st-canvas);color:var(--st-muted)}
+body.school-student-portal .feedback-card .badge-expired{background:#f7ecec;color:#9a5555}
+body.school-student-portal .feedback-card a.btn{margin-top:13px!important}
+body.school-student-portal .subject-card{gap:15px;padding:16px;border-left:4px solid var(--st-primary)}
+body.school-student-portal .subject-card.done{background:var(--st-soft)}
+body.school-student-portal .subject-card.pending{background:var(--st-surface)}
+body.school-student-portal .subject-card small{color:var(--st-muted)}
+body.school-student-portal .star-rating label{color:#c8c8ce}
+body.school-student-portal .star-rating input:checked~label,
+body.school-student-portal .star-rating label:hover,
+body.school-student-portal .star-rating label:hover~label{color:var(--st-primary)}
+body.school-student-portal .progress{height:10px;border-radius:99px;background:var(--st-soft)}
+body.school-student-portal .progress-bar{background:var(--st-primary)!important}
+body.school-student-portal .question-block{padding:16px;border:1px solid var(--st-line);border-radius:13px;background:var(--st-surface)}
+body.school-student-portal .question-block>label{display:block;margin-bottom:6px;font-weight:700}
+
+/* Fees retain selection and payment behavior while adopting the same controls. */
+body.school-student-portal.student-page-fees #top-tab{margin-bottom:18px}
+body.school-student-portal.student-page-fees #feeCardContainer :is(.card,.due-card){min-height:185px;overflow:hidden;border:1px solid var(--st-line)!important;border-left:4px solid var(--st-soft-strong)!important;border-radius:15px;box-shadow:0 8px 24px rgba(35,35,44,.05)!important;transition:border-color .18s,transform .18s,box-shadow .18s}
+body.school-student-portal.student-page-fees #feeCardContainer :is(.card,.due-card):hover{border-left-color:var(--st-primary)!important;transform:translateY(-2px);box-shadow:var(--st-shadow)!important}
+body.school-student-portal.student-page-fees #feeCardContainer .card.border-primary{border-color:var(--st-primary)!important;background:var(--st-soft)}
+body.school-student-portal.student-page-fees #feeCardContainer .card.border-success{border-left-color:var(--st-primary)!important}
+body.school-student-portal.student-page-fees :is(#top-home,#due-fees) .sticky-bottom{z-index:5;border:1px solid var(--st-line);border-radius:13px;background:var(--st-surface)!important;box-shadow:0 8px 26px rgba(35,35,44,.1)!important}
+body.school-student-portal.student-page-fees :is(#top-home,#due-fees) .sticky-bottom h5{color:var(--st-ink);font-size:17px;font-weight:750}
+body.school-student-portal.student-page-fees :is(#top-home,#due-fees) .sticky-bottom button{min-height:44px;font-weight:750}
+body.school-student-portal.student-page-fees .card-title{color:var(--st-ink)}
+body.school-student-portal.student-page-fees .card-subtitle{color:var(--st-muted)!important}
+
+/* Existing support and notification modules read the same palette. */
+body.school-student-portal{
+    --ticket-navy:var(--st-primary-deep);
+    --ticket-navy-dark:var(--st-primary-dark);
+    --ticket-blue:var(--st-primary);
+    --ticket-orange:var(--st-primary);
+    --ticket-canvas:var(--st-canvas);
+    --ticket-surface:var(--st-surface);
+    --ticket-line:var(--st-line);
+    --ticket-muted:var(--st-muted);
+    --ticket-ink:var(--st-ink);
+}
+body.school-student-portal .ticket-page-heading{background:linear-gradient(115deg,var(--st-primary-dark),var(--st-primary-deep));box-shadow:var(--st-shadow)}
+body.school-student-portal .ticket-page-heading:after{border-color:var(--st-soft-strong)}
+body.school-student-portal .ticket-eyebrow,
+body.school-student-portal .ticket-hero-stats i{color:var(--st-soft-strong)}
+body.school-student-portal .support-primary,
+body.school-student-portal .ticket-create-panel>button{background:var(--st-primary);box-shadow:none}
+body.school-student-portal .ticket-view-tabs a.active{background:var(--st-soft);color:var(--st-primary-deep);box-shadow:inset 0 0 0 1px var(--st-soft-strong)}
+body.school-student-portal .support-card-icon{background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .school-notification-module.employee-notification-center,
+body.school-student-portal.school-notification-module{
+    --gu-navy-950:var(--st-primary-dark);
+    --gu-navy-900:var(--st-primary-deep);
+    --gu-navy-800:var(--st-primary);
+    --gu-blue-600:var(--st-primary);
+    --gu-orange-600:var(--st-primary-deep);
+    --gu-orange-500:var(--st-primary);
+    --gu-orange-100:var(--st-soft);
+    --gu-canvas:var(--st-canvas);
+    --gu-surface:var(--st-surface);
+    --gu-ink:var(--st-ink);
+    --gu-muted:var(--st-muted);
+    --gu-border:var(--st-line);
+}
+body.school-student-portal .employee-notification-hero{background:linear-gradient(115deg,var(--st-primary-dark),var(--st-primary-deep));box-shadow:var(--st-shadow)}
+body.school-student-portal .employee-notification-eyebrow{color:var(--st-soft-strong)}
+
+/* Hostel and transport reuse the same theme without touching employee layouts. */
+body.school-student-portal .school-hostel{font-family:inherit;color:var(--st-ink)}
+body.school-student-portal .school-hostel .hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:26px 30px;border:1px solid var(--st-line);border-radius:var(--st-card-radius);background:linear-gradient(112deg,var(--st-hero-start),var(--st-hero-end));color:var(--st-ink);box-shadow:var(--st-shadow)}
+body.school-student-portal .school-hostel .hero h1{margin:0;color:var(--st-ink);font-size:clamp(24px,2.4vw,32px);font-weight:750}
+body.school-student-portal .school-hostel .hero p{margin:5px 0 0;color:var(--st-muted);font-size:12px}
+body.school-student-portal .school-hostel section{border:1px solid var(--st-line);border-radius:var(--st-card-radius);background:var(--st-surface);box-shadow:var(--st-shadow)}
+body.school-student-portal .school-hostel section h3{color:var(--st-ink);font-size:19px;font-weight:750}
+body.school-student-portal .school-hostel section h4{color:var(--st-ink);font-size:16px}
+body.school-student-portal .school-hostel section small{color:var(--st-muted)}
+body.school-student-portal .school-hostel section .grid>div,
+body.school-student-portal .school-hostel section .grid>form{padding:15px;border:1px solid var(--st-line);border-radius:12px;background:var(--st-canvas)}
+body.school-student-portal .school-hostel table th{background:var(--st-soft);color:var(--st-primary-dark)}
+body.school-student-portal .school-hostel table :is(th,td){border-bottom-color:var(--st-line)}
+body.school-student-portal .school-hostel .table-wrap{border:1px solid var(--st-line);border-radius:12px}
+body.school-student-portal .school-hostel :is(input,select,textarea):focus{border-color:var(--st-primary);box-shadow:0 0 0 3px var(--st-soft)}
+body.school-student-portal .transport-workspace{
+    --tw-navy:var(--st-primary);
+    --tw-deep:var(--st-primary-dark);
+    --tw-orange:var(--st-primary-deep);
+    --tw-ink:var(--st-ink);
+    --tw-muted:var(--st-muted);
+    --tw-line:var(--st-line);
+    font-family:inherit;
+}
+body.school-student-portal .tw-hero{background:linear-gradient(115deg,var(--st-primary-dark),var(--st-primary-deep));box-shadow:var(--st-shadow)}
+body.school-student-portal .tw-hero:before,
+body.school-student-portal .tw-hero:after{background:var(--st-soft-strong);opacity:.18}
+body.school-student-portal .tw-eyebrow,
+body.school-student-portal .tw-route-chip small{color:var(--st-soft-strong)}
+body.school-student-portal .tw-card{border-color:var(--st-line);background:var(--st-surface);box-shadow:var(--st-shadow)}
+body.school-student-portal .tw-allotted{border-color:var(--st-soft-strong);background:var(--st-soft)}
+body.school-student-portal .tw-allotted-label{color:var(--st-primary-deep)}
+body.school-student-portal .tw-time-box{background:var(--st-surface)}
+body.school-student-portal .tw-stop:before{background:var(--st-line)}
+body.school-student-portal .tw-stop.is-allotted{background:var(--st-soft)}
+body.school-student-portal .tw-stop.is-allotted .tw-dot{background:var(--st-primary);box-shadow:0 0 0 4px var(--st-soft-strong)}
+body.school-student-portal .tw-stop-name span{background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .tw-stop-times div,
+body.school-student-portal .tw-note{background:var(--st-canvas)}
+
+@media(max-width:767px){
+    body.school-student-portal #layout-wrapper .page-content>.container-fluid{padding-inline:12px}
+    body.school-student-portal #layout-wrapper .school-page-header{min-height:100px;margin:0 0 17px!important;padding:19px 18px!important}
+    body.school-student-portal #layout-wrapper .school-page-header h4{font-size:23px!important}
+    body.school-student-portal #layout-wrapper .school-page-header .breadcrumb{justify-content:flex-start;font-size:11px}
+    body.school-student-portal :is(.course-card,.att-card,.hw-card,.lms-card,.event-card,.feedback-card,.student-library-card){padding:16px}
+    body.school-student-portal .profile-card{margin-bottom:15px}
+    body.school-student-portal .tab-card{padding:15px;overflow-x:auto}
+    body.school-student-portal .feedback-card{min-height:145px}
+    body.school-student-portal .school-hostel .hero{padding:21px 19px}
+}
+@media(prefers-reduced-motion:reduce){
+    body.school-student-portal :is(.course-card,.att-card,.hw-card,.lms-card,.event-card,.feedback-card){transition:none}
+}
+
+/* Shared overview and empty states for student modules. */
+body.school-student-portal .student-inner-overview{display:flex;align-items:center;gap:15px;margin:0 0 20px;padding:16px 19px;border:1px solid var(--st-line);border-radius:15px;background:var(--st-surface);box-shadow:0 7px 20px rgba(35,35,44,.045)}
+body.school-student-portal .student-inner-overview__icon{display:grid;flex:none;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--st-soft);color:var(--st-primary-deep);font-size:23px}
+body.school-student-portal .student-inner-overview__copy{flex:1;min-width:0}
+body.school-student-portal .student-inner-overview__copy small{color:var(--st-primary-deep);font-size:10px;font-weight:800;letter-spacing:.09em}
+body.school-student-portal .student-inner-overview__copy p{margin:4px 0 0;color:var(--st-muted);font-size:12px;line-height:1.45}
+body.school-student-portal .student-inner-overview__metric{display:flex;flex:none;flex-direction:column;align-items:flex-end;gap:2px;padding-left:17px;border-left:1px solid var(--st-line-soft)}
+body.school-student-portal .student-inner-overview__metric strong{color:var(--st-ink);font-size:21px;font-weight:800;line-height:1}
+body.school-student-portal .student-inner-overview__metric span{color:var(--st-muted);font-size:10px}
+body.school-student-portal .student-empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;padding:30px;border:1px dashed var(--st-soft-strong);border-radius:17px;background:var(--st-surface);text-align:center}
+body.school-student-portal .student-empty-state[hidden]{display:none!important}
+body.school-student-portal .student-empty-state>i{display:grid;place-items:center;width:58px;height:58px;margin-bottom:11px;border-radius:16px;background:var(--st-soft);color:var(--st-primary-deep);font-size:28px}
+body.school-student-portal .student-empty-state h5{margin:0;color:var(--st-ink);font-size:17px;font-weight:750}
+body.school-student-portal .student-empty-state p{max-width:420px;margin:6px 0 0;color:var(--st-muted);font-size:12px;line-height:1.5}
+body.school-student-portal.student-page-myattendance .page-content form.row,
+body.school-student-portal.student-page-homework .page-content form.row,
+body.school-student-portal.student-page-lms .page-content form.row,
+body.school-student-portal.student-page-library .page-content .student-library-card form.row{align-items:end;margin:0 0 20px;padding:16px;border:1px solid var(--st-line);border-radius:15px;background:var(--st-surface);box-shadow:0 6px 19px rgba(35,35,44,.04)}
+body.school-student-portal.student-page-myattendance .page-content form.row label,
+body.school-student-portal.student-page-homework .page-content form.row label,
+body.school-student-portal.student-page-lms .page-content form.row label{display:block;margin-bottom:6px;color:var(--st-muted);font-size:11px;font-weight:700}
+body.school-student-portal .student-attachment-link{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;margin-top:auto;padding:7px 10px;border:1px solid var(--st-soft-strong);border-radius:8px;background:var(--st-soft);color:var(--st-primary-deep);font-size:11px;text-decoration:none}
+body.school-student-portal .student-attachment-link:hover{border-color:var(--st-primary);color:var(--st-primary-deep)}
+body.school-student-portal .student-filter-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 18px;padding:6px;border:1px solid var(--st-line);border-radius:13px;background:var(--st-surface)}
+body.school-student-portal .student-filter-tabs button{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 13px;border:0;border-radius:9px;background:transparent;color:var(--st-muted);font:inherit;font-size:12px;font-weight:700}
+body.school-student-portal .student-filter-tabs button:hover{background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .student-filter-tabs button.is-active{background:var(--st-primary);color:var(--st-white)}
+body.school-student-portal .student-filter-tabs button span{display:grid;place-items:center;min-width:18px;height:18px;padding:0 4px;border-radius:99px;background:var(--st-soft);color:var(--st-primary-deep);font-size:10px}
+body.school-student-portal .event-card[hidden]{display:none!important}
+body.school-student-portal .student-calendar-today{padding:5px 9px;border-radius:99px;background:var(--st-primary);color:var(--st-white);font-size:10px}
+@media(max-width:640px){
+ body.school-student-portal .student-inner-overview{align-items:flex-start;gap:11px;padding:14px}
+ body.school-student-portal .student-inner-overview__icon{width:39px;height:39px;font-size:19px}
+ body.school-student-portal .student-inner-overview__metric{padding-left:10px}
+ body.school-student-portal .student-inner-overview__metric strong{font-size:17px}
+ body.school-student-portal .student-inner-overview__metric span{max-width:67px;text-align:right}
+ body.school-student-portal .student-inner-overview__copy p{font-size:11px}
+}
+
+body.school-student-portal .student-profile-document{display:block;width:100%;height:116px;margin-bottom:8px;border-radius:9px;background:var(--st-soft);object-fit:contain}
+body.school-student-portal.student-page-fees #due-fees .due-card{min-height:185px;overflow:hidden;border:1px solid var(--st-line)!important;border-left:4px solid var(--st-soft-strong)!important;border-radius:15px;box-shadow:0 8px 24px rgba(35,35,44,.05)!important}
+body.school-student-portal.student-page-fees #due-fees .due-card:hover{border-left-color:var(--st-primary)!important;box-shadow:var(--st-shadow)!important}
+body.school-student-portal.student-page-fees #due-fees .due-card.border-primary{border-color:var(--st-primary)!important;background:var(--st-soft)}
+body.school-student-portal.school-notification-module .employee-notification-hero{min-height:245px;padding:30px 34px;border-radius:20px;background:linear-gradient(115deg,var(--st-primary-dark),var(--st-primary-deep));box-shadow:var(--st-shadow)}
+body.school-student-portal.school-notification-module .employee-notification-hero h1{font-family:inherit;font-size:clamp(27px,3vw,38px);font-weight:760}
+body.school-student-portal.school-notification-module .employee-notification-hero__copy>p{margin:10px 0 17px;font-size:13px}
+body.school-student-portal.school-notification-module .employee-notification-hero__signal{transform:scale(.8)}
+body.school-student-portal.school-notification-module .employee-notification-modal{
+ --gu-navy-900:var(--st-primary-deep);
+ --gu-navy-800:var(--st-primary);
+ --gu-ink:var(--st-ink);
+ --gu-muted:var(--st-muted);
+ --gu-border:var(--st-line);
+ font-family:inherit;
+}
+body.school-student-portal.school-notification-module .employee-notification-modal__hero{background:linear-gradient(115deg,var(--st-primary-dark),var(--st-primary-deep))}
+body.school-student-portal.school-notification-module .employee-notification-modal__glow{background:var(--st-soft-strong)}
+@media(max-width:767px){
+ body.school-student-portal.school-notification-module .employee-notification-hero{padding:25px 20px}
+ body.school-student-portal.school-notification-module .employee-notification-hero__signal{display:none}
+}
+
+/* Student-only overlays and final spacing refinements. */
+body.school-student-portal .modal:not(.student-home__modal):not(.employee-notification-modal) .modal-content{border:1px solid var(--st-line);border-radius:16px;background:var(--st-surface);box-shadow:0 25px 60px rgba(35,35,44,.18)}
+body.school-student-portal .modal:not(.student-home__modal):not(.employee-notification-modal) .modal-header{border-bottom:1px solid var(--st-line);background:var(--st-soft)}
+body.school-student-portal .modal:not(.student-home__modal):not(.employee-notification-modal) .modal-title{color:var(--st-ink);font-family:inherit;font-size:17px;font-weight:750}
+body.school-student-portal .modal:not(.student-home__modal):not(.employee-notification-modal) .modal-footer{border-top-color:var(--st-line)}
+body.school-student-portal .modal:not(.student-home__modal):not(.employee-notification-modal) .btn-primary{border-color:var(--st-primary);background:var(--st-primary);color:var(--st-white)}
+body.school-student-portal .lms-card>.mt-2{margin-top:auto!important}
+body.school-student-portal .transport-workspace .service-form-gate{border-color:var(--st-line);background:var(--st-surface);box-shadow:var(--st-shadow)}
+body.school-student-portal .transport-workspace .service-form-gate>i{background:var(--st-primary)}
+body.school-student-portal .transport-workspace .tw-empty i{background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .transport-workspace .tw-stop-times div{background:var(--st-canvas)}
+body.school-student-portal .transport-workspace .tw-route-chip{background:rgba(255,255,255,.1)}
+body.school-student-portal.student-page-calendar #eventList{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:13px}
+body.school-student-portal.student-page-calendar .event-card{height:100%;margin:0}
+@media(max-width:640px){body.school-student-portal.student-page-calendar #eventList{grid-template-columns:1fr}}
+
+/* Timetable: compact day-first workspace. */
+body.school-student-portal .student-schedule{padding:3px 0 28px;font-family:inherit}
+body.school-student-portal .student-schedule *{box-sizing:border-box}
+body.school-student-portal .student-schedule__breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;color:var(--st-muted);font-size:12px;font-weight:650}
+body.school-student-portal .student-schedule__breadcrumb a{display:inline-flex;align-items:center;gap:6px;color:var(--st-primary-deep);text-decoration:none}
+body.school-student-portal .student-schedule__breadcrumb a:hover{text-decoration:underline}
+body.school-student-portal .student-schedule__breadcrumb>i{color:var(--st-muted);font-size:16px}
+body.school-student-portal .student-schedule__heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:19px;padding:0 0 19px;border-bottom:1px solid var(--st-line)}
+body.school-student-portal .student-schedule__eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--st-primary-deep);font-size:10px;font-weight:800;letter-spacing:.08em}
+body.school-student-portal .student-schedule__eyebrow i{font-size:15px}
+body.school-student-portal .student-schedule__heading h1{margin:5px 0 4px;color:var(--st-ink);font-size:clamp(23px,2.4vw,29px);font-weight:780;letter-spacing:-.035em;line-height:1.2}
+body.school-student-portal .student-schedule__heading p{margin:0;color:var(--st-muted);font-size:13px}
+body.school-student-portal .student-schedule__today{display:flex;flex:none;flex-direction:column;align-items:flex-end;gap:2px;padding-left:18px;border-left:1px solid var(--st-line)}
+body.school-student-portal .student-schedule__today span{color:var(--st-primary-deep);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+body.school-student-portal .student-schedule__today strong{color:var(--st-ink);font-size:16px;line-height:1.25}
+body.school-student-portal .student-schedule__today small{color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-schedule__workspace{padding:19px;border:1px solid var(--st-line);border-radius:16px;background:var(--st-surface);box-shadow:0 8px 24px rgba(35,35,44,.045)}
+body.school-student-portal .student-schedule__toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+body.school-student-portal .student-schedule__toolbar h2{margin:0;color:var(--st-ink);font-size:17px;font-weight:760}
+body.school-student-portal .student-schedule__toolbar p{margin:4px 0 0;color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-schedule__today-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 12px;border:1px solid var(--st-soft-strong);border-radius:9px;background:var(--st-soft);color:var(--st-primary-deep);font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;white-space:nowrap;cursor:pointer}
+body.school-student-portal .student-schedule__today-button:hover{border-color:var(--st-primary);background:var(--st-primary);color:var(--st-white)}
+body.school-student-portal .student-schedule__days{display:flex;gap:7px;max-width:100%;padding:0 0 10px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--st-soft-strong) transparent}
+body.school-student-portal .student-schedule__day{display:inline-flex;flex:none;align-items:center;gap:7px;min-height:44px;padding:7px 11px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-surface);color:var(--st-ink);font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+body.school-student-portal .student-schedule__day:hover{border-color:var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .student-schedule__day.is-active{border-color:var(--st-primary-deep);background:var(--st-primary-deep);color:var(--st-white)}
+body.school-student-portal .student-schedule__day span{display:grid;min-width:21px;height:21px;padding:0 4px;place-items:center;border-radius:6px;background:var(--st-soft);color:var(--st-primary-deep);font-size:10px}
+body.school-student-portal .student-schedule__day.is-active span{background:rgba(255,255,255,.18);color:var(--st-white)}
+body.school-student-portal .student-schedule__day em{font-size:10px;font-style:normal;font-weight:650;opacity:.8}
+body.school-student-portal .student-schedule__result{margin:0 0 10px;color:var(--st-muted);font-size:11px;font-weight:650}
+body.school-student-portal .student-schedule__day-panel[hidden]{display:none!important}
+body.school-student-portal .student-schedule__day-panel+.student-schedule__day-panel{margin-top:22px}
+body.school-student-portal .student-schedule__day-heading{display:flex;align-items:center;gap:8px;margin:0 0 10px}
+body.school-student-portal .student-schedule__day-heading h3{margin:0;color:var(--st-ink);font-size:14px;font-weight:760}
+body.school-student-portal .student-schedule__day-heading>span{padding:3px 7px;border-radius:5px;background:var(--st-soft);color:var(--st-primary-deep);font-size:10px;font-weight:750}
+body.school-student-portal .student-schedule__day-heading small{margin-left:auto;color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-schedule__periods{display:grid;gap:8px}
+body.school-student-portal .student-schedule__period{display:grid;grid-template-columns:38px minmax(0,1fr) minmax(190px,auto) auto;align-items:center;gap:14px;min-height:72px;padding:11px 15px;border:1px solid var(--st-line);border-radius:11px;background:var(--st-surface)}
+body.school-student-portal .student-schedule__period.is-live{border-color:var(--st-primary);background:var(--st-soft)}
+body.school-student-portal .student-schedule__period.is-next{border-color:var(--st-soft-strong);background:var(--st-hero-start)}
+body.school-student-portal .student-schedule__number{display:grid;width:38px;height:38px;place-items:center;border-radius:9px;background:var(--st-soft);color:var(--st-primary-deep);font-size:13px;font-weight:800}
+body.school-student-portal .student-schedule__period.is-live .student-schedule__number{background:var(--st-primary);color:var(--st-white)}
+body.school-student-portal .student-schedule__subject{min-width:0}
+body.school-student-portal .student-schedule__subject small{color:var(--st-muted);font-size:10px;font-weight:700}
+body.school-student-portal .student-schedule__subject h4{margin:3px 0 0;color:var(--st-ink);font-size:14px;font-weight:760;line-height:1.3;overflow-wrap:anywhere}
+body.school-student-portal .student-schedule__time{display:flex;align-items:center;gap:7px;color:var(--st-muted);font-size:12px;font-weight:650;white-space:nowrap}
+body.school-student-portal .student-schedule__time i{color:var(--st-primary-deep);font-size:15px}
+body.school-student-portal .student-schedule__time b{padding:0 3px;color:var(--st-muted);font-weight:500}
+body.school-student-portal .student-schedule__status{justify-self:end;padding:6px 9px;border-radius:7px;background:var(--st-primary);color:var(--st-white);font-size:10px;font-weight:800;white-space:nowrap}
+body.school-student-portal .student-schedule__period.is-next .student-schedule__status{background:var(--st-soft-strong);color:var(--st-primary-deep)}
+body.school-student-portal .student-schedule__breadcrumb a:focus-visible,body.school-student-portal .student-schedule button:focus-visible{outline:3px solid var(--st-soft-strong);outline-offset:2px}
+@media(max-width:700px){
+ body.school-student-portal .student-schedule__heading{align-items:flex-start}
+ body.school-student-portal .student-schedule__today{max-width:110px}
+ body.school-student-portal .student-schedule__workspace{padding:14px}
+ body.school-student-portal .student-schedule__period{grid-template-columns:35px minmax(0,1fr);gap:7px 11px;padding:11px}
+ body.school-student-portal .student-schedule__number{width:35px;height:35px;grid-row:1/3}
+ body.school-student-portal .student-schedule__time{grid-column:2;white-space:normal;font-size:11px}
+ body.school-student-portal .student-schedule__status{grid-column:2;justify-self:start;margin-top:3px}
+}
+@media(max-width:460px){
+ body.school-student-portal .student-schedule__heading{gap:10px}
+ body.school-student-portal .student-schedule__heading p{font-size:11px}
+ body.school-student-portal .student-schedule__today{padding-left:10px}
+ body.school-student-portal .student-schedule__today strong{font-size:12px}
+ body.school-student-portal .student-schedule__today small{font-size:9px}
+}
+
+/* Action buttons inherit the selected school palette throughout student modules. */
+body.school-student-portal .page-content :is(.btn-primary,.btn-success,.btn-info,.btn-secondary),
+body.school-student-portal.student-page-fees .page-content #payDueBtn,
+body.school-student-portal.student-page-lms .page-content .lms-card .btn-danger{border-color:var(--st-primary-deep)!important;background:var(--st-primary-deep)!important;color:var(--st-white)!important}
+body.school-student-portal .page-content :is(.btn-primary,.btn-success,.btn-info,.btn-secondary):hover,
+body.school-student-portal.student-page-fees .page-content #payDueBtn:hover,
+body.school-student-portal.student-page-lms .page-content .lms-card .btn-danger:hover{border-color:var(--st-primary-dark)!important;background:var(--st-primary-dark)!important;color:var(--st-white)!important}
+
+/* Shared compact learning modules: homework and resources. */
+body.school-student-portal .student-module{padding:3px 0 28px;font-family:inherit}
+body.school-student-portal .student-module *{box-sizing:border-box}
+body.school-student-portal .student-module__breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;color:var(--st-muted);font-size:12px;font-weight:650}
+body.school-student-portal .student-module__breadcrumb a{display:inline-flex;align-items:center;gap:6px;color:var(--st-primary-deep);text-decoration:none}
+body.school-student-portal .student-module__breadcrumb a:hover{text-decoration:underline}
+body.school-student-portal .student-module__breadcrumb>i{color:var(--st-muted);font-size:16px}
+body.school-student-portal .student-module__heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:19px;padding-bottom:19px;border-bottom:1px solid var(--st-line)}
+body.school-student-portal .student-module__eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--st-primary-deep);font-size:10px;font-weight:800;letter-spacing:.08em}
+body.school-student-portal .student-module__eyebrow i{font-size:15px}
+body.school-student-portal .student-module__heading h1{margin:5px 0 4px;color:var(--st-ink);font-size:clamp(23px,2.4vw,29px);font-weight:780;letter-spacing:-.035em;line-height:1.2}
+body.school-student-portal .student-module__heading p{margin:0;color:var(--st-muted);font-size:13px}
+body.school-student-portal .student-module__count{display:flex;flex:none;align-items:center;gap:9px;padding:9px 12px;border:1px solid var(--st-line);border-radius:10px;background:var(--st-surface)}
+body.school-student-portal .student-module__count strong{color:var(--st-primary-deep);font-size:20px;line-height:1}
+body.school-student-portal .student-module__count span{max-width:85px;color:var(--st-muted);font-size:11px;line-height:1.2}
+body.school-student-portal .student-module__filters{margin-bottom:16px;padding:16px 18px;border:1px solid var(--st-line);border-radius:15px;background:var(--st-surface);box-shadow:0 7px 20px rgba(35,35,44,.04)}
+body.school-student-portal .student-module__filter-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:13px}
+body.school-student-portal .student-module__filter-top h2{margin:0;color:var(--st-ink);font-size:15px;font-weight:760}
+body.school-student-portal .student-module__filter-top p{margin:3px 0 0;color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-module__presets{display:flex;flex-wrap:wrap;gap:6px}
+body.school-student-portal .student-module__presets a{display:inline-flex;align-items:center;min-height:44px;padding:7px 11px;border:1px solid var(--st-line);border-radius:8px;background:var(--st-surface);color:var(--st-primary-deep);font-size:11px;font-weight:700;text-decoration:none}
+body.school-student-portal .student-module__presets a:hover{border-color:var(--st-soft-strong);background:var(--st-soft)}
+body.school-student-portal .student-module__presets a.is-active{border-color:var(--st-primary-deep);background:var(--st-primary-deep);color:var(--st-white)}
+body.school-student-portal .student-module__date-form{display:grid;grid-template-columns:minmax(0,180px) minmax(0,180px) auto;align-items:end;gap:9px}
+body.school-student-portal .student-module__date-form label{display:grid;gap:5px;margin:0;color:var(--st-ink);font-size:11px;font-weight:700}
+body.school-student-portal .student-module__date-form input{width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-surface);color:var(--st-ink);font:inherit;font-size:12px}
+body.school-student-portal .student-module__date-form button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 15px;border:1px solid var(--st-primary-deep);border-radius:9px;background:var(--st-primary-deep);color:var(--st-white);font-family:inherit;font-size:12px;font-weight:750;white-space:nowrap;cursor:pointer}
+body.school-student-portal .student-module__date-form button:hover{border-color:var(--st-primary-dark);background:var(--st-primary-dark)}
+body.school-student-portal .student-module__workspace{overflow:hidden;border:1px solid var(--st-line);border-radius:15px;background:var(--st-surface);box-shadow:0 7px 20px rgba(35,35,44,.04)}
+body.school-student-portal .student-module__workspace-top{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px 18px;border-bottom:1px solid var(--st-line)}
+body.school-student-portal .student-module__workspace-top h2{margin:0;color:var(--st-ink);font-size:16px;font-weight:760}
+body.school-student-portal .student-module__workspace-top p{margin:3px 0 0;color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-module__search-controls{display:flex;align-items:center;gap:8px}
+body.school-student-portal .student-module__search{display:flex;align-items:center;gap:7px;min-width:230px;min-height:44px;margin:0;padding:0 10px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-surface);color:var(--st-primary-deep)}
+body.school-student-portal .student-module__search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--st-ink);font-family:inherit;font-size:12px}
+body.school-student-portal .student-module__search input::placeholder{color:var(--st-muted)}
+body.school-student-portal .student-module__subject-select{margin:0}
+body.school-student-portal .student-module__subject-select select{min-width:155px;min-height:44px;padding:0 29px 0 10px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-surface);color:var(--st-ink);font-family:inherit;font-size:12px}
+body.school-student-portal .student-module__list{display:grid}
+body.school-student-portal .student-module__item{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:14px;padding:16px 18px;border-bottom:1px solid var(--st-line-soft)}
+body.school-student-portal .student-module__item:last-child{border-bottom:0}
+body.school-student-portal .student-module__item[hidden],body.school-student-portal .student-module__no-results[hidden]{display:none!important}
+body.school-student-portal .student-module__item:hover{background:var(--st-canvas)}
+body.school-student-portal .student-module__item-icon{display:grid;width:42px;height:42px;place-items:center;border-radius:10px;background:var(--st-soft);color:var(--st-primary-deep);font-size:20px}
+body.school-student-portal .student-module__item-body{min-width:0}
+body.school-student-portal .student-module__item-meta{display:flex;align-items:center;flex-wrap:wrap;gap:5px 12px;color:var(--st-muted);font-size:10px;font-weight:650}
+body.school-student-portal .student-module__item-meta>span{display:inline-flex;align-items:center;gap:4px}
+body.school-student-portal .student-module__subject{padding:4px 7px;border-radius:6px;background:var(--st-soft);color:var(--st-primary-deep);font-weight:750}
+body.school-student-portal .student-module__item h3{margin:6px 0 4px;color:var(--st-ink);font-size:15px;font-weight:760;line-height:1.3;overflow-wrap:anywhere}
+body.school-student-portal .student-module__item p{display:-webkit-box;overflow:hidden;margin:0;color:var(--st-muted);font-size:12px;line-height:1.45;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+body.school-student-portal .student-module__item-body>small{display:inline-flex;align-items:center;gap:4px;margin-top:6px;color:var(--st-muted);font-size:10px}
+body.school-student-portal .student-module__item-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+body.school-student-portal .student-module__file-hint{display:inline-flex;align-items:center;gap:4px;color:var(--st-primary-deep);font-size:10px;font-weight:700}
+body.school-student-portal .student-module__item-action button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 11px;border:1px solid var(--st-soft-strong);border-radius:9px;background:var(--st-soft);color:var(--st-primary-deep);font-family:inherit;font-size:11px;font-weight:750;white-space:nowrap;cursor:pointer}
+body.school-student-portal .student-module__item-action button:hover{border-color:var(--st-primary-deep);background:var(--st-primary-deep);color:var(--st-white)}
+body.school-student-portal .student-module__no-results{display:flex;flex-direction:column;align-items:center;gap:6px;padding:40px 15px;text-align:center}
+body.school-student-portal .student-module__no-results i{color:var(--st-primary-deep);font-size:27px}
+body.school-student-portal .student-module__no-results strong{color:var(--st-ink);font-size:14px}
+body.school-student-portal .student-module__no-results p{margin:0;color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-module__empty-link{display:inline-flex;align-items:center;gap:5px;margin-top:15px;color:var(--st-primary-deep);font-size:12px;font-weight:750;text-decoration:none}
+body.school-student-portal .student-module__empty-link:hover{text-decoration:underline}
+body.school-student-portal .student-module__breadcrumb a:focus-visible,body.school-student-portal .student-module :is(a,button,input,select):focus-visible{outline:3px solid var(--st-soft-strong);outline-offset:2px}
+body.school-student-portal .student-module__modal .modal-dialog{max-width:620px}
+body.school-student-portal .student-module__modal .modal-header{align-items:flex-start;padding:20px 22px;background:var(--st-surface)}
+body.school-student-portal .student-module__modal .modal-title{margin:5px 0 0;color:var(--st-ink);font-size:21px;font-weight:780;line-height:1.3}
+body.school-student-portal .student-module__modal .modal-body{padding:20px 22px}
+body.school-student-portal .student-module__modal-label{display:inline-flex;align-items:center;gap:6px;color:var(--st-primary-deep);font-size:10px;font-weight:800;letter-spacing:.08em}
+body.school-student-portal .student-module__modal-subject{display:inline-flex;padding:5px 9px;border-radius:6px;background:var(--st-soft);color:var(--st-primary-deep);font-size:11px;font-weight:750}
+body.school-student-portal .student-module__detail-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-top:16px}
+body.school-student-portal .student-module__detail-meta>div{display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-canvas)}
+body.school-student-portal .student-module__detail-meta>div[hidden],body.school-student-portal .student-module__detail-file[hidden]{display:none!important}
+body.school-student-portal .student-module__detail-meta small{color:var(--st-muted);font-size:10px;font-weight:700}
+body.school-student-portal .student-module__detail-meta strong{color:var(--st-ink);font-size:12px;line-height:1.35;overflow-wrap:anywhere}
+body.school-student-portal .student-module__instructions{margin-top:19px}
+body.school-student-portal .student-module__instructions h3{margin:0 0 7px;color:var(--st-primary-deep);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+body.school-student-portal .student-module__instructions p{margin:0;color:var(--st-ink);font-size:13px;line-height:1.65;white-space:pre-line;overflow-wrap:anywhere}
+body.school-student-portal .student-module__detail-file{display:flex;align-items:center;gap:11px;margin-top:20px;padding:13px;border:1px solid var(--st-soft-strong);border-radius:10px;background:var(--st-soft);color:var(--st-primary-deep);text-decoration:none}
+body.school-student-portal .student-module__detail-file>i:first-child{font-size:20px}
+body.school-student-portal .student-module__detail-file>i:last-child{margin-left:auto;font-size:17px}
+body.school-student-portal .student-module__detail-file span{display:flex;flex-direction:column;gap:2px}
+body.school-student-portal .student-module__detail-file strong{font-size:12px}
+body.school-student-portal .student-module__detail-file small{font-size:10px}
+body.school-student-portal .student-module__modal .modal-footer{padding:13px 22px}
+body.school-student-portal .student-module__modal .modal-footer button{min-height:44px;padding:8px 17px;border:1px solid var(--st-primary-deep);border-radius:8px;background:var(--st-primary-deep);color:var(--st-white);font-family:inherit;font-size:12px;font-weight:750;cursor:pointer}
+body.school-student-portal .student-module__modal .modal-footer button:hover{background:var(--st-primary-dark)}
+@media(max-width:800px){
+ body.school-student-portal .student-module__workspace-top{align-items:flex-start;flex-direction:column}
+ body.school-student-portal .student-module__search-controls{width:100%}
+ body.school-student-portal .student-module__search{flex:1}
+}
+@media(max-width:600px){
+ body.school-student-portal .student-module__heading{align-items:flex-start}
+ body.school-student-portal .student-module__heading p{font-size:11px}
+ body.school-student-portal .student-module__count{flex-direction:column;align-items:flex-start;gap:2px}
+ body.school-student-portal .student-module__filters{padding:14px}
+ body.school-student-portal .student-module__date-form{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.school-student-portal .student-module__date-form button{grid-column:1/-1}
+ body.school-student-portal .student-module__search-controls{align-items:stretch;flex-direction:column}
+ body.school-student-portal .student-module__search,body.school-student-portal .student-module__subject-select select{width:100%;min-width:0}
+ body.school-student-portal .student-module__item{grid-template-columns:38px minmax(0,1fr);align-items:start;gap:9px 11px;padding:14px}
+ body.school-student-portal .student-module__item-icon{width:38px;height:38px}
+ body.school-student-portal .student-module__item-action{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap}
+ body.school-student-portal .student-module__modal .modal-body,body.school-student-portal .student-module__modal .modal-header{padding:17px}
+}
+body.school-student-portal .student-learning__types{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+body.school-student-portal .student-learning__types span{display:inline-flex;align-items:center;gap:4px;padding:4px 7px;border:1px solid var(--st-line);border-radius:6px;background:var(--st-surface);color:var(--st-primary-deep);font-size:10px;font-weight:700}
+body.school-student-portal .student-learning__links{display:grid;gap:8px;margin-top:20px}
+body.school-student-portal .student-learning__links[hidden]{display:none!important}
+body.school-student-portal .student-learning__links .student-module__detail-file{margin:0}
+body.school-student-portal .student-learning__links .student-module__detail-file:hover{border-color:var(--st-primary);background:var(--st-soft-strong)}
+@media(max-width:1150px){
+ body.school-student-portal .student-module--learning .student-module__workspace-top{align-items:flex-start;flex-direction:column}
+ body.school-student-portal .student-module--learning .student-module__search-controls{width:100%}
+ body.school-student-portal .student-module--learning .student-module__search{flex:1}
+}
+
+/* Attendance: one compact, theme-aware student record. */
+body.school-student-portal .student-module--attendance .student-module__workspace{margin-top:15px}
+body.school-student-portal .student-attendance__summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:hidden;border:1px solid var(--st-line);border-radius:15px;background:var(--st-surface);box-shadow:0 7px 20px rgba(35,35,44,.04)}
+body.school-student-portal .student-attendance__summary-item{display:flex;align-items:center;gap:11px;min-width:0;min-height:78px;padding:14px 17px;border-right:1px solid var(--st-line)}
+body.school-student-portal .student-attendance__summary-item:last-child{border-right:0}
+body.school-student-portal .student-attendance__summary-icon{display:grid;flex:none;width:37px;height:37px;place-items:center;border-radius:10px;background:var(--st-soft);color:var(--st-primary-deep);font-size:18px}
+body.school-student-portal .student-attendance__summary-copy{display:grid;gap:2px;min-width:0}
+body.school-student-portal .student-attendance__summary-copy strong{color:var(--st-ink);font-size:21px;font-weight:780;line-height:1}
+body.school-student-portal .student-attendance__summary-copy small{color:var(--st-muted);font-size:11px;font-weight:650;white-space:nowrap}
+body.school-student-portal .student-attendance__tabs{display:flex;gap:6px;overflow-x:auto;padding:11px 16px;border-bottom:1px solid var(--st-line);scrollbar-width:thin}
+body.school-student-portal .student-attendance__tabs button{display:inline-flex;flex:none;align-items:center;gap:7px;min-height:44px;padding:7px 12px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-surface);color:var(--st-muted);font-family:inherit;font-size:11px;font-weight:750;white-space:nowrap;cursor:pointer}
+body.school-student-portal .student-attendance__tabs button span{display:grid;min-width:20px;height:20px;place-items:center;padding:0 4px;border-radius:6px;background:var(--st-canvas);color:var(--st-ink);font-size:10px}
+body.school-student-portal .student-attendance__tabs button:hover{border-color:var(--st-soft-strong);color:var(--st-primary-deep)}
+body.school-student-portal .student-attendance__tabs button[aria-pressed=true]{border-color:var(--st-primary-deep);background:var(--st-primary-deep);color:var(--st-white)}
+body.school-student-portal .student-attendance__tabs button[aria-pressed=true] span{background:rgba(255,255,255,.19);color:var(--st-white)}
+body.school-student-portal .student-attendance__tabs button:focus-visible{outline:3px solid var(--st-soft-strong);outline-offset:2px}
+body.school-student-portal .student-attendance__row{display:grid;grid-template-columns:minmax(135px,190px) minmax(0,1fr);align-items:center;gap:15px;min-height:75px;padding:12px 18px;border-bottom:1px solid var(--st-line-soft)}
+body.school-student-portal .student-attendance__row:last-child{border-bottom:0}
+body.school-student-portal .student-attendance__row[hidden]{display:none!important}
+body.school-student-portal .student-attendance__row:hover{background:var(--st-canvas)}
+body.school-student-portal .student-attendance__date{display:flex;align-items:center;gap:10px;min-width:0}
+body.school-student-portal .student-attendance__date-number{display:grid;flex:none;width:42px;height:42px;place-items:center;border:1px solid var(--st-line);border-radius:10px;background:var(--st-canvas);color:var(--st-primary-deep);font-size:17px;font-weight:780}
+body.school-student-portal .student-attendance__date>span:last-child{display:grid;gap:2px}
+body.school-student-portal .student-attendance__date strong{color:var(--st-ink);font-size:12px;font-weight:760;line-height:1}
+body.school-student-portal .student-attendance__date small{color:var(--st-muted);font-size:10px;white-space:nowrap}
+body.school-student-portal .student-attendance__detail{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;min-width:0}
+body.school-student-portal .student-attendance__detail>strong,body.school-student-portal .student-attendance__detail>span:not(.student-attendance__badge){min-width:0;color:var(--st-muted);font-size:11px;font-weight:500;line-height:1.45;overflow-wrap:anywhere}
+body.school-student-portal .student-attendance__detail>strong{color:var(--st-ink);font-weight:700}
+body.school-student-portal .student-attendance__badge{display:inline-flex;flex:none;align-items:center;gap:5px;min-height:28px;padding:4px 9px;border-radius:7px;background:var(--st-soft);color:var(--st-primary-deep);font-size:11px;font-weight:760;white-space:nowrap}
+body.school-student-portal .student-attendance__badge i{font-size:14px}
+body.school-student-portal .student-attendance__badge--absent{background:#fbeaea;color:#923b3b}
+body.school-student-portal .student-attendance__badge--leave{background:#fff1da;color:#8a5914}
+body.school-student-portal .student-attendance__badge--holiday,body.school-student-portal .student-attendance__badge--pending{background:var(--st-canvas);color:var(--st-muted)}
+body.school-student-portal .student-attendance__note{display:flex;align-items:flex-start;gap:6px;margin:12px 2px 0;color:var(--st-muted);font-size:11px;line-height:1.45}
+body.school-student-portal .student-attendance__note i{flex:none;color:var(--st-primary-deep);font-size:15px}
+@media(max-width:1050px){
+ body.school-student-portal .student-attendance__summary{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.school-student-portal .student-attendance__summary-item{border-bottom:1px solid var(--st-line)}
+ body.school-student-portal .student-attendance__summary-item:nth-child(3){border-right:0}
+ body.school-student-portal .student-attendance__summary-item:nth-last-child(-n+2){border-bottom:0}
+}
+@media(max-width:600px){
+ body.school-student-portal .student-attendance__summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.school-student-portal .student-attendance__summary-item{min-height:70px;padding:12px;border-right:1px solid var(--st-line)}
+ body.school-student-portal .student-attendance__summary-item:nth-child(odd){border-right:1px solid var(--st-line)}
+ body.school-student-portal .student-attendance__summary-item:nth-child(even){border-right:0}
+ body.school-student-portal .student-attendance__summary-item:nth-child(3){border-right:1px solid var(--st-line)}
+ body.school-student-portal .student-attendance__summary-item:nth-child(4){border-bottom:1px solid var(--st-line)}
+ body.school-student-portal .student-attendance__summary-item:last-child{border-right:0}
+ body.school-student-portal .student-attendance__summary-copy strong{font-size:19px}
+ body.school-student-portal .student-attendance__tabs{padding:9px 12px}
+ body.school-student-portal .student-attendance__row{grid-template-columns:90px minmax(0,1fr);gap:10px;padding:12px}
+ body.school-student-portal .student-attendance__date{gap:6px}
+ body.school-student-portal .student-attendance__date-number{width:34px;height:36px;font-size:14px}
+ body.school-student-portal .student-attendance__date strong{font-size:11px}
+ body.school-student-portal .student-attendance__date small{font-size:9px}
+ body.school-student-portal .student-attendance__detail{gap:4px 7px}
+}
+
+/* Fees: compact selection, receipts and class switching. */
+body.school-student-portal .student-module--fees .student-fees__class-filter{display:flex;align-items:end;gap:10px;margin-bottom:15px;padding:14px 17px;border:1px solid var(--st-line);border-radius:14px;background:var(--st-surface)}
+body.school-student-portal .student-fees__class-filter label{display:grid;flex:1;gap:6px;margin:0;color:var(--st-ink);font-size:11px;font-weight:750}
+body.school-student-portal .student-fees__class-filter label span{display:inline-flex;align-items:center;gap:6px}
+body.school-student-portal .student-fees__class-filter label i{color:var(--st-primary-deep);font-size:15px}
+body.school-student-portal .student-fees__class-filter select{min-height:44px;padding:8px 12px;border:1px solid var(--st-line);border-radius:9px;background:var(--st-surface);color:var(--st-ink);font-family:inherit;font-size:12px}
+body.school-student-portal .student-fees__class-filter button,body.school-student-portal .student-fees__paybar button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 15px;border:1px solid var(--st-primary-deep);border-radius:9px;background:var(--st-primary-deep);color:var(--st-white);font-family:inherit;font-size:12px;font-weight:750;white-space:nowrap;cursor:pointer}
+body.school-student-portal .student-fees__class-filter button:hover,body.school-student-portal .student-fees__paybar button:hover{border-color:var(--st-primary-dark);background:var(--st-primary-dark)}
+body.school-student-portal .student-fees__paybar button:disabled{opacity:.55;cursor:not-allowed}
+body.school-student-portal .student-fees__overview{display:grid;grid-template-columns:2fr 1fr 1fr;overflow:hidden;margin-bottom:15px;border:1px solid var(--st-line);border-radius:14px;background:var(--st-surface);box-shadow:0 7px 20px rgba(35,35,44,.04)}
+body.school-student-portal .student-fees__overview>div{display:grid;align-content:center;gap:7px;min-height:78px;padding:14px 18px;border-right:1px solid var(--st-line)}
+body.school-student-portal .student-fees__overview>div:last-child{border-right:0}
+body.school-student-portal .student-fees__overview span{display:inline-flex;align-items:center;gap:6px;color:var(--st-muted);font-size:11px;font-weight:650}
+body.school-student-portal .student-fees__overview span i{color:var(--st-primary-deep);font-size:15px}
+body.school-student-portal .student-fees__overview strong{color:var(--st-ink);font-size:20px;font-weight:780;line-height:1}
+body.school-student-portal .student-fees__workspace{min-height:230px}
+body.school-student-portal .student-fees__tabs{display:flex;gap:4px;overflow-x:auto;padding:9px 14px;border-bottom:1px solid var(--st-line);scrollbar-width:thin}
+body.school-student-portal .student-fees__tabs button{display:inline-flex;flex:none;align-items:center;gap:7px;min-height:44px;padding:8px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--st-muted);font-family:inherit;font-size:11px;font-weight:750;cursor:pointer}
+body.school-student-portal .student-fees__tabs button i{font-size:15px}
+body.school-student-portal .student-fees__tabs button span{display:grid;min-width:20px;height:20px;place-items:center;padding:0 4px;border-radius:6px;background:var(--st-canvas);color:var(--st-ink);font-size:10px}
+body.school-student-portal .student-fees__tabs button:hover{color:var(--st-primary-deep)}
+body.school-student-portal .student-fees__tabs button.active{border-color:var(--st-soft-strong);background:var(--st-soft);color:var(--st-primary-deep)}
+body.school-student-portal .student-fees__section-head{display:flex;justify-content:space-between;gap:15px;padding:18px 18px 13px}
+body.school-student-portal .student-fees__section-head h2{margin:0;color:var(--st-ink);font-size:16px;font-weight:760}
+body.school-student-portal .student-fees__section-head p{margin:4px 0 0;color:var(--st-muted);font-size:11px}
+body.school-student-portal .student-fees__list,body.school-student-portal .student-fees__receipt-list,body.school-student-portal .student-fees__other-list{display:grid;border-top:1px solid var(--st-line-soft)}
+body.school-student-portal .student-fees__item{display:grid;grid-template-columns:18px minmax(150px,1fr) minmax(135px,.7fr) auto;align-items:center;gap:14px;min-height:76px;margin:0;padding:13px 18px;border-bottom:1px solid var(--st-line-soft);background:var(--st-surface);cursor:pointer}
+body.school-student-portal .student-fees__item:last-child{border-bottom:0}
+body.school-student-portal .student-fees__item:hover{background:var(--st-canvas)}
+body.school-student-portal .student-fees__item.is-selected{background:var(--st-soft)}
+body.school-student-portal .student-fees__item.is-required{cursor:default}
+body.school-student-portal .student-fees__check{width:17px;height:17px;margin:0;accent-color:var(--st-primary-deep)}
+body.school-student-portal .student-fees__item-main,body.school-student-portal .student-fees__item-meta{display:grid;gap:3px;min-width:0}
+body.school-student-portal .student-fees__item-main strong{color:var(--st-ink);font-size:13px;font-weight:760;overflow-wrap:anywhere}
+body.school-student-portal .student-fees__item-main small,body.school-student-portal .student-fees__item-meta small{color:var(--st-muted);font-size:10px}
+body.school-student-portal .student-fees__item-meta em{display:inline-flex;align-items:center;gap:4px;color:var(--st-primary-deep);font-size:10px;font-style:normal;font-weight:740}
+body.school-student-portal .student-fees__item-amount{color:var(--st-ink);font-size:15px;font-weight:780;white-space:nowrap}
+body.school-student-portal .student-fees__paybar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;border-top:1px solid var(--st-line);background:var(--st-canvas)}
+body.school-student-portal .student-fees__paybar>div{display:grid;gap:2px}
+body.school-student-portal .student-fees__paybar>div span{color:var(--st-muted);font-size:11px;font-weight:650}
+body.school-student-portal .student-fees__paybar>div strong{color:var(--st-ink);font-size:22px;font-weight:780;line-height:1.1}
+body.school-student-portal .student-fees__payment-note{display:flex;align-items:flex-start;gap:6px;margin:0;padding:9px 18px 13px;color:var(--st-muted);font-size:10px}
+body.school-student-portal .student-fees__payment-note i{color:var(--st-primary-deep);font-size:14px}
+body.school-student-portal .student-fees__receipt,body.school-student-portal .student-fees__other-list article{display:flex;align-items:center;gap:13px;min-height:70px;padding:13px 18px;border-bottom:1px solid var(--st-line-soft)}
+body.school-student-portal .student-fees__receipt:last-child,body.school-student-portal .student-fees__other-list article:last-child{border-bottom:0}
+body.school-student-portal .student-fees__receipt-icon{display:grid;flex:none;width:39px;height:39px;place-items:center;border-radius:10px;background:var(--st-soft);color:var(--st-primary-deep);font-size:19px}
+body.school-student-portal .student-fees__receipt>div,body.school-student-portal .student-fees__other-list article>div{display:grid;flex:1;gap:3px;min-width:0}
+body.school-student-portal .student-fees__receipt>div strong,body.school-student-portal .student-fees__other-list article>div strong{color:var(--st-ink);font-size:12px;font-weight:760;overflow-wrap:anywhere}
+body.school-student-portal .student-fees__receipt>div small,body.school-student-portal .student-fees__other-list article>div small{color:var(--st-muted);font-size:10px}
+body.school-student-portal .student-fees__receipt-amount,body.school-student-portal .student-fees__other-list article>strong{color:var(--st-ink);font-size:14px;font-weight:780;white-space:nowrap}
+body.school-student-portal .student-fees__receipt>a,body.school-student-portal .student-fees__other-list article>a{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:8px 11px;border:1px solid var(--st-soft-strong);border-radius:9px;background:var(--st-soft);color:var(--st-primary-deep);font-size:11px;font-weight:750;text-decoration:none;white-space:nowrap}
+body.school-student-portal .student-fees__receipt>a:hover,body.school-student-portal .student-fees__other-list article>a:hover{border-color:var(--st-primary-deep);background:var(--st-primary-deep);color:var(--st-white)}
+@media(max-width:720px){
+ body.school-student-portal .student-fees__overview{grid-template-columns:1fr 1fr}
+ body.school-student-portal .student-fees__overview>div:first-child{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--st-line)}
+ body.school-student-portal .student-fees__overview>div:nth-child(2){border-right:1px solid var(--st-line)}
+ body.school-student-portal .student-fees__item{grid-template-columns:18px minmax(0,1fr) auto;gap:9px 11px;padding:13px}
+ body.school-student-portal .student-fees__item-meta{grid-column:2}
+ body.school-student-portal .student-fees__item-amount{grid-column:3;grid-row:1/3;align-self:center;font-size:13px}
+}
+@media(max-width:520px){
+ body.school-student-portal .student-fees__class-filter{align-items:stretch;flex-direction:column;padding:13px}
+ body.school-student-portal .student-fees__class-filter button{width:100%}
+ body.school-student-portal .student-fees__overview>div{min-height:69px;padding:12px}
+ body.school-student-portal .student-fees__overview strong{font-size:17px}
+ body.school-student-portal .student-fees__tabs{padding:7px 10px}
+ body.school-student-portal .student-fees__section-head{padding:15px 13px 12px}
+ body.school-student-portal .student-fees__paybar{align-items:stretch;flex-direction:column;padding:13px}
+ body.school-student-portal .student-fees__paybar button{width:100%}
+ body.school-student-portal .student-fees__receipt,body.school-student-portal .student-fees__other-list article{flex-wrap:wrap;gap:8px;padding:12px}
+ body.school-student-portal .student-fees__receipt>a,body.school-student-portal .student-fees__other-list article>a{width:100%}
+}
+

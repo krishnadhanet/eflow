@@ -145,6 +145,19 @@
             document.body.classList.add('student-lightbox-open');
             showPopup(0);
             closeButton.focus();
+            var viewedUrl = lightbox.dataset.viewedUrl;
+            if (viewedUrl && window.fetch) {
+                var body = new URLSearchParams();
+                popups.forEach(function (item) { if (item.id) body.append('images[]', item.id); });
+                if (lightbox.dataset.csrfName) body.append(lightbox.dataset.csrfName, lightbox.dataset.csrfHash || '');
+                window.fetch(viewedUrl, {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+                    body: body.toString(),
+                    keepalive: true
+                }).catch(function () {});
+            }
         }
 
         previous.addEventListener('click', function () { showPopup(current - 1); });
@@ -175,7 +188,6 @@
             touchStartX = null;
         }, { passive: true });
 
-        // During dashboard testing, active student images open on every reload.
         openLightbox();
     });
 })();
