@@ -440,7 +440,9 @@ function generateSerialInputs() {
     function initProductSelect($scope) {
       $scope.find(".product-ajax").each(function () {
         var $el = $(this);
-        if ($el.hasClass("select2-hidden-accessible")) return;
+        if ($el.data("rq2-product-select") === 1 && $el.hasClass("select2-hidden-accessible")) return;
+        if ($el.hasClass("select2-hidden-accessible")) $el.select2("destroy");
+        $el.off("select2:select.inventoryProduct select2:select.rq2 select2:clear.rq2");
         $el.select2({
           width: "100%",
           placeholder: requestType() === "repair" ? "Search your allotted product" : "Search product name, SKU or brand",
@@ -476,7 +478,7 @@ function generateSerialInputs() {
             var quantityFormat = Number(item.allow_decimal) === 1 && Number(item.serial_required) !== 1 ? "Decimal quantity" : "Whole-number quantity";
             return $('<div class="rq2-select-result"><strong></strong><small></small></div>').find("strong").text(item.text).end().find("small").text(meta + " · " + quantityFormat + " · " + stock + employeeStock).end();
           }
-        }).on("select2:select.rq2", function (event) {
+        }).data("rq2-product-select", 1).data("inventory-product-autocomplete", 1).on("select2:select.rq2", function (event) {
           applyProduct($(this).closest(".request-row"), event.params.data);
         }).on("select2:clear.rq2", function () {
           resetProductMeta($(this).closest(".request-row"));
