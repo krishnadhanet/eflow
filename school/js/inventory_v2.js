@@ -1325,7 +1325,7 @@ function generateSerialInputs() {
 
     function initialiseTables(scope) {
       var $scope = $(scope || document);
-      $scope.find("table.table").add($scope.filter("table.table")).not("form table,[data-iv2-no-datatable='1']").each(function () {
+      $scope.find("table.table").add($scope.filter("table.table")).not("form table,[data-iv2-no-datatable='1'],#inventoryStockAuditTable,#inventoryProductTable,#inventoryStockLedgerTable,#warehouseStockTable,#warehouseProductLedgerTable,#warehouseReportTable,#namedInventoryReportTable,#whereProductTable,#locationInventoryTable,#employeeInventoryReport").each(function () {
         var $table = $(this), api;
         if ($.fn.dataTable.isDataTable(this)) {
           api = $table.DataTable();
