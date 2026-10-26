@@ -1621,6 +1621,7 @@ body.school-student-portal .student-payment__eyebrow{color:var(--st-primary-deep
 body.school-student-portal .student-payment h1{margin:7px 0 9px;color:var(--st-ink);font-size:25px;font-weight:750;line-height:1.25}
 body.school-student-portal .student-payment p{margin:0;color:var(--st-muted);font-size:13px;line-height:1.65}
 body.school-student-portal .student-payment p strong{color:var(--st-ink)}
+body.school-student-portal .student-payment #studentPaymentStatus{min-height:20px;margin:19px 0;color:var(--st-muted)}
 body.school-student-portal .student-payment__progress{height:5px;margin:22px 0 20px;overflow:hidden;border-radius:8px;background:var(--st-soft)}
 body.school-student-portal .student-payment__progress span{display:block;width:65%;height:100%;border-radius:inherit;background:var(--st-primary);animation:studentPaymentProgress 1.1s ease-in-out infinite alternate}
 @keyframes studentPaymentProgress{to{transform:translateX(55%)}}
