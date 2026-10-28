@@ -5,8 +5,12 @@ $(function () {
   function loadPage(page) {
     $modal.find('.modal-header .modal-title').text(page.title);
     $modal.find('.modal-body').html('<div class="text-center py-5 text-muted"><span class="spinner-border spinner-border-sm me-2"></span> Loading...</div>')
-      .load(page.url, function (_, status) {
-        if (status === 'error') $modal.find('.modal-body').html('<div class="alert alert-danger mb-0">Could not open this item. Please try again.</div>');
+      .load(page.url, function (_, status, xhr) {
+        if (status === 'error') {
+          const message = xhr.status === 403 ? 'You do not have access to this lesson.'
+            : xhr.status === 404 ? 'This lesson item was not found.' : 'Could not open this item. Please try again.';
+          $modal.find('.modal-body').empty().append($('<div class="alert alert-danger mb-0">').text(message));
+        }
       });
   }
   window.scheduleModalOpen = function (title, url) {
