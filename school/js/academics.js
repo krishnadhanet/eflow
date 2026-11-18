@@ -789,8 +789,8 @@ $(function () {
           </div>
           <div class="att-details"><div class="att-detail"><span>Enrollment no.</span><strong>${enrollment}</strong></div><div class="att-detail"><span>Roll no.</span><strong>${roll}</strong></div></div>
           <div class="att-choice" role="group" aria-label="Attendance for ${name}">
-            <input type="radio" id="att-${id}-present" name="att-${id}" value="1" ${chosen(row) === 1 ? 'checked' : ''} ${disabled}><label class="is-present" for="att-${id}-present"><i class="ri-check-line"></i> Present</label>
-            <input type="radio" id="att-${id}-absent" name="att-${id}" value="2" ${chosen(row) === 2 ? 'checked' : ''} ${disabled}><label class="is-absent" for="att-${id}-absent"><i class="ri-close-line"></i> Absent</label>
+            <button type="button" class="is-present ${chosen(row) === 1 ? 'is-selected' : ''}" data-value="1" aria-pressed="${chosen(row) === 1}" ${disabled}><i class="ri-check-line" aria-hidden="true"></i> Present</button>
+            <button type="button" class="is-absent ${chosen(row) === 2 ? 'is-selected' : ''}" data-value="2" aria-pressed="${chosen(row) === 2}" ${disabled}><i class="ri-close-line" aria-hidden="true"></i> Absent</button>
           </div>
         </div>`;
       }).join('');
@@ -888,16 +888,21 @@ $(function () {
       if ($('#program').val()) loadAttendance(false);
     });
     $('#attendanceSearch').on('input', renderAttendanceRows);
-    $('#attendanceData').on('change', 'input[type="radio"]', function () {
+    $('#attendanceData').on('click', '.att-choice button', function () {
+      if (loading || this.disabled) return;
       const $row = $(this).closest('.att-student');
       const id = Number($row.data('student'));
-      selected[id] = Number(this.value);
+      selected[id] = Number($(this).data('value'));
       interacted = true;
       const student = roster.find((item) => Number(item.id) === id);
       if (student) {
         const state = attendanceState(student);
         $row.find('.att-state').text(state.label).removeClass('is-recorded is-pending is-changed').addClass(state.className);
         $row.toggleClass('is-present', selected[id] === 1).toggleClass('is-absent', selected[id] === 2);
+        $row.find('.att-choice button').each(function () {
+          const active = Number($(this).data('value')) === selected[id];
+          $(this).toggleClass('is-selected', active).attr('aria-pressed', String(active));
+        });
       }
       updateAttendanceSummary();
     });
